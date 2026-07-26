@@ -7,12 +7,10 @@
    fine -> WHY (60/20/20, texte + filet, pas de cartes) -> FINAL.
    ===================================================================== */
 
-/* Police display : serif de caractère (Fraunces) pour les GRANDS titres
-   uniquement. Le corps + le formulaire restent en Gotham (var(--font)).
-   C'est ce contraste serif éditorial / sans net qui donne le premium. */
 /* Schéma clair (anthracite/gris neutres/off-white) désormais GLOBAL dans
-   main.css. Ici on ne définit plus que la police display de la page. */
-.bc-page { --font-display: "Fraunces", "Playfair Display", Georgia, serif; }
+   main.css. Police display unifiée avec le reste du site (General Sans),
+   plus de contraste serif sur cette page. */
+.bc-page { --font-display: var(--font); }
 
 /* ------------------------------------------------------------------ */
 /* 1. HERO — formulaire nu (gauche) + photo (droite)                   */
