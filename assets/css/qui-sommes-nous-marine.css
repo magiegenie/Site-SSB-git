@@ -1,0 +1,153 @@
+/* =========================================================================
+   QUI SOMMES-NOUS — refonte dédiée
+   Inspiration structurelle : alternance franche blanc/marine en blocs pleine
+   largeur qui se chevauchent, échelle de titres volontairement inégale
+   (jamais deux sections avec la même taille), charme non uniforme.
+   4 sections maximum, hero compris. Palette : bleus de la charte SSB.
+   ========================================================================= */
+
+.qsn-section { position: relative; overflow: clip; }
+
+/* ---------- 1. HERO — fond marine profond, titre géant ---------- */
+.qsn-hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: flex-end;
+  background: var(--bg-navy);
+  color: #fff;
+  padding-bottom: clamp(64px, 10vh, 130px);
+}
+.qsn-hero__inner { position: relative; z-index: 2; width: 100%; }
+.qsn-hero .eyebrow--pill {
+  display: inline-block;
+  border: 1.5px solid var(--on-navy-soft);
+  color: var(--on-navy-soft);
+  border-radius: 100px;
+  padding: 0.4rem 1.1rem;
+  letter-spacing: 0.14em;
+  margin-bottom: 1.6rem;
+}
+.qsn-hero h1 {
+  font-size: clamp(3rem, 9vw, 8rem);
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+  font-weight: 600;
+}
+.qsn-hero__sub {
+  color: var(--on-navy-soft);
+  max-width: 42ch;
+  margin-top: 1.6rem;
+  font-size: clamp(1.05rem, 1.6vw, 1.4rem);
+}
+
+/* ---------- 2. NOTRE RAISON D'ÊTRE — fond blanc, bloc marine décalé ---------- */
+.qsn-origin {
+  padding-block: clamp(90px, 13vw, 190px);
+  background: var(--paper);
+}
+.qsn-origin__grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(32px, 5vw, 80px);
+  align-items: center;
+}
+.qsn-origin h2 {
+  font-size: clamp(2.2rem, 4.6vw, 4.2rem);
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  margin-bottom: 1.6rem;
+}
+.qsn-origin p { max-width: 52ch; color: var(--muted); font-size: clamp(1rem, 1.2vw, 1.15rem); }
+.qsn-origin .btn { margin-top: 2.2rem; }
+
+/* Le bloc marine qui déborde volontairement du conteneur : c'est le
+   chevauchement "à la Jeton" qui crée le dynamisme sur une page statique. */
+.qsn-stat {
+  position: relative;
+  background: linear-gradient(155deg, var(--navy-700) 0%, var(--navy-900) 100%);
+  color: #fff;
+  border-radius: var(--radius-lg);
+  padding: clamp(28px, 3.2vw, 48px) clamp(24px, 3vw, 40px);
+  margin-right: clamp(-56px, -6vw, -18px);
+  box-shadow: 0 40px 80px -32px rgba(4, 26, 53, 0.45);
+}
+.qsn-stat strong {
+  display: block;
+  font-size: clamp(3rem, 6vw, 5.4rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  color: var(--gold-soft);
+}
+.qsn-stat span { display: block; margin-top: 0.7rem; color: var(--on-navy-soft); font-size: 0.98rem; max-width: 22ch; }
+
+/* ---------- 3. SPEAKERS — fond marine, titre plus petit, cartes claires ---------- */
+.qsn-speakers {
+  background: var(--navy-800);
+  padding-block: clamp(80px, 11vw, 160px);
+  color: #fff;
+}
+.qsn-speakers .eyebrow--pill {
+  display: inline-block;
+  border: 1.5px solid var(--gold-line);
+  color: var(--gold-soft);
+  border-radius: 100px;
+  padding: 0.35rem 1rem;
+  letter-spacing: 0.14em;
+  margin-bottom: 1.1rem;
+}
+.qsn-speakers h2 {
+  font-size: clamp(1.7rem, 2.8vw, 2.6rem);
+  letter-spacing: -0.02em;
+  margin-bottom: clamp(28px, 4vw, 48px);
+}
+/* Cartes claires sur fond marine : re-bascule blanc/bleu à l'échelle des
+   composants, pas seulement des sections. */
+.qsn-speakers .team-tile__mono { background: linear-gradient(150deg, #fdfdfd 0%, #e9ecf2 100%); }
+.qsn-speakers .team-tile__mono::before { color: var(--navy-800); }
+.qsn-speakers .team-tile__info strong { color: #fff; }
+.qsn-speakers .team-tile__bio { background: rgba(255, 255, 255, 0.96); color: var(--ink); }
+.qsn-speakers .team-tile__bio .role { color: var(--muted); }
+.qsn-speakers .team-tile__plus { color: var(--navy-800); background: rgba(255, 255, 255, 0.85); }
+
+/* ---------- 4. CTA FINAL — fond blanc, deux bannières marine décalées ---------- */
+.qsn-cta {
+  background: var(--paper);
+  padding-block: clamp(70px, 10vw, 140px);
+}
+.qsn-cta__duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(16px, 2vw, 28px);
+}
+.qsn-cta__band {
+  position: relative;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(150deg, var(--navy-700) 0%, var(--navy-950) 100%);
+  color: #fff;
+  padding: clamp(32px, 4.2vw, 56px);
+  min-height: clamp(260px, 34vh, 360px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: transform 0.5s var(--ease);
+}
+.qsn-cta__band:hover { transform: translateY(-4px); }
+/* La deuxième bannière est décalée vers le bas : rupture volontaire de
+   l'alignement parfait, pour casser l'uniformité. */
+.qsn-cta__band--offset { margin-top: clamp(20px, 4vw, 56px); }
+.qsn-cta__band .eyebrow { color: var(--on-navy-mute); margin-bottom: 0.9rem; }
+.qsn-cta__band h3 {
+  letter-spacing: -0.025em;
+  margin-bottom: 1.6rem;
+}
+.qsn-cta__band--lg h3 { font-size: clamp(1.9rem, 3vw, 3.2rem); }
+.qsn-cta__band--sm h3 { font-size: clamp(1.5rem, 2.1vw, 2.2rem); }
+
+@media (max-width: 760px) {
+  .qsn-origin__grid { grid-template-columns: 1fr; }
+  .qsn-stat { margin-right: 0; }
+  .qsn-cta__duo { grid-template-columns: 1fr; }
+  .qsn-cta__band--offset { margin-top: 0; }
+}
