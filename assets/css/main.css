@@ -8,30 +8,6 @@
    ===================================================================== */
 
 /* ----------------------------------------------------------------- */
-/* 0. POLICES DE MARQUE (Gotham corps / Perfectly Nineties titres)    */
-/* ----------------------------------------------------------------- */
-@font-face {
-  font-family: "Gotham";
-  src: url("../fonts/Gotham-Book.otf") format("opentype");
-  font-weight: 400; font-style: normal; font-display: swap;
-}
-@font-face {
-  font-family: "Gotham";
-  src: url("../fonts/Gotham-Light.otf") format("opentype");
-  font-weight: 300; font-style: normal; font-display: swap;
-}
-@font-face {
-  font-family: "Perfectly Nineties";
-  src: url("../fonts/PerfectlyNineties-Semibold.otf") format("opentype");
-  font-weight: 600; font-style: normal; font-display: swap;
-}
-@font-face {
-  font-family: "Perfectly Nineties";
-  src: url("../fonts/PerfectlyNineties-SemiboldItalic.otf") format("opentype");
-  font-weight: 600; font-style: italic; font-display: swap;
-}
-
-/* ----------------------------------------------------------------- */
 /* 1. VARIABLES                                                       */
 /* ----------------------------------------------------------------- */
 :root {
@@ -188,10 +164,11 @@ p.lead { font-size: clamp(1.05rem, 1.5vw, 1.4rem); line-height: 1.4; }
 /* ----------------------------------------------------------------- */
 /* 5. BOUTONS PILULE                                                  */
 /* ----------------------------------------------------------------- */
-/* ── Système de boutons PREMIUM (finesse 2026-07, réf. Wolverine) ────
+/* ── Système de boutons, conforme charte-ssb.html ────
    Deux rôles :
-   • .btn (base)  = pilule MARINE en dégradé + filet or fin, texte or
-   • .btn--gold   = pilule OR en dégradé, texte marine (action n°1)
+   • .btn (base)  = rectangle arrondi 12px, fond MARINE en dégradé + filet or fin, texte or (CTA plein)
+   • .btn--gold   = rectangle arrondi 12px, fond OR en dégradé, texte marine (action n°1)
+   • .btn--gold-ghost / .btn--on-dark = pilule complète, fond transparent (action secondaire)
    Finesse : casse normale (pas de capitales criardes), graisse medium,
    tracking quasi neutre, filet 1px, ombre douce, lift discret au survol. */
 .btn {
@@ -203,10 +180,8 @@ p.lead { font-size: clamp(1.05rem, 1.5vw, 1.4rem); line-height: 1.4; }
   font-size: 0.9rem;
   font-weight: 500;
   letter-spacing: 0.005em;
-  /* Ni rectangle sec, ni pilule arrondie générique : un coin coupé en
-     diagonale de part et d'autre (haut-gauche / bas-droit), signature
-     visuelle plus nette qu'un border-radius uniforme. */
-  border-radius: 2px 14px 2px 14px;
+  /* Rectangle arrondi 12px : forme des CTA pleins dans la charte graphique. */
+  border-radius: 12px;
   color: var(--gold);
   background: linear-gradient(135deg, #062750 0%, #041a35 100%);
   box-shadow: inset 0 0 0 1px var(--gold-line), inset 0 1px 0 rgba(255, 255, 255, 0.07), 0 3px 12px rgba(4, 26, 53, 0.16);
@@ -262,16 +237,16 @@ p.lead { font-size: clamp(1.05rem, 1.5vw, 1.4rem); line-height: 1.4; }
   .btn--gold::after, .btn--specular::after, .nav__link--cta::after { animation: none; opacity: 0.4; }
 }
 
-/* Contour OR sur fond marine/sombre (se remplit en dégradé au survol) */
-.btn--gold-ghost { background: transparent; color: var(--gold); box-shadow: inset 0 0 0 1px var(--gold-line); }
+/* Contour OR sur fond marine/sombre (se remplit en dégradé au survol) — pilule, comme tout bouton fantome de la charte */
+.btn--gold-ghost { background: transparent; color: var(--gold); box-shadow: inset 0 0 0 1px var(--gold-line); border-radius: 100px; }
 .btn--gold-ghost:hover { color: var(--gold-ink); background: linear-gradient(135deg, var(--gold-soft) 0%, var(--gold) 44%, var(--gold-2) 100%); transform: translateY(-2px); box-shadow: inset 0 0 0 1px rgba(199, 127, 27, 0.5); }
 
 /* Alias : marine + liseré or (identique à la base) */
 .btn--dark { background: linear-gradient(135deg, #062750 0%, #041a35 100%); color: var(--gold); box-shadow: inset 0 0 0 1px var(--gold-line), inset 0 1px 0 rgba(255, 255, 255, 0.07); }
 .btn--dark:hover { color: var(--gold-soft); }
 
-/* Secondaire sur sections sombres : contour or translucide, se remplit au survol */
-.btn--on-dark { background: rgba(255, 255, 255, 0.05); color: var(--gold); box-shadow: inset 0 0 0 1px var(--gold-line); }
+/* Secondaire sur sections sombres : contour or translucide, se remplit au survol — pilule */
+.btn--on-dark { background: rgba(255, 255, 255, 0.05); color: var(--gold); box-shadow: inset 0 0 0 1px var(--gold-line); border-radius: 100px; }
 .btn--on-dark:hover { color: var(--gold-ink); background: linear-gradient(135deg, var(--gold-soft) 0%, var(--gold) 44%, var(--gold-2) 100%); box-shadow: inset 0 0 0 1px rgba(199, 127, 27, 0.5); transform: translateY(-2px); }
 
 /* Lien fléché texte */
@@ -1306,7 +1281,7 @@ body.theme-marine .footer__legal a:hover { color: #fff; }
   background: linear-gradient(135deg, var(--gold-soft) 0%, var(--gold) 46%, var(--gold-2) 100%);
   color: var(--gold-ink) !important; opacity: 1;
   font-weight: 500; letter-spacing: 0.005em;
-  padding: 0.55rem 1.2rem; border-radius: 2px 12px 2px 12px;
+  padding: 0.55rem 1.2rem; border-radius: 12px;
   margin-left: 0.4rem;
   box-shadow: inset 0 0 0 1px rgba(199, 127, 27, 0.5);
   transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), background 0.35s var(--ease);
