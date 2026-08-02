@@ -46,13 +46,22 @@
         hero.style.setProperty("--sy", ((e.clientY - r.top) / r.height * 100).toFixed(1) + "%");
       });
     }
+    var MAX_TILT = 9;
     document.querySelectorAll("[data-spotlight-card]").forEach(function (card) {
       var visual = card.querySelector(".speaker-visual");
       if (!visual) return;
-      card.addEventListener("pointermove", function (e) {
+      visual.addEventListener("pointermove", function (e) {
         var r = visual.getBoundingClientRect();
-        visual.style.setProperty("--mx", ((e.clientX - r.left) / r.width * 100).toFixed(1) + "%");
-        visual.style.setProperty("--my", ((e.clientY - r.top) / r.height * 100).toFixed(1) + "%");
+        var px = (e.clientX - r.left) / r.width;
+        var py = (e.clientY - r.top) / r.height;
+        visual.style.setProperty("--mx", (px * 100).toFixed(1) + "%");
+        visual.style.setProperty("--my", (py * 100).toFixed(1) + "%");
+        visual.style.setProperty("--rx", ((px - 0.5) * 2 * MAX_TILT).toFixed(2) + "deg");
+        visual.style.setProperty("--ry", ((0.5 - py) * 2 * MAX_TILT).toFixed(2) + "deg");
+      });
+      visual.addEventListener("pointerleave", function () {
+        visual.style.setProperty("--rx", "0deg");
+        visual.style.setProperty("--ry", "0deg");
       });
     });
   }

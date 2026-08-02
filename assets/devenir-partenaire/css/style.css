@@ -40,8 +40,8 @@
 
   --font: "General Sans", "Segoe UI", Helvetica, Arial, sans-serif;
 
-  --r-card: 18px;
-  --r-media: 24px;
+  --r-card: 16px;
+  --r-media: 16px;
 
   --shell: min(1280px, 90vw);
   --hdr-h: 80px;
@@ -120,7 +120,7 @@ p { text-wrap: pretty; }
 .pill:hover { transform: translateY(-2px); }
 .pill:active { transform: translateY(0); }
 .pill.ghost { box-shadow: inset 0 0 0 1.5px currentColor; }
-.pill.solid { background: var(--gold); color: var(--gold-ink); }
+.pill.solid { background: var(--gold); color: var(--gold-ink); border-radius: 12px; }
 .pill.solid:hover { background: var(--gold-soft); box-shadow: 0 12px 26px -14px rgba(255, 182, 7, 0.7); }
 .pill.lg { min-height: 52px; padding: 0 26px; font-size: 1.02rem; }
 
@@ -203,7 +203,7 @@ body[data-navtheme="light"] .fn-item.is-active { background: rgba(255, 255, 255,
   text-transform: uppercase;
 }
 .phero-title {
-  font-size: clamp(2.3rem, 5.6vw, 4.4rem); letter-spacing: -0.04em; line-height: 1.04; max-width: 18ch;
+  font-size: clamp(2.8rem, 6.8vw, 6rem); letter-spacing: -0.04em; line-height: 1.0; max-width: 16ch;
 }
 .phero-sub { color: var(--on-navy-soft); font-size: clamp(1rem, 1.4vw, 1.2rem); max-width: 42ch; }
 .phero-strip {
@@ -240,7 +240,7 @@ html.motion-ready [data-wipe].is-wiped::after {
   border-radius: 100px; padding: 0.4rem 1rem; font-size: 0.85rem; font-weight: 600;
   margin-bottom: var(--space-md);
 }
-.formats-title { font-size: clamp(1.8rem, 4vw, 3rem); color: var(--ink); }
+.formats-title { font-size: clamp(2rem, 4.5vw, 3.8rem); color: var(--ink); }
 .formats-panel {
   display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
   gap: clamp(2rem, 4vw, 3.5rem); align-items: stretch;
@@ -289,7 +289,7 @@ html.motion-ready [data-wipe].is-wiped::after {
 }
 .netw-photo { border-radius: var(--r-media); overflow: hidden; background: var(--navy-700); }
 .netw-photo img { width: 100%; height: min(420px, 44vw); object-fit: cover; }
-.netw-title { font-size: clamp(2rem, 4.4vw, 3.4rem); }
+.netw-title { font-size: clamp(2.2rem, 4.8vw, 4rem); }
 .netw-p { color: var(--on-navy-soft); font-size: clamp(1.02rem, 1.4vw, 1.2rem); max-width: 46ch; margin-top: var(--space-md); }
 .netw-copy .pill { margin-top: var(--space-lg); }
 
@@ -313,7 +313,7 @@ html.motion-ready [data-wipe].is-wiped::after {
 /* ==================== INSTITUTIONS & PARTENAIRES ========================= */
 .inst { background: var(--paper); padding: clamp(3rem, 7vw, 6rem) 0 var(--space-2xl); }
 .inst-head { width: var(--shell); margin: 0 auto; max-width: 62ch; }
-.inst-title { font-size: clamp(1.8rem, 4vw, 3rem); color: var(--ink); }
+.inst-title { font-size: clamp(2rem, 4.5vw, 3.8rem); color: var(--ink); }
 .inst-p { color: var(--ink-muted); font-size: clamp(1.02rem, 1.4vw, 1.15rem); margin-top: var(--space-sm); }
 .inst .marquee { width: 100%; }
 
@@ -330,7 +330,7 @@ html.motion-ready [data-wipe].is-wiped::after {
   padding: var(--space-2xl) 0; display: flex; flex-direction: column;
   align-items: flex-start; gap: var(--space-lg);
 }
-.final-title { font-size: clamp(2.2rem, 5.6vw, 4.4rem); max-width: 16ch; }
+.final-title { font-size: clamp(2.4rem, 6vw, 4.8rem); max-width: 16ch; }
 .final-sub { color: var(--on-navy-soft); font-size: clamp(1rem, 1.5vw, 1.25rem); max-width: 46ch; }
 .final-actions { display: flex; align-items: center; gap: var(--space-md); flex-wrap: wrap; }
 .final-link {

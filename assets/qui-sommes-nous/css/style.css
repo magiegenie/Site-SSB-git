@@ -43,8 +43,8 @@
   --font: "General Sans", "Segoe UI", Helvetica, Arial, sans-serif;
 
   /* --- Rayons --- */
-  --r-card: 18px;
-  --r-media: 24px;
+  --r-card: 16px;
+  --r-media: 16px;
 
   /* --- Mesures --- */
   --shell: min(1280px, 90vw);
@@ -129,7 +129,7 @@ p { text-wrap: pretty; }
 .pill:hover { transform: translateY(-2px); }
 .pill:active { transform: translateY(0); }
 .pill.ghost { box-shadow: inset 0 0 0 1.5px currentColor; }
-.pill.solid { background: var(--gold); color: var(--gold-ink); }
+.pill.solid { background: var(--gold); color: var(--gold-ink); border-radius: 12px; }
 .pill.solid:hover { background: var(--gold-soft); box-shadow: 0 12px 26px -14px rgba(255, 182, 7, 0.7); }
 .pill.lg { min-height: 52px; padding: 0 26px; font-size: 1.02rem; }
 .pill.on-light { background: var(--navy-800); color: #fff; }
@@ -215,7 +215,7 @@ body[data-navtheme="light"] .fn-item.is-active { background: rgba(255, 255, 255,
   gap: var(--space-lg); flex-wrap: wrap;
 }
 .hero-title {
-  font-size: clamp(2.6rem, 7.6vw, 5.8rem);
+  font-size: clamp(2.8rem, 7.35vw, 6.6rem);
   letter-spacing: -0.042em; line-height: 0.98; max-width: 15ch;
 }
 /* Révélation ligne par ligne : chaque ligne monte derrière un masque. */
