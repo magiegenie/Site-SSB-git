@@ -307,15 +307,16 @@ p.lead { font-size: clamp(1.05rem, 1.5vw, 1.4rem); line-height: 1.4; }
   background: transparent;
 }
 
-/* Pages à hero CLAIR (page-hero) : même comportement dynamique que sur hero
-   sombre (transparent en haut -> pilule sombre au scroll). Seule différence :
-   au repos (non scrollé), le texte est en ENCRE pour rester lisible sur le fond
-   clair. Dès que la pilule sombre apparaît (is-scrolled), on repasse en blanc.
+/* Pages à hero CLAIR (page-hero) : le header reste transparent en
+   permanence, y compris au scroll (plus de pilule sombre, cf. bloc
+   "HEADER AU SCROLL" plus bas). Comme il n'y a jamais de fond sombre
+   derrière, le texte doit rester en ENCRE tout le temps, scrolled ou
+   non — sinon il repasse en blanc et devient illisible sur fond clair.
    Réservé au desktop (>=1025px) ; en mobile la barre est sombre (bloc <=1024). */
 @media (min-width: 1025px) {
-  .header--light:not(.is-scrolled) .header__inner { color: var(--ink); }
-  .header--light:not(.is-scrolled) .logo .mark { background: var(--ink); color: #fff; }
-  .header--light:not(.is-scrolled) .nav__link:hover { background: rgba(0, 0, 0, 0.06); }
+  .header--light .header__inner { color: var(--ink); }
+  .header--light .logo .mark { background: var(--ink); color: #fff; }
+  .header--light .nav__link:hover { background: rgba(0, 0, 0, 0.06); }
 }
 
 .logo { display: flex; align-items: center; gap: 0.55rem; font-weight: 700; letter-spacing: 0.01em; font-size: 0.95rem; text-transform: uppercase; line-height: 1; white-space: nowrap; flex: 0 0 auto; }
