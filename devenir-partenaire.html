@@ -10,192 +10,200 @@
   <meta property="og:title" content="Devenir partenaire | Sorbonne Sport Business" />
   <meta property="og:description" content="Visibilité, recrutement et contenus co-brandés auprès des étudiants de la Sorbonne passionnés de sport business." />
   <meta property="og:locale" content="fr_FR" />
-  <meta name="theme-color" content="#0c0c0c" />
+  <meta name="theme-color" content="#062750" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230c0c0c'/%3E%3Ctext x='50' y='71' font-family='Arial,sans-serif' font-size='52' font-weight='800' fill='white' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/main.css?v=28" />
+  <link rel="stylesheet" href="assets/devenir-partenaire/css/style.css?v=1" />
+
+  <!-- Motion est servi en local (pas de CDN) et chargé avant le premier rendu :
+       l'état de départ des animations n'est posé que s'il a réellement chargé. -->
+  <script src="assets/vendor/motion.js"></script>
+  <script>
+    if (window.Motion && typeof window.Motion.animate === "function") {
+      document.documentElement.classList.add("motion-ready");
+    }
+  </script>
 </head>
-<body>
+<body data-theme="navy" data-navtheme="navy">
 
   <a href="#main" class="skip-link">Aller au contenu</a>
 
-  <header class="header">
-    <div class="header__inner">
-      <a href="index.html" class="logo"><span class="logo-crest"><img src="assets/img/logo-ssb-emblem.png" alt="" width="200" height="150" /></span> Sorbonne <span class="logo-sub">Sport Business</span></a>
-      <nav class="nav" id="site-nav" aria-label="Navigation principale">
-        <div class="nav__item"><a href="devenir-adherent.html" class="nav__link">Devenir adhérent</a></div>
-        <div class="nav__item"><a href="evenements.html" class="nav__link">Nos événements</a></div>
-        <div class="nav__item"><a href="nos-intervenants.html" class="nav__link">Nos intervenants</a></div>
-        <div class="nav__item"><a href="qui-sommes-nous.html" class="nav__link">Qui sommes-nous</a></div>
-        <div class="nav__item"><a href="devenir-partenaire.html" class="nav__link">Partenaires</a></div>
-        <div class="nav__item nav__item--cta"><a href="book-a-call.html" class="nav__link nav__link--cta">Book a call</a></div>
-        <div class="nav__item nav__account" data-account>
-          <button type="button" class="account-trigger" aria-haspopup="true" aria-expanded="false" aria-label="Se connecter ou s'inscrire">
-            <span class="account-trigger__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg></span>
-            <span class="account-trigger__avatar" aria-hidden="true">M</span>
-          </button>
-          <div class="account-menu" role="menu" aria-label="Espace compte">
-            <div class="account-menu__head"><span class="account-menu__eyebrow">Espace membre</span><span class="account-menu__title" data-account-title>Bienvenue</span></div>
-            <div class="account-menu__group account-menu__guest">
-              <a href="connexion.html" class="account-menu__link" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><path d="M10 17l5-5-5-5"/><path d="M15 12H3"/></svg>Se connecter</a>
-              <a href="connexion.html?mode=signup" class="account-menu__link account-menu__link--primary" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>Créer un compte</a>
-            </div>
-            <div class="account-menu__group account-menu__auth">
-              <a href="#" class="account-menu__link" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Mon profil</a>
-              <a href="#" class="account-menu__link" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16a1 1 0 0 1 1 1v3a2 2 0 0 0 0 4v3a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-3a2 2 0 0 0 0-4V6a1 1 0 0 1 1-1Z"/><path d="M13 5v14"/></svg>Mes billets</a>
-              <a href="#" class="account-menu__link" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z"/></svg>Paramètres</a>
-              <div class="account-menu__sep"></div>
-              <button type="button" class="account-menu__link account-menu__link--danger" role="menuitem" data-account-logout><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg>Déconnexion</button>
-            </div>
-          </div>
-        </div>
-      </nav>
-      <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
+  <!-- ============================ HEADER ============================ -->
+  <header class="hdr" id="hdr">
+    <div class="hdr-in">
+      <a class="logo" href="index.html" aria-label="Sorbonne Sport Business, accueil">SSB</a>
+      <div class="hdr-right">
+        <a href="connexion.html" class="pill ghost">Se connecter</a>
+        <a href="book-a-call.html#partenaire" class="pill solid">Book a call</a>
+      </div>
     </div>
   </header>
 
+  <!-- Nav flottante : navigation réelle du site -->
+  <nav class="floatnav" aria-label="Navigation principale">
+    <a href="index.html" class="fn-home" aria-label="Accueil"><svg viewBox="0 0 24 24" width="18" aria-hidden="true"><path d="M4 11l8-7 8 7M6 10v9h5v-6h2v6h5v-9" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></a>
+    <a href="devenir-adherent.html" class="fn-item">Adhérer</a>
+    <a href="evenements.html" class="fn-item">Événements</a>
+    <a href="nos-intervenants.html" class="fn-item">Intervenants</a>
+    <a href="qui-sommes-nous.html" class="fn-item">Qui sommes-nous</a>
+    <a href="devenir-partenaire.html" class="fn-item is-active" aria-current="page">Partenaires</a>
+  </nav>
+
   <main id="main">
-    <!-- HERO SOBRE (sans vidéo) -->
-    <section class="hero-page hero-page--words hero-page--solid">
-      <div class="hero-page__inner container">
-        <p class="eyebrow">Partenaires</p>
-        <h1 class="anim-text">Associez votre marque<br />au sport de demain.</h1>
-        <p class="hero-page__sub">Touchez une audience étudiante qualifiée, engagée et future décideuse du sport business.</p>
-      </div>
-    </section>
 
-    <!-- CHIFFRES CLÉS -->
-    <section class="section section--tight">
-      <div class="container">
-        <p class="eyebrow u-mb-2">L'audience Sorbonne Sport Business</p>
-        <div class="statgrid statgrid--4">
-          <div class="statcell"><span>Étudiants touchés</span><strong><span data-count="1200">1200</span>+</strong></div>
-          <div class="statcell"><span>Places par conférence</span><strong><span data-count="250">250</span></strong></div>
-          <div class="statcell"><span>Impressions mensuelles</span><strong><span data-count="15">15</span>K+</strong></div>
-          <div class="statcell"><span>Intervenants pros</span><strong><span data-count="40">40</span>+</strong></div>
+    <!-- ============================ HERO ============================ -->
+    <section class="hero" data-bg="navy">
+      <div class="hero-stage" aria-hidden="true">
+        <div class="pod pod-1"></div>
+        <div class="pod pod-2"></div>
+        <div class="pod pod-3"></div>
+      </div>
+      <div class="hero-in">
+        <h1 class="hero-title">
+          <span class="ln"><span>Associez votre marque</span></span>
+          <span class="ln"><span>au sport de demain.</span></span>
+        </h1>
+        <div class="hero-aside">
+          <p class="hero-note">Touchez une audience étudiante qualifiée, engagée et future décideuse du sport business.</p>
+          <a href="book-a-call.html#partenaire" class="pill solid lg">Échanger avec le bureau</a>
         </div>
-        <p class="u-note">Étudiants formés et motivés par le secteur, salles pleines à chaque conférence, forte présence sur les réseaux.</p>
       </div>
+      <span class="scroll-pill" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="15"><rect x="8" y="3" width="8" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 6v3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        Défiler
+      </span>
     </section>
 
-    <!-- FORMATS PARTENAIRES -->
-    <section class="section"><span class="mood-accent" aria-hidden="true" style="--ma-c:#5a93d4; --ma-s:320px; --ma-o:.2; top:-8%; right:-3%;"></span>
-      <div class="container">
-        <p class="eyebrow">Ce qu'on propose</p>
-        <h2 class="display-md anim-text u-mb-3">Trois façons de travailler ensemble.</h2>
-        <div class="trio stagger">
-          <article class="trio-card">
-            <span class="trio-card__num">01</span>
-            <h3>Visibilité événementielle</h3>
-            <p>Votre marque sur nos conférences : naming, stand, prise de parole, logo sur tous les supports.</p>
-          </article>
-          <article class="trio-card">
-            <span class="trio-card__num">02</span>
-            <h3>Accès au vivier Sorbonne</h3>
-            <p>Recrutez vos futurs stagiaires et alternants parmi des étudiants formés et motivés par le secteur.</p>
-          </article>
-          <article class="trio-card">
-            <span class="trio-card__num">03</span>
-            <h3>Contenus co-brandés</h3>
-            <p>Newsletter vidéo, podcast Quartier Jeune, posts réseaux sociaux : des formats qui engagent les 18-25 ans.</p>
-          </article>
+    <!-- ============================ STATS ============================ -->
+    <section class="stats" data-bg="navy">
+      <div class="stats-in">
+        <p class="stats-kicker reveal">L'audience Sorbonne Sport Business</p>
+        <div class="stats-grid">
+          <div class="stat reveal" style="--i:1"><strong><span data-count="1200">0</span>+</strong><span>Étudiants touchés</span></div>
+          <div class="stat reveal" style="--i:2"><strong><span data-count="250">0</span></strong><span>Places par conférence</span></div>
+          <div class="stat reveal" style="--i:3"><strong><span data-count="15">0</span>K+</strong><span>Impressions mensuelles</span></div>
+          <div class="stat reveal" style="--i:4"><strong><span data-count="40">0</span>+</strong><span>Intervenants pros</span></div>
         </div>
       </div>
     </section>
 
-    <!-- PREUVE : DÉCIDEURS (bloc sombre) -->
-    <section class="section section--tight">
-      <div class="container">
-        <div class="darkblock">
-          <div class="darkblock__media"><img src="assets/img/audience.jpg" alt="Amphithéâtre comble lors d'une conférence Sorbonne Sport Business" loading="lazy" /></div>
-          <div class="darkblock__body">
-            <h2 class="display-lg anim-text">Un réseau<br />de décideurs.</h2>
-            <div>
-              <p>Directeurs marketing de clubs de Ligue 1, responsables de fédérations, agents de joueurs, dirigeants de la SportTech : nos intervenants sont ceux que vos futurs collaborateurs veulent rencontrer. En devenant partenaire, vous rejoignez cet écosystème.</p>
-              <a href="qui-sommes-nous.html" class="btn btn--on-dark u-mt-2">Voir nos speakers</a>
-            </div>
+    <!-- ================== CE QU'ON PROPOSE (collage) =================== -->
+    <section class="collage" id="formats" data-bg="light">
+      <div class="collage-head">
+        <h2 class="collage-title">Trois façons de travailler ensemble</h2>
+        <a href="book-a-call.html#partenaire" class="pill solid lg">Échanger avec le bureau</a>
+      </div>
+
+      <div class="collage-grid">
+        <article class="fcard fcard--a" data-parallax="0.08">
+          <div class="fcard-media">
+            <img src="assets/img/panel.jpg" alt="Table ronde d'intervenants lors d'une conférence Sorbonne Sport Business" loading="lazy" />
           </div>
-        </div>
-      </div>
-    </section>
+          <h3>Visibilité événementielle</h3>
+          <p>Votre marque sur nos conférences : naming, stand, prise de parole, logo sur tous les supports.</p>
+        </article>
 
-    <!-- APERÇU SPEAKERS -->
-    <section class="section"><span class="mood-accent" aria-hidden="true" style="--ma-c:#e0980f; --ma-s:190px; --ma-o:.24; bottom:10%; left:4%;"></span><div class="container statement">
-      <div class="statement__col-l"><img class="statement__photo" src="assets/img/panel.jpg" alt="Panel d'intervenants lors d'une conférence Sorbonne Sport Business" loading="lazy" /></div>
-      <div class="statement__col-r">
-        <p class="eyebrow">Nos intervenants</p>
-        <h2 class="display-md anim-text">Ceux qui prennent la parole.</h2>
-        <p>Directeurs marketing de clubs de Ligue 1, agents de joueurs, responsables de fédérations, dirigeants de la SportTech et sportifs de haut niveau : vos futurs collaborateurs viennent les écouter chez SSB.</p>
-        <a href="qui-sommes-nous.html" class="btn">Voir tous les speakers</a>
-      </div>
-    </div></section>
-
-    <!-- INSTITUTIONS -->
-    <section class="section section--paper2">
-      <div class="container statement">
-        <div>
-          <p class="eyebrow">Ils nous ont fait confiance</p>
-          <h2 class="display-md anim-text">Institutions &amp; partenaires.</h2>
-        </div>
-        <div>
-          <p class="u-lead-muted u-mb-2">Clubs, fédérations, médias et institutions qui ont collaboré avec l'association.</p>
-          <div class="logo-row">
-            <span>Paris 1 Panthéon-Sorbonne</span>
-            <span>Stade de France</span>
-            <span>Fédération Française de Tennis</span>
-            <span>Clubs de Ligue 1</span>
-            <span>Startups SportTech</span>
-            <span>Médias sport business</span>
+        <article class="fcard fcard--b" data-parallax="-0.1">
+          <div class="fcard-media">
+            <img src="assets/img/groupe-kahn.jpg" alt="Étudiants de l'association posant avec un intervenant du sport professionnel" loading="lazy" />
           </div>
+          <h3>Accès au vivier Sorbonne</h3>
+          <p>Recrutez vos futurs stagiaires et alternants parmi des étudiants formés et motivés par le secteur.</p>
+        </article>
+
+        <article class="fcard fcard--c" data-parallax="0.11">
+          <div class="fcard-media">
+            <img src="assets/img/ambiance-tel.jpg" alt="Étudiante filmant une conférence de l'association" loading="lazy" />
+          </div>
+          <h3>Contenus co-brandés</h3>
+          <p>Newsletter vidéo, podcast Quartier Jeune, posts réseaux : des formats qui engagent les 18-25 ans.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- =============== RÉSEAU DE DÉCIDEURS (statement navy) =============== -->
+    <section class="netw" data-bg="navy">
+      <div class="netw-in">
+        <div class="netw-photo reveal">
+          <img src="assets/img/audience.jpg" alt="Amphithéâtre comble lors d'une conférence Sorbonne Sport Business" loading="lazy" />
+        </div>
+        <div class="netw-copy reveal" style="--i:1">
+          <h2 class="netw-title">Un réseau de décideurs.</h2>
+          <p class="netw-p">Directeurs marketing de clubs de Ligue 1, responsables de fédérations, agents de joueurs, dirigeants de la SportTech : nos intervenants sont ceux que vos futurs collaborateurs veulent rencontrer. En devenant partenaire, vous rejoignez cet écosystème.</p>
+          <a href="nos-intervenants.html" class="pill solid lg">Voir nos speakers</a>
         </div>
       </div>
     </section>
 
-    <!-- CTA DUO -->
-    <section class="section section--tight">
-      <div class="container">
-        <div class="cta-duo">
-          <a href="book-a-call.html#partenaire" class="cta-banner">
-            <div class="ph ph--dark" data-label=""></div>
-            <div class="cta-banner__body">
-              <p class="eyebrow cta-banner__eyebrow">Documentation</p>
-              <h2 class="display-md anim-text">Demander la plaquette.</h2>
-              <span class="btn btn--on-dark">Recevoir le dossier</span>
-            </div>
-          </a>
-          <a href="book-a-call.html#partenaire" class="cta-banner">
-            <div class="ph ph--dark" data-label=""></div>
-            <div class="cta-banner__body">
-              <p class="eyebrow cta-banner__eyebrow">Échanger</p>
-              <h2 class="display-md anim-text">Book a call.</h2>
-              <span class="btn btn--on-dark">15 min avec le bureau</span>
-            </div>
-          </a>
+    <!-- ==================== INSTITUTIONS & PARTENAIRES ==================== -->
+    <section class="inst" data-bg="light">
+      <div class="inst-in">
+        <div class="inst-head reveal">
+          <span class="prose-kicker">Ils nous ont fait confiance</span>
+          <h2 class="inst-title">Institutions &amp; partenaires.</h2>
+          <p class="inst-p">Clubs, fédérations, médias et institutions qui ont collaboré avec l'association.</p>
+        </div>
+        <ul class="inst-list reveal" style="--i:1">
+          <li>Paris 1 Panthéon-Sorbonne</li>
+          <li>Stade de France</li>
+          <li>Fédération Française de Tennis</li>
+          <li>Clubs de Ligue 1</li>
+          <li>Startups SportTech</li>
+          <li>Médias sport business</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========================== CTA FINAL DUO ======================== -->
+    <section class="final" data-bg="navy">
+      <div class="final-media" aria-hidden="true">
+        <img src="assets/img/panel.jpg" alt="" loading="lazy" />
+      </div>
+      <div class="final-in">
+        <h2 class="final-title reveal">Le sport business commence avec vous.</h2>
+        <p class="final-sub reveal" style="--i:1">Recevez la plaquette partenaires, ou échangeons directement 15 minutes avec le bureau.</p>
+        <div class="final-actions reveal" style="--i:2">
+          <a href="book-a-call.html#partenaire" class="pill solid lg">Book a call</a>
+          <a href="book-a-call.html#partenaire" class="pill ghost lg">Recevoir le dossier</a>
         </div>
       </div>
     </section>
+
   </main>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__top">
-        <a href="index.html" class="logo"><span class="logo-crest"><img src="assets/img/logo-ssb-emblem.png" alt="" width="200" height="150" /></span> Sorbonne <span class="logo-sub">Sport Business</span></a>
-      </div>
-      <div class="footer__bottom">
-        <span>&copy; <span data-year>2026</span> Sorbonne Sport Business, Association étudiante, Paris 1 Panthéon-Sorbonne.</span>
-        <div class="footer__socials">
-          <a href="https://instagram.com" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.3"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
-          <a href="https://linkedin.com" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="3"/><line x1="7.3" y1="10" x2="7.3" y2="17"/><circle cx="7.3" cy="6.8" r="0.15" fill="currentColor" stroke="currentColor" stroke-width="2"/><path d="M11.3 17v-4.2c0-1.6 1-2.8 2.6-2.8 1.5 0 2.3 1 2.3 2.8V17"/><line x1="11.3" y1="10" x2="11.3" y2="17"/></svg></a>
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="ft" data-bg="light">
+    <div class="ft-in">
+      <div class="ft-brand">
+        <span class="logo">Sorbonne Sport Business</span>
+        <p>La communauté qui forme la prochaine génération du sport business, à la Sorbonne.</p>
+        <div class="ft-socials">
+          <a href="https://instagram.com" aria-label="Instagram"><svg viewBox="0 0 24 24" width="17" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.3"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://linkedin.com" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="17" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="2.5" width="19" height="19" rx="3"/><line x1="7.3" y1="10" x2="7.3" y2="17"/><circle cx="7.3" cy="6.8" r="0.15" fill="currentColor" stroke="currentColor" stroke-width="2"/><path d="M11.3 17v-4.2c0-1.6 1-2.8 2.6-2.8 1.5 0 2.3 1 2.3 2.8V17"/><line x1="11.3" y1="10" x2="11.3" y2="17"/></svg></a>
         </div>
-        <div class="footer__legal"><a href="confidentialite.html">Confidentialité</a><a href="mentions-legales.html">Mentions légales</a></div>
+      </div>
+      <div class="ft-cols">
+        <div class="ft-col"><p class="ft-h">Association</p><a href="qui-sommes-nous.html">Qui sommes-nous</a><a href="evenements.html">Nos événements</a><a href="nos-intervenants.html">Nos intervenants</a><a href="devenir-partenaire.html">Devenir partenaire</a></div>
+        <div class="ft-col"><p class="ft-h">Rejoindre</p><a href="devenir-adherent.html">Devenir adhérent</a><a href="book-a-call.html">Book a call</a><a href="connexion.html">Se connecter</a></div>
+        <div class="ft-col"><p class="ft-h">Ressources</p><a href="confidentialite.html">Confidentialité</a><a href="mentions-legales.html">Mentions légales</a></div>
+      </div>
+    </div>
+    <div class="ft-base">
+      <span class="ft-big" aria-hidden="true">SSB</span>
+      <div class="ft-legal">
+        <span>© <span data-year>2026</span> Sorbonne Sport Business, association étudiante, Paris 1 Panthéon-Sorbonne.</span>
+        <span class="ft-links"><a href="confidentialite.html">Confidentialité</a><a href="mentions-legales.html">Mentions légales</a></span>
       </div>
     </div>
   </footer>
 
-  <script src="assets/js/vendor/lenis.min.js"></script>
-  <script src="assets/js/main.js?v=14"></script>
+  <script src="assets/vendor/lenis.min.js"></script>
+  <script src="assets/devenir-partenaire/js/main.js?v=1"></script>
+  <script>
+    document.querySelectorAll("[data-year]").forEach(function (el) {
+      el.textContent = new Date().getFullYear();
+    });
+  </script>
 </body>
 </html>
