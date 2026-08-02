@@ -1220,7 +1220,7 @@ body.theme-marine .footer__legal a:hover { color: #fff; }
 /* 20e. HERO PLACEHOLDER SOBRE (pages internes sans vidéo)           */
 /* Dégradé encre profond : remplace la vidéo hero sur 3 pages.        */
 /* ----------------------------------------------------------------- */
-.hero-page--solid { background: radial-gradient(120% 120% at 30% 20%, #232323 0%, var(--ink) 60%); }
+.hero-page--solid { background: radial-gradient(120% 120% at 30% 20%, #0a3766 0%, var(--ink-2) 60%); }
 .hero-page--solid .hero-page__media { display: none; }
 
 /* Placeholder d'image local sobre (remplace picsum) : dégradé + label discret.
