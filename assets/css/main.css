@@ -365,11 +365,13 @@ body.menu-open .burger span:nth-child(1) { top: 50%; transform: translateY(-50%)
 body.menu-open .burger span:nth-child(2) { opacity: 0; }
 body.menu-open .burger span:nth-child(3) { bottom: 50%; transform: translateY(50%) rotate(-45deg); }
 
-/* -------- Header : bascule mobile/tablette en menu plein écran (<=1024px) --
-   On passe au burger bien plus tôt qu'avant (1024 au lieu de 768) : c'est la
-   zone 769-1100px qui provoquait l'entassement sur deux lignes. Ce bloc est
-   placé APRÈS les règles de base (.nav/.burger/.megamenu) pour les surcharger. */
-@media (max-width: 1024px) {
+/* -------- Header : bascule mobile/tablette en menu plein écran (<=1480px) --
+   Seuil remonte de 1024 à 1480px (audit UX 02/08/2026) : entre 1024 et
+   1400px (iPad Pro paysage, petits laptops), le logo + 5 liens + CTA + icone
+   compte ne tenaient plus sur une ligne — "Book a call" coupe, lien connexion
+   pousse hors ecran. Ce bloc est placé APRÈS les règles de base
+   (.nav/.burger/.megamenu) pour les surcharger. */
+@media (max-width: 1480px) {
   .header__inner,
   .header.is-scrolled .header__inner,
   .header--light .header__inner {
@@ -1635,7 +1637,7 @@ body.smenu-open { overflow: hidden; }
 /* ================================================================= */
 /* CORRECTIONS MOBILE (audit 390px) — cibles tactiles + lisibilité   */
 /* ================================================================= */
-@media (max-width: 1024px) {
+@media (max-width: 1480px) {
   /* Zone tactile du burger étendue à ~50×44px sans changer les 3 barres */
   .burger::after { content: ""; position: absolute; inset: -14px -12px; }
 }
@@ -1739,9 +1741,9 @@ h1, h2, h3, h4,
 [data-account].is-authed .account-menu__guest { display: none; }
 [data-account].is-authed .account-menu__auth { display: flex; flex-direction: column; gap: 0.15rem; }
 
-/* Mobile / tablette (<=1024) : intégré dans l'overlay plein écran.
+/* Mobile / tablette (<=1480) : intégré dans l'overlay plein écran.
    Plus de menu flottant : le compte devient une section empilée en bas. */
-@media (max-width: 1024px) {
+@media (max-width: 1480px) {
   .nav__account {
     width: 100%; margin: 0.9rem 0 0; padding: 1rem 0 0;
     border-left: 0; border-top: 1px solid rgba(255, 255, 255, 0.14);
