@@ -10,128 +10,266 @@
   <meta property="og:title" content="Qui sommes-nous | Sorbonne Sport Business" />
   <meta property="og:description" content="La communauté qui forme la prochaine génération du sport business, à la Sorbonne." />
   <meta property="og:locale" content="fr_FR" />
-  <meta name="theme-color" content="#0c0c0c" />
+  <meta name="theme-color" content="#062750" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230c0c0c'/%3E%3Ctext x='50' y='71' font-family='Arial,sans-serif' font-size='52' font-weight='800' fill='white' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/main.css?v=27" />
-  <link rel="stylesheet" href="assets/css/qui-sommes-nous-marine.css?v=1" />
+  <link rel="stylesheet" href="assets/qui-sommes-nous/css/style.css?v=2" />
+
+  <!-- Motion est servi en local (pas de CDN) et chargé avant le premier rendu :
+       l'état de départ des animations n'est posé que s'il a réellement chargé. -->
+  <script src="assets/qui-sommes-nous/js/vendor/motion.js"></script>
+  <script>
+    if (window.Motion && typeof window.Motion.animate === "function") {
+      document.documentElement.classList.add("motion-ready");
+    }
+  </script>
 </head>
-<body>
+<body data-theme="navy" data-navtheme="navy">
 
   <a href="#main" class="skip-link">Aller au contenu</a>
 
-  <header class="header">
-    <div class="header__inner">
-      <a href="index.html" class="logo"><span class="logo-crest"><img src="assets/img/logo-ssb-emblem.png" alt="" width="200" height="150" /></span> Sorbonne <span class="logo-sub">Sport Business</span></a>
-      <nav class="nav" id="site-nav" aria-label="Navigation principale">
-        <div class="nav__item"><a href="devenir-adherent.html" class="nav__link">Devenir adhérent</a></div>
-        <div class="nav__item"><a href="evenements.html" class="nav__link">Nos événements</a></div>
-        <div class="nav__item"><a href="nos-intervenants.html" class="nav__link">Nos intervenants</a></div>
-        <div class="nav__item"><a href="qui-sommes-nous.html" class="nav__link">Qui sommes-nous</a></div>
-        <div class="nav__item"><a href="devenir-partenaire.html" class="nav__link">Partenaires</a></div>
-        <div class="nav__item nav__item--cta"><a href="book-a-call.html" class="nav__link nav__link--cta">Book a call</a></div>
-        <div class="nav__item nav__account" data-account>
-          <button type="button" class="account-trigger" aria-haspopup="true" aria-expanded="false" aria-label="Se connecter ou s'inscrire">
-            <span class="account-trigger__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg></span>
-            <span class="account-trigger__avatar" aria-hidden="true">M</span>
-          </button>
-          <div class="account-menu" role="menu" aria-label="Espace compte">
-            <div class="account-menu__head"><span class="account-menu__eyebrow">Espace membre</span><span class="account-menu__title" data-account-title>Bienvenue</span></div>
-            <div class="account-menu__group account-menu__guest">
-              <a href="connexion.html" class="account-menu__link" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><path d="M10 17l5-5-5-5"/><path d="M15 12H3"/></svg>Se connecter</a>
-              <a href="connexion.html?mode=signup" class="account-menu__link account-menu__link--primary" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>Créer un compte</a>
-            </div>
-            <div class="account-menu__group account-menu__auth">
-              <a href="#" class="account-menu__link" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Mon profil</a>
-              <a href="#" class="account-menu__link" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16a1 1 0 0 1 1 1v3a2 2 0 0 0 0 4v3a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-3a2 2 0 0 0 0-4V6a1 1 0 0 1 1-1Z"/><path d="M13 5v14"/></svg>Mes billets</a>
-              <a href="#" class="account-menu__link" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z"/></svg>Paramètres</a>
-              <div class="account-menu__sep"></div>
-              <button type="button" class="account-menu__link account-menu__link--danger" role="menuitem" data-account-logout><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg>Déconnexion</button>
-            </div>
-          </div>
-        </div>
-      </nav>
-      <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
+  <!-- ============================ HEADER ============================ -->
+  <header class="hdr" id="hdr">
+    <div class="hdr-in">
+      <a class="logo" href="index.html" aria-label="Sorbonne Sport Business, accueil">SSB</a>
+      <div class="hdr-right">
+        <a href="connexion.html" class="pill ghost">Se connecter</a>
+        <a href="book-a-call.html" class="pill solid">Book a call</a>
+      </div>
     </div>
   </header>
 
+  <!-- Nav flottante : navigation réelle du site -->
+  <nav class="floatnav" aria-label="Navigation principale">
+    <a href="index.html" class="fn-home" aria-label="Accueil"><svg viewBox="0 0 24 24" width="18" aria-hidden="true"><path d="M4 11l8-7 8 7M6 10v9h5v-6h2v6h5v-9" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></a>
+    <a href="devenir-adherent.html" class="fn-item">Adhérer</a>
+    <a href="evenements.html" class="fn-item">Événements</a>
+    <a href="nos-intervenants.html" class="fn-item">Intervenants</a>
+    <a href="qui-sommes-nous.html" class="fn-item is-active" aria-current="page">Qui sommes-nous</a>
+    <a href="devenir-partenaire.html" class="fn-item">Partenaires</a>
+  </nav>
+
   <main id="main">
 
-    <!-- 1. HERO -->
-    <section class="qsn-section qsn-hero">
-      <div class="qsn-hero__inner container">
-        <p class="eyebrow eyebrow--pill">Qui sommes-nous</p>
-        <h1 class="anim-text">Le sport business,<br />à hauteur d'étudiant.</h1>
-        <p class="qsn-hero__sub">La communauté qui forme la prochaine génération du sport business, à la Sorbonne.</p>
+    <!-- ============================ HERO ============================ -->
+    <section class="hero" data-bg="navy">
+      <div class="hero-stage" aria-hidden="true">
+        <div class="pod pod-1"></div>
+        <div class="pod pod-2"></div>
+        <div class="pod pod-3"></div>
+      </div>
+      <div class="hero-in">
+        <h1 class="hero-title">
+          <span class="ln"><span>Le sport business,</span></span>
+          <span class="ln"><span>à hauteur</span></span>
+          <span class="ln"><span>d'étudiant.</span></span>
+        </h1>
+        <div class="hero-aside">
+          <p class="hero-note">La communauté qui forme la prochaine génération du sport business, à la Sorbonne.</p>
+          <a href="devenir-adherent.html" class="pill solid lg">Rejoindre la communauté</a>
+        </div>
+      </div>
+      <span class="scroll-pill" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="15"><rect x="8" y="3" width="8" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 6v3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        Défiler
+      </span>
+    </section>
+
+    <!-- ============ SCÈNE PINNÉE : ON ENTRE DANS L'AMPHI ============ -->
+    <section class="focus" data-bg="navy" data-zoom-section>
+      <div class="focus-sticky">
+        <h2 class="focus-title reveal">Accéder aux décideurs du sport, sans intermédiaire.</h2>
+        <figure class="focus-scene" data-zoom-target>
+          <img src="assets/img/hero-amphi.jpg" alt="Amphithéâtre de la Sorbonne rempli d'étudiants lors d'une conférence Sorbonne Sport Business" />
+          <figcaption class="focus-cap">Conférence SSB, amphithéâtre Paris 1 Panthéon-Sorbonne</figcaption>
+        </figure>
       </div>
     </section>
 
-    <!-- 2. NOTRE RAISON D'ÊTRE -->
-    <section class="qsn-section qsn-origin"><div class="container qsn-origin__grid">
-      <div>
-        <p class="eyebrow u-mb-2">Notre histoire</p>
-        <h2 class="anim-text">Notre raison d'être.</h2>
-        <p>Sorbonne Sport Business est une association étudiante de Paris 1 Panthéon-Sorbonne. Nous organisons des conférences avec les décideurs du secteur, des side events pour créer du lien, et nous ouvrons chaque semaine des opportunités de stages et d'alternances. L'idée est simple : rapprocher les étudiants du monde professionnel du sport, concrètement.</p>
-        <a href="book-a-call.html" class="btn">Rejoindre la communauté</a>
+    <!-- ================= STATEMENT : LA COMMUNAUTÉ ================= -->
+    <section class="statement" data-bg="navy">
+      <div class="arch reveal">
+        <img src="assets/img/equipe-maillot.jpg" alt="Membres du bureau de Sorbonne Sport Business réunis autour du maillot de l'association" loading="lazy" />
       </div>
-      <div class="qsn-stat anim-up">
-        <strong>1200+</strong>
-        <span>étudiants dans la communauté, qui s'entraident au quotidien : offres, CV, mises en relation.</span>
-      </div>
-    </div></section>
+      <h2 class="statement-title reveal" style="--i:1">Une promo, un réseau.</h2>
+      <p class="statement-sub reveal" style="--i:2">Derrière SSB, un bureau d'étudiants passionnés et une communauté de 1 200+ membres qui s'entraident au quotidien : partage d'offres, relecture de CV, mises en relation.</p>
+    </section>
 
-    <!-- 3. SPEAKERS -->
-    <section class="qsn-section qsn-speakers"><div class="container">
-      <p class="eyebrow eyebrow--pill">Ils sont déjà intervenus</p>
-      <h2 class="anim-text">Nos speakers.</h2>
-      <div class="team-grid team-grid--visible stagger">
-        <div class="team-tile" data-bio tabindex="0" role="button" aria-label="Karim Benyahia, Directeur Marketing"><div class="team-tile__mono" data-mono="KB"></div><span class="team-tile__plus" aria-hidden="true">+</span><div class="team-tile__info"><strong>Karim Benyahia</strong><span>Directeur Marketing · Club de Ligue 1</span></div><div class="team-tile__bio"><strong>Karim Benyahia</strong><span class="role">Directeur Marketing · Club de Ligue 1</span><p>Pilote la marque, la monétisation d'audience et l'innovation digitale d'un club professionnel. Intervenant sur le marketing des clubs de football.</p></div></div>
-        <div class="team-tile" data-bio tabindex="0" role="button" aria-label="Claire Dumont, Head of Partnerships"><div class="team-tile__mono" data-mono="CD"></div><span class="team-tile__plus" aria-hidden="true">+</span><div class="team-tile__info"><strong>Claire Dumont</strong><span>Head of Partnerships · FFT</span></div><div class="team-tile__bio"><strong>Claire Dumont</strong><span class="role">Head of Partnerships · Fédération Française de Tennis</span><p>Construit les partenariats et le sponsoring d'une grande fédération. Intervenue sur le naming et le business des grands événements.</p></div></div>
-        <div class="team-tile" data-bio tabindex="0" role="button" aria-label="Julien Leroy, Agent de joueurs"><div class="team-tile__mono" data-mono="JL"></div><span class="team-tile__plus" aria-hidden="true">+</span><div class="team-tile__info"><strong>Julien Leroy</strong><span>Agent de joueurs · JL Sports Agency</span></div><div class="team-tile__bio"><strong>Julien Leroy</strong><span class="role">Agent de joueurs · JL Sports Agency</span><p>Négociations, contrats, image des joueurs : il a dévoilé les coulisses du métier d'agent lors d'une conférence à guichets fermés.</p></div></div>
-        <div class="team-tile" data-bio tabindex="0" role="button" aria-label="Sofia Martins, Brand Manager Sport"><div class="team-tile__mono" data-mono="SM"></div><span class="team-tile__plus" aria-hidden="true">+</span><div class="team-tile__info"><strong>Sofia Martins</strong><span>Brand Manager · Équipementier international</span></div><div class="team-tile__bio"><strong>Sofia Martins</strong><span class="role">Brand Manager Sport · Équipementier international</span><p>Comment les marques investissent le sport : stratégies, ROI et études de cas. Intervenue sur le sponsoring dans le sport.</p></div></div>
-        <div class="team-tile" data-bio tabindex="0" role="button" aria-label="Antoine Girard, Journaliste sport business"><div class="team-tile__mono" data-mono="AG"></div><span class="team-tile__plus" aria-hidden="true">+</span><div class="team-tile__info"><strong>Antoine Girard</strong><span>Journaliste sport business · Média national</span></div><div class="team-tile__bio"><strong>Antoine Girard</strong><span class="role">Journaliste sport business · Média national</span><p>Décrypte l'économie du sport pour le grand public. Modérateur de nos tables rondes sur le marketing des clubs.</p></div></div>
-        <div class="team-tile" data-bio tabindex="0" role="button" aria-label="Léa Nguyen, Billetterie et hospitalités"><div class="team-tile__mono" data-mono="LN"></div><span class="team-tile__plus" aria-hidden="true">+</span><div class="team-tile__info"><strong>Léa Nguyen</strong><span>Billetterie &amp; Hospitalités · Stade de France</span></div><div class="team-tile__bio"><strong>Léa Nguyen</strong><span class="role">Billetterie &amp; Hospitalités · Stade de France</span><p>Gère l'expérience spectateur et les hospitalités d'un stade emblématique. Anime notre atelier alternance dans le sport.</p></div></div>
-        <div class="team-tile" data-bio tabindex="0" role="button" aria-label="Mehdi Khelifi, Fondateur SportTech"><div class="team-tile__mono" data-mono="MK"></div><span class="team-tile__plus" aria-hidden="true">+</span><div class="team-tile__info"><strong>Mehdi Khelifi</strong><span>Fondateur · Startup SportTech</span></div><div class="team-tile__bio"><strong>Mehdi Khelifi</strong><span class="role">Fondateur · Startup SportTech</span><p>Entrepreneur du sport connecté. Partage son parcours de création d'entreprise et les tendances de la SportTech.</p></div></div>
-        <div class="team-tile" data-bio tabindex="0" role="button" aria-label="Julie Lambert, Directrice RSE"><div class="team-tile__mono" data-mono="JL"></div><span class="team-tile__plus" aria-hidden="true">+</span><div class="team-tile__info"><strong>Julie Lambert</strong><span>Directrice RSE · Grands événements</span></div><div class="team-tile__bio"><strong>Julie Lambert</strong><span class="role">Directrice RSE · Organisateur de grands événements</span><p>Pilote l'impact social et environnemental de grandes compétitions. Intervenue sur l'héritage des JO de Paris.</p></div></div>
+    <!-- ================== CE QUI NOUS DISTINGUE =================== -->
+    <section class="collage" id="distinctions" data-bg="light">
+      <div class="collage-head">
+        <h2 class="collage-title">Ce qui nous distingue</h2>
+        <a href="devenir-adherent.html" class="pill solid lg">Rejoindre la communauté</a>
       </div>
-    </div></section>
 
-    <!-- 4. CTA FINAL -->
-    <section class="qsn-section qsn-cta"><div class="container qsn-cta__duo">
-      <a href="devenir-adherent.html" class="qsn-cta__band qsn-cta__band--lg">
-        <p class="eyebrow">Adhésion</p>
-        <h3 class="anim-text">Devenir membre.</h3>
-        <span class="btn btn--on-dark">Voir les offres</span>
-      </a>
-      <a href="devenir-partenaire.html" class="qsn-cta__band qsn-cta__band--sm qsn-cta__band--offset">
-        <p class="eyebrow">Partenariat</p>
-        <h3 class="anim-text">Devenir partenaire.</h3>
-        <span class="btn btn--on-dark">Nous soutenir</span>
-      </a>
-    </div></section>
+      <div class="collage-grid">
+        <article class="fcard fcard--a" data-parallax="0.08">
+          <div class="fcard-media">
+            <img src="assets/img/panel.jpg" alt="Table ronde d'intervenants du sport business face aux étudiants" loading="lazy" />
+          </div>
+          <h3>Un accès direct aux décideurs</h3>
+          <p>Poser sa question au directeur marketing d'un club, en vrai. Pas d'intermédiaire, pas de filtre.</p>
+        </article>
+
+        <article class="fcard fcard--b" data-parallax="-0.1">
+          <div class="fcard-media">
+            <img src="assets/img/groupe-kahn.jpg" alt="Étudiants de l'association posant avec un intervenant du sport professionnel" loading="lazy" />
+          </div>
+          <h3>Un collectif qui s'entraide</h3>
+          <p>On partage les offres, on relit les CV, on ouvre son réseau aux autres. On avance ensemble.</p>
+        </article>
+
+        <article class="fcard fcard--c" data-parallax="0.11">
+          <div class="fcard-media">
+            <img src="assets/img/speaker-1.jpg" alt="Intervenant professionnel prenant la parole lors d'une conférence SSB" loading="lazy" />
+          </div>
+          <h3>Des intervenants de haut niveau</h3>
+          <p>Clubs de Ligue 1, fédérations, agences, médias : des formats travaillés, parce que le temps des membres compte.</p>
+        </article>
+
+        <article class="fcard fcard--d" data-parallax="-0.07">
+          <div class="fcard-media">
+            <img src="assets/img/ambiance-tel.jpg" alt="Étudiante filmant une conférence de l'association" loading="lazy" />
+          </div>
+          <h3>Ouvert à toutes les filières</h3>
+          <p>Licence, master, passionnés de sport ou simples curieux du business : l'association n'a pas de porte d'entrée unique.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ==================== NOTRE RAISON D'ÊTRE ==================== -->
+    <section class="prose" data-bg="light">
+      <div class="prose-in">
+        <span class="prose-kicker">Notre raison d'être</span>
+        <h2 class="prose-title reveal">Le sport business, à échelle humaine.</h2>
+        <p class="prose-p reveal" style="--i:1">Sorbonne Sport Business est une association étudiante de Paris 1 Panthéon-Sorbonne. Nous organisons des conférences avec les décideurs du secteur, des side events pour créer du lien, et nous ouvrons chaque semaine des opportunités de stages et d'alternances. L'idée est simple : rapprocher les étudiants du monde professionnel du sport, concrètement.</p>
+      </div>
+    </section>
+
+    <!-- ======================= RETOUR EN IMAGES ==================== -->
+    <section class="gallery" data-bg="light">
+      <div class="gallery-in">
+        <h2 class="gallery-title reveal">En amphi comme en coulisses,<br /><span>la communauté est là.</span></h2>
+        <div class="gallery-grid">
+          <figure class="gphoto" data-parallax="0.1">
+            <img src="assets/img/audience.jpg" alt="Amphithéâtre comble lors d'une conférence de l'association" loading="lazy" />
+          </figure>
+          <figure class="gphoto gphoto--mid" data-parallax="-0.06">
+            <img src="assets/img/statement-mains.jpg" alt="Étudiants levant la main pour poser une question en conférence" loading="lazy" />
+          </figure>
+          <figure class="gphoto" data-parallax="0.13">
+            <img src="assets/img/hero-amphi.jpg" alt="Vue large de l'amphithéâtre pendant un événement SSB" loading="lazy" />
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================== NOS RÉSEAUX ====================== -->
+    <section class="social" data-bg="light">
+      <div class="social-in">
+        <div class="social-photo reveal">
+          <img src="assets/img/groupe-kahn.jpg" alt="Membres de l'association réunis après une conférence" loading="lazy" />
+        </div>
+        <div class="social-copy reveal" style="--i:1">
+          <h2 class="social-title">Suivre l'association au jour le jour.</h2>
+          <p class="social-p">Annonces des prochaines conférences, coulisses des événements, offres de stages et d'alternances : tout passe d'abord par nos réseaux.</p>
+          <div class="social-links">
+            <a href="https://instagram.com" class="social-link">
+              <svg viewBox="0 0 24 24" width="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.3"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+              <span><small>Suivez-nous sur</small>Instagram</span>
+            </a>
+            <a href="https://linkedin.com" class="social-link">
+              <svg viewBox="0 0 24 24" width="19" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="2.5" width="19" height="19" rx="3"/><line x1="7.3" y1="10" x2="7.3" y2="17"/><circle cx="7.3" cy="6.8" r="0.15" fill="currentColor" stroke="currentColor" stroke-width="2"/><path d="M11.3 17v-4.2c0-1.6 1-2.8 2.6-2.8 1.5 0 2.3 1 2.3 2.8V17"/><line x1="11.3" y1="10" x2="11.3" y2="17"/></svg>
+              <span><small>Suivez-nous sur</small>LinkedIn</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== NOUS REJOINDRE (FAQ) ================== -->
+    <section class="join" id="rejoindre" data-bg="light">
+      <div class="join-head">
+        <div class="join-photo reveal">
+          <img src="assets/img/audience.jpg" alt="Étudiants installés dans l'amphithéâtre avant le début d'une conférence" loading="lazy" />
+        </div>
+        <h2 class="join-title reveal" style="--i:1">Nous rejoindre, à chaque étape de votre parcours</h2>
+      </div>
+      <div class="accordion" data-accordion>
+        <div class="acc-item is-open">
+          <button type="button" class="acc-head"><span class="acc-plus" aria-hidden="true"></span>Étudiant à la Sorbonne</button>
+          <div class="acc-body"><div><div class="acc-inner">
+            <div class="acc-col"><h4>Licence &amp; master</h4><p>Rejoignez la communauté dès la première année, avec une adhésion à partir de 2,99 € par mois et sans engagement.</p></div>
+            <div class="acc-col"><h4>Doctorat &amp; recherche</h4><p>Le même accès aux conférences et au réseau, avec en plus les passerelles vers la recherche en marketing du sport.</p></div>
+          </div></div></div>
+        </div>
+        <div class="acc-item">
+          <button type="button" class="acc-head"><span class="acc-plus" aria-hidden="true"></span>Étudiant hors Sorbonne</button>
+          <div class="acc-body"><div><div class="acc-inner">
+            <div class="acc-col"><h4>Autres universités</h4><p>L'association est ouverte à toutes les filières et à tous les établissements, pas seulement à Paris 1.</p></div>
+            <div class="acc-col"><h4>Écoles de commerce &amp; de sport</h4><p>Un complément concret à votre formation, avec un accès direct aux professionnels du secteur.</p></div>
+          </div></div></div>
+        </div>
+        <div class="acc-item">
+          <button type="button" class="acc-head"><span class="acc-plus" aria-hidden="true"></span>Professionnel &amp; entreprise</button>
+          <div class="acc-body"><div><div class="acc-inner">
+            <div class="acc-col"><h4>Intervenir à une conférence</h4><p>Partagez votre expertise devant une audience étudiante préparée, curieuse et engagée.</p></div>
+            <div class="acc-col"><h4>Devenir partenaire</h4><p>Associez votre marque à la prochaine génération de décideurs du sport business.</p></div>
+          </div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================== CTA FINAL ======================== -->
+    <section class="final" data-bg="navy">
+      <div class="final-media" aria-hidden="true">
+        <img src="assets/img/hero-amphi.jpg" alt="" loading="lazy" />
+      </div>
+      <div class="final-in">
+        <h2 class="final-title reveal">Le sport business commence ici.</h2>
+        <p class="final-sub reveal" style="--i:1">Rejoignez l'association, ou échangeons directement sur ce que vous cherchez.</p>
+        <div class="final-actions reveal" style="--i:2">
+          <a href="devenir-adherent.html" class="pill solid lg">Devenir adhérent</a>
+          <a href="book-a-call.html" class="pill ghost lg">Book a call</a>
+        </div>
+      </div>
+    </section>
 
   </main>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__top">
-        <a href="index.html" class="logo"><span class="logo-crest"><img src="assets/img/logo-ssb-emblem.png" alt="" width="200" height="150" /></span> Sorbonne <span class="logo-sub">Sport Business</span></a>
-      </div>
-      <div class="footer__bottom">
-        <span>&copy; <span data-year>2026</span> Sorbonne Sport Business, Association étudiante, Paris 1 Panthéon-Sorbonne.</span>
-        <div class="footer__socials">
-          <a href="https://instagram.com" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.3"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
-          <a href="https://linkedin.com" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="3"/><line x1="7.3" y1="10" x2="7.3" y2="17"/><circle cx="7.3" cy="6.8" r="0.15" fill="currentColor" stroke="currentColor" stroke-width="2"/><path d="M11.3 17v-4.2c0-1.6 1-2.8 2.6-2.8 1.5 0 2.3 1 2.3 2.8V17"/><line x1="11.3" y1="10" x2="11.3" y2="17"/></svg></a>
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="ft" data-bg="light">
+    <div class="ft-in">
+      <div class="ft-brand">
+        <span class="logo">Sorbonne Sport Business</span>
+        <p>La communauté qui forme la prochaine génération du sport business, à la Sorbonne.</p>
+        <div class="ft-socials">
+          <a href="https://instagram.com" aria-label="Instagram"><svg viewBox="0 0 24 24" width="17" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.3"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://linkedin.com" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="17" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="2.5" width="19" height="19" rx="3"/><line x1="7.3" y1="10" x2="7.3" y2="17"/><circle cx="7.3" cy="6.8" r="0.15" fill="currentColor" stroke="currentColor" stroke-width="2"/><path d="M11.3 17v-4.2c0-1.6 1-2.8 2.6-2.8 1.5 0 2.3 1 2.3 2.8V17"/><line x1="11.3" y1="10" x2="11.3" y2="17"/></svg></a>
         </div>
-        <div class="footer__legal"><a href="confidentialite.html">Confidentialité</a><a href="mentions-legales.html">Mentions légales</a></div>
+      </div>
+      <div class="ft-cols">
+        <div class="ft-col"><p class="ft-h">Association</p><a href="qui-sommes-nous.html">Qui sommes-nous</a><a href="evenements.html">Nos événements</a><a href="nos-intervenants.html">Nos intervenants</a><a href="devenir-partenaire.html">Devenir partenaire</a></div>
+        <div class="ft-col"><p class="ft-h">Rejoindre</p><a href="devenir-adherent.html">Devenir adhérent</a><a href="book-a-call.html">Book a call</a><a href="connexion.html">Se connecter</a></div>
+        <div class="ft-col"><p class="ft-h">Ressources</p><a href="confidentialite.html">Confidentialité</a><a href="mentions-legales.html">Mentions légales</a></div>
+      </div>
+    </div>
+    <div class="ft-base">
+      <span class="ft-big" aria-hidden="true">SSB</span>
+      <div class="ft-legal">
+        <span>© <span data-year>2026</span> Sorbonne Sport Business, association étudiante, Paris 1 Panthéon-Sorbonne.</span>
+        <span class="ft-links"><a href="confidentialite.html">Confidentialité</a><a href="mentions-legales.html">Mentions légales</a></span>
       </div>
     </div>
   </footer>
 
-  <script src="assets/js/vendor/lenis.min.js"></script>
-  <script src="assets/js/main.js?v=14"></script>
+  <script src="assets/qui-sommes-nous/js/vendor/lenis.min.js"></script>
+  <script src="assets/qui-sommes-nous/js/main.js?v=2"></script>
+  <script>
+    document.querySelectorAll("[data-year]").forEach(function (el) {
+      el.textContent = new Date().getFullYear();
+    });
+  </script>
 </body>
 </html>
