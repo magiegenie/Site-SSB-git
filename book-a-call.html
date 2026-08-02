@@ -5,127 +5,119 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
   <title>Book a call : associez votre marque au sport de demain | Sorbonne Sport Business</title>
-  <meta name="description" content="15 minutes pour construire un partenariat concret avec Sorbonne Sport Business. Visibilité auprès de 1 200+ étudiants, activation sur nos conférences, accès à vos futurs talents. Réponse sous 24 h." />
+  <meta name="description" content="15 minutes pour construire un partenariat concret avec Sorbonne Sport Business. Visibilité auprès de 1 200+ étudiants, activation sur nos conférences, accès à vos futurs talents. Réponse sous 48 h." />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Book a call | Sorbonne Sport Business" />
   <meta property="og:description" content="15 minutes pour construire un partenariat concret avec l'association sport business de Paris 1 Panthéon-Sorbonne." />
   <meta property="og:locale" content="fr_FR" />
-  <meta name="theme-color" content="#ffffff" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23062750'/%3E%3Ctext x='50' y='71' font-family='Arial,sans-serif' font-size='52' font-weight='800' fill='white' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <meta name="theme-color" content="#062750" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230c0c0c'/%3E%3Ctext x='50' y='71' font-family='Arial,sans-serif' font-size='52' font-weight='800' fill='white' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/main.css?v=28" />
-  <link rel="stylesheet" href="assets/css/book-a-call.css?v=10" />
+  <link rel="stylesheet" href="assets/book-a-call/css/style.css?v=1" />
+
+  <!-- Motion est servi en local (pas de CDN) et chargé avant le premier rendu :
+       l'état de départ des animations n'est posé que s'il a réellement chargé. -->
+  <script src="assets/vendor/motion.js"></script>
+  <script>
+    if (window.Motion && typeof window.Motion.animate === "function") {
+      document.documentElement.classList.add("motion-ready");
+    }
+  </script>
 </head>
-<body>
+<body data-theme="light" data-navtheme="light">
 
   <a href="#reserver" class="skip-link">Aller au formulaire</a>
 
-  <header class="header header--light">
-    <div class="header__inner">
-      <a href="index.html" class="logo"><span class="logo-crest"><img src="assets/img/logo-ssb-emblem.png" alt="" width="200" height="150" /></span> Sorbonne <span class="logo-sub">Sport Business</span></a>
-      <nav class="nav" id="site-nav" aria-label="Navigation principale">
-        <div class="nav__item"><a href="devenir-adherent.html" class="nav__link">Devenir adhérent</a></div>
-        <div class="nav__item"><a href="evenements.html" class="nav__link">Nos événements</a></div>
-        <div class="nav__item"><a href="nos-intervenants.html" class="nav__link">Nos intervenants</a></div>
-        <div class="nav__item"><a href="qui-sommes-nous.html" class="nav__link">Qui sommes-nous</a></div>
-        <div class="nav__item"><a href="devenir-partenaire.html" class="nav__link">Partenaires</a></div>
-        <div class="nav__item nav__item--cta"><a href="book-a-call.html" class="nav__link nav__link--cta">Book a call</a></div>
-        <div class="nav__item nav__account" data-account>
-          <button type="button" class="account-trigger" aria-haspopup="true" aria-expanded="false" aria-label="Se connecter ou s'inscrire">
-            <span class="account-trigger__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg></span>
-            <span class="account-trigger__avatar" aria-hidden="true">M</span>
-          </button>
-          <div class="account-menu" role="menu" aria-label="Espace compte">
-            <div class="account-menu__head"><span class="account-menu__eyebrow">Espace membre</span><span class="account-menu__title" data-account-title>Bienvenue</span></div>
-            <div class="account-menu__group account-menu__guest">
-              <a href="connexion.html" class="account-menu__link" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><path d="M10 17l5-5-5-5"/><path d="M15 12H3"/></svg>Se connecter</a>
-              <a href="connexion.html?mode=signup" class="account-menu__link account-menu__link--primary" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>Créer un compte</a>
-            </div>
-            <div class="account-menu__group account-menu__auth">
-              <a href="#" class="account-menu__link" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Mon profil</a>
-              <a href="#" class="account-menu__link" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16a1 1 0 0 1 1 1v3a2 2 0 0 0 0 4v3a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-3a2 2 0 0 0 0-4V6a1 1 0 0 1 1-1Z"/><path d="M13 5v14"/></svg>Mes billets</a>
-              <a href="#" class="account-menu__link" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z"/></svg>Paramètres</a>
-              <div class="account-menu__sep"></div>
-              <button type="button" class="account-menu__link account-menu__link--danger" role="menuitem" data-account-logout><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg>Déconnexion</button>
-            </div>
-          </div>
-        </div>
-      </nav>
-      <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
+  <!-- ============================ HEADER ============================ -->
+  <header class="hdr" id="hdr">
+    <div class="hdr-in">
+      <a class="logo" href="index.html" aria-label="Sorbonne Sport Business, accueil">SSB</a>
+      <div class="hdr-right">
+        <a href="connexion.html" class="pill ghost">Se connecter</a>
+        <a href="book-a-call.html" class="pill solid">Book a call</a>
+      </div>
     </div>
   </header>
 
-  <main id="main" class="bc-page">
+  <!-- Nav flottante : navigation réelle du site -->
+  <nav class="floatnav" aria-label="Navigation principale">
+    <a href="index.html" class="fn-home" aria-label="Accueil"><svg viewBox="0 0 24 24" width="18" aria-hidden="true"><path d="M4 11l8-7 8 7M6 10v9h5v-6h2v6h5v-9" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></a>
+    <a href="devenir-adherent.html" class="fn-item">Adhérer</a>
+    <a href="evenements.html" class="fn-item">Événements</a>
+    <a href="nos-intervenants.html" class="fn-item">Intervenants</a>
+    <a href="qui-sommes-nous.html" class="fn-item">Qui sommes-nous</a>
+    <a href="devenir-partenaire.html" class="fn-item">Partenaires</a>
+  </nav>
 
-    <!-- ================= S1 · HERO (formulaire nu + photo) ================= -->
-    <section class="bc-hero">
-      <div class="container bc-hero__grid">
+  <main id="main">
 
-        <div class="bc-formcol" id="reserver">
-          <h1 class="bc-title">Book a call</h1>
-          <p class="bc-sub">15 minutes pour construire un partenariat concret avec le bureau.</p>
+    <!-- ============================ HERO (formulaire + photo) ============================ -->
+    <section class="bc-hero" data-bg="light">
+      <div class="bc-hero-in">
+        <div class="bc-form-col" id="reserver">
+          <p class="bc-kicker reveal">Book a call</p>
+          <h1 class="bc-title reveal" style="--i:1">15 minutes pour construire un partenariat concret.</h1>
+          <p class="bc-sub reveal" style="--i:2">Avec le bureau, sans détour.</p>
 
-          <form class="form bc-form" data-form data-bookcall novalidate aria-label="Formulaire de réservation d'appel">
+          <form class="bc-form reveal" style="--i:3" data-form data-bookcall novalidate aria-label="Formulaire de réservation d'appel">
             <div class="field">
-              <label class="field__label" for="f-type">Vous êtes <span class="req" aria-hidden="true">*</span></label>
-              <select class="field__input" id="f-type" name="type" required>
+              <label class="field-label" for="f-type">Vous êtes <span class="req" aria-hidden="true">*</span></label>
+              <select class="field-input" id="f-type" name="type" required>
                 <option value="partenaire">Partenaire / sponsor</option>
                 <option value="speaker">Speaker / intervenant</option>
                 <option value="adherent">Adhérent / futur adhérent</option>
               </select>
             </div>
 
-            <div class="form__row">
+            <div class="field-row">
               <div class="field">
-                <label class="field__label" for="f-prenom">Prénom <span class="req" aria-hidden="true">*</span></label>
-                <input class="field__input" id="f-prenom" name="prenom" type="text" placeholder="Prénom" required autocomplete="given-name" />
-                <span class="field__error">Indiquez votre prénom.</span>
+                <label class="field-label" for="f-prenom">Prénom <span class="req" aria-hidden="true">*</span></label>
+                <input class="field-input" id="f-prenom" name="prenom" type="text" placeholder="Prénom" required autocomplete="given-name" />
+                <span class="field-error">Indiquez votre prénom.</span>
               </div>
               <div class="field">
-                <label class="field__label" for="f-nom">Nom <span class="req" aria-hidden="true">*</span></label>
-                <input class="field__input" id="f-nom" name="nom" type="text" placeholder="Nom" required autocomplete="family-name" />
-                <span class="field__error">Indiquez votre nom.</span>
+                <label class="field-label" for="f-nom">Nom <span class="req" aria-hidden="true">*</span></label>
+                <input class="field-input" id="f-nom" name="nom" type="text" placeholder="Nom" required autocomplete="family-name" />
+                <span class="field-error">Indiquez votre nom.</span>
               </div>
             </div>
 
             <div class="field">
-              <label class="field__label" for="f-email">Email <span class="req" aria-hidden="true">*</span></label>
-              <input class="field__input" id="f-email" name="email" type="email" data-field="email" required autocomplete="email" placeholder="vous@entreprise.com" />
-              <span class="field__error">Entrez une adresse email valide.</span>
+              <label class="field-label" for="f-email">Email <span class="req" aria-hidden="true">*</span></label>
+              <input class="field-input" id="f-email" name="email" type="email" data-field="email" required autocomplete="email" placeholder="vous@entreprise.com" />
+              <span class="field-error">Entrez une adresse email valide.</span>
             </div>
 
             <div class="field">
-              <label class="field__label" for="f-tel">Téléphone <span class="field__opt">(facultatif)</span></label>
-              <input class="field__input" id="f-tel" name="telephone" type="tel" autocomplete="tel" placeholder="06 00 00 00 00" />
+              <label class="field-label" for="f-tel">Téléphone <span class="field-opt">(facultatif)</span></label>
+              <input class="field-input" id="f-tel" name="telephone" type="tel" autocomplete="tel" placeholder="06 00 00 00 00" />
             </div>
 
             <!-- Branche PARTENAIRE -->
-            <div class="form__branch is-active" data-branch="partenaire">
+            <div class="form-branch is-active" data-branch="partenaire">
               <div class="field">
-                <label class="field__label" for="f-entreprise">Entreprise / organisation <span class="req" aria-hidden="true">*</span></label>
-                <input class="field__input" id="f-entreprise" name="entreprise" type="text" required autocomplete="organization" placeholder="Nom de votre structure" />
-                <span class="field__error">Indiquez votre organisation.</span>
+                <label class="field-label" for="f-entreprise">Entreprise / organisation <span class="req" aria-hidden="true">*</span></label>
+                <input class="field-input" id="f-entreprise" name="entreprise" type="text" required autocomplete="organization" placeholder="Nom de votre structure" />
+                <span class="field-error">Indiquez votre organisation.</span>
               </div>
             </div>
 
             <!-- Branche SPEAKER -->
-            <div class="form__branch" data-branch="speaker">
+            <div class="form-branch" data-branch="speaker">
               <div class="field">
-                <label class="field__label" for="f-structure">Structure / club actuel <span class="field__opt">(facultatif)</span></label>
-                <input class="field__input" id="f-structure" name="structure" type="text" autocomplete="organization" placeholder="Votre structure actuelle" disabled />
+                <label class="field-label" for="f-structure">Structure / club actuel <span class="field-opt">(facultatif)</span></label>
+                <input class="field-input" id="f-structure" name="structure" type="text" autocomplete="organization" placeholder="Votre structure actuelle" disabled />
               </div>
             </div>
 
-            <!-- Branche COMMUNAUTÉ (adhérent) : pas de champ dédié, message commun -->
-            <div class="form__branch" data-branch="adherent"></div>
+            <!-- Branche COMMUNAUTÉ (adhérent) : pas de champ dédié -->
+            <div class="form-branch" data-branch="adherent"></div>
 
             <div class="field">
-              <label class="field__label" for="f-message">Message <span class="req" aria-hidden="true">*</span></label>
-              <textarea class="field__textarea" id="f-message" name="message" data-msg required placeholder="Dites-nous en quelques mots ce que vous avez en tête."></textarea>
-              <span class="field__error">Ajoutez un message.</span>
+              <label class="field-label" for="f-message">Message <span class="req" aria-hidden="true">*</span></label>
+              <textarea class="field-textarea" id="f-message" name="message" data-msg required placeholder="Dites-nous en quelques mots ce que vous avez en tête."></textarea>
+              <span class="field-error">Ajoutez un message.</span>
             </div>
 
             <label class="bc-consent">
@@ -133,79 +125,93 @@
               <span>J'accepte que mes informations soient utilisées pour me recontacter. <a href="confidentialite.html">Politique de confidentialité.</a></span>
             </label>
 
-            <button type="submit" class="bc-submit" data-form-cta>Envoyer ma demande</button>
+            <button type="submit" class="pill solid lg bc-submit" data-form-cta>Envoyer ma demande</button>
             <p class="bc-micro" data-form-micro>Réponse sous 48 h ouvrées. Aucune donnée partagée.</p>
 
-            <div class="form__feedback" aria-live="polite"></div>
+            <div class="form-feedback" aria-live="polite"></div>
           </form>
         </div>
 
-        <div class="bc-photocol">
+        <div class="bc-photo-col reveal" style="--i:1">
           <img src="assets/img/panel.jpg" alt="Table ronde d'intervenants lors d'une conférence Sorbonne Sport Business" fetchpriority="high" />
         </div>
-
       </div>
     </section>
 
-    <!-- ================= S2 · L'ASSOCIATION (éditorial, photo réelle) ================= -->
-    <section class="bc-story" style="position:relative;"><span class="mood-accent" aria-hidden="true" style="--ma-c:#5a93d4; --ma-s:250px; --ma-o:.2; top:6%; right:-3%;"></span>
-      <div class="container bc-story__grid">
-        <figure class="bc-story__media anim-up">
+    <!-- ============================ L'ASSOCIATION ============================ -->
+    <section class="bc-story" data-bg="navy">
+      <div class="bc-story-in">
+        <div class="bc-story-media reveal">
           <img src="assets/img/hero-amphi.jpg" alt="Amphithéâtre de la Sorbonne comble lors d'une conférence Sorbonne Sport Business" loading="lazy" />
-        </figure>
-        <div class="bc-story__body anim-up">
-          <p class="eyebrow">L'association</p>
-          <h2 class="bc-story__title">Le sport business se vit à la Sorbonne.</h2>
-          <p class="bc-story__lead">Chaque année, Sorbonne Sport Business réunit les professionnels du secteur et les étudiants qui le feront demain : des conférences en amphi comble, des intervenants venus des clubs, des fédérations et des grandes marques, et une communauté de 1 200 étudiants passionnés.</p>
-          <p class="bc-story__lead">Vous associer à nous, c'est prendre la parole devant cette génération, activer votre marque sur nos événements et rencontrer vos futurs talents avant tout le monde.</p>
-          <p class="bc-story__foot">Partenaire, intervenant ou futur adhérent : tout commence par le même appel de 15 minutes.</p>
-          <a href="#reserver" class="bc-way__cta" data-profile="partenaire">Réserver mon appel</a>
+        </div>
+        <div class="bc-story-body reveal" style="--i:1">
+          <span class="prose-kicker">L'association</span>
+          <h2 class="bc-story-title">Le sport business se vit à la Sorbonne.</h2>
+          <p class="bc-story-lead">Chaque année, Sorbonne Sport Business réunit les professionnels du secteur et les étudiants qui le feront demain : des conférences en amphi comble, des intervenants venus des clubs, des fédérations et des grandes marques, et une communauté de 1 200 étudiants passionnés.</p>
+          <p class="bc-story-lead">Vous associer à nous, c'est prendre la parole devant cette génération, activer votre marque sur nos événements et rencontrer vos futurs talents avant tout le monde.</p>
+          <p class="bc-story-foot">Partenaire, intervenant ou futur adhérent : tout commence par le même appel de 15 minutes.</p>
+          <a href="#reserver" class="pill solid lg" data-profile="partenaire">Réserver mon appel</a>
         </div>
       </div>
     </section>
 
-    <!-- ================= CHIFFRES CLÉS (audience) ================= -->
-    <section class="section section--tight section--paper2">
-      <div class="container">
-        <h2 class="stats-title">L’audience que vous touchez</h2>
-        <div class="statgrid statgrid--4">
-          <div class="statcell"><span>Impressions Instagram</span><strong>+<span data-count="2">2</span> M</strong></div>
-          <div class="statcell"><span>Conférences organisées</span><strong><span data-count="17">17</span></strong></div>
-          <div class="statcell"><span>Intervenants pros</span><strong>+<span data-count="30">30</span></strong></div>
-          <div class="statcell"><span>Places par conférence, en moyenne</span><strong><span data-count="250">250</span></strong></div>
+    <!-- ============================ CHIFFRES CLÉS ============================ -->
+    <section class="bc-stats" data-bg="light">
+      <div class="bc-stats-in">
+        <h2 class="bc-stats-title reveal">L'audience que vous touchez.</h2>
+        <div class="bc-stats-grid">
+          <div class="bc-stat reveal" style="--i:1"><strong>+<span data-count="2">0</span> M</strong><span>Impressions Instagram</span></div>
+          <div class="bc-stat reveal" style="--i:2"><strong><span data-count="17">0</span></strong><span>Conférences organisées</span></div>
+          <div class="bc-stat reveal" style="--i:3"><strong>+<span data-count="30">0</span></strong><span>Intervenants pros</span></div>
+          <div class="bc-stat reveal" style="--i:4"><strong><span data-count="250">0</span></strong><span>Places par conférence, en moyenne</span></div>
         </div>
       </div>
     </section>
 
-    <!-- ================= S3 · CTA (prochaine conférence) ================= -->
-    <section class="bc-cta">
-      <div class="container bc-cta__inner anim-up">
-        <p class="eyebrow">La prochaine conférence</p>
-        <h2 class="bc-cta__title">Elle peut être votre prochaine audience.</h2>
-        <p class="bc-cta__sub">Selon la salle, chaque conférence réunit de 150 à 500 étudiants du sport business. Réservez 15 minutes pour y associer votre marque, avant que la date ne se remplisse.</p>
-        <a href="#reserver" class="bc-way__cta" data-profile="partenaire">Réserver mon appel</a>
+    <!-- ============================ CTA PROCHAINE CONFÉRENCE ============================ -->
+    <section class="final" data-bg="navy">
+      <div class="final-in">
+        <span class="prose-kicker prose-kicker--dark reveal">La prochaine conférence</span>
+        <h2 class="final-title reveal" style="--i:1">Elle peut être votre prochaine audience.</h2>
+        <p class="final-sub reveal" style="--i:2">Selon la salle, chaque conférence réunit de 150 à 500 étudiants du sport business. Réservez 15 minutes pour y associer votre marque, avant que la date ne se remplisse.</p>
+        <a href="#reserver" class="pill solid lg reveal" style="--i:3" data-profile="partenaire">Réserver mon appel</a>
       </div>
     </section>
 
   </main>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__top">
-        <a href="index.html" class="logo"><span class="logo-crest"><img src="assets/img/logo-ssb-emblem.png" alt="" width="200" height="150" /></span> Sorbonne <span class="logo-sub">Sport Business</span></a>
-      </div>
-      <div class="footer__bottom">
-        <span>&copy; <span data-year>2026</span> Sorbonne Sport Business, Association étudiante, Paris 1 Panthéon-Sorbonne.</span>
-        <div class="footer__socials">
-          <a href="https://instagram.com" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.3"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
-          <a href="https://linkedin.com" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="3"/><line x1="7.3" y1="10" x2="7.3" y2="17"/><circle cx="7.3" cy="6.8" r="0.15" fill="currentColor" stroke="currentColor" stroke-width="2"/><path d="M11.3 17v-4.2c0-1.6 1-2.8 2.6-2.8 1.5 0 2.3 1 2.3 2.8V17"/><line x1="11.3" y1="10" x2="11.3" y2="17"/></svg></a>
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="ft" data-bg="light">
+    <div class="ft-in">
+      <div class="ft-brand">
+        <span class="logo">Sorbonne Sport Business</span>
+        <p>La communauté qui forme la prochaine génération du sport business, à la Sorbonne.</p>
+        <div class="ft-socials">
+          <a href="https://instagram.com" aria-label="Instagram"><svg viewBox="0 0 24 24" width="17" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.3"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://linkedin.com" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="17" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="2.5" width="19" height="19" rx="3"/><line x1="7.3" y1="10" x2="7.3" y2="17"/><circle cx="7.3" cy="6.8" r="0.15" fill="currentColor" stroke="currentColor" stroke-width="2"/><path d="M11.3 17v-4.2c0-1.6 1-2.8 2.6-2.8 1.5 0 2.3 1 2.3 2.8V17"/><line x1="11.3" y1="10" x2="11.3" y2="17"/></svg></a>
         </div>
-        <div class="footer__legal"><a href="confidentialite.html">Confidentialité</a><a href="mentions-legales.html">Mentions légales</a></div>
+      </div>
+      <div class="ft-cols">
+        <div class="ft-col"><p class="ft-h">Association</p><a href="qui-sommes-nous.html">Qui sommes-nous</a><a href="evenements.html">Nos événements</a><a href="nos-intervenants.html">Nos intervenants</a><a href="devenir-partenaire.html">Devenir partenaire</a></div>
+        <div class="ft-col"><p class="ft-h">Rejoindre</p><a href="devenir-adherent.html">Devenir adhérent</a><a href="book-a-call.html">Book a call</a><a href="connexion.html">Se connecter</a></div>
+        <div class="ft-col"><p class="ft-h">Ressources</p><a href="confidentialite.html">Confidentialité</a><a href="mentions-legales.html">Mentions légales</a></div>
+      </div>
+    </div>
+    <div class="ft-base">
+      <span class="ft-big" aria-hidden="true">SSB</span>
+      <div class="ft-legal">
+        <span>© <span data-year>2026</span> Sorbonne Sport Business, association étudiante, Paris 1 Panthéon-Sorbonne.</span>
+        <span class="ft-links"><a href="confidentialite.html">Confidentialité</a><a href="mentions-legales.html">Mentions légales</a></span>
       </div>
     </div>
   </footer>
 
-  <script src="assets/js/vendor/lenis.min.js"></script>
-  <script src="assets/js/main.js?v=14"></script>
+  <script src="assets/vendor/lenis.min.js"></script>
+  <script src="assets/book-a-call/js/main.js?v=1"></script>
+  <script>
+    document.querySelectorAll("[data-year]").forEach(function (el) {
+      el.textContent = new Date().getFullYear();
+    });
+  </script>
 </body>
 </html>
