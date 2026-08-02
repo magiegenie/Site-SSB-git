@@ -1,0 +1,156 @@
+/* Hallmark · macrostructure: Split-Screen Auth (variant du systeme SSB)
+ * Hallmark · pre-emit critique: P5 H4 E5 S5 R5 V4
+ * Page "Connexion / Creer un compte" — Sorbonne Sport Business.
+ * Pas de header/floatnav : page hors navigation principale, comme
+ * l'original. Memes tokens/boutons que le reste du site. Colonne
+ * visuelle avec citation en machine a ecrire, conservee de l'original
+ * (signature deja pertinente pour ce type de page, pas de raison de la
+ * remplacer). Formulaire 100% fonctionnel (comptes demo en
+ * localStorage), identique au comportement precedent.
+ * ========================================================================= */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy-950: #02101f;
+  --navy-900: #041a35;
+  --navy-800: #062750;
+  --navy-700: #0a2f5c;
+
+  --paper: #ffffff;
+  --paper-2: #f6f5f2;
+
+  --ink: #041a35;
+  --ink-muted: #5b6472;
+  --on-navy-soft: #c5dbf2;
+
+  --gold: #ffb607;
+  --gold-soft: #ffcf5c;
+  --gold-ink: #041a35;
+
+  --line-ink: rgba(4, 26, 53, 0.12);
+  --danger: #c0392b;
+
+  --font: "General Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --dur-fast: 140ms;
+  --dur-mid: 260ms;
+}
+
+html { -webkit-text-size-adjust: 100%; overflow-x: clip; }
+body {
+  font-family: var(--font); background: var(--paper); color: var(--ink);
+  line-height: 1.45; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+}
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+h1 { font-weight: 500; line-height: 1.05; letter-spacing: -0.03em; }
+
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
+
+.skip-link {
+  position: fixed; top: 0; left: 50%; transform: translate(-50%, -120%);
+  z-index: 200; background: var(--navy-900); color: #fff;
+  padding: 0.8rem 1.3rem; border-radius: 0 0 12px 12px; font-weight: 600;
+  transition: transform var(--dur-mid) var(--ease-out-quart);
+}
+.skip-link:focus { transform: translate(-50%, 0); }
+
+/* ------------------------------ PILLS / BTN ------------------------------ */
+.pill {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.45rem;
+  min-height: 44px; padding: 0 20px; border-radius: 100px;
+  font-size: 0.98rem; font-weight: 600; letter-spacing: -0.01em; white-space: nowrap;
+  transition: transform var(--dur-fast) var(--ease-out-quart), background var(--dur-mid) var(--ease-out-quart), box-shadow var(--dur-mid) var(--ease-out-quart);
+}
+.pill:hover { transform: translateY(-2px); }
+.pill.ghost { box-shadow: inset 0 0 0 1.5px var(--line-ink); }
+.pill.solid { background: var(--gold); color: var(--gold-ink); border-radius: 12px; }
+.pill.solid:hover { background: var(--gold-soft); box-shadow: 0 12px 26px -14px rgba(255, 182, 7, 0.7); }
+.pill.lg { min-height: 52px; padding: 0 26px; font-size: 1.02rem; width: 100%; }
+
+/* =============================== SPLIT LAYOUT ============================== */
+.auth-split { min-height: 100svh; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); }
+.auth-panel { display: flex; align-items: center; padding: clamp(2rem, 5vw, 4rem); }
+.auth-panel-in { width: 100%; max-width: 26rem; margin: 0 auto; }
+.auth-logo { display: inline-block; font-weight: 700; font-size: 1.35rem; letter-spacing: -0.035em; color: var(--ink); margin-bottom: clamp(2rem, 6vw, 3.5rem); }
+.auth-head { margin-bottom: var(--space-lg, 1.6rem); }
+.auth-head h1 { font-size: clamp(1.7rem, 3vw, 2.1rem); margin-bottom: 0.4rem; }
+.auth-head p { color: var(--ink-muted); font-size: 1rem; }
+
+.auth-form { display: flex; flex-direction: column; gap: 1.1rem; }
+.auth-form[hidden] { display: none; }
+.field { display: flex; flex-direction: column; gap: 0.4rem; }
+.field-label { font-size: 0.9rem; font-weight: 600; color: var(--ink); }
+.req { color: var(--gold-ink); opacity: 0.7; }
+.field-input {
+  width: 100%; padding: 0.85rem 1rem; border-radius: 12px; font-size: 1rem; font-family: inherit;
+  background: var(--paper); color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--line-ink);
+  transition: box-shadow var(--dur-fast) var(--ease-out-quart);
+}
+.field-input:focus { box-shadow: inset 0 0 0 1.5px var(--navy-700); outline: none; }
+.field-input::placeholder { color: rgba(91, 100, 114, 0.55); }
+.field-error { display: none; font-size: 0.82rem; color: var(--danger); }
+.field.is-invalid .field-input { box-shadow: inset 0 0 0 1.5px var(--danger); }
+.field.is-invalid .field-error { display: block; }
+.field-password-wrap { position: relative; }
+.field-password-wrap .field-input { padding-right: 2.8rem; }
+.field-toggle {
+  position: absolute; right: 0.7rem; top: 50%; transform: translateY(-50%);
+  width: 32px; height: 32px; display: grid; place-items: center; border-radius: 8px; color: var(--ink-muted);
+}
+.field-toggle:hover { background: var(--paper-2); color: var(--ink); }
+.auth-error {
+  display: none; font-size: 0.88rem; color: var(--danger); background: rgba(192, 57, 43, 0.08);
+  padding: 0.7rem 0.9rem; border-radius: 10px;
+}
+.auth-error.is-shown { display: block; }
+.auth-feedback {
+  display: none; font-size: 0.88rem; color: #1c6b4c; background: rgba(37, 130, 90, 0.1);
+  padding: 0.7rem 0.9rem; border-radius: 10px;
+}
+.auth-feedback.is-shown { display: block; }
+
+.auth-switch { margin-top: 1.4rem; font-size: 0.92rem; color: var(--ink-muted); text-align: center; }
+.auth-switch button { font-weight: 600; color: var(--ink); text-decoration: underline; }
+.auth-divider { display: flex; align-items: center; gap: 0.8rem; margin: 1.6rem 0; color: var(--ink-muted); font-size: 0.85rem; }
+.auth-divider::before, .auth-divider::after { content: ""; flex: 1; height: 1px; background: var(--line-ink); }
+.auth-google { display: flex; gap: 0.7rem; }
+.auth-back { display: block; text-align: center; margin-top: 1.6rem; color: var(--ink-muted); font-size: 0.9rem; }
+.auth-back:hover { color: var(--ink); }
+
+/* ============================== COLONNE VISUELLE =========================== */
+.auth-visual { position: relative; overflow: hidden; background: var(--navy-900); }
+.auth-visual-media {
+  position: absolute; inset: 0; background-size: cover; background-position: center;
+  transition: background-image 500ms var(--ease-out-quart);
+}
+.auth-visual-media::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(190deg, rgba(2, 16, 31, 0.25) 0%, rgba(4, 26, 53, 0.55) 60%, var(--navy-900) 100%);
+}
+.auth-quote {
+  position: absolute; left: clamp(1.5rem, 4vw, 3.5rem); right: clamp(1.5rem, 4vw, 3.5rem);
+  bottom: clamp(2rem, 5vw, 3.5rem); color: #fff;
+}
+.auth-quote p { font-size: clamp(1.3rem, 2.2vw, 1.8rem); font-weight: 500; letter-spacing: -0.02em; line-height: 1.3; }
+.auth-cursor { animation: blink 1s step-end infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.auth-quote cite { display: block; margin-top: 0.8rem; font-style: normal; font-size: 0.92rem; color: var(--on-navy-soft); }
+
+/* =============================== RESPONSIVE ============================== */
+@media (max-width: 900px) {
+  .auth-split { grid-template-columns: 1fr; }
+  .auth-visual { display: none; }
+  .auth-panel { padding: 2rem 1.4rem; min-height: 100svh; }
+}
+
+/* ============================= REDUCED MOTION ============================ */
+@media (prefers-reduced-motion: reduce) {
+  .auth-cursor { animation: none; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important; animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important; scroll-behavior: auto !important;
+  }
+}

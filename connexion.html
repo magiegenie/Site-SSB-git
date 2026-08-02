@@ -10,23 +10,28 @@
   <meta property="og:title" content="Connexion | Sorbonne Sport Business" />
   <meta property="og:description" content="Espace membre Sorbonne Sport Business : connexion ou création de compte." />
   <meta property="og:locale" content="fr_FR" />
-  <meta name="theme-color" content="#ffffff" />
+  <meta name="theme-color" content="#062750" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230c0c0c'/%3E%3Ctext x='50' y='71' font-family='Arial,sans-serif' font-size='52' font-weight='800' fill='white' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/main.css?v=28" />
+  <link rel="stylesheet" href="assets/connexion/css/style.css?v=1" />
+  <script src="assets/vendor/motion.js"></script>
+  <script>
+    if (window.Motion && typeof window.Motion.animate === "function") {
+      document.documentElement.classList.add("motion-ready");
+    }
+  </script>
 </head>
 <body>
 
   <a href="#main" class="skip-link">Aller au contenu</a>
 
   <main id="main" class="auth-split">
-    <!-- COLONNE FORMULAIRE -->
-    <div class="auth-panel"><span class="mood-accent" aria-hidden="true" style="--ma-c:#e0980f; --ma-s:260px; --ma-o:.22; top:2%; left:-8%;"></span><span class="mood-accent" aria-hidden="true" style="--ma-c:#5a93d4; --ma-s:210px; --ma-o:.2; bottom:6%; right:-4%;"></span>
-      <div class="auth-panel__inner" style="position:relative; z-index:1;">
-        <a href="index.html" class="auth-logo"><span class="logo-crest"><img src="assets/img/logo-ssb-emblem.png" alt="" width="200" height="150" /></span> Sorbonne <span class="logo-sub">Sport Business</span></a>
+
+    <!-- ============================ COLONNE FORMULAIRE ============================ -->
+    <div class="auth-panel">
+      <div class="auth-panel-in">
+        <a href="index.html" class="auth-logo">SSB</a>
 
         <!-- Connexion -->
         <form class="auth-form" data-auth-form="signin" novalidate aria-label="Formulaire de connexion">
@@ -36,23 +41,25 @@
           </div>
 
           <div class="field">
-            <label class="field__label" for="si-email">Email <span class="req" aria-hidden="true">*</span></label>
-            <input class="field__input" id="si-email" name="email" type="email" required autocomplete="email" placeholder="prenom@exemple.com" />
-            <span class="field__error">Entrez une adresse email valide.</span>
+            <label class="field-label" for="si-email">Email <span class="req" aria-hidden="true">*</span></label>
+            <input class="field-input" id="si-email" name="email" type="email" required autocomplete="email" placeholder="prenom@exemple.com" />
+            <span class="field-error">Entrez une adresse email valide.</span>
           </div>
 
-          <div class="field field--password">
-            <label class="field__label" for="si-password">Mot de passe <span class="req" aria-hidden="true">*</span></label>
-            <input class="field__input" id="si-password" name="password" type="password" required minlength="6" autocomplete="current-password" placeholder="••••••••" />
-            <button type="button" class="field__toggle-visibility" data-toggle-password aria-label="Afficher le mot de passe">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8Z"/><circle cx="12" cy="12" r="3"/></svg>
-            </button>
-            <span class="field__error">Le mot de passe doit faire au moins 6 caractères.</span>
+          <div class="field field-password">
+            <label class="field-label" for="si-password">Mot de passe <span class="req" aria-hidden="true">*</span></label>
+            <div class="field-password-wrap">
+              <input class="field-input" id="si-password" name="password" type="password" required minlength="6" autocomplete="current-password" placeholder="••••••••" />
+              <button type="button" class="field-toggle" data-toggle-password aria-label="Afficher le mot de passe">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8Z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+            <span class="field-error">Le mot de passe doit faire au moins 6 caractères.</span>
           </div>
 
           <p class="auth-error" data-auth-error></p>
-          <button type="submit" class="btn btn--gold">Se connecter</button>
-          <div class="auth-form__feedback" data-auth-feedback aria-live="polite"></div>
+          <button type="submit" class="pill solid lg">Se connecter</button>
+          <div class="auth-feedback" data-auth-feedback aria-live="polite"></div>
         </form>
 
         <!-- Création de compte -->
@@ -63,29 +70,31 @@
           </div>
 
           <div class="field">
-            <label class="field__label" for="su-name">Nom complet <span class="req" aria-hidden="true">*</span></label>
-            <input class="field__input" id="su-name" name="name" type="text" required autocomplete="name" placeholder="Prénom Nom" />
-            <span class="field__error">Indiquez votre nom complet.</span>
+            <label class="field-label" for="su-name">Nom complet <span class="req" aria-hidden="true">*</span></label>
+            <input class="field-input" id="su-name" name="name" type="text" required autocomplete="name" placeholder="Prénom Nom" />
+            <span class="field-error">Indiquez votre nom complet.</span>
           </div>
 
           <div class="field">
-            <label class="field__label" for="su-email">Email <span class="req" aria-hidden="true">*</span></label>
-            <input class="field__input" id="su-email" name="email" type="email" required autocomplete="email" placeholder="prenom@exemple.com" />
-            <span class="field__error">Entrez une adresse email valide.</span>
+            <label class="field-label" for="su-email">Email <span class="req" aria-hidden="true">*</span></label>
+            <input class="field-input" id="su-email" name="email" type="email" required autocomplete="email" placeholder="prenom@exemple.com" />
+            <span class="field-error">Entrez une adresse email valide.</span>
           </div>
 
-          <div class="field field--password">
-            <label class="field__label" for="su-password">Mot de passe <span class="req" aria-hidden="true">*</span></label>
-            <input class="field__input" id="su-password" name="password" type="password" required minlength="6" autocomplete="new-password" placeholder="••••••••" />
-            <button type="button" class="field__toggle-visibility" data-toggle-password aria-label="Afficher le mot de passe">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8Z"/><circle cx="12" cy="12" r="3"/></svg>
-            </button>
-            <span class="field__error">Le mot de passe doit faire au moins 6 caractères.</span>
+          <div class="field field-password">
+            <label class="field-label" for="su-password">Mot de passe <span class="req" aria-hidden="true">*</span></label>
+            <div class="field-password-wrap">
+              <input class="field-input" id="su-password" name="password" type="password" required minlength="6" autocomplete="new-password" placeholder="••••••••" />
+              <button type="button" class="field-toggle" data-toggle-password aria-label="Afficher le mot de passe">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8Z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+            <span class="field-error">Le mot de passe doit faire au moins 6 caractères.</span>
           </div>
 
           <p class="auth-error" data-auth-error></p>
-          <button type="submit" class="btn btn--gold">Créer mon compte</button>
-          <div class="auth-form__feedback" data-auth-feedback aria-live="polite"></div>
+          <button type="submit" class="pill solid lg">Créer mon compte</button>
+          <div class="auth-feedback" data-auth-feedback aria-live="polite"></div>
         </form>
 
         <!-- Bascule connexion / inscription -->
@@ -96,25 +105,26 @@
 
         <div class="auth-divider"><span>Ou continuer avec</span></div>
 
-        <button type="button" class="btn-google" data-google>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1Z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.65l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23Z"/><path fill="#FBBC05" d="M5.84 14.11a6.6 6.6 0 0 1 0-4.22V7.05H2.18a11 11 0 0 0 0 9.9l3.66-2.84Z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1A11 11 0 0 0 2.18 7.05l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38Z"/></svg>
+        <button type="button" class="pill ghost lg auth-google" data-google>
+          <svg viewBox="0 0 24 24" width="18" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1Z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.65l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23Z"/><path fill="#FBBC05" d="M5.84 14.11a6.6 6.6 0 0 1 0-4.22V7.05H2.18a11 11 0 0 0 0 9.9l3.66-2.84Z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1A11 11 0 0 0 2.18 7.05l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38Z"/></svg>
           Continuer avec Google
         </button>
 
-        <a href="index.html" class="auth-back">Retour au site</a>
+        <a href="index.html" class="auth-back">← Retour au site</a>
       </div>
     </div>
 
-    <!-- COLONNE VISUELLE -->
+    <!-- ============================ COLONNE VISUELLE ============================ -->
     <aside class="auth-visual" aria-hidden="true">
-      <div class="auth-visual__media" data-auth-media></div>
-      <blockquote class="auth-visual__quote">
-        <p>&laquo;&nbsp;<span data-typewriter></span><span class="typewriter-cursor">|</span>&nbsp;&raquo;</p>
+      <div class="auth-visual-media" data-auth-media></div>
+      <blockquote class="auth-quote">
+        <p>« <span data-typewriter></span><span class="auth-cursor">|</span> »</p>
         <cite data-quote-author>Sorbonne Sport Business</cite>
       </blockquote>
     </aside>
+
   </main>
 
-  <script src="assets/js/auth.js?v=2"></script>
+  <script src="assets/connexion/js/main.js?v=1"></script>
 </body>
 </html>
