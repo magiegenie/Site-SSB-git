@@ -1,9 +1,10 @@
 /* =========================================================================
    DEVENIR PARTENAIRE — motion design (Motion + Lenis)
-   Même chorégraphie que qui-sommes-nous.html : entrée hero en lignes,
-   halos qui dérivent, parallax discret, révélations décalées. S'y ajoute
-   un compte-up sur les statistiques (chiffres déjà présents sur le site,
-   aucune métrique inventée).
+   Chorégraphie propre à cette page, pensée pour un public partenaire
+   (décideurs) : preuve immédiate (hero photo + Ken Burns + rideau doré qui
+   se retire, compte-up), exploration active (onglets formats avec rail qui
+   glisse), sensation de réseau (bandeaux qui défilent en continu). Pas de
+   copie du hero en lignes / halos qui dérivent de qui-sommes-nous.
    ========================================================================= */
 (function () {
   "use strict";
@@ -12,16 +13,16 @@
   var M = window.Motion;
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  initTabs();
+
   if (!M || typeof M.animate !== "function") {
     root.classList.remove("motion-ready");
     initTheme();
     initAnchors(null);
     initCountUp(null);
+    initWipe(false);
     return;
   }
-
-  var EASE = [0.16, 1, 0.3, 1];
-  var tablet = window.matchMedia("(min-width: 769px)").matches;
 
   /* --------------------------- Smooth scroll --------------------------- */
   var lenis = null;
@@ -33,54 +34,32 @@
   initTheme();
   initAnchors(lenis);
   initCountUp(M);
+  initWipe(!reduced);
 
-  /* ====================== 1. ENTRÉE SIGNATURE (HERO) ==================== */
-  var heroLines = document.querySelectorAll(".hero-title .ln > span");
-  if (heroLines.length) {
-    if (reduced) {
-      heroLines.forEach(function (el) { el.style.transform = "none"; });
-    } else {
-      M.animate(heroLines,
-        { transform: ["translateY(105%)", "translateY(0%)"] },
-        { duration: 0.95, delay: M.stagger(0.09), ease: EASE }
-      );
+  /* ====================== 1. KEN BURNS SUR LA PHOTO HERO ================ */
+  if (!reduced) {
+    var media = document.querySelector("[data-kenburns] img");
+    if (media) {
+      M.animate(media, { transform: ["scale(1.08)", "scale(1)"] },
+        { duration: 9, ease: [0.16, 1, 0.3, 1] });
     }
   }
 
-  if (!reduced) {
-    var drifts = [
-      { sel: ".pod-1", x: [0, 34, 0], y: [0, -18, 0], d: 19 },
-      { sel: ".pod-2", x: [0, -26, 0], y: [0, 22, 0], d: 23 },
-      { sel: ".pod-3", x: [0, 22, 0], y: [0, 14, 0], d: 27 }
-    ];
-    drifts.forEach(function (p) {
-      var el = document.querySelector(p.sel);
-      if (!el) return;
-      M.animate(el, { x: p.x, y: p.y },
-        { duration: p.d, repeat: Infinity, ease: "easeInOut" });
-    });
-  }
-
-  /* ========================= 2. PARALLAX DISCRET ======================== */
-  if (tablet && !reduced) {
-    document.querySelectorAll("[data-parallax]").forEach(function (el) {
-      var s = parseFloat(el.dataset.parallax) || 0;
-      M.scroll(
-        M.animate(el, { transform: [
-          "translateY(" + (-s * 30).toFixed(1) + "%)",
-          "translateY(" + (s * 30).toFixed(1) + "%)"
-        ] }, { ease: "linear" }),
-        { target: el, offset: ["start end", "end start"] }
-      );
-    });
-  }
-
-  /* ===================== 3. RÉVÉLATIONS AU DÉFILEMENT =================== */
+  /* ===================== 2. RÉVÉLATIONS AU DÉFILEMENT =================== */
   M.inView(".reveal", function (entry) {
     entry.target.classList.add("in");
   }, { margin: "0px 0px -14% 0px" });
 
   /* ===================================================================== */
+  function initWipe(animated) {
+    var els = document.querySelectorAll("[data-wipe]");
+    if (!els.length) return;
+    if (!animated) { els.forEach(function (el) { el.classList.add("is-wiped"); }); return; }
+    els.forEach(function (el, i) {
+      setTimeout(function () { el.classList.add("is-wiped"); }, 220 + i * 200);
+    });
+  }
+
   function initTheme() {
     var body = document.body;
     var sections = Array.prototype.slice.call(document.querySelectorAll("[data-bg]"));
@@ -112,7 +91,6 @@
     apply();
   }
 
-  /* Ancres internes : défilement fluide via Lenis quand il est actif. */
   function initAnchors(lenisInstance) {
     document.querySelectorAll('a[href^="#"]').forEach(function (a) {
       a.addEventListener("click", function (e) {
@@ -128,9 +106,6 @@
     });
   }
 
-  /* Compte-up des statistiques : se déclenche une fois, à l'entrée dans
-     le viewport. Sans Motion (ou reduced-motion), la valeur finale
-     s'affiche directement. */
   function initCountUp(motion) {
     var els = document.querySelectorAll("[data-count]");
     if (!els.length) return;
@@ -146,5 +121,41 @@
         onUpdate: function (latest) { el.textContent = Math.round(latest); }
       });
     }, { margin: "0px 0px -20% 0px" });
+  }
+
+  /* Onglets « Ce qu'on propose » : clic bascule tab + media + rail. Pas
+     besoin de Motion, transitions CSS suffisent (peu d'états, peu coûteux). */
+  function initTabs() {
+    var wrap = document.querySelector("[data-tabs]");
+    if (!wrap) return;
+    var tabs = Array.prototype.slice.call(wrap.querySelectorAll(".formats-tab"));
+    var panels = Array.prototype.slice.call(wrap.querySelectorAll(".formats-media"));
+    var rail = wrap.querySelector("[data-rail]");
+
+    function placeRail(tab) {
+      if (!rail) return;
+      rail.style.transform = "translateY(" + tab.offsetTop + "px)";
+      rail.style.height = tab.offsetHeight + "px";
+    }
+
+    function activate(index) {
+      tabs.forEach(function (t, i) {
+        var on = i === index;
+        t.classList.toggle("is-active", on);
+        t.setAttribute("aria-selected", on ? "true" : "false");
+      });
+      panels.forEach(function (p, i) { p.classList.toggle("is-active", i === index); });
+      placeRail(tabs[index]);
+    }
+
+    tabs.forEach(function (tab, i) {
+      tab.addEventListener("click", function () { activate(i); });
+    });
+    window.addEventListener("resize", function () {
+      var active = tabs.findIndex(function (t) { return t.classList.contains("is-active"); });
+      placeRail(tabs[active < 0 ? 0 : active]);
+    }, { passive: true });
+
+    placeRail(tabs[0]);
   }
 })();

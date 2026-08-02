@@ -14,7 +14,7 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230c0c0c'/%3E%3Ctext x='50' y='71' font-family='Arial,sans-serif' font-size='52' font-weight='800' fill='white' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/devenir-partenaire/css/style.css?v=1" />
+  <link rel="stylesheet" href="assets/devenir-partenaire/css/style.css?v=2" />
 
   <!-- Motion est servi en local (pas de CDN) et chargé avant le premier rendu :
        l'état de départ des animations n'est posé que s'il a réellement chargé. -->
@@ -52,120 +52,142 @@
 
   <main id="main">
 
-    <!-- ============================ HERO ============================ -->
-    <section class="hero" data-bg="navy">
-      <div class="hero-stage" aria-hidden="true">
-        <div class="pod pod-1"></div>
-        <div class="pod pod-2"></div>
-        <div class="pod pod-3"></div>
+    <!-- ==================== HERO PHOTO + BANDEAU CHIFFRES =================== -->
+    <!-- Signature de cette page : preuve immédiate. Un partenaire qui arrive
+         ici doit voir l'audience réelle (photo) et sa taille (chiffres) avant
+         même de lire une ligne de texte marketing. -->
+    <section class="phero" data-bg="navy">
+      <div class="phero-media" aria-hidden="true" data-kenburns>
+        <img src="assets/img/audience.jpg" alt="" loading="eager" />
       </div>
-      <div class="hero-in">
-        <h1 class="hero-title">
-          <span class="ln"><span>Associez votre marque</span></span>
-          <span class="ln"><span>au sport de demain.</span></span>
-        </h1>
-        <div class="hero-aside">
-          <p class="hero-note">Touchez une audience étudiante qualifiée, engagée et future décideuse du sport business.</p>
-          <a href="book-a-call.html#partenaire" class="pill solid lg">Échanger avec le bureau</a>
+      <div class="phero-in">
+        <p class="phero-kicker" data-wipe>Partenaires</p>
+        <h1 class="phero-title" data-wipe>Associez votre marque au sport de demain.</h1>
+        <p class="phero-sub reveal" style="--i:1">Touchez une audience étudiante qualifiée, engagée et future décideuse du sport business.</p>
+        <a href="book-a-call.html#partenaire" class="pill solid lg reveal" style="--i:2">Échanger avec le bureau</a>
+      </div>
+      <div class="phero-strip">
+        <div class="stat"><strong><span data-count="1200">0</span>+</strong><span>Étudiants touchés</span></div>
+        <div class="stat"><strong><span data-count="250">0</span></strong><span>Places par conférence</span></div>
+        <div class="stat"><strong><span data-count="15">0</span>K+</strong><span>Impressions mensuelles</span></div>
+        <div class="stat"><strong><span data-count="40">0</span>+</strong><span>Intervenants pros</span></div>
+      </div>
+    </section>
+
+    <!-- ==================== CE QU'ON PROPOSE (onglets) ==================== -->
+    <!-- Signature : un partenaire compare des offres, il ne les lit pas en
+         séquence. On lui laisse choisir, la preview change sous ses yeux. -->
+    <section class="formats" id="formats" data-bg="light">
+      <div class="formats-in">
+        <div class="formats-head">
+          <span class="prose-kicker">Ce qu'on propose</span>
+          <h2 class="formats-title">Trois façons de travailler ensemble.</h2>
+        </div>
+        <div class="formats-panel" data-tabs>
+          <div class="formats-tabs" role="tablist" aria-label="Formats de partenariat">
+            <span class="formats-rail" aria-hidden="true" data-rail></span>
+            <button class="formats-tab is-active" role="tab" aria-selected="true" data-tab="0">
+              <span class="formats-tab-num">01</span>
+              <span class="formats-tab-body">
+                <span class="formats-tab-label">Visibilité événementielle</span>
+                <span class="formats-tab-desc">Naming, stand, prise de parole, logo sur tous les supports.</span>
+              </span>
+            </button>
+            <button class="formats-tab" role="tab" aria-selected="false" data-tab="1">
+              <span class="formats-tab-num">02</span>
+              <span class="formats-tab-body">
+                <span class="formats-tab-label">Accès au vivier Sorbonne</span>
+                <span class="formats-tab-desc">Recrutez vos futurs stagiaires et alternants.</span>
+              </span>
+            </button>
+            <button class="formats-tab" role="tab" aria-selected="false" data-tab="2">
+              <span class="formats-tab-num">03</span>
+              <span class="formats-tab-body">
+                <span class="formats-tab-label">Contenus co-brandés</span>
+                <span class="formats-tab-desc">Newsletter vidéo, podcast, posts réseaux.</span>
+              </span>
+            </button>
+          </div>
+          <div class="formats-stage">
+            <figure class="formats-media is-active" data-panel="0">
+              <img src="assets/img/panel.jpg" alt="Table ronde d'intervenants lors d'une conférence Sorbonne Sport Business" loading="lazy" />
+            </figure>
+            <figure class="formats-media" data-panel="1">
+              <img src="assets/img/groupe-kahn.jpg" alt="Étudiants de l'association posant avec un intervenant du sport professionnel" loading="lazy" />
+            </figure>
+            <figure class="formats-media" data-panel="2">
+              <img src="assets/img/ambiance-tel.jpg" alt="Étudiante filmant une conférence de l'association" loading="lazy" />
+            </figure>
+          </div>
         </div>
       </div>
-      <span class="scroll-pill" aria-hidden="true">
-        <svg viewBox="0 0 24 24" width="15"><rect x="8" y="3" width="8" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 6v3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-        Défiler
-      </span>
     </section>
 
-    <!-- ============================ STATS ============================ -->
-    <section class="stats" data-bg="navy">
-      <div class="stats-in">
-        <p class="stats-kicker reveal">L'audience Sorbonne Sport Business</p>
-        <div class="stats-grid">
-          <div class="stat reveal" style="--i:1"><strong><span data-count="1200">0</span>+</strong><span>Étudiants touchés</span></div>
-          <div class="stat reveal" style="--i:2"><strong><span data-count="250">0</span></strong><span>Places par conférence</span></div>
-          <div class="stat reveal" style="--i:3"><strong><span data-count="15">0</span>K+</strong><span>Impressions mensuelles</span></div>
-          <div class="stat reveal" style="--i:4"><strong><span data-count="40">0</span>+</strong><span>Intervenants pros</span></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================== CE QU'ON PROPOSE (collage) =================== -->
-    <section class="collage" id="formats" data-bg="light">
-      <div class="collage-head">
-        <h2 class="collage-title">Trois façons de travailler ensemble</h2>
-        <a href="book-a-call.html#partenaire" class="pill solid lg">Échanger avec le bureau</a>
-      </div>
-
-      <div class="collage-grid">
-        <article class="fcard fcard--a" data-parallax="0.08">
-          <div class="fcard-media">
-            <img src="assets/img/panel.jpg" alt="Table ronde d'intervenants lors d'une conférence Sorbonne Sport Business" loading="lazy" />
-          </div>
-          <h3>Visibilité événementielle</h3>
-          <p>Votre marque sur nos conférences : naming, stand, prise de parole, logo sur tous les supports.</p>
-        </article>
-
-        <article class="fcard fcard--b" data-parallax="-0.1">
-          <div class="fcard-media">
-            <img src="assets/img/groupe-kahn.jpg" alt="Étudiants de l'association posant avec un intervenant du sport professionnel" loading="lazy" />
-          </div>
-          <h3>Accès au vivier Sorbonne</h3>
-          <p>Recrutez vos futurs stagiaires et alternants parmi des étudiants formés et motivés par le secteur.</p>
-        </article>
-
-        <article class="fcard fcard--c" data-parallax="0.11">
-          <div class="fcard-media">
-            <img src="assets/img/ambiance-tel.jpg" alt="Étudiante filmant une conférence de l'association" loading="lazy" />
-          </div>
-          <h3>Contenus co-brandés</h3>
-          <p>Newsletter vidéo, podcast Quartier Jeune, posts réseaux : des formats qui engagent les 18-25 ans.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- =============== RÉSEAU DE DÉCIDEURS (statement navy) =============== -->
+    <!-- =============== RÉSEAU DE DÉCIDEURS (statement + bandeau) =============== -->
     <section class="netw" data-bg="navy">
       <div class="netw-in">
         <div class="netw-photo reveal">
-          <img src="assets/img/audience.jpg" alt="Amphithéâtre comble lors d'une conférence Sorbonne Sport Business" loading="lazy" />
+          <img src="assets/img/panel.jpg" alt="Panel d'intervenants lors d'une conférence Sorbonne Sport Business" loading="lazy" />
         </div>
         <div class="netw-copy reveal" style="--i:1">
           <h2 class="netw-title">Un réseau de décideurs.</h2>
-          <p class="netw-p">Directeurs marketing de clubs de Ligue 1, responsables de fédérations, agents de joueurs, dirigeants de la SportTech : nos intervenants sont ceux que vos futurs collaborateurs veulent rencontrer. En devenant partenaire, vous rejoignez cet écosystème.</p>
+          <p class="netw-p">Nos intervenants sont ceux que vos futurs collaborateurs veulent rencontrer. En devenant partenaire, vous rejoignez cet écosystème.</p>
           <a href="nos-intervenants.html" class="pill solid lg">Voir nos speakers</a>
+        </div>
+      </div>
+      <!-- Défilement continu : qui vient parler chez SSB, en un coup d'œil. -->
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>Directeurs marketing de clubs de Ligue 1</span>
+          <span>Responsables de fédérations</span>
+          <span>Agents de joueurs</span>
+          <span>Dirigeants de la SportTech</span>
+          <span>Sportifs de haut niveau</span>
+          <span>Directeurs marketing de clubs de Ligue 1</span>
+          <span>Responsables de fédérations</span>
+          <span>Agents de joueurs</span>
+          <span>Dirigeants de la SportTech</span>
+          <span>Sportifs de haut niveau</span>
         </div>
       </div>
     </section>
 
     <!-- ==================== INSTITUTIONS & PARTENAIRES ==================== -->
     <section class="inst" data-bg="light">
-      <div class="inst-in">
-        <div class="inst-head reveal">
-          <span class="prose-kicker">Ils nous ont fait confiance</span>
-          <h2 class="inst-title">Institutions &amp; partenaires.</h2>
-          <p class="inst-p">Clubs, fédérations, médias et institutions qui ont collaboré avec l'association.</p>
+      <div class="inst-head reveal">
+        <span class="prose-kicker">Ils nous ont fait confiance</span>
+        <h2 class="inst-title">Institutions &amp; partenaires.</h2>
+        <p class="inst-p">Clubs, fédérations, médias et institutions qui ont collaboré avec l'association.</p>
+      </div>
+      <div class="marquee marquee--light" aria-hidden="true">
+        <div class="marquee-track">
+          <span>Paris 1 Panthéon-Sorbonne</span>
+          <span>Stade de France</span>
+          <span>Fédération Française de Tennis</span>
+          <span>Clubs de Ligue 1</span>
+          <span>Startups SportTech</span>
+          <span>Médias sport business</span>
+          <span>Paris 1 Panthéon-Sorbonne</span>
+          <span>Stade de France</span>
+          <span>Fédération Française de Tennis</span>
+          <span>Clubs de Ligue 1</span>
+          <span>Startups SportTech</span>
+          <span>Médias sport business</span>
         </div>
-        <ul class="inst-list reveal" style="--i:1">
-          <li>Paris 1 Panthéon-Sorbonne</li>
-          <li>Stade de France</li>
-          <li>Fédération Française de Tennis</li>
-          <li>Clubs de Ligue 1</li>
-          <li>Startups SportTech</li>
-          <li>Médias sport business</li>
-        </ul>
       </div>
     </section>
 
-    <!-- ========================== CTA FINAL DUO ======================== -->
+    <!-- ========================== CTA FINAL ======================== -->
     <section class="final" data-bg="navy">
       <div class="final-media" aria-hidden="true">
-        <img src="assets/img/panel.jpg" alt="" loading="lazy" />
+        <img src="assets/img/audience.jpg" alt="" loading="lazy" />
       </div>
       <div class="final-in">
         <h2 class="final-title reveal">Le sport business commence avec vous.</h2>
-        <p class="final-sub reveal" style="--i:1">Recevez la plaquette partenaires, ou échangeons directement 15 minutes avec le bureau.</p>
+        <p class="final-sub reveal" style="--i:1">15 minutes avec le bureau pour voir si ça matche. On vous envoie le dossier partenaires ensuite.</p>
         <div class="final-actions reveal" style="--i:2">
           <a href="book-a-call.html#partenaire" class="pill solid lg">Book a call</a>
-          <a href="book-a-call.html#partenaire" class="pill ghost lg">Recevoir le dossier</a>
+          <a href="book-a-call.html#partenaire" class="final-link">Ou recevoir le dossier par email →</a>
         </div>
       </div>
     </section>
@@ -199,7 +221,7 @@
   </footer>
 
   <script src="assets/vendor/lenis.min.js"></script>
-  <script src="assets/devenir-partenaire/js/main.js?v=1"></script>
+  <script src="assets/devenir-partenaire/js/main.js?v=2"></script>
   <script>
     document.querySelectorAll("[data-year]").forEach(function (el) {
       el.textContent = new Date().getFullYear();
