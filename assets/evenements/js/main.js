@@ -16,7 +16,6 @@
 
   initTheme();
   initFilters();
-  initEvMore();
   var stopGallery = initGallery3d();
 
   if (!M || typeof M.animate !== "function") {
@@ -135,18 +134,6 @@
         });
         apply(b.dataset.filter || "all");
       });
-    });
-  }
-
-  /* -------------------- Repli des événements passés anciens --------------- */
-  function initEvMore() {
-    var btn = document.querySelector("[data-ev-more]");
-    var panel = document.querySelector("[data-ev-collapse]");
-    if (!btn || !panel) return;
-    btn.addEventListener("click", function () {
-      var open = panel.classList.toggle("is-open");
-      btn.setAttribute("aria-expanded", open ? "true" : "false");
-      btn.querySelector("span").textContent = open ? "Masquer" : "Voir 3 événements passés de plus";
     });
   }
 
