@@ -142,8 +142,11 @@ p { text-wrap: pretty; }
   border-radius: 100px; max-width: calc(100vw - 24px); overflow-x: auto;
   scrollbar-width: none; background: rgba(255, 255, 255, 0.14);
   -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+  transition: transform var(--dur-mid) var(--ease-out-quart), opacity var(--dur-mid) var(--ease-out-quart);
 }
 .floatnav::-webkit-scrollbar { display: none; }
+.floatnav.is-hidden { transform: translateX(-50%) translateY(140%); opacity: 0; pointer-events: none; }
+.floatnav:focus-within { transform: translateX(-50%) !important; opacity: 1 !important; pointer-events: auto !important; }
 .fn-home {
   width: 40px; height: 40px; flex: none; display: grid; place-items: center;
   border-radius: 100px; transition: background var(--dur-fast) var(--ease-out-quart);

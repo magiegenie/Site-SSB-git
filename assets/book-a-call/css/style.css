@@ -31,7 +31,7 @@
 
   --gold: #ffb607;
   --gold-soft: #ffcf5c;
-  --gold-deep: #c77f1b;
+  --gold-deep: #8c5c12;
   --gold-ink: #041a35;
 
   --line-navy: rgba(197, 219, 242, 0.16);
@@ -144,9 +144,12 @@ body[data-theme="light"] .hdr .pill.ghost { box-shadow: inset 0 0 0 1.5px var(--
   border-radius: 100px; max-width: calc(100vw - 24px); overflow-x: auto;
   scrollbar-width: none;
   -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
-  transition: background var(--dur-slow) var(--ease-out-quart), color var(--dur-slow) var(--ease-out-quart);
+  transition: background var(--dur-slow) var(--ease-out-quart), color var(--dur-slow) var(--ease-out-quart),
+              transform var(--dur-mid) var(--ease-out-quart), opacity var(--dur-mid) var(--ease-out-quart);
 }
 .floatnav::-webkit-scrollbar { display: none; }
+.floatnav.is-hidden { transform: translateX(-50%) translateY(140%); opacity: 0; pointer-events: none; }
+.floatnav:focus-within { transform: translateX(-50%) !important; opacity: 1 !important; pointer-events: auto !important; }
 body[data-navtheme="navy"] .floatnav { background: rgba(255, 255, 255, 0.14); color: #fff; }
 body[data-navtheme="light"] .floatnav {
   background: var(--navy-800); color: #fff;
@@ -193,7 +196,7 @@ body[data-navtheme="light"] .fn-item.is-active { background: rgba(255, 255, 255,
 }
 .field-input:focus, .field-textarea:focus { box-shadow: inset 0 0 0 1.5px var(--navy-700); outline: none; }
 .field-textarea { min-height: 110px; resize: vertical; }
-.field-input::placeholder, .field-textarea::placeholder { color: rgba(91, 100, 114, 0.55); }
+.field-input::placeholder, .field-textarea::placeholder { color: rgba(91, 100, 114, 0.9); }
 .field-error { display: none; font-size: 0.82rem; color: var(--danger); }
 .field.is-invalid .field-input, .field.is-invalid .field-textarea { box-shadow: inset 0 0 0 1.5px var(--danger); }
 .field.is-invalid .field-error { display: block; }
@@ -236,7 +239,7 @@ body[data-navtheme="light"] .fn-item.is-active { background: rgba(255, 255, 255,
   text-align: center; padding: var(--space-lg) var(--space-sm); border-radius: var(--r-card); background: var(--paper-2);
 }
 .bc-stat strong { display: block; font-size: clamp(2rem, 3.4vw, 2.8rem); font-weight: 600; color: var(--navy-800); letter-spacing: -0.03em; }
-.bc-stat span { font-size: 0.9rem; color: var(--ink-muted); }
+.bc-stat > span { font-size: 0.9rem; color: var(--ink-muted); }
 
 /* =============================== CTA FINAL ================================ */
 .final { background: var(--navy-800); color: #fff; }

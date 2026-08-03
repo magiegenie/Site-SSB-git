@@ -90,7 +90,7 @@ h1 { font-weight: 500; line-height: 1.05; letter-spacing: -0.03em; }
   transition: box-shadow var(--dur-fast) var(--ease-out-quart);
 }
 .field-input:focus { box-shadow: inset 0 0 0 1.5px var(--navy-700); outline: none; }
-.field-input::placeholder { color: rgba(91, 100, 114, 0.55); }
+.field-input::placeholder { color: rgba(91, 100, 114, 0.9); }
 .field-error { display: none; font-size: 0.82rem; color: var(--danger); }
 .field.is-invalid .field-input { box-shadow: inset 0 0 0 1.5px var(--danger); }
 .field.is-invalid .field-error { display: block; }

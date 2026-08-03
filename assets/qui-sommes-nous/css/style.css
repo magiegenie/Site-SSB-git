@@ -170,9 +170,12 @@ body[data-theme="light"] .hdr .pill.ghost { box-shadow: inset 0 0 0 1.5px var(--
   scrollbar-width: none;
   -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
   transition: background var(--dur-slow) var(--ease-out-quart),
-              color var(--dur-slow) var(--ease-out-quart);
+              color var(--dur-slow) var(--ease-out-quart),
+              transform var(--dur-mid) var(--ease-out-quart), opacity var(--dur-mid) var(--ease-out-quart);
 }
 .floatnav::-webkit-scrollbar { display: none; }
+.floatnav.is-hidden { transform: translateX(-50%) translateY(140%); opacity: 0; pointer-events: none; }
+.floatnav:focus-within { transform: translateX(-50%) !important; opacity: 1 !important; pointer-events: auto !important; }
 /* La barre flottante vit en BAS de l'écran : elle se recolore d'après la
    section réellement derrière elle (data-navtheme), pas d'après celle qui
    passe derrière l'en-tête. Sans ça elle finissait blanc sur blanc au-dessus
@@ -220,7 +223,7 @@ body[data-navtheme="light"] .fn-item.is-active { background: rgba(255, 255, 255,
 }
 .hero-title {
   font-family: var(--font-serif); font-weight: 600;
-  font-size: clamp(2.8rem, 7.35vw, 6.6rem);
+  font-size: clamp(2.8rem, 6.9vw, 6rem);
   letter-spacing: -0.01em; line-height: 0.98; max-width: 15ch;
 }
 /* Révélation ligne par ligne : chaque ligne monte derrière un masque. */
@@ -425,7 +428,7 @@ body[data-navtheme="light"] .fn-item.is-active { background: rgba(255, 255, 255,
   padding: 0 clamp(1.2rem, 2.4vw, 1.8rem) clamp(1.2rem, 2.2vw, 1.6rem) clamp(2.6rem, 4vw, 4.1rem);
   display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg);
 }
-.acc-col h4 { font-size: 1.08rem; color: var(--ink); margin-bottom: 0.45rem; font-weight: 600; }
+.acc-col h3 { font-size: 1.08rem; color: var(--ink); margin-bottom: 0.45rem; font-weight: 600; }
 .acc-col p { color: var(--ink-muted); font-size: 1rem; max-width: 44ch; }
 
 /* =============================== CTA FINAL =============================== */

@@ -75,6 +75,8 @@
       return current;
     }
 
+    var navEl = document.querySelector(".floatnav");
+    var lastY = window.scrollY;
     function apply() {
       ticking = false;
       var h = window.innerHeight;
@@ -82,6 +84,13 @@
       var bottom = bgAt(h - 52);
       if (body.dataset.theme !== top) body.dataset.theme = top;
       if (body.dataset.navtheme !== bottom) body.dataset.navtheme = bottom;
+      if (navEl) {
+        var y = window.scrollY;
+        if (y < h * 0.6) navEl.classList.remove("is-hidden");
+        else if (y > lastY + 4) navEl.classList.add("is-hidden");
+        else if (y < lastY - 4) navEl.classList.remove("is-hidden");
+        lastY = y;
+      }
     }
     function onScroll() {
       if (!ticking) { ticking = true; requestAnimationFrame(apply); }

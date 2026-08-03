@@ -12,6 +12,7 @@
 
   initAnchors();
   initToc();
+  initFloatnav();
 
   if (!M || typeof M.animate !== "function") {
     root.classList.remove("motion-ready");
@@ -60,5 +61,24 @@
 
     sections.forEach(function (s) { observer.observe(s); });
     setActive(sections[0].id);
+  }
+
+  function initFloatnav() {
+    var navEl = document.querySelector(".floatnav");
+    if (!navEl) return;
+    var lastY = window.scrollY;
+    var ticking = false;
+    function apply() {
+      ticking = false;
+      var h = window.innerHeight;
+      var y = window.scrollY;
+      if (y < h * 0.6) navEl.classList.remove("is-hidden");
+      else if (y > lastY + 4) navEl.classList.add("is-hidden");
+      else if (y < lastY - 4) navEl.classList.remove("is-hidden");
+      lastY = y;
+    }
+    window.addEventListener("scroll", function () {
+      if (!ticking) { ticking = true; requestAnimationFrame(apply); }
+    }, { passive: true });
   }
 })();

@@ -151,9 +151,12 @@ body[data-theme="light"] .hdr .pill.ghost { box-shadow: inset 0 0 0 1.5px var(--
   border-radius: 100px; max-width: calc(100vw - 24px); overflow-x: auto;
   scrollbar-width: none;
   -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
-  transition: background var(--dur-slow) var(--ease-out-quart), color var(--dur-slow) var(--ease-out-quart);
+  transition: background var(--dur-slow) var(--ease-out-quart), color var(--dur-slow) var(--ease-out-quart),
+              transform var(--dur-mid) var(--ease-out-quart), opacity var(--dur-mid) var(--ease-out-quart);
 }
 .floatnav::-webkit-scrollbar { display: none; }
+.floatnav.is-hidden { transform: translateX(-50%) translateY(140%); opacity: 0; pointer-events: none; }
+.floatnav:focus-within { transform: translateX(-50%) !important; opacity: 1 !important; pointer-events: auto !important; }
 body[data-navtheme="navy"] .floatnav { background: rgba(255, 255, 255, 0.14); color: #fff; }
 body[data-navtheme="light"] .floatnav {
   background: var(--navy-800); color: #fff;
@@ -184,15 +187,15 @@ body[data-navtheme="light"] .fn-item.is-active, body[data-navtheme="light"] .fn-
   position: relative; z-index: var(--z-content); width: var(--shell); margin: 0 auto;
   padding: calc(var(--hdr-h) + 3rem) 0 clamp(6rem, 11vw, 9rem);
 }
-.hero-title { font-family: var(--font-serif); font-weight: 600; font-size: clamp(2.8rem, 7.2vw, 6.4rem); letter-spacing: -0.01em; line-height: 0.98; max-width: 16ch; }
+.hero-title { font-family: var(--font-serif); font-weight: 600; font-size: clamp(2.8rem, 6.8vw, 6rem); letter-spacing: -0.01em; line-height: 0.98; max-width: 16ch; }
 .hero-sub { color: var(--on-navy-soft); font-size: clamp(1.05rem, 1.5vw, 1.3rem); max-width: 46ch; margin-top: var(--space-md); }
 .hero-actions { display: flex; gap: var(--space-sm); flex-wrap: wrap; margin-top: var(--space-lg); }
 
 /* ============================ TRUST LOGOS ================================= */
 .trust { background: var(--navy-800); padding: clamp(2.5rem, 5vw, 4rem) 0; }
 .trust-label {
+  width: var(--shell); margin: 0 auto var(--space-lg);
   text-align: center; font-size: 0.9rem; font-weight: 500; color: var(--on-navy-mute);
-  margin-bottom: var(--space-lg);
 }
 .trust-row {
   width: var(--shell); margin: 0 auto; display: flex; flex-wrap: wrap;
@@ -278,7 +281,7 @@ body[data-navtheme="light"] .fn-item.is-active, body[data-navtheme="light"] .fn-
   border-radius: 14px; padding: 1rem 1.3rem; display: flex; align-items: center; gap: 1rem; color: #fff;
 }
 .partner-stat strong { font-size: clamp(2rem, 3vw, 2.6rem); font-weight: 600; color: var(--gold); flex: none; }
-.partner-stat span { font-size: 0.9rem; color: var(--on-navy-soft); }
+.partner-stat > span { font-size: 0.9rem; color: var(--on-navy-soft); }
 
 /* =============================== CTA FINAL ================================ */
 .final { position: relative; overflow: hidden; color: #fff; }
