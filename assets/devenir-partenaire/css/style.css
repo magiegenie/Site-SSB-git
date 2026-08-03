@@ -39,6 +39,7 @@
   --line-ink: rgba(4, 26, 53, 0.12);
 
   --font: "General Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
 
   --r-card: 16px;
   --r-media: 16px;
@@ -206,7 +207,8 @@ body[data-navtheme="light"] .fn-item.is-active { background: rgba(255, 255, 255,
   text-transform: uppercase;
 }
 .phero-title {
-  font-size: clamp(2.8rem, 6.8vw, 6rem); letter-spacing: -0.04em; line-height: 1.0; max-width: 16ch;
+  font-family: var(--font-serif); font-weight: 600;
+  font-size: clamp(2.8rem, 6.8vw, 6rem); letter-spacing: -0.01em; line-height: 1.0; max-width: 16ch;
 }
 .phero-sub { color: var(--on-navy-soft); font-size: clamp(1rem, 1.4vw, 1.2rem); max-width: 42ch; }
 .phero-strip {

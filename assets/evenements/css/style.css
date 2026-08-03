@@ -40,6 +40,7 @@
   --line-ink: rgba(4, 26, 53, 0.12);
 
   --font: "General Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
 
   --r-card: 16px;
   --r-media: 16px;
@@ -173,7 +174,7 @@ p { text-wrap: pretty; }
   font-size: 0.86rem; font-weight: 600; letter-spacing: 0.04em; color: var(--gold-soft);
   text-transform: uppercase;
 }
-.hero-title { font-size: clamp(2.4rem, 5.6vw, 5rem); letter-spacing: -0.04em; line-height: 1.04; max-width: 20ch; }
+.hero-title { font-family: var(--font-serif); font-weight: 600; font-size: clamp(2.4rem, 5.6vw, 5rem); letter-spacing: -0.01em; line-height: 1.04; max-width: 20ch; }
 .hero-sub { color: var(--on-navy-soft); font-size: clamp(1.02rem, 1.4vw, 1.25rem); max-width: 42ch; }
 
 .next-card {

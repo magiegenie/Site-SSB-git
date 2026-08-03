@@ -14,7 +14,10 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230c0c0c'/%3E%3Ctext x='50' y='71' font-family='Arial,sans-serif' font-size='52' font-weight='800' fill='white' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/index/css/style.css?v=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/index/css/style.css?v=2" />
 
   <!-- Motion est servi en local (pas de CDN) et chargé avant le premier rendu :
        l'état de départ des animations n'est posé que s'il a réellement chargé. -->
@@ -85,19 +88,19 @@
     <!-- ========================== SPEAKERS (carrousel) ========================== -->
     <section class="speakers" data-bg="light">
       <div class="speakers-head">
-        <h2 class="speakers-title reveal">Ils font le sport business aujourd'hui.</h2>
+        <h2 class="speakers-title reveal">Les profils qu'on retrouve à nos conférences.</h2>
         <div class="speakers-nav reveal" style="--i:1">
           <button data-sp-prev aria-label="Speakers précédents"><svg viewBox="0 0 24 24" width="16"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <button data-sp-next aria-label="Speakers suivants"><svg viewBox="0 0 24 24" width="16"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         </div>
       </div>
-      <div class="speakers-track" data-sp-track tabindex="0" role="region" aria-label="Intervenants passés chez SSB">
-        <article class="sp-card"><div class="sp-media"><img src="assets/img/panel.jpg" alt="Intervenant lors d'une conférence Sorbonne Sport Business" loading="lazy" /></div><h3>Karim Benyahia</h3><span>Directeur Marketing · Club de Ligue 1</span></article>
-        <article class="sp-card"><div class="sp-media"><img src="assets/img/groupe-kahn.jpg" alt="Intervenante lors d'une conférence Sorbonne Sport Business" loading="lazy" /></div><h3>Claire Dumont</h3><span>Head of Partnerships · Fédération Française de Tennis</span></article>
-        <article class="sp-card"><div class="sp-media"><img src="assets/img/equipe-maillot.jpg" alt="Intervenant remettant le maillot Sorbonne Sport Business" loading="lazy" /></div><h3>Julien Leroy</h3><span>Agent de joueurs · JL Sports Agency</span></article>
-        <article class="sp-card"><div class="sp-media sp-media--mono"><span>SM</span></div><h3>Sofia Martins</h3><span>Brand Manager Sport · Équipementier international</span></article>
-        <article class="sp-card"><div class="sp-media sp-media--mono"><span>AG</span></div><h3>Antoine Girard</h3><span>Journaliste sport business · Média national</span></article>
-        <article class="sp-card"><div class="sp-media sp-media--mono"><span>LN</span></div><h3>Léa Nguyen</h3><span>Billetterie &amp; Hospitalités · Stade de France</span></article>
+      <div class="speakers-track" data-sp-track tabindex="0" role="region" aria-label="Profils type d'intervenants rencontrés en conférence">
+        <article class="sp-card"><div class="sp-media"><img src="assets/img/panel.jpg" alt="Intervenant lors d'une conférence Sorbonne Sport Business" loading="lazy" /></div><h3>Directeur Marketing</h3><span>Club de football professionnel</span></article>
+        <article class="sp-card"><div class="sp-media"><img src="assets/img/groupe-kahn.jpg" alt="Intervenante lors d'une conférence Sorbonne Sport Business" loading="lazy" /></div><h3>Head of Partnerships</h3><span>Fédération sportive</span></article>
+        <article class="sp-card"><div class="sp-media"><img src="assets/img/equipe-maillot.jpg" alt="Intervenant remettant le maillot Sorbonne Sport Business" loading="lazy" /></div><h3>Agent de joueurs</h3><span>Agence de représentation</span></article>
+        <article class="sp-card"><div class="sp-media"><img src="assets/img/speaker-1.jpg" alt="Intervenant au micro pendant une conférence" loading="lazy" /></div><h3>Brand Manager Sport</h3><span>Équipementier international</span></article>
+        <article class="sp-card"><div class="sp-media"><img src="assets/img/audience.jpg" alt="Intervenant face à l'audience lors d'une conférence" loading="lazy" /></div><h3>Journaliste sport business</h3><span>Média national</span></article>
+        <article class="sp-card"><div class="sp-media"><img src="assets/img/ambiance-tel.jpg" alt="Intervenante lors d'une conférence Sorbonne Sport Business" loading="lazy" /></div><h3>Billetterie &amp; Hospitalités</h3><span>Grand stade parisien</span></article>
       </div>
       <div class="speakers-cta reveal" style="--i:2">
         <a href="nos-intervenants.html" class="pill solid lg">Voir tous les intervenants</a>

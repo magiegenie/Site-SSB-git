@@ -41,6 +41,7 @@
 
   /* --- Typo --- */
   --font: "General Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
 
   /* --- Rayons --- */
   --r-card: 16px;
@@ -218,8 +219,9 @@ body[data-navtheme="light"] .fn-item.is-active { background: rgba(255, 255, 255,
   gap: var(--space-lg); flex-wrap: wrap;
 }
 .hero-title {
+  font-family: var(--font-serif); font-weight: 600;
   font-size: clamp(2.8rem, 7.35vw, 6.6rem);
-  letter-spacing: -0.042em; line-height: 0.98; max-width: 15ch;
+  letter-spacing: -0.01em; line-height: 0.98; max-width: 15ch;
 }
 /* Révélation ligne par ligne : chaque ligne monte derrière un masque. */
 .hero-title .ln { display: block; overflow: hidden; }

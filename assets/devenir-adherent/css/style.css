@@ -37,6 +37,7 @@
   --line-ink: rgba(4, 26, 53, 0.12);
 
   --font: "General Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
 
   --r-card: 16px;
   --r-media: 16px;
@@ -182,7 +183,7 @@ body[data-navtheme="light"] .fn-item.is-active { background: rgba(255, 255, 255,
   font-size: 0.86rem; font-weight: 600; letter-spacing: 0.04em; color: var(--gold-soft);
   text-transform: uppercase; margin-bottom: var(--space-sm); display: block;
 }
-.hero-title { font-size: clamp(2.4rem, 5.4vw, 4.6rem); letter-spacing: -0.04em; line-height: 1.05; }
+.hero-title { font-family: var(--font-serif); font-weight: 600; font-size: clamp(2.4rem, 5.4vw, 4.6rem); letter-spacing: -0.01em; line-height: 1.05; }
 .price-inline { color: var(--gold); font-weight: 600; }
 .price-per { font-size: 0.4em; color: var(--on-navy-mute); font-weight: 500; }
 .hero-sub { color: var(--on-navy-soft); font-size: clamp(1.02rem, 1.4vw, 1.25rem); margin-top: var(--space-md); max-width: 46ch; }
