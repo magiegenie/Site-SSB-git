@@ -197,16 +197,20 @@ body[data-navtheme="light"] .fn-item.is-active, body[data-navtheme="light"] .fn-
   width: var(--shell); margin: 0 auto var(--space-lg);
   text-align: center; font-size: 0.9rem; font-weight: 500; color: var(--on-navy-mute);
 }
-.trust-row {
-  width: var(--shell); margin: 0 auto; display: flex; flex-wrap: wrap;
-  align-items: center; justify-content: center; gap: clamp(1.8rem, 4vw, 3.2rem);
+.trust-marquee { width: 100%; overflow: hidden; }
+.trust-track {
+  display: inline-flex; align-items: center; gap: clamp(1.8rem, 4vw, 3.2rem);
+  width: max-content; will-change: transform;
+  animation: trust-marquee-scroll 34s linear infinite;
 }
-.trust-row img {
-  height: clamp(26px, 3vw, 36px); width: auto;
+.trust-track img {
+  height: clamp(26px, 3vw, 36px); width: auto; flex: none;
   filter: grayscale(1) brightness(1.8) contrast(0.9); opacity: 0.75;
   transition: filter var(--dur-mid) var(--ease-out-quart), opacity var(--dur-mid) var(--ease-out-quart);
 }
-.trust-row img:hover { filter: none; opacity: 1; }
+.trust-track img:hover { filter: none; opacity: 1; }
+@keyframes trust-marquee-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .trust-track { animation: none; } }
 
 /* ============================ SPEAKERS (carrousel) ========================= */
 .speakers { background: var(--paper); padding: var(--space-2xl) 0; }
