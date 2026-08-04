@@ -1,8 +1,9 @@
 /* =========================================================================
    ACCUEIL — motion design (Motion + Lenis)
-   Signature de cette page : les photos de la communauté dérivent chacune à
-   leur propre vitesse au scroll (effet galaxie), et les intervenants
-   défilent dans un carrousel qu'on peut glisser à la souris ou au doigt.
+   Signature de cette page : les photos de la communauté dérivent en continu
+   (chacune à sa propre vitesse, effet galaxie), avec un supplément d'élan
+   quand on scrolle, et les intervenants défilent dans un carrousel qu'on
+   peut glisser à la souris ou au doigt.
    ========================================================================= */
 (function () {
   "use strict";
@@ -40,17 +41,74 @@
     entry.target.classList.add("in");
   }, { margin: "0px 0px -14% 0px" });
 
-  /* Derive parallaxe de chaque photo de la galaxie, vitesse propre a --depth. */
+  /* Derive continue des photos de la galaxie (vitesse propre a --depth),
+     plus un supplement d'elan au scroll. Tourne en permanence, meme sans
+     scroller, pour ne jamais donner une impression d'image figee. */
   function initGalaxy() {
+    var container = document.querySelector(".galaxy");
     var field = document.querySelector("[data-galaxy]");
-    if (!field) return;
-    document.querySelectorAll(".g-img").forEach(function (el) {
-      var depth = parseFloat(el.dataset.depth) || 0.5;
-      var range = 60 + depth * 70;
-      M.scroll(
-        M.animate(el, { transform: ["translateY(" + range + "px)", "translateY(-" + range + "px)"] }, { ease: "linear" }),
-        { target: field, offset: ["start end", "end start"] }
-      );
+    if (!container || !field) return;
+    var images = Array.prototype.slice.call(field.querySelectorAll(".g-img"));
+    if (!images.length) return;
+
+    var CFG = { speed: 0.15, ease: 0.1, scrollMultiplier: 0.05 };
+    var ps = { current: 0, target: 0, last: 0 };
+    var direction = "down", directionSign = 1, containerHeight = 0, containerOffset = 0;
+
+    function layout() {
+      var cRect = container.getBoundingClientRect();
+      images.forEach(function (img) {
+        var depth = parseFloat(img.dataset.depth) || 0.5;
+        img._speed = 0.6 + depth;
+        var r = img.getBoundingClientRect();
+        img._top = r.top - cRect.top;
+        img._height = r.height;
+        img._extra = 0;
+      });
+      containerHeight = container.offsetHeight;
+      containerOffset = containerHeight * 0.15;
+      ps.current = ps.target = ps.last = 0;
+    }
+
+    function tick(dt) {
+      ps.target += CFG.speed * dt * directionSign;
+      ps.current += (ps.target - ps.current) * CFG.ease;
+      direction = ps.current < ps.last ? "down" : "up";
+      images.forEach(function (img) {
+        img._position = -ps.current * img._speed - img._extra;
+        var nBottom = img._position + img._top + img._height;
+        var isBefore = nBottom < -containerOffset;
+        var isAfter = nBottom > containerHeight + containerOffset;
+        if (direction === "up" && isBefore) img._extra -= containerHeight + containerOffset;
+        if (direction === "down" && isAfter) img._extra += containerHeight + containerOffset;
+        img.style.transform = "translate3d(0," + img._position.toFixed(2) + "px,0)";
+      });
+      ps.last = ps.current;
+    }
+
+    function impulse(velocity, dir) {
+      ps.target += velocity * CFG.scrollMultiplier;
+      if (dir) directionSign = dir;
+    }
+
+    if (lenis) {
+      lenis.on("scroll", function (e) { impulse(e.velocity || 0, e.direction || 0); });
+    } else {
+      var lastY = window.scrollY;
+      window.addEventListener("scroll", function () {
+        var y = window.scrollY, v = y - lastY; lastY = y;
+        impulse(v, v > 0 ? 1 : v < 0 ? -1 : 0);
+      }, { passive: true });
+    }
+
+    layout();
+    window.addEventListener("resize", layout);
+
+    var lastT = performance.now();
+    requestAnimationFrame(function frame(now) {
+      var dt = Math.min(64, now - lastT); lastT = now;
+      tick(dt);
+      requestAnimationFrame(frame);
     });
   }
 
