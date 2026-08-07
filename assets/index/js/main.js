@@ -210,3 +210,6 @@
     });
   }
 })();
+
+/* Signale au watchdog inline que le script s est execute sans planter. */
+document.documentElement.classList.add("js-ok");
