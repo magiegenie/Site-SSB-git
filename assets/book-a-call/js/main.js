@@ -76,6 +76,15 @@
       });
     });
 
+    /* La checkbox de consentement (RGPD) est requise : le form est en
+       novalidate, donc on la vérifie ici comme les autres champs. */
+    form.querySelectorAll('input[type="checkbox"][required]').forEach(function (cb) {
+      cb.addEventListener("change", function () {
+        var f = cb.closest(".bc-consent") || cb.closest(".field");
+        if (cb.checked) setInvalid(f, false);
+      });
+    });
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var firstInvalid = null;
@@ -87,6 +96,12 @@
         if (input.type === "email" && input.value && !emailOk(input.value)) bad = true;
         setInvalid(field, bad);
         if (bad && !firstInvalid) firstInvalid = input;
+      });
+      form.querySelectorAll('input[type="checkbox"][required]').forEach(function (cb) {
+        if (cb.disabled) return;
+        var field = cb.closest(".bc-consent") || cb.closest(".field");
+        setInvalid(field, !cb.checked);
+        if (!cb.checked && !firstInvalid) firstInvalid = cb;
       });
       if (firstInvalid) { firstInvalid.focus(); return; }
       if (feedback) {
