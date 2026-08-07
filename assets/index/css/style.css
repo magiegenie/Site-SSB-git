@@ -201,11 +201,14 @@ body[data-navtheme="light"] .fn-item.is-active, body[data-navtheme="light"] .fn-
   width: var(--shell); margin: 0 auto; display: flex; flex-wrap: wrap;
   align-items: center; justify-content: center; gap: clamp(1.8rem, 4vw, 3.2rem);
 }
+/* Boîte normalisée : chaque logo occupe la même emprise, object-fit compense
+   les ratios (un blason 1:1 et un logotype 3:1 gardent une surface comparable). */
 .trust-row img {
-  height: clamp(26px, 3vw, 36px); width: auto;
+  width: clamp(64px, 7vw, 96px); height: clamp(30px, 3.4vw, 44px); object-fit: contain;
   filter: grayscale(1) brightness(1.8) contrast(0.9); opacity: 0.75;
   transition: filter var(--dur-mid) var(--ease-out-quart), opacity var(--dur-mid) var(--ease-out-quart);
 }
+.trust-row img.trust-logo--wide { width: clamp(84px, 8.5vw, 118px); }
 .trust-row img:hover { filter: none; opacity: 1; }
 
 /* ============================ SPEAKERS (carrousel) ========================= */
@@ -248,19 +251,27 @@ body[data-navtheme="light"] .fn-item.is-active, body[data-navtheme="light"] .fn-
 .final-link:hover { color: var(--ink); border-color: currentColor; }
 
 /* ============================ GALAXIE (parallaxe) ========================== */
-.galaxy { position: relative; background: var(--navy-900); min-height: 190vh; overflow: hidden; }
+/* 140vh : assez de course pour ressentir la traversée, sans le tunnel vide
+   qu'imposait 190vh (90vh de scroll sans contenu nouveau). */
+.galaxy { position: relative; background: var(--navy-900); min-height: 140vh; overflow: hidden; }
 .galaxy-field { position: absolute; inset: 0; z-index: var(--z-media); }
 .g-img {
   position: absolute; left: var(--x); top: var(--y);
-  width: clamp(72px, 8.6vw, 130px); border-radius: 12px; overflow: hidden;
+  width: clamp(96px, 11vw, 180px); border-radius: 12px; overflow: hidden;
   box-shadow: 0 20px 40px -20px rgba(2, 16, 31, 0.8);
-  will-change: transform; opacity: 0.85;
+  will-change: transform; opacity: 0.9;
 }
 .g-img img { width: 100%; height: 100%; aspect-ratio: 3/4; object-fit: cover; }
 .galaxy-in {
   position: sticky; top: 0; height: 100svh; z-index: var(--z-content);
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-lg);
   text-align: center; color: #fff;
+}
+/* Scrim radial : garde le titre lisible quand une vignette dérive derrière lui,
+   sans assombrir toute la section. */
+.galaxy-in::before {
+  content: ""; position: absolute; inset: -12% -18%; z-index: -1; pointer-events: none;
+  background: radial-gradient(ellipse 55% 42% at 50% 50%, rgba(4, 26, 53, 0.85), transparent 70%);
 }
 .galaxy-title { font-size: clamp(2.4rem, 6vw, 5rem); letter-spacing: -0.04em; }
 
@@ -350,7 +361,7 @@ html.motion-ready .reveal.in {
   .partner-in { grid-template-columns: 1fr; }
   .partner-media img { height: 320px; }
   .ft-in { grid-template-columns: 1fr; gap: var(--space-lg); }
-  .galaxy { min-height: 130vh; }
+  .galaxy { min-height: 120vh; }
 }
 
 @media (max-width: 720px) {
