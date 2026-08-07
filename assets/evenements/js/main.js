@@ -15,6 +15,7 @@
   var lerp = function (a, b, t) { return (1 - t) * a + b * t; };
 
   initTheme();
+  initDates();
   initFilters();
   var stopGallery = initGallery3d();
 
@@ -109,6 +110,77 @@
         else window.scrollTo({ top: top, behavior: "smooth" });
       });
     });
+  }
+
+  /* ----------------------- Auto-péremption des dates ---------------------- */
+  /* Chaque .ev-row porte sa date en data-date. Au chargement, les événements
+     échus sont reclassés dans « Passés » (classe, data-filter, position DOM,
+     libellé de jauge) et la carte « Prochain rendez-vous » du hero est mise à
+     jour avec le premier événement réellement à venir. Le HTML reste corrigé
+     à la main comme source de vérité sans JS ; ceci est un filet contre la
+     péremption entre deux mises à jour. Debug : ?today=2026-11-01. */
+  function initDates() {
+    var list = document.querySelector("[data-events]");
+    if (!list) return;
+    var rows = Array.prototype.slice.call(list.querySelectorAll(".ev-row[data-date]"));
+    if (!rows.length) return;
+
+    var override = null;
+    try { override = new URLSearchParams(window.location.search).get("today"); } catch (e) {}
+    var today = override ? new Date(override + "T00:00:00") : new Date();
+    if (isNaN(today)) today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    var months = Array.prototype.slice.call(list.querySelectorAll(".ev-month"));
+    var pastHead = null, upcomingHead = null;
+    months.forEach(function (m) {
+      if (/pass/i.test(m.textContent)) pastHead = m;
+      else upcomingHead = m;
+    });
+
+    var upcoming = [];
+    rows.forEach(function (row) {
+      var d = new Date(row.dataset.date + "T00:00:00");
+      if (isNaN(d)) return;
+      if (d < today) {
+        if (!row.classList.contains("ev-row--past")) {
+          row.classList.add("ev-row--past");
+          row.dataset.filter = (row.dataset.filter || "").replace(/\bupcoming\b/, "past");
+          var cap = row.querySelector(".gauge-cap");
+          if (cap) cap.textContent = cap.textContent.replace("inscrits", "participants");
+        }
+      } else {
+        upcoming.push({ row: row, date: d });
+      }
+    });
+
+    /* Regroupe et trie les passés (du plus récent au plus ancien), y compris
+       les fraîchement reclassés. Insertion en tête après le titre « Passés » :
+       on itère du plus ancien au plus récent pour finir avec l'ordre voulu. */
+    if (pastHead) {
+      var past = rows.filter(function (r) { return r.classList.contains("ev-row--past"); });
+      past.sort(function (a, b) { return a.dataset.date < b.dataset.date ? -1 : 1; });
+      past.forEach(function (r) { pastHead.parentNode.insertBefore(r, pastHead.nextElementSibling); });
+    }
+    if (upcomingHead && !upcoming.length) upcomingHead.style.display = "none";
+
+    var card = document.querySelector("[data-next-card]");
+    if (card) {
+      var titleEl = card.querySelector(".next-card-title");
+      var metaEl = card.querySelector(".next-card-meta");
+      if (upcoming.length) {
+        upcoming.sort(function (a, b) { return a.date - b.date; });
+        var next = upcoming[0];
+        var h4 = next.row.querySelector("h4");
+        var place = next.row.querySelector(".ev-meta span");
+        var when = new Intl.DateTimeFormat("fr-FR", { day: "numeric", month: "long" }).format(next.date);
+        if (titleEl && h4) titleEl.textContent = h4.textContent;
+        if (metaEl) metaEl.textContent = when + (place ? " · " + place.textContent : "");
+      } else {
+        if (titleEl) titleEl.textContent = "Saison en préparation";
+        if (metaEl) metaEl.textContent = "Le prochain rendez-vous sera annoncé ici.";
+      }
+    }
   }
 
   /* ----------------------------- Filtres agenda --------------------------- */

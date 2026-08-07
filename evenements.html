@@ -73,10 +73,10 @@
         <p class="hero-kicker reveal">Agenda</p>
         <h1 class="hero-title reveal" style="--i:1">Conférences, afterworks, visios.<br />En vrai, avec de vrais décideurs.</h1>
         <p class="hero-sub reveal" style="--i:2">Les membres accèdent aux inscriptions en avance et au coupe-file.</p>
-        <a href="#agenda" class="next-card reveal" style="--i:3">
+        <a href="#agenda" class="next-card reveal" style="--i:3" data-next-card>
           <span class="next-card-label">Prochain rendez-vous</span>
-          <span class="next-card-title">Décrocher son alternance dans le sport</span>
-          <span class="next-card-meta">09 juillet · Visio Zoom</span>
+          <span class="next-card-title">Business des grands événements sportifs</span>
+          <span class="next-card-meta">17 septembre · Centre Panthéon, Sorbonne</span>
         </a>
       </div>
     </section>
@@ -99,22 +99,13 @@
           <button data-filter="salon" aria-pressed="false">Salon</button>
         </div>
 
+        <!-- Chaque ligne porte sa date en data-date : le JS (initDates) reclasse
+             automatiquement les événements échus dans « Passés », pour que la
+             page ne se périme plus entre deux mises à jour du HTML. -->
         <div class="ev-list" data-events>
           <h3 class="ev-month">À venir</h3>
 
-          <div class="ev-row" data-filter="upcoming visio">
-            <span class="ev-date"><span class="d">09</span><span class="m">Juil.</span></span>
-            <div class="ev-body">
-              <span class="ev-tag">Visio</span>
-              <h4>Décrocher son alternance dans le sport</h4>
-              <span class="ev-meta"><span>En ligne (Zoom)</span></span>
-            </div>
-            <div class="ev-aside">
-              <span class="gauge" data-fill="63"><span class="gauge-bar"><span class="gauge-fill"></span></span><span class="gauge-cap">63 / 100 inscrits</span></span>
-            </div>
-          </div>
-
-          <div class="ev-row" data-filter="upcoming conference">
+          <div class="ev-row" data-date="2026-09-17" data-filter="upcoming conference">
             <span class="ev-date"><span class="d">17</span><span class="m">Sept.</span></span>
             <div class="ev-body">
               <span class="ev-tag">Conférence</span>
@@ -126,7 +117,7 @@
             </div>
           </div>
 
-          <div class="ev-row" data-filter="upcoming salon">
+          <div class="ev-row" data-date="2026-10-08" data-filter="upcoming salon">
             <span class="ev-date"><span class="d">08</span><span class="m">Oct.</span></span>
             <div class="ev-body">
               <span class="ev-tag">Salon</span>
@@ -140,7 +131,19 @@
 
           <h3 class="ev-month">Passés</h3>
 
-          <div class="ev-row ev-row--past" data-filter="past afterwork">
+          <div class="ev-row ev-row--past" data-date="2026-07-09" data-filter="past visio">
+            <span class="ev-date"><span class="d">09</span><span class="m">Juil.</span></span>
+            <div class="ev-body">
+              <span class="ev-tag">Visio</span>
+              <h4>Décrocher son alternance dans le sport</h4>
+              <span class="ev-meta"><span>En ligne (Zoom)</span></span>
+            </div>
+            <div class="ev-aside">
+              <span class="gauge" data-fill="63"><span class="gauge-bar"><span class="gauge-fill"></span></span><span class="gauge-cap">63 / 100 participants</span></span>
+            </div>
+          </div>
+
+          <div class="ev-row ev-row--past" data-date="2026-07-02" data-filter="past afterwork">
             <span class="ev-date"><span class="d">02</span><span class="m">Juil.</span></span>
             <div class="ev-body">
               <span class="ev-tag">Afterwork</span>
@@ -152,7 +155,7 @@
             </div>
           </div>
 
-          <div class="ev-row ev-row--past" data-filter="past conference">
+          <div class="ev-row ev-row--past" data-date="2026-06-25" data-filter="past conference">
             <span class="ev-date"><span class="d">25</span><span class="m">Juin</span></span>
             <div class="ev-body">
               <span class="ev-tag">Conférence</span>
@@ -164,7 +167,7 @@
             </div>
           </div>
 
-          <div class="ev-row ev-row--past ev-row--full" data-filter="past conference">
+          <div class="ev-row ev-row--past ev-row--full" data-date="2026-04-15" data-filter="past conference">
             <span class="ev-date"><span class="d">15</span><span class="m">Avr.</span></span>
             <div class="ev-body">
               <span class="ev-tag">Conférence · complet</span>
@@ -176,7 +179,7 @@
             </div>
           </div>
 
-          <div class="ev-row ev-row--past" data-filter="past conference">
+          <div class="ev-row ev-row--past" data-date="2026-03-12" data-filter="past conference">
             <span class="ev-date"><span class="d">12</span><span class="m">Mars</span></span>
             <div class="ev-body">
               <span class="ev-tag">Conférence</span>
@@ -188,7 +191,7 @@
             </div>
           </div>
 
-          <div class="ev-row ev-row--past ev-row--full" data-filter="past afterwork">
+          <div class="ev-row ev-row--past ev-row--full" data-date="2026-02-05" data-filter="past afterwork">
             <span class="ev-date"><span class="d">05</span><span class="m">Févr.</span></span>
             <div class="ev-body">
               <span class="ev-tag">Afterwork · complet</span>
@@ -279,7 +282,7 @@
   </footer>
 
   <script src="assets/vendor/lenis.min.js"></script>
-  <script src="assets/evenements/js/main.js?v=2"></script>
+  <script src="assets/evenements/js/main.js?v=3"></script>
   <script>
     document.querySelectorAll("[data-year]").forEach(function (el) {
       el.textContent = new Date().getFullYear();
