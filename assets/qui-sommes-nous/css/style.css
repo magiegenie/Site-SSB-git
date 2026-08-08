@@ -30,11 +30,11 @@
   --on-navy-mute: rgba(197, 219, 242, 0.74);
 
   /* --- Or SSB --- */
-  --gold: #ffb607;
-  --gold-soft: #ffcf5c;
-  --gold-deep: #8c5c12;
+  --gold: #7ab1e8;
+  --gold-soft: #a9cdf2;
+  --gold-deep: #2660a5;
   --gold-ink: #041a35;
-  --gold-line: rgba(255, 182, 7, 0.5);
+  --gold-line: rgba(122, 177, 232, 0.5);
 
   --line-navy: rgba(197, 219, 242, 0.16);
   --line-ink: rgba(4, 26, 53, 0.12);
@@ -135,7 +135,7 @@ body[data-theme="navy"] .hdr .logo img { filter: brightness(0) invert(1); }
 .pill:active { transform: translateY(0); }
 .pill.ghost { box-shadow: inset 0 0 0 1.5px currentColor; }
 .pill.solid { background: var(--gold); color: var(--gold-ink); border-radius: 12px; }
-.pill.solid:hover { background: var(--gold-soft); box-shadow: 0 12px 26px -14px rgba(255, 182, 7, 0.7); }
+.pill.solid:hover { background: var(--gold-soft); box-shadow: 0 12px 26px -14px rgba(122, 177, 232, 0.7); }
 .pill.lg { min-height: 52px; padding: 0 26px; font-size: 1.02rem; }
 .pill.on-light { background: var(--navy-800); color: #fff; }
 .pill.on-light:hover { background: var(--navy-700); box-shadow: 0 12px 26px -14px rgba(6, 39, 80, 0.7); }
@@ -737,3 +737,6 @@ body[data-theme="light"] .nav-drop-link.is-active { background: var(--paper-2); 
 /* Le CTA "Parlons-en" du header a été retiré : "Se connecter" reste
    visible sur mobile (la place est libre à droite du logo). */
 @media (max-width: 720px) { .hdr-login { display: inline-flex; } }
+
+/* Signature de bas de page : le nom complet plutôt que le sigle. */
+.ft-big { font-size: clamp(1.9rem, 4.6vw, 3.6rem); line-height: 0.95; }
