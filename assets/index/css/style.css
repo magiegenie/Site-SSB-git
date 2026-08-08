@@ -665,9 +665,12 @@ body[data-theme="light"] .nav-drop-link.is-active { background: var(--paper-2); 
 @media (max-width: 720px) { .hdr-login { display: inline-flex; } }
 
 /* Le titre doit rester à gauche du sujet de la photo (David Kahn au tiers
-   droit) : on borne sa largeur au lieu de laisser 18ch courir sur son visage. */
-.hero-title { max-width: 15ch; }
-@media (max-width: 900px) { .hero-title { max-width: 18ch; } }
+   droit) : phrase en trois lignes courtes, calibre réduit, largeur bornée à
+   la plus longue ligne pour qu'aucun retour ne déborde sur son visage. */
+.hero-title {
+  font-size: clamp(2.2rem, 4.9vw, 4.4rem);
+  line-height: 1.06; max-width: 20ch;
+}
 
 /* Nom complet de l'association : présent en clair sur les grands écrans,
    réduit au sigle quand la place manque (header dense, mobile). */
@@ -693,8 +696,8 @@ body[data-theme="light"] .nav-drop-link.is-active { background: var(--paper-2); 
 /* Cadrage de la photo : David Kahn est au tiers droit du fichier. En dessous
    de 1100px, le recadrage "cover" le pousserait hors champ à droite — on
    décale donc le point d'ancrage vers lui. */
-@media (max-width: 1100px) { .hero-media img { object-position: 68% center; } }
-@media (max-width: 720px) { .hero-media img { object-position: 55% center; } }
+@media (max-width: 1100px) { .hero-media img { object-position: 62% center; } }
+@media (max-width: 720px) { .hero-media img { object-position: 72% center; } }
 
 /* Sur mobile, le titre occupe presque toute la largeur : impossible de le
    dégager du sujet horizontalement. On descend donc le bloc de texte sur le
