@@ -461,3 +461,51 @@ body[data-theme="light"] .nav-drop-link.is-active { background: var(--paper-2); 
   body[data-theme="light"] .nav-drop-link { background: none; box-shadow: none; color: #fff; }
   .nav-drop-link:hover, .nav-drop-link.is-active { background: color-mix(in srgb, currentColor 14%, transparent); }
 }
+
+/* Menu mobile plein écran (référence Alethia) : grands liens sans mono,
+   séparateurs fins, groupes en accordéon, CTA "Parlons-en" ancré en bas. */
+.nav-cta { display: none; }
+@media (max-width: 1080px) {
+  .hdr-nav {
+    position: fixed; inset: 0; width: 100vw; height: 100svh; min-width: 0;
+    padding: calc(var(--hdr-h) + 1.5rem) 5vw calc(1.8rem + env(safe-area-inset-bottom, 0px));
+    border-radius: 0; background: var(--navy-900); color: #fff;
+    box-shadow: none; transform: translateY(-6px);
+    display: flex; flex-direction: column; align-items: stretch; gap: 0;
+    overflow-y: auto; overscroll-behavior: contain;
+    z-index: -1; /* la barre du header (logo, croix, CTA) reste au-dessus */
+  }
+  .hdr-nav.is-open { transform: none; }
+  .hdr-nav > .nav-link, .hdr-nav .nav-grp-btn {
+    font-family: var(--font); font-size: clamp(1.7rem, 7.5vw, 2.4rem); font-weight: 500;
+    letter-spacing: -0.02em; text-transform: none; opacity: 1;
+    display: flex; align-items: center; justify-content: space-between; width: 100%;
+    min-height: 0; padding: 1.15rem 0.2rem; border-radius: 0;
+    border-bottom: 1px solid var(--line-navy);
+  }
+  .nav-grp { display: block; }
+  .nav-grp-btn { display: flex; }
+  .nav-grp-btn svg { width: 24px; height: 24px; opacity: 0.8; }
+  .nav-drop {
+    display: none; position: static; min-width: 0; padding: 0.4rem 0.2rem 1.1rem;
+    opacity: 1; visibility: visible; transform: none; gap: 6px;
+    border-bottom: 1px solid var(--line-navy);
+  }
+  .nav-grp.is-open .nav-drop { display: flex; }
+  .nav-grp.is-open .nav-grp-btn { border-bottom-color: transparent; }
+  .nav-drop-link { background: rgba(10, 47, 92, 0.6); }
+  .hdr-nav > .nav-link.is-active, .nav-grp-btn.is-active { background: none; color: var(--gold-soft); }
+  .nav-cta {
+    margin-top: auto; align-self: flex-start;
+    display: inline-flex; align-items: center; gap: 0.9rem;
+    font-family: var(--font-mono); font-size: 0.82rem; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    background: var(--gold); color: var(--navy-900);
+    padding: 0.55rem 0.6rem 0.55rem 1.25rem; border-radius: 14px;
+  }
+  .nav-cta-chip {
+    width: 34px; height: 34px; border-radius: 9px; flex: none;
+    display: grid; place-items: center;
+    background: var(--navy-900); color: #fff;
+  }
+}
