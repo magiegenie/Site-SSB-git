@@ -653,3 +653,30 @@ h1, h2, h3, h4 { font-weight: 500; line-height: 1.02; letter-spacing: -0.035em; 
 .reasons-title, .faq-title, .final-title, .legal-title, .auth-head h1 {
   font-family: var(--font); font-weight: 500; letter-spacing: -0.03em;
 }
+
+/* ================= PLUS DE FLÈCHES EN PASTILLE ==========================
+   Les puces fléchées accolées aux boutons (header, hero, cartes offres)
+   sont retirées du HTML ; on neutralise ici les styles qui les portaient et
+   on rend au bouton du hero un fond plein, sans flou de fond. */
+.hdr-login-chip, .nav-cta-chip, .hero-cta-chip, .of-arrow { display: none; }
+.hdr-login { gap: 0; }
+.hero-cta {
+  gap: 0; padding: 0.9rem 1.6rem; border-radius: 12px;
+  background-color: transparent; background-image: var(--grad-accent);
+  background-size: 220% 100%; background-position: 0% 50%;
+  color: var(--gold-ink); box-shadow: none;
+  -webkit-backdrop-filter: none; backdrop-filter: none;
+  transition: background-position 700ms var(--ease-out-quart),
+              transform var(--dur-fast) var(--ease-out-quart),
+              box-shadow var(--dur-mid) var(--ease-out-quart);
+}
+.hero-cta:hover {
+  background-color: transparent; background-position: 100% 50%;
+  transform: translateY(-2px); box-shadow: 0 14px 30px -16px rgba(122, 177, 232, 0.8);
+}
+@media (max-width: 1080px) {
+  .nav-cta { gap: 0; padding: 0.7rem 1.25rem; }
+}
+@media (hover: none) {
+  .hero-cta:hover { background-position: 0% 50%; transform: none; }
+}
