@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/qui-sommes-nous/css/style.css?v=6" />
+  <link rel="stylesheet" href="assets/qui-sommes-nous/css/style.css?v=7" />
 
   <!-- Motion est servi en local (pas de CDN) et chargé avant le premier rendu :
        l'état de départ des animations n'est posé que s'il a réellement chargé. -->
@@ -41,23 +41,24 @@
   <!-- ============================ HEADER ============================ -->
   <header class="hdr" id="hdr">
     <div class="hdr-in">
-      <a class="logo" href="index.html" aria-label="Sorbonne Sport Business, accueil"><img src="assets/img/logo-ssb-emblem.png" alt="" width="200" height="150" /><span>SSB</span></a>
+      <div class="hdr-left">
+        <button type="button" class="nav-burger" data-nav-toggle aria-expanded="false" aria-controls="nav-menu" aria-label="Ouvrir le menu"><svg viewBox="0 0 24 24" width="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path class="nb-l1" d="M4 6h16" /><path class="nb-l2" d="M4 12h16" /><path class="nb-l3" d="M4 18h16" /></svg></button>
+        <a class="logo" href="index.html" aria-label="Sorbonne Sport Business, accueil"><img src="assets/img/logo-ssb-emblem.png" alt="" width="200" height="150" /><span>SSB</span></a>
+        <nav class="hdr-nav" id="nav-menu" aria-label="Navigation principale">
+          <a href="index.html" class="nav-link">Accueil</a>
+          <a href="devenir-adherent.html" class="nav-link">Adhérer</a>
+          <a href="evenements.html" class="nav-link">Événements</a>
+          <a href="nos-intervenants.html" class="nav-link">Intervenants</a>
+          <a href="qui-sommes-nous.html" class="nav-link is-active" aria-current="page">Qui sommes-nous</a>
+          <a href="devenir-partenaire.html" class="nav-link">Partenaires</a>
+        </nav>
+      </div>
       <div class="hdr-right">
         <a href="connexion.html" class="pill ghost">Se connecter</a>
         <a href="book-a-call.html" class="pill solid">Book a call</a>
       </div>
     </div>
   </header>
-
-  <!-- Nav flottante : navigation réelle du site -->
-  <nav class="floatnav" aria-label="Navigation principale">
-    <a href="index.html" class="fn-home" aria-label="Accueil"><svg viewBox="0 0 24 24" width="18" aria-hidden="true"><path d="M4 11l8-7 8 7M6 10v9h5v-6h2v6h5v-9" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></a>
-    <a href="devenir-adherent.html" class="fn-item">Adhérer</a>
-    <a href="evenements.html" class="fn-item">Événements</a>
-    <a href="nos-intervenants.html" class="fn-item">Intervenants</a>
-    <a href="qui-sommes-nous.html" class="fn-item is-active" aria-current="page">Qui sommes-nous</a>
-    <a href="devenir-partenaire.html" class="fn-item">Partenaires</a>
-  </nav>
 
   <main id="main">
 
@@ -283,5 +284,6 @@
       el.textContent = new Date().getFullYear();
     });
   </script>
+  <script src="assets/common/nav.js?v=1"></script>
 </body>
 </html>
