@@ -1,17 +1,23 @@
 /* =========================================================================
-   CONNEXION / CREATION DE COMPTE — logique fonctionnelle (demo localStorage)
-   Port fidele de l'ancien assets/js/auth.js, adapte aux nouvelles classes
-   (.field-input, .field-error, etc.) et au nouveau markup split-screen.
-   Comportement identique : comptes demo en localStorage, validation au
-   blur/submit, bascule connexion/creation, machine a ecrire sur la citation,
-   toggle mot de passe, stub Google, redirection apres succes.
+   CONNEXION / CREATION DE COMPTE — logique fonctionnelle (Supabase Auth)
+   Auth reelle via Supabase (assets/vendor/supabase.js + assets/connexion/
+   js/supabase-config.js pour l'URL/cle publiques, charges avant ce fichier).
+   Comportement conserve a l'identique : validation au blur/submit, bascule
+   connexion/creation, machine a ecrire sur la citation, toggle mot de
+   passe, redirection apres succes. "ssb_account" reste ecrit en
+   localStorage (nom en clair) au succes, pour un futur widget de compte
+   dans le header qui n'existe pas encore sur ce site.
    ========================================================================= */
 (function () {
   "use strict";
 
-  var ACCOUNTS_KEY = "ssb_demo_accounts";
   var SESSION_KEY = "ssb_account";
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  var client =
+    window.supabase && window.SSB_SUPABASE_URL && window.SSB_SUPABASE_ANON_KEY
+      ? window.supabase.createClient(window.SSB_SUPABASE_URL, window.SSB_SUPABASE_ANON_KEY)
+      : null;
 
   var CONTENT = {
     signin: {
@@ -25,20 +31,6 @@
       author: "Sorbonne Sport Business"
     }
   };
-
-  function readAccounts() {
-    try {
-      var raw = window.localStorage.getItem(ACCOUNTS_KEY);
-      var list = raw ? JSON.parse(raw) : [];
-      return Array.isArray(list) ? list : [];
-    } catch (e) {
-      return [];
-    }
-  }
-
-  function saveAccounts(list) {
-    try { window.localStorage.setItem(ACCOUNTS_KEY, JSON.stringify(list)); } catch (e) {}
-  }
 
   function setSession(name) {
     try { window.localStorage.setItem(SESSION_KEY, name); } catch (e) {}
@@ -69,6 +61,22 @@
     if (!el) return;
     el.textContent = message || "";
     el.classList.toggle("is-shown", !!message);
+  }
+
+  function setBusy(form, busy) {
+    var btn = form.querySelector('button[type="submit"]');
+    if (btn) btn.disabled = !!busy;
+  }
+
+  /* Traduction des messages d'erreur Supabase les plus courants. */
+  function translateAuthError(message) {
+    var m = (message || "").toLowerCase();
+    if (m.indexOf("invalid login credentials") !== -1) return "Email ou mot de passe incorrect, ou compte inexistant.";
+    if (m.indexOf("already registered") !== -1 || m.indexOf("already exists") !== -1) return "Un compte existe déjà avec cet email.";
+    if (m.indexOf("password") !== -1 && m.indexOf("least") !== -1) return "Le mot de passe doit faire au moins 6 caractères.";
+    if (m.indexOf("email not confirmed") !== -1) return "Confirme ton email avant de te connecter (vérifie ta boîte de réception).";
+    if (m.indexOf("rate limit") !== -1) return "Trop de tentatives, réessaie dans quelques minutes.";
+    return message || "Une erreur est survenue, réessaie.";
   }
 
   /* --------------------------- Machine a ecrire --------------------------- */
@@ -141,6 +149,11 @@
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+      if (!client) {
+        showAuthError(form, "Connexion indisponible pour le moment, réessaie plus tard.");
+        return;
+      }
+
       var inputs = Array.prototype.slice.call(form.querySelectorAll(".field-input"));
       var ok = true;
       var firstInvalid = null;
@@ -149,17 +162,20 @@
       });
       if (!ok) { firstInvalid.focus(); return; }
 
-      var email = form.querySelector('[name="email"]').value.trim().toLowerCase();
+      var email = form.querySelector('[name="email"]').value.trim();
       var password = form.querySelector('[name="password"]').value;
-      var account = readAccounts().filter(function (a) {
-        return a.email.toLowerCase() === email && a.password === password;
-      })[0];
 
-      if (!account) {
-        showAuthError(form, "Email ou mot de passe incorrect, ou compte inexistant.");
-        return;
-      }
-      succeed(form, account.name, "Connexion réussie. Redirection…");
+      setBusy(form, true);
+      client.auth.signInWithPassword({ email: email, password: password }).then(function (res) {
+        setBusy(form, false);
+        if (res.error) {
+          showAuthError(form, translateAuthError(res.error.message));
+          return;
+        }
+        var user = res.data.user;
+        var name = (user && user.user_metadata && user.user_metadata.name) || email;
+        succeed(form, name, "Connexion réussie. Redirection…");
+      });
     });
   }
 
@@ -175,6 +191,11 @@
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+      if (!client) {
+        showAuthError(form, "Création de compte indisponible pour le moment, réessaie plus tard.");
+        return;
+      }
+
       var inputs = Array.prototype.slice.call(form.querySelectorAll(".field-input"));
       var ok = true;
       var firstInvalid = null;
@@ -184,18 +205,25 @@
       if (!ok) { firstInvalid.focus(); return; }
 
       var name = form.querySelector('[name="name"]').value.trim();
-      var email = form.querySelector('[name="email"]').value.trim().toLowerCase();
+      var email = form.querySelector('[name="email"]').value.trim();
       var password = form.querySelector('[name="password"]').value;
-      var accounts = readAccounts();
-      var exists = accounts.some(function (a) { return a.email.toLowerCase() === email; });
 
-      if (exists) {
-        showAuthError(form, "Un compte existe déjà avec cet email.");
-        return;
-      }
-      accounts.push({ name: name, email: email, password: password });
-      saveAccounts(accounts);
-      succeed(form, name, "Compte créé. Redirection…");
+      setBusy(form, true);
+      client.auth.signUp({ email: email, password: password, options: { data: { name: name } } }).then(function (res) {
+        setBusy(form, false);
+        if (res.error) {
+          showAuthError(form, translateAuthError(res.error.message));
+          return;
+        }
+        // Si la confirmation email est activee cote Supabase, il n'y a pas
+        // encore de session a ce stade : on previent au lieu de rediriger
+        // comme si le compte etait deja actif.
+        if (!res.data.session) {
+          showFeedback(form, "Compte créé ! Vérifie tes emails pour confirmer ton adresse avant de te connecter.");
+          return;
+        }
+        succeed(form, name, "Compte créé. Redirection…");
+      });
     });
   }
 
@@ -235,7 +263,18 @@
     document.querySelectorAll("[data-google]").forEach(function (btn) {
       btn.addEventListener("click", function () {
         var form = document.querySelector('[data-auth-form]:not([hidden])');
-        if (form) showFeedback(form, "Connexion Google disponible en v2 (démo).");
+        if (!client) {
+          if (form) showFeedback(form, "Connexion Google indisponible pour le moment.");
+          return;
+        }
+        // Necessite d'activer le provider Google dans Supabase
+        // (Authentication > Providers) avant de fonctionner reellement.
+        client.auth.signInWithOAuth({
+          provider: "google",
+          options: { redirectTo: window.location.origin + window.location.pathname.replace(/connexion\.html$/, "index.html") }
+        }).then(function (res) {
+          if (res.error && form) showFeedback(form, "Connexion Google pas encore activée côté Supabase.");
+        });
       });
     });
   }
