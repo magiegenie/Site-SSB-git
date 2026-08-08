@@ -169,8 +169,72 @@ h1, h2, h3 { text-wrap: balance; }
 }
 @media (min-width: 1081px) {
   /* Le logo tient lieu de lien Accueil hors mobile. */
-  .hdr-nav .nav-link:first-child { display: none; }
+  .hdr-nav > .nav-link:first-child { display: none; }
 }
 @media (min-width: 1280px) {
   .hdr-nav { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+}
+
+/* Menu à groupes déroulants (référence Alethia) + CTA header "Parlons-en". */
+.nav-grp { position: relative; }
+.nav-grp-btn { display: inline-flex; align-items: center; gap: 0.45rem; }
+.nav-grp-btn svg { transition: transform var(--dur-mid) var(--ease-out-quart); }
+.nav-grp-btn[aria-expanded="true"] svg { transform: rotate(180deg); }
+.nav-drop {
+  position: absolute; top: 100%; left: 0; min-width: 240px;
+  padding-top: 12px; /* pont de survol entre le bouton et le panneau */
+  display: flex; flex-direction: column; gap: 6px;
+  opacity: 0; visibility: hidden; transform: translateY(-6px);
+  transition: opacity var(--dur-mid) var(--ease-out-quart),
+              transform var(--dur-mid) var(--ease-out-quart),
+              visibility 0s linear var(--dur-mid);
+}
+.nav-grp:hover .nav-drop, .nav-grp:focus-within .nav-drop, .nav-grp.is-open .nav-drop {
+  opacity: 1; visibility: visible; transform: none; transition-delay: 0s;
+}
+.nav-drop-link {
+  font-family: var(--font-mono); font-size: 0.75rem; font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap;
+  padding: 0.95rem 1.1rem; border-radius: 10px;
+  background: rgba(10, 47, 92, 0.92); color: #fff;
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  transition: background var(--dur-fast) var(--ease-out-quart);
+}
+.nav-drop-link:hover, .nav-drop-link.is-active { background: var(--navy-600); }
+body[data-theme="light"] .nav-drop-link {
+  background: #fff; color: var(--ink);
+  box-shadow: 0 18px 40px -24px rgba(4, 26, 53, 0.45), inset 0 0 0 1px var(--line-ink);
+}
+body[data-theme="light"] .nav-drop-link:hover,
+body[data-theme="light"] .nav-drop-link.is-active { background: var(--paper-2); }
+
+.hdr-login, .hdr-call {
+  display: inline-flex; align-items: center;
+  font-family: var(--font-mono); font-size: 0.75rem; font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap;
+}
+.hdr-login { padding: 0.55rem 0.8rem; border-radius: 10px; opacity: 0.85; min-height: 44px; }
+.hdr-login:hover { opacity: 1; background: color-mix(in srgb, currentColor 10%, transparent); }
+.hdr-call { gap: 0.75rem; min-height: 44px; }
+.hdr-call-chip {
+  width: 34px; height: 34px; border-radius: 9px; flex: none;
+  display: grid; place-items: center;
+  background: var(--gold); color: var(--navy-900);
+  transition: transform var(--dur-mid) var(--ease-out-quart), background var(--dur-mid) var(--ease-out-quart);
+}
+.hdr-call:hover .hdr-call-chip { transform: translateX(3px); background: var(--gold-soft); }
+@media (max-width: 720px) { .hdr-login { display: none; } }
+@media (max-width: 1080px) {
+  /* Menu mobile : les groupes s'aplatissent en liste simple. */
+  .hdr-nav .nav-link { opacity: 1; }
+  .nav-grp { display: contents; }
+  .nav-grp-btn { display: none; }
+  .nav-drop {
+    position: static; min-width: 0; padding-top: 0;
+    opacity: 1; visibility: visible; transform: none;
+    gap: 0.15rem; -webkit-backdrop-filter: none; backdrop-filter: none;
+  }
+  .nav-drop-link { background: none; min-height: 46px; display: flex; align-items: center; padding: 0.6rem 0.9rem; }
+  body[data-theme="light"] .nav-drop-link { background: none; box-shadow: none; color: #fff; }
+  .nav-drop-link:hover, .nav-drop-link.is-active { background: color-mix(in srgb, currentColor 14%, transparent); }
 }

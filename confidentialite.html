@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/legal/css/style.css?v=8" />
+  <link rel="stylesheet" href="assets/legal/css/style.css?v=11" />
   <script src="assets/vendor/motion.js"></script>
   <script>
     if (window.Motion && typeof window.Motion.animate === "function") {
@@ -38,16 +38,26 @@
         <a class="logo" href="index.html" aria-label="Sorbonne Sport Business, accueil"><img src="assets/img/logo-ssb-emblem.png" alt="" width="200" height="150" /><span>SSB</span></a>
         <nav class="hdr-nav" id="nav-menu" aria-label="Navigation principale">
           <a href="index.html" class="nav-link">Accueil</a>
-          <a href="devenir-adherent.html" class="nav-link">Adhérer</a>
+          <div class="nav-grp">
+            <button type="button" class="nav-link nav-grp-btn" aria-expanded="false">Découvrir<svg viewBox="0 0 24 24" width="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg></button>
+            <div class="nav-drop">
+              <a href="qui-sommes-nous.html" class="nav-drop-link">Qui sommes-nous</a>
+              <a href="nos-intervenants.html" class="nav-drop-link">Nos intervenants</a>
+            </div>
+          </div>
           <a href="evenements.html" class="nav-link">Événements</a>
-          <a href="nos-intervenants.html" class="nav-link">Intervenants</a>
-          <a href="qui-sommes-nous.html" class="nav-link">Qui sommes-nous</a>
-          <a href="devenir-partenaire.html" class="nav-link">Partenaires</a>
+          <div class="nav-grp">
+            <button type="button" class="nav-link nav-grp-btn" aria-expanded="false">Rejoindre<svg viewBox="0 0 24 24" width="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg></button>
+            <div class="nav-drop">
+              <a href="devenir-adherent.html" class="nav-drop-link">Devenir adhérent</a>
+              <a href="devenir-partenaire.html" class="nav-drop-link">Devenir partenaire</a>
+            </div>
+          </div>
         </nav>
       </div>
       <div class="hdr-right">
-        <a href="connexion.html" class="pill ghost">Se connecter</a>
-        <a href="book-a-call.html" class="pill solid">Book a call</a>
+        <a href="connexion.html" class="hdr-login">Se connecter</a>
+        <a href="book-a-call.html" class="hdr-call">Parlons-en<span class="hdr-call-chip" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="M13 6l6 6-6 6" /></svg></span></a>
       </div>
     </div>
   </header>
@@ -77,7 +87,7 @@
       <div class="legal-article">
         <section id="collecte" class="legal-section reveal">
           <h2>Données collectées</h2>
-          <p>Via le formulaire « Book a call » : prénom, nom, email, type de demande et message. Lors d'une adhésion : les informations nécessaires à la gestion de l'abonnement, traitées par notre prestataire de paiement.</p>
+          <p>Via le formulaire « Parlons-en » : prénom, nom, email, type de demande et message. Lors d'une adhésion : les informations nécessaires à la gestion de l'abonnement, traitées par notre prestataire de paiement.</p>
         </section>
 
         <section id="finalite" class="legal-section reveal">
@@ -118,7 +128,7 @@
       </div>
       <div class="ft-cols">
         <div class="ft-col"><p class="ft-h">Association</p><a href="qui-sommes-nous.html">Qui sommes-nous</a><a href="evenements.html">Nos événements</a><a href="nos-intervenants.html">Nos intervenants</a><a href="devenir-partenaire.html">Devenir partenaire</a></div>
-        <div class="ft-col"><p class="ft-h">Rejoindre</p><a href="devenir-adherent.html">Devenir adhérent</a><a href="book-a-call.html">Book a call</a><a href="connexion.html">Se connecter</a></div>
+        <div class="ft-col"><p class="ft-h">Rejoindre</p><a href="devenir-adherent.html">Devenir adhérent</a><a href="book-a-call.html">Parlons-en</a><a href="connexion.html">Se connecter</a></div>
         <div class="ft-col"><p class="ft-h">Ressources</p><a href="confidentialite.html">Confidentialité</a><a href="mentions-legales.html">Mentions légales</a></div>
       </div>
     </div>
@@ -132,6 +142,6 @@
   </footer>
 
   <script src="assets/legal/js/main.js?v=2"></script>
-  <script src="assets/common/nav.js?v=1"></script>
+  <script src="assets/common/nav.js?v=2"></script>
 </body>
 </html>
