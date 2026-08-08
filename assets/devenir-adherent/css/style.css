@@ -551,3 +551,144 @@ body[data-theme="light"] .nav-drop-link.is-active { background: var(--paper-2); 
 
 /* Signature de bas de page : le nom complet plutôt que le sigle. */
 .ft-big { font-size: clamp(1.9rem, 4.6vw, 3.6rem); line-height: 0.95; }
+
+/* Nom complet dans le header dès qu'il y a la place, sigle en dessous.
+   Sans cette règle les deux libellés s'affichent l'un après l'autre. */
+.logo-full { display: none; }
+@media (min-width: 1200px) {
+  .hdr .logo-full { display: inline; }
+  .hdr .logo-abbr { display: none; }
+  .hdr .logo { font-size: 1.05rem; letter-spacing: -0.02em; }
+}
+
+/* ============================ ACCENT EN DÉGRADÉ ============================
+   L'accent n'est plus un aplat : c'est un dégradé de bleus. Les boutons
+   pleins portent le dégradé sur une surface deux fois plus large que le
+   bouton, et le survol fait voyager ce dégradé à l'intérieur (plus un reflet
+   qui traverse) au lieu de basculer d'un aplat à un autre.
+   Les bleus restent volontairement clairs : le texte des boutons est navy. */
+:root {
+  --grad-accent: linear-gradient(115deg, #6aa8e4 0%, #8fc0ee 42%, #b7d7f5 72%, #7ab1e8 100%);
+  --grad-accent-text: linear-gradient(105deg, #7ab1e8 0%, #a9cdf2 45%, #d6e9fb 100%);
+}
+
+.pill.solid {
+  position: relative; overflow: hidden; isolation: isolate;
+  background-color: var(--gold);
+  background-image: var(--grad-accent);
+  background-size: 220% 100%;
+  background-position: 0% 50%;
+  transition: background-position 750ms var(--ease-out-quart),
+              box-shadow var(--dur-mid) var(--ease-out-quart),
+              transform var(--dur-mid) var(--ease-out-quart);
+}
+.pill.solid:hover {
+  /* background-size répété : la règle historique utilise le raccourci
+     `background`, qui remet la taille à `auto` et fige le dégradé. */
+  background-image: var(--grad-accent);
+  background-size: 220% 100%;
+  background-position: 100% 50%;
+  box-shadow: 0 14px 30px -14px rgba(122, 177, 232, 0.75);
+}
+/* Reflet : passe au-dessus du fond, sous le texte (z-index négatif). */
+.pill.solid::after {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(105deg, transparent 32%, rgba(255, 255, 255, 0.4) 50%, transparent 68%);
+  transform: translateX(-130%);
+  transition: transform 900ms var(--ease-out-quart);
+}
+.pill.solid:hover::after { transform: translateX(130%); }
+
+/* Pastilles fléchées : même dégradé, qui glisse au survol du parent. */
+.hero-cta-chip, .nav-cta-chip, .of-arrow, .plan-badge {
+  background-image: var(--grad-accent);
+  background-size: 200% 100%;
+  background-position: 0% 50%;
+  transition: background-position 700ms var(--ease-out-quart),
+              transform var(--dur-mid) var(--ease-out-quart);
+}
+.hero-cta:hover .hero-cta-chip,
+.nav-cta:hover .nav-cta-chip,
+.of-card:hover .of-arrow { background-position: 100% 50%; }
+
+/* Grands chiffres et accents typographiques : dégradé appliqué au texte. */
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .hero-title .gold,
+  .partner-stat strong,
+  .phero-strip .stat strong,
+  .bc-stat strong,
+  .stat-num {
+    background-image: var(--grad-accent-text);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+  }
+}
+
+/* Liens et boutons secondaires : le survol fait monter une nappe colorée
+   depuis le bas plutôt que de repeindre le fond d'un coup. */
+.pill.ghost {
+  position: relative; overflow: hidden; isolation: isolate;
+  transition: box-shadow var(--dur-mid) var(--ease-out-quart),
+              color var(--dur-mid) var(--ease-out-quart),
+              transform var(--dur-mid) var(--ease-out-quart);
+}
+.pill.ghost::after {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: var(--grad-accent);
+  opacity: 0; transform: translateY(38%);
+  transition: opacity 420ms var(--ease-out-quart), transform 520ms var(--ease-out-quart);
+}
+.pill.ghost:hover::after { opacity: 0.9; transform: none; }
+.pill.ghost:hover { color: var(--gold-ink); box-shadow: inset 0 0 0 1.5px transparent; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pill.solid, .pill.solid::after, .pill.ghost::after,
+  .hero-cta-chip, .nav-cta-chip, .of-arrow { transition: none; }
+  .pill.solid::after { display: none; }
+}
+
+/* ===================== MENU : TRAIT PLUTÔT QUE PASTILLE =====================
+   Plus de fond arrondi autour des entrées : le survol et la page courante
+   sont marqués par un trait fin qui se déploie sous le libellé. Rien ne
+   reste "surligné" après un clic (voir le bloc :focus plus bas). */
+@media (min-width: 1081px) {
+  .hdr-nav { gap: 0.9rem; }
+  .nav-link {
+    position: relative; border-radius: 0; padding: 0 2px; background: none;
+    transition: opacity var(--dur-fast) var(--ease-out-quart), color var(--dur-fast) var(--ease-out-quart);
+  }
+  .nav-link::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 11px; height: 1.5px;
+    background: var(--grad-accent-text); border-radius: 2px;
+    transform: scaleX(0); transform-origin: left center;
+    transition: transform 380ms var(--ease-out-quart);
+  }
+  .nav-link:hover, .nav-link.is-active { background: none; opacity: 1; }
+  .nav-link:hover::after, .nav-link.is-active::after { transform: scaleX(1); }
+  /* Le chevron ne doit pas être souligné avec le libellé. */
+  .nav-grp-btn::after { right: 18px; }
+  .nav-grp-btn[aria-expanded="true"]::after { transform: scaleX(1); }
+}
+
+/* Après un clic à la souris, plus aucune trace : l'anneau de focus n'apparaît
+   que pour la navigation au clavier (:focus-visible). */
+:focus:not(:focus-visible) { outline: none; }
+.nav-link:focus:not(:focus-visible),
+.pill:focus:not(:focus-visible),
+.nav-drop-link:focus:not(:focus-visible),
+.hdr-login:focus:not(:focus-visible),
+.acc-head:focus:not(:focus-visible),
+.formats-tab:focus:not(:focus-visible),
+.filters button:focus:not(:focus-visible) { outline: none; background-color: transparent; }
+.pill.solid:focus:not(:focus-visible) { background-color: var(--gold); }
+
+/* Le survol ne doit se déclencher que sur les appareils qui en ont un :
+   sur tactile, l'état "hover" restait collé après le tap. */
+@media (hover: none) {
+  .nav-link:hover::after { transform: scaleX(0); }
+  .nav-link.is-active::after { transform: scaleX(1); }
+  .pill.solid:hover { background-position: 0% 50%; }
+  .pill.solid:hover::after { transform: translateX(-130%); }
+  .pill.ghost:hover::after { opacity: 0; transform: translateY(38%); }
+  .pill.ghost:hover { color: inherit; }
+}
