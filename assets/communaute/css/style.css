@@ -1129,3 +1129,27 @@ h1, h2, h3, h4 { font-weight: 500; line-height: 1.02; letter-spacing: -0.035em; 
 .breadcrumb a { color: var(--on-navy-soft); }
 .breadcrumb a:hover { color: #fff; }
 .breadcrumb span { margin: 0 0.45rem; }
+
+/* ================= HERO PHOTO (pages communauté et blog) =================
+   Variante du hero navy : la photo occupe tout le bloc, assombrie par un
+   voile bleu qui monte du bas. Le texte reste blanc et lisible sans avoir
+   à retoucher chaque image. */
+.chero--photo { background: var(--navy-900); }
+.chero-media { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+.chero-media img { width: 100%; height: 100%; object-fit: cover; object-position: center 42%; }
+.chero-media::after {
+  content: ""; position: absolute; inset: 0;
+  background:
+    linear-gradient(to top, rgba(4, 26, 53, 0.96) 6%, rgba(4, 26, 53, 0.74) 42%, rgba(4, 26, 53, 0.52) 78%, rgba(4, 26, 53, 0.45) 100%),
+    linear-gradient(to right, rgba(4, 26, 53, 0.78) 0%, rgba(4, 26, 53, 0.2) 62%, rgba(4, 26, 53, 0) 100%);
+}
+.chero--photo .chero-in { position: relative; z-index: 1; }
+.chero--photo { padding-bottom: clamp(3.5rem, 7vw, 6rem); }
+
+@media (max-width: 860px) {
+  /* Sur mobile la colonne de texte occupe toute la largeur : on assombrit
+     davantage, sinon le titre passe sur des zones claires de la photo. */
+  .chero-media::after {
+    background: linear-gradient(to top, rgba(4, 26, 53, 0.97) 10%, rgba(4, 26, 53, 0.86) 55%, rgba(4, 26, 53, 0.72) 100%);
+  }
+}
