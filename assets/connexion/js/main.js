@@ -264,6 +264,21 @@
     });
   }
 
+  /* ---- Retour du lien de confirmation email (?code=... ou #access_token=...) ---- */
+  function initEmailConfirmationReturn(signinForm, signupForm) {
+    if (!auth || !auth.client) return;
+    var cameFromEmailLink = /[?&](code|access_token|token_hash)=/.test(window.location.href);
+    if (!cameFromEmailLink) return;
+    var handled = false;
+    auth.client.auth.onAuthStateChange(function (event, session) {
+      if (handled || event !== "SIGNED_IN" || !session) return;
+      handled = true;
+      var visibleForm = signinForm.hidden ? signupForm : signinForm;
+      var name = (session.user.user_metadata && session.user.user_metadata.name) || session.user.email;
+      succeed(visibleForm, name, "Email confirmé, tu es connecté(e) ! Redirection…");
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     var forms = Array.prototype.slice.call(document.querySelectorAll("[data-auth-form]"));
     var signinForm = document.querySelector('[data-auth-form="signin"]');
@@ -278,6 +293,7 @@
 
     initModeSwitch(forms, start);
     initGoogle();
+    if (signinForm && signupForm) initEmailConfirmationReturn(signinForm, signupForm);
   });
 })();
 

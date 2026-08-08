@@ -22,7 +22,16 @@
 
   function signUp(email, password, name) {
     if (!client) return Promise.resolve({ success: false, message: "Connexion à Supabase indisponible." });
-    var options = name ? { data: { name: name } } : undefined;
+    // Sans ce parametre, le lien de confirmation recu par email pointe vers
+    // le "Site URL" par defaut du projet Supabase (localhost:3000 tant que
+    // ce reglage n'a pas ete mis a jour cote dashboard Supabase). On force
+    // ici le retour vers le domaine reel d'ou vient l'inscription. Il faut
+    // en plus que ce domaine soit ajoute a la liste blanche "Redirect URLs"
+    // dans Supabase (Authentication > URL Configuration), sinon Supabase
+    // ignore ce parametre et repart quand meme sur le Site URL par defaut.
+    var emailRedirectTo = window.location.origin + window.location.pathname.replace(/[^/]*$/, "connexion.html");
+    var options = { emailRedirectTo: emailRedirectTo };
+    if (name) options.data = { name: name };
     return client.auth.signUp({ email: email, password: password, options: options }).then(function (res) {
       if (res.error) return { success: false, message: translateAuthError(res.error.message), raw: res.error };
       return { success: true, data: res.data, needsEmailConfirmation: !res.data.session };
