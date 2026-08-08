@@ -335,3 +335,18 @@ html.motion-ready .reveal.in {
 /* Typographie : selection aux couleurs de la charte, titres equilibres. */
 ::selection { background: var(--gold); color: var(--navy-900); }
 h1, h2, h3 { text-wrap: balance; }
+
+/* Nav "studio" (référence Alethia) : liens centrés en mono uppercase,
+   le logo tient lieu de lien Accueil sur desktop. */
+:root { --font-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace; }
+.nav-link, .hdr .pill {
+  font-family: var(--font-mono); font-size: 0.75rem; font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase;
+}
+@media (min-width: 1081px) {
+  /* Le logo tient lieu de lien Accueil hors mobile. */
+  .hdr-nav .nav-link:first-child { display: none; }
+}
+@media (min-width: 1280px) {
+  .hdr-nav { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+}

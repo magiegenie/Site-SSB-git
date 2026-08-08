@@ -148,7 +148,10 @@ body[data-theme="light"] .hdr {
 body[data-theme="light"] .hdr .pill.ghost { box-shadow: inset 0 0 0 1.5px var(--line-ink); }
 
 /* =================================== HERO ================================ */
-.hero { position: relative; overflow: hidden; min-height: 100svh; display: flex; align-items: flex-end; color: #fff; }
+/* Composition "studio" (référence Alethia) : titre grotesque en haut à
+   gauche, CTA à puce dorée dessous, baseline en bas à gauche, indice de
+   scroll en bas à droite, étiquette mono posée sur la photo. */
+.hero { position: relative; overflow: hidden; min-height: 100svh; display: flex; align-items: stretch; color: #fff; }
 .hero-media { position: absolute; inset: 0; z-index: var(--z-media); }
 .hero-media img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.08); will-change: transform; }
 .hero-media::after {
@@ -157,11 +160,50 @@ body[data-theme="light"] .hdr .pill.ghost { box-shadow: inset 0 0 0 1.5px var(--
 }
 .hero-in {
   position: relative; z-index: var(--z-content); width: var(--shell); margin: 0 auto;
-  padding: calc(var(--hdr-h) + 3rem) 0 clamp(6rem, 11vw, 9rem);
+  padding: calc(var(--hdr-h) + clamp(1.5rem, 4vw, 3.5rem)) 0 clamp(2.5rem, 5vw, 4rem);
+  display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start;
 }
-.hero-title { font-family: var(--font-serif); font-weight: 600; font-size: clamp(2.8rem, 6.8vw, 6rem); letter-spacing: -0.01em; line-height: 0.98; max-width: 16ch; }
-.hero-sub { color: var(--on-navy-soft); font-size: clamp(1.05rem, 1.5vw, 1.3rem); max-width: 46ch; margin-top: var(--space-md); line-height: 1.55; letter-spacing: 0.01em; }
-.hero-actions { display: flex; gap: var(--space-sm); flex-wrap: wrap; margin-top: var(--space-lg); }
+.hero-title {
+  font-weight: 500; font-size: clamp(2.7rem, 6.4vw, 5.6rem);
+  letter-spacing: -0.03em; line-height: 1.02; max-width: 18ch;
+}
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 1rem; margin-top: var(--space-lg);
+  font-family: var(--font-mono); font-size: 0.82rem; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 0.5rem 0.5rem 0.5rem 1.2rem; border-radius: 14px;
+  background: rgba(4, 26, 53, 0.35);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  transition: box-shadow var(--dur-mid) var(--ease-out-quart), background var(--dur-mid) var(--ease-out-quart);
+}
+.hero-cta:hover { background: rgba(4, 26, 53, 0.55); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6); }
+.hero-cta-chip {
+  width: 36px; height: 36px; border-radius: 9px; flex: none;
+  display: grid; place-items: center;
+  background: var(--gold); color: var(--navy-900);
+  transition: transform var(--dur-mid) var(--ease-out-quart);
+}
+.hero-cta:hover .hero-cta-chip { transform: translateX(3px); }
+.hero-foot {
+  width: 100%; display: flex; justify-content: space-between; align-items: flex-end;
+  gap: var(--space-md); margin-top: var(--space-lg);
+}
+.hero-sub { color: var(--on-navy-soft); font-size: clamp(1rem, 1.3vw, 1.2rem); max-width: 46ch; line-height: 1.55; letter-spacing: 0.01em; }
+.hero-sub strong { display: block; color: #fff; font-weight: 600; }
+.hero-scroll {
+  display: inline-flex; align-items: center; gap: 0.6rem; flex: none;
+  font-family: var(--font-mono); font-size: 0.75rem; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--on-navy-mute);
+}
+.hero-tag {
+  position: absolute; z-index: var(--z-content); left: 56%; bottom: 32%;
+  font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.06em;
+  padding: 0.4rem 0.65rem; border-radius: 7px;
+  background: rgba(2, 16, 31, 0.55); color: var(--on-navy-soft);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+  -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+}
 
 /* ============================ TRUST LOGOS ================================= */
 .trust { background: var(--navy-800); padding: clamp(2.5rem, 5vw, 4rem) 0; }
@@ -400,6 +442,9 @@ html.motion-ready .reveal.in {
   :root { --hdr-h: 64px; }
   .hdr .pill.ghost { display: none; }
   .mobilebar { display: flex; }
+  .hero-foot { flex-direction: column; align-items: flex-start; gap: var(--space-sm); }
+  .hero-scroll, .hero-tag { display: none; }
+  .hero-in { padding-bottom: clamp(5.5rem, 16vw, 7rem); }
   .final-actions { flex-direction: column; align-items: stretch; }
   .ft-cols { grid-template-columns: 1fr 1fr; }
   .ft-base { grid-template-columns: 1fr; align-items: start; padding-bottom: clamp(6rem, 14vw, 7.5rem); }
@@ -467,3 +512,18 @@ html.motion-ready .reveal.in {
 /* Typographie : selection aux couleurs de la charte, titres equilibres. */
 ::selection { background: var(--gold); color: var(--navy-900); }
 h1, h2, h3 { text-wrap: balance; }
+
+/* Nav "studio" (référence Alethia) : liens centrés en mono uppercase,
+   le logo tient lieu de lien Accueil sur desktop. */
+:root { --font-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace; }
+.nav-link, .hdr .pill {
+  font-family: var(--font-mono); font-size: 0.75rem; font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase;
+}
+@media (min-width: 1081px) {
+  /* Le logo tient lieu de lien Accueil hors mobile. */
+  .hdr-nav .nav-link:first-child { display: none; }
+}
+@media (min-width: 1280px) {
+  .hdr-nav { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+}

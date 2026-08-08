@@ -14,11 +14,12 @@
   <link rel="icon" type="image/png" href="assets/img/logo-ssb-emblem.png" />
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@500&display=swap" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600&display=swap" rel="stylesheet" />
   <link rel="preload" as="image" href="assets/img/hero-home.jpg" fetchpriority="high" />
-  <link rel="stylesheet" href="assets/index/css/style.css?v=10" />
+  <link rel="stylesheet" href="assets/index/css/style.css?v=12" />
 
   <!-- Motion est servi en local (pas de CDN) et chargé avant le premier rendu :
        l'état de départ des animations n'est posé que s'il a réellement chargé. -->
@@ -68,12 +69,15 @@
       <div class="hero-media" aria-hidden="true">
         <img width="1600" height="900" src="assets/img/hero-home.jpg" alt="" loading="eager" fetchpriority="high" />
       </div>
+      <span class="hero-tag" aria-hidden="true">250 étudiants / conférence</span>
       <div class="hero-in">
-        <h1 class="hero-title reveal">Le sport business,<br /><span class="gold">sans filtre.</span></h1>
-        <p class="hero-sub reveal" style="--i:1">Conférences, networking et opportunités : votre carrière dans le sport commence ici.</p>
-        <div class="hero-actions reveal" style="--i:2">
-          <a href="devenir-partenaire.html" class="pill solid lg">Devenir partenaire</a>
-          <a href="devenir-adherent.html" class="pill ghost lg">Rejoindre la communauté</a>
+        <div class="hero-top">
+          <h1 class="hero-title reveal">Le sport business,<br /><span class="gold">sans filtre.</span></h1>
+          <a href="devenir-adherent.html" class="hero-cta reveal" style="--i:1">Rejoindre la communauté<span class="hero-cta-chip" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14" /><path d="M13 6l6 6-6 6" /></svg></span></a>
+        </div>
+        <div class="hero-foot">
+          <p class="hero-sub"><strong>Conférences, networking et opportunités.</strong>Votre carrière dans le sport commence ici.</p>
+          <span class="hero-scroll" aria-hidden="true"><svg viewBox="0 0 16 24" width="12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="1.5" y="1.5" width="13" height="21" rx="6.5" /><path d="M8 6v4" /></svg>Scroll pour découvrir</span>
         </div>
       </div>
     </section>
