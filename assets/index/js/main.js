@@ -229,6 +229,18 @@ document.documentElement.classList.add("js-ok");
   var pin = sw.querySelector(".billing-pin");
   var opts = Array.prototype.slice.call(sw.querySelectorAll(".billing-opt"));
 
+  /* Offre de lancement : la section porte sa date de fin (data-promo-until).
+     Passée cette date, on retombe seul sur le plein tarif annuel et les
+     mentions "-50 %" disparaissent, sans avoir à retoucher le HTML. */
+  var section = sw.closest(".pricing");
+  var echeance = section && section.dataset.promoUntil;
+  var aujourdhui = new Date();
+  var iso = aujourdhui.getFullYear() + "-" +
+            String(aujourdhui.getMonth() + 1).padStart(2, "0") + "-" +
+            String(aujourdhui.getDate()).padStart(2, "0");
+  var promoEnCours = !echeance || iso <= echeance;
+  if (section) section.classList.toggle("promo-finie", !promoEnCours);
+
   function movePin(btn) {
     pin.style.width = btn.offsetWidth + "px";
     pin.style.transform = "translateX(" + (btn.offsetLeft - 5) + "px)";
@@ -245,7 +257,6 @@ document.documentElement.classList.add("js-ok");
     var unite = btn.dataset.billing; // "mois" ou "an"
     /* La promo des 6 premiers mois est un tarif mensuel : on la masque
        lorsque l'on bascule en annuel. */
-    var section = sw.closest(".pricing");
     if (section) section.classList.toggle("is-annual", unite === "an");
     document.querySelectorAll(".plan-price").forEach(function (price) {
       var amount = price.querySelector("[data-price]");
@@ -253,7 +264,9 @@ document.documentElement.classList.add("js-ok");
       if (!amount) return;
       price.classList.add("is-swapping");
       setTimeout(function () {
-        amount.textContent = amount.dataset[unite];
+        amount.textContent = unite === "an"
+          ? (promoEnCours ? amount.dataset.an : amount.dataset.anPlein || amount.dataset.an)
+          : amount.dataset.mois;
         if (per) per.textContent = unite === "an" ? "/ an" : "/ mois";
         price.classList.remove("is-swapping");
       }, 200);

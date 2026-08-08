@@ -17,7 +17,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@500&display=swap" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="assets/devenir-adherent/css/style.css?v=32" />
+  <link rel="stylesheet" href="assets/devenir-adherent/css/style.css?v=34" />
 
   <!-- Motion est servi en local (pas de CDN) et chargé avant le premier rendu :
        l'état de départ des animations n'est posé que s'il a réellement chargé. -->
@@ -80,16 +80,17 @@
          mensuel/annuel, prix qui s'anime au changement, carte mise en avant
          avec liseré et badge, listes "Tout X, plus :" à coches.
          TODO Stripe : remplacer les href par les Payment Links. -->
-    <section class="pricing" id="paliers" data-bg="navy">
+    <section class="pricing" id="paliers" data-bg="navy" data-promo-until="2026-10-01">
       <div class="pricing-in">
         <div class="pricing-head">
           <h2 class="pricing-title reveal">Une formule pour chaque ambition.</h2>
-          <p class="pricing-lead reveal" style="--i:1">Sans engagement, résiliable en un clic depuis votre espace membre.</p>
+          <p class="pricing-lead reveal" style="--i:1">Trois formules d'adhésion, à partir de 2,99&nbsp;€ par mois.</p>
           <div class="billing-switch reveal" style="--i:2" role="group" aria-label="Période de facturation">
             <span class="billing-pin" aria-hidden="true"></span>
             <button type="button" class="billing-opt is-active" data-billing="mois" aria-pressed="true">Mensuel</button>
-            <button type="button" class="billing-opt" data-billing="an" aria-pressed="false">Annuel<span class="billing-save">2 mois offerts</span></button>
+            <button type="button" class="billing-opt" data-billing="an" aria-pressed="false">Annuel<span class="billing-save">-50&nbsp;%</span></button>
           </div>
+          <p class="billing-note reveal" style="--i:3" data-promo-note>Offre de lancement : <strong>-50&nbsp;% sur l'abonnement annuel</strong> jusqu'au 1<sup>er</sup> octobre.</p>
         </div>
 
         <div class="plans">
@@ -98,8 +99,9 @@
               <h3 class="plan-name">Bronze</h3>
               <p class="plan-tagline">L'essentiel pour suivre la communauté et ses conférences.</p>
               <p class="plan-price">
-                <span class="amount" data-price data-mois="2,99" data-an="29,90">2,99</span><span class="cur">&nbsp;€</span><span class="per" data-per>/ mois</span>
+                <span class="amount" data-price data-mois="2,99" data-an="17,94" data-an-plein="35,88">2,99</span><span class="cur">&nbsp;€</span><span class="per" data-per>/ mois</span>
               </p>
+              <p class="plan-ref">au lieu de <s>35,88&nbsp;€</s>, jusqu'au 1<sup>er</sup> octobre</p>
             </header>
             <a href="book-a-call.html#adherent" class="pill ghost lg plan-cta">Choisir Bronze</a>
             <div class="plan-list">
@@ -117,8 +119,9 @@
               <h3 class="plan-name">Silver</h3>
               <p class="plan-tagline">Pour celles et ceux qui préparent déjà leur carrière.</p>
               <p class="plan-price">
-                <span class="amount" data-price data-mois="4,99" data-an="49,90">4,99</span><span class="cur">&nbsp;€</span><span class="per" data-per>/ mois</span>
+                <span class="amount" data-price data-mois="4,99" data-an="29,94" data-an-plein="59,88">4,99</span><span class="cur">&nbsp;€</span><span class="per" data-per>/ mois</span>
               </p>
+              <p class="plan-ref">au lieu de <s>59,88&nbsp;€</s>, jusqu'au 1<sup>er</sup> octobre</p>
             </header>
             <a href="book-a-call.html#adherent" class="pill ghost lg plan-cta">Choisir Silver</a>
             <div class="plan-list">
@@ -137,8 +140,9 @@
               <h3 class="plan-name">Gold</h3>
               <p class="plan-tagline">L'expérience complète, side events et priorité en conférence.</p>
               <p class="plan-price">
-                <span class="amount" data-price data-mois="7,99" data-an="79,90">7,99</span><span class="cur">&nbsp;€</span><span class="per" data-per>/ mois</span>
+                <span class="amount" data-price data-mois="7,99" data-an="47,94" data-an-plein="95,88">7,99</span><span class="cur">&nbsp;€</span><span class="per" data-per>/ mois</span>
               </p>
+              <p class="plan-ref">au lieu de <s>95,88&nbsp;€</s>, jusqu'au 1<sup>er</sup> octobre</p>
               <p class="plan-promo">4,99&nbsp;€ / mois pendant les 6 premiers mois</p>
             </header>
             <a href="book-a-call.html#adherent" class="pill solid lg plan-cta">Choisir Gold</a>
@@ -153,6 +157,8 @@
             </div>
           </article>
         </div>
+
+        <p class="plans-note reveal">Sans engagement : vous vous désabonnez en <strong>1 clic</strong> depuis votre espace membre, à tout moment.</p>
       </div>
     </section>
 
@@ -262,7 +268,7 @@
   </footer>
 
   <script src="assets/vendor/lenis.min.js"></script>
-  <script src="assets/devenir-adherent/js/main.js?v=4"></script>
+  <script src="assets/devenir-adherent/js/main.js?v=5"></script>
   <script>
     document.querySelectorAll("[data-year]").forEach(function (el) {
       el.textContent = new Date().getFullYear();
