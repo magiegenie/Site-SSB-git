@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/devenir-adherent/css/style.css?v=17" />
+  <link rel="stylesheet" href="assets/devenir-adherent/css/style.css?v=18" />
 
   <!-- Motion est servi en local (pas de CDN) et chargé avant le premier rendu :
        l'état de départ des animations n'est posé que s'il a réellement chargé. -->
@@ -48,25 +48,28 @@
         <nav class="hdr-nav" id="nav-menu" aria-label="Navigation principale">
           <a href="index.html" class="nav-link">Accueil</a>
           <div class="nav-grp">
-            <button type="button" class="nav-link nav-grp-btn" aria-expanded="false">Découvrir<svg viewBox="0 0 24 24" width="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg></button>
-            <div class="nav-drop">
-              <a href="qui-sommes-nous.html" class="nav-drop-link">Qui sommes-nous</a>
-              <a href="nos-intervenants.html" class="nav-drop-link">Nos intervenants</a>
-            </div>
-          </div>
-          <a href="evenements.html" class="nav-link">Événements</a>
-          <div class="nav-grp">
-            <button type="button" class="nav-link nav-grp-btn is-active" aria-expanded="false">Rejoindre<svg viewBox="0 0 24 24" width="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg></button>
+            <button type="button" class="nav-link nav-grp-btn is-active" aria-expanded="false">Devenir membre<svg viewBox="0 0 24 24" width="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg></button>
             <div class="nav-drop">
               <a href="devenir-adherent.html" class="nav-drop-link is-active" aria-current="page">Devenir adhérent</a>
-              <a href="devenir-partenaire.html" class="nav-drop-link">Devenir partenaire</a>
+              <a href="devenir-adherent.html#don" class="nav-drop-link">Faire un don</a>
             </div>
           </div>
+          <a href="evenements.html" class="nav-link">Nos événements</a>
+          <div class="nav-grp">
+            <button type="button" class="nav-link nav-grp-btn" aria-expanded="false">Qui sommes-nous<svg viewBox="0 0 24 24" width="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg></button>
+            <div class="nav-drop">
+              <a href="qui-sommes-nous.html" class="nav-drop-link">L&rsquo;association &amp; nos valeurs</a>
+              <a href="nos-intervenants.html" class="nav-drop-link">Nos speakers</a>
+              <a href="qui-sommes-nous.html#membres" class="nav-drop-link">Nos membres</a>
+              <a href="qui-sommes-nous.html#parrains" class="nav-drop-link">Nos parrains</a>
+            </div>
+          </div>
+          <a href="devenir-partenaire.html" class="nav-link">Partenariats</a>
           <a href="book-a-call.html" class="nav-cta">Parlons-en<span class="nav-cta-chip" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="M13 6l6 6-6 6" /></svg></span></a>
         </nav>
       </div>
       <div class="hdr-right">
-        <a href="connexion.html" class="hdr-login">Se connecter</a>
+        <a href="connexion.html" class="hdr-login">Se connecter<span class="hdr-login-chip" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="M13 6l6 6-6 6" /></svg></span></a>
         <a href="book-a-call.html" class="hdr-call">Parlons-en<span class="hdr-call-chip" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="M13 6l6 6-6 6" /></svg></span></a>
       </div>
     </div>
@@ -81,8 +84,9 @@
       <div class="hero-in">
         <p class="hero-kicker reveal">Adhésion</p>
         <h1 class="hero-title reveal" style="--i:1">Rejoins la communauté,<br />dès <span class="price-inline">2,99&nbsp;€</span><span class="price-per">/mois</span>.</h1>
-        <p class="hero-sub reveal" style="--i:2">Trois paliers, sans engagement. Conférences, afterworks, carré VIP et networking direct avec les décideurs du sport.</p>
-        <div class="trust-row reveal" style="--i:3">
+        <p class="hero-sub reveal" style="--i:2">Trois paliers, sans engagement. Offres de stages chaque semaine, side events, contenu exclusif et networking direct avec les décideurs du sport.</p>
+        <a href="#paliers" class="pill solid lg reveal" style="--i:3">Devenir adhérent</a>
+        <div class="trust-row reveal" style="--i:4">
           <span class="trust-chip"><svg viewBox="0 0 24 24" width="15" aria-hidden="true"><path d="M20 6 9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Sans engagement</span>
           <span class="trust-chip"><svg viewBox="0 0 24 24" width="15" aria-hidden="true"><path d="M22 2 11 13M22 2 15 22l-4-9-9-4Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Résiliable à tout moment</span>
           <span class="trust-chip"><svg viewBox="0 0 24 24" width="15" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4" fill="none" stroke="currentColor" stroke-width="2"/></svg>Paiement sécurisé</span>
@@ -91,7 +95,8 @@
     </section>
 
     <!-- ============================ PALIERS ============================ -->
-    <section class="pricing" data-bg="navy">
+    <!-- TODO Stripe : remplacer les trois href par les Payment Links dès qu'ils sont créés. -->
+    <section class="pricing" id="paliers" data-bg="navy">
       <div class="pricing-in">
         <div class="plan reveal" style="--i:1">
           <p class="plan-name">Bronze</p>
@@ -99,24 +104,24 @@
           <p class="plan-tagline">L'essentiel pour suivre la communauté et ses conférences.</p>
           <ul class="plan-features">
             <li class="on">Accès à toutes les conférences</li>
-            <li class="on">Newsletter et groupe WhatsApp</li>
-            <li class="on">Tarif préférentiel sur les événements payants</li>
-            <li class="off">Afterworks et masterclass</li>
-            <li class="off">Carré VIP et networking direct</li>
+            <li class="on">Newsletter vidéo de 60 secondes, chaque semaine</li>
+            <li class="on">Accès au groupe WhatsApp</li>
+            <li class="off">Offres de stages, alternances et CDI</li>
+            <li class="off">Afterworks, visios et giveaways</li>
           </ul>
           <a href="book-a-call.html#adherent" class="pill ghost lg">Choisir Bronze</a>
         </div>
 
         <div class="plan reveal" style="--i:2">
           <p class="plan-name">Silver</p>
-          <p class="plan-price"><span class="amount">6,99&nbsp;€</span><span class="per">/ mois</span></p>
-          <p class="plan-tagline">Pour celles et ceux qui veulent être aux premières loges.</p>
+          <p class="plan-price"><span class="amount">4,99&nbsp;€</span><span class="per">/ mois</span></p>
+          <p class="plan-tagline">Pour celles et ceux qui préparent leur carrière.</p>
           <ul class="plan-features">
             <li class="on">Tout Bronze</li>
-            <li class="on">Places prioritaires sur les événements limités</li>
-            <li class="on">Accès aux masterclass</li>
-            <li class="on">Afterworks réservés aux membres</li>
-            <li class="off">Carré VIP et networking direct</li>
+            <li class="on">Offres de stages, alternances et CDI, chaque semaine</li>
+            <li class="on">Contenu exclusif, 1 à 2 fois par semaine</li>
+            <li class="on">Vidéos récap du mois</li>
+            <li class="off">Afterworks, visios et giveaways</li>
           </ul>
           <a href="book-a-call.html#adherent" class="pill ghost lg">Choisir Silver</a>
         </div>
@@ -124,14 +129,15 @@
         <div class="plan plan--gold reveal" style="--i:3">
           <span class="plan-badge">Le plus complet</span>
           <p class="plan-name">Gold</p>
-          <p class="plan-price"><span class="amount">8,99&nbsp;€</span><span class="per">/ mois</span></p>
-          <p class="plan-tagline">L'expérience complète, jusqu'au networking avec les intervenants.</p>
+          <p class="plan-price"><span class="amount">7,99&nbsp;€</span><span class="per">/ mois</span></p>
+          <p class="plan-promo">4,99&nbsp;€ / mois pendant les 6 premiers mois</p>
+          <p class="plan-tagline">L'expérience complète, side events et priorité en conférence.</p>
           <ul class="plan-features">
             <li class="on">Tout Silver</li>
-            <li class="on">Carré VIP à chaque conférence</li>
-            <li class="on">Networking direct avec les intervenants</li>
-            <li class="on">Visites de clubs et structures partenaires</li>
-            <li class="on">Accompagnement stages prioritaire</li>
+            <li class="on">Afterworks membres, une fois par mois</li>
+            <li class="on">Visios avec des pros, une fois par mois</li>
+            <li class="on">Questions prioritaires en conférence</li>
+            <li class="on">Giveaways réservés aux membres Gold</li>
           </ul>
           <a href="book-a-call.html#adherent" class="pill solid lg">Choisir Gold</a>
         </div>
@@ -194,6 +200,18 @@
       </div>
     </section>
 
+    <!-- =========================== FAIRE UN DON ========================== -->
+    <section class="don" id="don" data-bg="light">
+      <div class="don-in">
+        <span class="prose-kicker">Faire un don</span>
+        <h2 class="don-title reveal">Soutenir l'association, librement.</h2>
+        <p class="don-p reveal" style="--i:1">Chaque don finance directement la vie de l'association : les conférences en amphithéâtre, le podcast Quartier Jeune et le Salon décanal. Montant libre, en une fois.</p>
+        <!-- TODO Stripe : remplacer par le Payment Link « Don » dès qu'il est créé. -->
+        <a href="book-a-call.html" class="pill solid lg reveal" style="--i:2">Faire un don</a>
+        <p class="don-note reveal" style="--i:3">Le paiement en ligne arrive. En attendant, écrivez-nous : on vous explique comment donner.</p>
+      </div>
+    </section>
+
     <!-- ========================== CTA FINAL ======================== -->
     <section class="final" data-bg="navy">
       <div class="final-in">
@@ -218,7 +236,7 @@
       </div>
       <div class="ft-cols">
         <div class="ft-col"><p class="ft-h">Association</p><a href="qui-sommes-nous.html">Qui sommes-nous</a><a href="evenements.html">Nos événements</a><a href="nos-intervenants.html">Nos intervenants</a><a href="devenir-partenaire.html">Devenir partenaire</a></div>
-        <div class="ft-col"><p class="ft-h">Rejoindre</p><a href="devenir-adherent.html">Devenir adhérent</a><a href="book-a-call.html">Parlons-en</a><a href="connexion.html">Se connecter</a></div>
+        <div class="ft-col"><p class="ft-h">Rejoindre</p><a href="devenir-adherent.html">Devenir adhérent</a><a href="devenir-adherent.html#don">Faire un don</a><a href="book-a-call.html">Parlons-en</a><a href="connexion.html">Se connecter</a></div>
         <div class="ft-col"><p class="ft-h">Ressources</p><a href="confidentialite.html">Confidentialité</a><a href="mentions-legales.html">Mentions légales</a></div>
       </div>
     </div>

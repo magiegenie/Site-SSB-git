@@ -583,3 +583,25 @@ body[data-theme="light"] .nav-drop-link.is-active { background: var(--paper-2); 
     background: var(--navy-900); color: #fff;
   }
 }
+
+/* Bouton header "Se connecter" : même construction que "Parlons-en"
+   (texte + puce flèche), en version neutre pour laisser l'or au CTA. */
+.hdr-login { gap: 0.75rem; padding: 0; border-radius: 0; opacity: 1; }
+.hdr-login:hover { background: none; opacity: 1; }
+.hdr-login-chip {
+  width: 34px; height: 34px; border-radius: 9px; flex: none;
+  display: grid; place-items: center;
+  background: color-mix(in srgb, currentColor 12%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, currentColor 24%, transparent);
+  transition: transform var(--dur-mid) var(--ease-out-quart), background var(--dur-mid) var(--ease-out-quart);
+}
+.hdr-login:hover .hdr-login-chip { transform: translateX(3px); background: color-mix(in srgb, currentColor 22%, transparent); }
+
+/* Le menu à 4 entrées est plus large : centré seulement à partir de 1440px,
+   sinon il resterait collé aux boutons de droite. */
+@media (min-width: 1280px) and (max-width: 1439px) {
+  .hdr-nav { position: static; transform: none; }
+}
+
+/* Hero partenaires : double CTA (plaquette + appel). */
+.phero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.9rem; }

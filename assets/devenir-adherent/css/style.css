@@ -509,3 +509,38 @@ body[data-theme="light"] .nav-drop-link.is-active { background: var(--paper-2); 
     background: var(--navy-900); color: #fff;
   }
 }
+
+/* Bouton header "Se connecter" : même construction que "Parlons-en"
+   (texte + puce flèche), en version neutre pour laisser l'or au CTA. */
+.hdr-login { gap: 0.75rem; padding: 0; border-radius: 0; opacity: 1; }
+.hdr-login:hover { background: none; opacity: 1; }
+.hdr-login-chip {
+  width: 34px; height: 34px; border-radius: 9px; flex: none;
+  display: grid; place-items: center;
+  background: color-mix(in srgb, currentColor 12%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, currentColor 24%, transparent);
+  transition: transform var(--dur-mid) var(--ease-out-quart), background var(--dur-mid) var(--ease-out-quart);
+}
+.hdr-login:hover .hdr-login-chip { transform: translateX(3px); background: color-mix(in srgb, currentColor 22%, transparent); }
+
+/* Le menu à 4 entrées est plus large : centré seulement à partir de 1440px,
+   sinon il resterait collé aux boutons de droite. */
+@media (min-width: 1280px) and (max-width: 1439px) {
+  .hdr-nav { position: static; transform: none; }
+}
+
+/* Tarifs 2026 : mention promo Gold + CTA dans le hero. */
+.hero-in > .pill { margin-top: var(--space-lg); }
+.plan-promo { margin-top: 0.35rem; font-size: 0.88rem; font-weight: 600; color: var(--gold-soft); }
+.plan--gold .plan-tagline { margin-top: 0.5rem; }
+
+/* Ancres du menu : ne pas caler la section sous le header fixe. */
+#paliers, #don { scroll-margin-top: calc(var(--hdr-h, 80px) + 12px); }
+
+/* Section "Faire un don" (menu Devenir membre > Faire un don). */
+.don { padding: clamp(4.5rem, 9vw, 7.5rem) 5vw; background: var(--paper-2); color: var(--ink); }
+.don-in { max-width: 640px; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center; }
+.don-title { font-family: var(--font-serif); font-weight: 600; font-size: clamp(1.9rem, 3.4vw, 2.8rem); letter-spacing: -0.01em; margin-top: 0.9rem; }
+.don-p { margin-top: var(--space-md); font-size: clamp(1rem, 1.4vw, 1.15rem); line-height: 1.6; color: var(--ink-muted); }
+.don-in .pill { margin-top: var(--space-lg); }
+.don-note { margin-top: 0.9rem; font-size: 0.88rem; color: var(--ink-muted); }
