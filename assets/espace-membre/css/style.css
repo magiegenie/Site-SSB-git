@@ -1,0 +1,500 @@
+/* Hallmark · macrostructure: Personal Masthead + Index (variant du systeme SSB)
+ * Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V4
+ * Page "Espace membre" — Sorbonne Sport Business.
+ * Voix Index-First : apres un bandeau personnel compact, la page est une
+ * liste de destinations en grandes lignes filetees, pas une grille de
+ * cartes (les grilles de cartes sont deja la voix de l'accueil et des
+ * pages adhesion/partenaires). Aucune metrique affichee : le site n'a ni
+ * paiement en ligne ni API evenements, donc aucun "palier actif" ni
+ * "3 evenements a venir" ne serait honnete. Seuls des faits reels du
+ * compte sont montres. Header et footer = chrome partage du site.
+ * ========================================================================= */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy-950: #02101f;
+  --navy-900: #041a35;
+  --navy-800: #062750;
+  --navy-700: #0a2f5c;
+
+  --paper: #ffffff;
+  --paper-2: #f6f5f2;
+  --paper-3: #eceae5;
+
+  --ink: #041a35;
+  --ink-muted: #5b6472;
+  --on-navy: #ffffff;
+  --on-navy-soft: #c5dbf2;
+  --on-navy-mute: rgba(197, 219, 242, 0.74);
+
+  --gold: #ffb607;
+  --gold-soft: #ffcf5c;
+  --gold-ink: #041a35;
+
+  --line-navy: rgba(197, 219, 242, 0.16);
+  --line-ink: rgba(4, 26, 53, 0.12);
+  --ok: #1c7a4a;
+
+  --font: "General Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
+
+  --shell: min(1280px, 90vw);
+  --hdr-h: 80px;
+
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: clamp(4rem, 9vw, 8rem);
+
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --dur-fast: 140ms;
+  --dur-mid: 260ms;
+  --dur-slow: 420ms;
+
+  --z-header: 100;
+  --z-skip: 200;
+}
+
+html { -webkit-text-size-adjust: 100%; overflow-x: clip; }
+body {
+  font-family: var(--font); background: var(--paper); color: var(--ink);
+  line-height: 1.45; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+}
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+img { display: block; max-width: 100%; }
+h1, h2, h3 {
+  font-weight: 500; line-height: 1.04; letter-spacing: -0.035em;
+  text-wrap: balance; overflow-wrap: anywhere; min-width: 0;
+}
+p { text-wrap: pretty; }
+
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
+.hdr :focus-visible, .mast :focus-visible { outline-color: var(--gold-soft); }
+
+.skip-link {
+  position: fixed; top: 0; left: 50%; transform: translate(-50%, -120%);
+  z-index: var(--z-skip); background: var(--navy-900); color: #fff;
+  padding: 0.8rem 1.3rem; border-radius: 0 0 12px 12px; font-weight: 600;
+  transition: transform var(--dur-mid) var(--ease-out-quart);
+}
+.skip-link:focus { transform: translate(-50%, 0); }
+
+/* ------------------------------ PILLS / BTN ------------------------------ */
+.pill {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  min-height: 44px; padding: 0 20px; border-radius: 100px;
+  font-size: 0.98rem; font-weight: 600; letter-spacing: -0.01em;
+  white-space: nowrap;
+  transition: transform var(--dur-fast) var(--ease-out-quart),
+              background var(--dur-mid) var(--ease-out-quart),
+              box-shadow var(--dur-mid) var(--ease-out-quart);
+}
+.pill:hover { transform: translateY(-2px); }
+.pill:active { transform: translateY(0); }
+.pill.ghost { box-shadow: inset 0 0 0 1.5px currentColor; }
+.pill.solid { background: var(--gold); color: var(--gold-ink); border-radius: 12px; }
+.pill.solid:hover { background: var(--gold-soft); box-shadow: 0 12px 26px -14px rgba(255, 182, 7, 0.7); }
+.pill.lg { min-height: 52px; padding: 0 26px; font-size: 1.02rem; }
+.pill[disabled] { opacity: 0.55; pointer-events: none; }
+
+/* -------------------------------- HEADER --------------------------------- */
+.hdr {
+  position: fixed; top: 0; left: 0; width: 100%; height: var(--hdr-h);
+  z-index: var(--z-header); display: flex; align-items: center;
+  color: #fff; background: rgba(4, 26, 53, 0.4);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  transition: background var(--dur-slow) var(--ease-out-quart);
+}
+.hdr-in {
+  width: var(--shell); margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between; gap: var(--space-sm);
+}
+.hdr-right { display: flex; align-items: center; gap: 0.6rem; }
+.hdr .pill.ghost { box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.55); }
+.logo { font-weight: 700; font-size: 1.35rem; letter-spacing: -0.035em; }
+.hdr .logo { display: inline-flex; align-items: center; gap: 0.55rem; }
+.hdr .logo img { width: 42px; height: auto; filter: brightness(0) invert(1); }
+/* Le reste du chrome de nav (menu a groupes deroulants, menu mobile plein
+   ecran, bouton "Se connecter") vit dans le bloc partage en fin de fichier,
+   identique aux autres pages du site. */
+
+/* ============================== MASTHEAD ================================= */
+.mast {
+  background:
+    radial-gradient(120% 100% at 82% 0%, rgba(255, 182, 7, 0.13) 0%, rgba(255, 182, 7, 0) 58%),
+    linear-gradient(178deg, var(--navy-800) 0%, var(--navy-900) 100%);
+  color: var(--on-navy);
+  padding: calc(var(--hdr-h) + clamp(3rem, 7vw, 5.5rem)) 0 clamp(3rem, 7vw, 5.5rem);
+}
+.mast-in { width: var(--shell); margin: 0 auto; }
+.mast-eyebrow {
+  font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
+  font-weight: 600; color: var(--gold-soft);
+}
+.mast h1 {
+  font-family: var(--font-serif); font-weight: 600;
+  font-size: clamp(2.4rem, 6vw, 4.4rem); letter-spacing: -0.015em;
+  margin-top: var(--space-sm); max-width: 18ch;
+}
+.mast-sub {
+  color: var(--on-navy-soft); font-size: clamp(1rem, 1.4vw, 1.18rem);
+  max-width: 48ch; margin-top: var(--space-md);
+}
+
+/* Faits reels du compte, en ligne sous le titre. Pas de chiffres inventes :
+   uniquement ce que la session Supabase contient vraiment. */
+.mast-facts {
+  display: flex; flex-wrap: wrap; gap: clamp(1.6rem, 4vw, 3.2rem);
+  margin-top: var(--space-lg); padding-top: var(--space-lg);
+  border-top: 1px solid var(--line-navy);
+}
+.fact { min-width: 0; }
+.fact-k {
+  display: block; font-size: 0.76rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--on-navy-mute); font-weight: 600; margin-bottom: 0.4rem;
+}
+.fact-v { font-size: 1.02rem; font-weight: 500; overflow-wrap: anywhere; }
+.fact-v.is-loading { color: var(--on-navy-mute); }
+.badge {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  font-size: 0.82rem; font-weight: 600; padding: 0.2rem 0.6rem;
+  border-radius: 100px; background: rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 0 0 1px var(--line-navy); margin-left: 0.4rem;
+  white-space: nowrap;
+}
+.badge.is-ok { color: var(--gold-soft); }
+
+.mast-actions { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-lg); }
+
+/* ============================== ADHESION ================================= */
+.status { background: var(--paper-2); padding: var(--space-2xl) 0; }
+.status-in {
+  width: var(--shell); margin: 0 auto;
+  display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: center;
+}
+.status h2 {
+  font-family: var(--font-serif); font-weight: 600;
+  font-size: clamp(1.9rem, 3.6vw, 2.9rem); max-width: 20ch;
+}
+.status p { color: var(--ink-muted); margin-top: var(--space-md); max-width: 52ch; font-size: 1.02rem; }
+.status-actions { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-top: var(--space-lg); }
+
+/* Encart de rappel des paliers reels du site, sans prix invente : les trois
+   montants viennent de devenir-adherent.html. */
+.tiers {
+  background: var(--paper); border-radius: 16px; padding: clamp(1.4rem, 3vw, 2rem);
+  box-shadow: inset 0 0 0 1px var(--line-ink);
+}
+.tiers-h {
+  font-size: 0.76rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-muted); font-weight: 600; margin-bottom: var(--space-md);
+}
+.tier-row {
+  display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-sm);
+  padding: 0.85rem 0; border-top: 1px solid var(--line-ink);
+}
+.tier-row:first-of-type { border-top: none; }
+.tier-name { font-weight: 600; }
+.tier-price { font-family: var(--font-serif); font-weight: 600; font-size: 1.25rem; white-space: nowrap; }
+
+/* ================================ INDEX ================================== */
+/* La signature de la page : des destinations en grandes lignes filetees,
+   pas des cartes. Chaque ligne est un lien entier, cliquable en plein. */
+/* Padding bas reduit : le footer apporte deja son propre --space-2xl en
+   haut, les deux cumules creusaient un trou de 16rem avant le footer. */
+.index { background: var(--paper); padding: var(--space-2xl) 0 var(--space-lg); }
+.index-in { width: var(--shell); margin: 0 auto; }
+.index-h {
+  font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink-muted); font-weight: 600; margin-bottom: var(--space-md);
+}
+.idx {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center;
+  gap: var(--space-md); padding: clamp(1.3rem, 3vw, 1.9rem) 0;
+  border-top: 1px solid var(--line-ink);
+  transition: padding-left var(--dur-mid) var(--ease-out-quart);
+}
+.idx:last-child { border-bottom: 1px solid var(--line-ink); }
+.idx:hover { padding-left: 0.7rem; }
+/* display:block obligatoire : ce sont des <span> (un <a> ne peut pas
+   contenir de <div>), sans quoi titre et description se collent sur la
+   meme ligne. */
+.idx-title {
+  display: block;
+  font-family: var(--font-serif); font-weight: 600;
+  font-size: clamp(1.4rem, 2.8vw, 2.1rem); letter-spacing: -0.02em; line-height: 1.06;
+}
+.idx-desc { display: block; color: var(--ink-muted); margin-top: 0.4rem; font-size: 0.98rem; max-width: 54ch; }
+.idx-arrow {
+  width: 44px; height: 44px; flex: none; border-radius: 100px;
+  display: grid; place-items: center; color: var(--ink);
+  box-shadow: inset 0 0 0 1px var(--line-ink);
+  transition: background var(--dur-mid) var(--ease-out-quart),
+              color var(--dur-mid) var(--ease-out-quart),
+              transform var(--dur-mid) var(--ease-out-quart);
+}
+.idx:hover .idx-arrow { background: var(--navy-800); color: #fff; transform: translateX(4px); }
+
+/* ============================== ETATS JS ================================= */
+/* Ecran d'attente pendant la verification de session. Le contenu reste dans
+   le DOM (jamais masque par une animation), seul ce voile disparait. */
+.gate {
+  position: fixed; inset: 0; z-index: 300; display: grid; place-items: center;
+  background: var(--navy-900); color: var(--on-navy-soft);
+  transition: opacity var(--dur-mid) var(--ease-out-quart);
+}
+.gate p { font-size: 0.98rem; }
+.gate.is-done { opacity: 0; pointer-events: none; }
+
+/* ================================ FOOTER ================================= */
+.ft { background: var(--paper); color: var(--ink); padding: var(--space-2xl) 0 2rem; }
+.ft-in { width: var(--shell); margin: 0 auto; display: grid; grid-template-columns: 1.15fr 2fr; gap: clamp(2rem, 5vw, 4rem); }
+.ft-brand .logo { color: var(--ink); display: block; }
+.ft-brand p { margin-top: var(--space-sm); max-width: 34ch; color: var(--ink-muted); }
+.ft-socials { display: flex; gap: 0.6rem; margin-top: var(--space-md); }
+.ft-socials a {
+  width: 44px; height: 44px; border-radius: 100px; display: grid; place-items: center;
+  box-shadow: inset 0 0 0 1px var(--line-ink);
+  transition: background var(--dur-mid) var(--ease-out-quart), color var(--dur-mid) var(--ease-out-quart);
+}
+.ft-socials a:hover { background: var(--navy-800); color: #fff; }
+.ft-cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-md); }
+.ft-h { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 0.9rem; font-weight: 600; }
+.ft-col a { display: block; padding: 0.6rem 0; color: var(--ink); opacity: 0.82; transition: opacity var(--dur-fast) var(--ease-out-quart); }
+.ft-col a:hover { opacity: 1; }
+.ft-base {
+  width: var(--shell); margin: var(--space-xl) auto 0; padding-top: var(--space-md);
+  border-top: 1px solid var(--line-ink);
+  display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-md); flex-wrap: wrap;
+}
+.ft-big { font-size: clamp(3rem, 9vw, 7rem); line-height: 0.8; font-weight: 700; letter-spacing: -0.05em; color: var(--paper-3); }
+.ft-legal { display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-end; color: var(--ink-muted); font-size: 0.88rem; text-align: right; }
+.ft-links { display: flex; gap: 1.1rem; }
+
+/* ============================== RESPONSIVE =============================== */
+@media (max-width: 1000px) {
+  .status-in { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 860px) {
+  .hdr-in { gap: 0.5rem; }
+  .ft-in { grid-template-columns: minmax(0, 1fr); }
+  .ft-base { flex-direction: column; align-items: flex-start; }
+  .ft-legal { align-items: flex-start; text-align: left; }
+}
+
+@media (max-width: 640px) {
+  .ft-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .mast-facts { gap: var(--space-md) var(--space-lg); }
+  .idx { grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-sm); }
+  .idx-arrow { width: 40px; height: 40px; }
+}
+
+@media (max-width: 400px) {
+  .ft-cols { grid-template-columns: minmax(0, 1fr); }
+  .mast-actions .pill, .status-actions .pill { width: 100%; justify-content: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important; animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important; scroll-behavior: auto !important;
+  }
+}
+
+/* ====================== NAV BAR (header, remplace la floatnav) ============ */
+.hdr-left { display: flex; align-items: center; gap: clamp(0.7rem, 1.8vw, 1.6rem); min-width: 0; }
+.hdr-nav { display: flex; align-items: center; gap: 0.15rem; }
+.nav-link {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 0 13px;
+  border-radius: 100px; font-weight: 600; font-size: 0.94rem; white-space: nowrap;
+  opacity: 0.8;
+  transition: opacity var(--dur-fast) var(--ease-out-quart), background var(--dur-fast) var(--ease-out-quart);
+}
+.nav-link:hover { opacity: 1; background: color-mix(in srgb, currentColor 10%, transparent); }
+.nav-link.is-active { opacity: 1; background: color-mix(in srgb, currentColor 14%, transparent); }
+.nav-burger {
+  display: none; width: 44px; height: 44px; flex: none;
+  border-radius: 12px; place-items: center;
+}
+.nav-burger:hover { background: color-mix(in srgb, currentColor 10%, transparent); }
+.nav-burger svg path { transform-origin: center; transition: transform 300ms var(--ease-out-quart), opacity 200ms linear; }
+.nav-burger[aria-expanded="true"] .nb-l1 { transform: translateY(6px) rotate(45deg); }
+.nav-burger[aria-expanded="true"] .nb-l2 { opacity: 0; }
+.nav-burger[aria-expanded="true"] .nb-l3 { transform: translateY(-6px) rotate(-45deg); }
+
+@media (max-width: 1080px) {
+  .nav-burger { display: grid; }
+  .hdr-nav {
+    position: absolute; top: calc(var(--hdr-h, 80px) - 10px); left: 5vw;
+    min-width: 232px; flex-direction: column; align-items: stretch; gap: 0.15rem;
+    padding: 0.5rem; border-radius: 16px;
+    background: var(--navy-800); color: #fff;
+    box-shadow: 0 30px 60px -30px rgba(2, 16, 31, 0.7);
+    opacity: 0; visibility: hidden; transform: translateY(-6px);
+    transition: opacity var(--dur-mid) var(--ease-out-quart),
+                transform var(--dur-mid) var(--ease-out-quart),
+                visibility 0s linear var(--dur-mid);
+  }
+  .hdr-nav.is-open { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
+  .hdr-nav .nav-link { border-radius: 10px; min-height: 46px; }
+}
+
+/* Typographie : selection aux couleurs de la charte, titres equilibres. */
+::selection { background: var(--gold); color: var(--navy-900); }
+h1, h2, h3 { text-wrap: balance; }
+
+/* Nav "studio" (référence Alethia) : liens centrés en mono uppercase,
+   le logo tient lieu de lien Accueil sur desktop. */
+:root { --font-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace; }
+.nav-link, .hdr .pill {
+  font-family: var(--font-mono); font-size: 0.75rem; font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase;
+}
+@media (min-width: 1081px) {
+  /* Le logo tient lieu de lien Accueil hors mobile. */
+  .hdr-nav > .nav-link:first-child { display: none; }
+}
+@media (min-width: 1280px) {
+  .hdr-nav { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+}
+
+/* Menu à groupes déroulants (référence Alethia) + CTA header "Parlons-en". */
+.nav-grp { position: relative; }
+.nav-grp-btn { display: inline-flex; align-items: center; gap: 0.45rem; }
+.nav-grp-btn svg { transition: transform var(--dur-mid) var(--ease-out-quart); }
+.nav-grp-btn[aria-expanded="true"] svg { transform: rotate(180deg); }
+.nav-drop {
+  position: absolute; top: 100%; left: 0; min-width: 240px;
+  padding-top: 12px; /* pont de survol entre le bouton et le panneau */
+  display: flex; flex-direction: column; gap: 6px;
+  opacity: 0; visibility: hidden; transform: translateY(-6px);
+  transition: opacity var(--dur-mid) var(--ease-out-quart),
+              transform var(--dur-mid) var(--ease-out-quart),
+              visibility 0s linear var(--dur-mid);
+}
+.nav-grp:hover .nav-drop, .nav-grp:focus-within .nav-drop, .nav-grp.is-open .nav-drop {
+  opacity: 1; visibility: visible; transform: none; transition-delay: 0s;
+}
+.nav-drop-link {
+  font-family: var(--font-mono); font-size: 0.75rem; font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap;
+  padding: 0.95rem 1.1rem; border-radius: 10px;
+  background: rgba(10, 47, 92, 0.92); color: #fff;
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  transition: background var(--dur-fast) var(--ease-out-quart);
+}
+.nav-drop-link:hover, .nav-drop-link.is-active { background: var(--navy-600); }
+body[data-theme="light"] .nav-drop-link {
+  background: #fff; color: var(--ink);
+  box-shadow: 0 18px 40px -24px rgba(4, 26, 53, 0.45), inset 0 0 0 1px var(--line-ink);
+}
+body[data-theme="light"] .nav-drop-link:hover,
+body[data-theme="light"] .nav-drop-link.is-active { background: var(--paper-2); }
+
+.hdr-login, .hdr-call {
+  display: inline-flex; align-items: center;
+  font-family: var(--font-mono); font-size: 0.75rem; font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap;
+}
+.hdr-login { padding: 0.55rem 0.8rem; border-radius: 10px; opacity: 0.85; min-height: 44px; }
+.hdr-login:hover { opacity: 1; background: color-mix(in srgb, currentColor 10%, transparent); }
+.hdr-call { gap: 0.75rem; min-height: 44px; }
+.hdr-call-chip {
+  width: 34px; height: 34px; border-radius: 9px; flex: none;
+  display: grid; place-items: center;
+  background: var(--gold); color: var(--navy-900);
+  transition: transform var(--dur-mid) var(--ease-out-quart), background var(--dur-mid) var(--ease-out-quart);
+}
+.hdr-call:hover .hdr-call-chip { transform: translateX(3px); background: var(--gold-soft); }
+@media (max-width: 720px) { .hdr-login { display: none; } }
+@media (max-width: 1080px) {
+  /* Menu mobile : les groupes s'aplatissent en liste simple. */
+  .hdr-nav .nav-link { opacity: 1; }
+  .nav-grp { display: contents; }
+  .nav-grp-btn { display: none; }
+  .nav-drop {
+    position: static; min-width: 0; padding-top: 0;
+    opacity: 1; visibility: visible; transform: none;
+    gap: 0.15rem; -webkit-backdrop-filter: none; backdrop-filter: none;
+  }
+  .nav-drop-link { background: none; min-height: 46px; display: flex; align-items: center; padding: 0.6rem 0.9rem; }
+  body[data-theme="light"] .nav-drop-link { background: none; box-shadow: none; color: #fff; }
+  .nav-drop-link:hover, .nav-drop-link.is-active { background: color-mix(in srgb, currentColor 14%, transparent); }
+}
+
+/* Menu mobile plein écran (référence Alethia) : grands liens sans mono,
+   séparateurs fins, groupes en accordéon, CTA "Parlons-en" ancré en bas. */
+.nav-cta { display: none; }
+@media (max-width: 1080px) {
+  .hdr-nav {
+    position: fixed; inset: 0; width: 100vw; height: 100svh; min-width: 0;
+    padding: calc(var(--hdr-h) + 1.5rem) 5vw calc(1.8rem + env(safe-area-inset-bottom, 0px));
+    border-radius: 0; background: var(--navy-900); color: #fff;
+    box-shadow: none; transform: translateY(-6px);
+    display: flex; flex-direction: column; align-items: stretch; gap: 0;
+    overflow-y: auto; overscroll-behavior: contain;
+    z-index: -1; /* la barre du header (logo, croix, CTA) reste au-dessus */
+  }
+  .hdr-nav.is-open { transform: none; }
+  .hdr-nav > .nav-link, .hdr-nav .nav-grp-btn {
+    font-family: var(--font); font-size: clamp(1.7rem, 7.5vw, 2.4rem); font-weight: 500;
+    letter-spacing: -0.02em; text-transform: none; opacity: 1;
+    display: flex; align-items: center; justify-content: space-between; width: 100%;
+    min-height: 0; padding: 1.15rem 0.2rem; border-radius: 0;
+    border-bottom: 1px solid var(--line-navy);
+  }
+  .nav-grp { display: block; }
+  .nav-grp-btn { display: flex; }
+  .nav-grp-btn svg { width: 24px; height: 24px; opacity: 0.8; }
+  .nav-drop {
+    display: none; position: static; min-width: 0; padding: 0.4rem 0.2rem 1.1rem;
+    opacity: 1; visibility: visible; transform: none; gap: 6px;
+    border-bottom: 1px solid var(--line-navy);
+  }
+  .nav-grp.is-open .nav-drop { display: flex; }
+  .nav-grp.is-open .nav-grp-btn { border-bottom-color: transparent; }
+  .nav-drop-link { background: rgba(10, 47, 92, 0.6); }
+  .hdr-nav > .nav-link.is-active, .nav-grp-btn.is-active { background: none; color: var(--gold-soft); }
+  .nav-cta {
+    margin-top: auto; align-self: flex-start;
+    display: inline-flex; align-items: center; gap: 0.9rem;
+    font-family: var(--font-mono); font-size: 0.82rem; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    background: var(--gold); color: var(--navy-900);
+    padding: 0.55rem 0.6rem 0.55rem 1.25rem; border-radius: 14px;
+  }
+  .nav-cta-chip {
+    width: 34px; height: 34px; border-radius: 9px; flex: none;
+    display: grid; place-items: center;
+    background: var(--navy-900); color: #fff;
+  }
+}
+
+/* Bouton header "Se connecter" : même construction que "Parlons-en"
+   (texte + puce flèche), en version neutre pour laisser l'or au CTA. */
+.hdr-login { gap: 0.75rem; padding: 0; border-radius: 0; opacity: 1; }
+.hdr-login:hover { background: none; opacity: 1; }
+.hdr-login-chip {
+  width: 34px; height: 34px; border-radius: 9px; flex: none;
+  display: grid; place-items: center;
+  background: color-mix(in srgb, currentColor 12%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, currentColor 24%, transparent);
+  transition: transform var(--dur-mid) var(--ease-out-quart), background var(--dur-mid) var(--ease-out-quart);
+}
+.hdr-login:hover .hdr-login-chip { transform: translateX(3px); background: color-mix(in srgb, currentColor 22%, transparent); }
+
+/* Le menu à 4 entrées est plus large : centré seulement à partir de 1440px,
+   sinon il resterait collé aux boutons de droite. */
+@media (min-width: 1280px) and (max-width: 1439px) {
+  .hdr-nav { position: static; transform: none; }
+}
+
+/* Le CTA "Parlons-en" du header a été retiré : "Se connecter" reste
+   visible sur mobile (la place est libre à droite du logo). */
+@media (max-width: 720px) { .hdr-login { display: inline-flex; } }

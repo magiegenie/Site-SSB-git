@@ -70,7 +70,7 @@
         </nav>
       </div>
       <div class="hdr-right">
-        <a href="connexion.html" class="hdr-login">Se connecter<span class="hdr-login-chip" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="M13 6l6 6-6 6" /></svg></span></a>
+        <a href="connexion.html" class="hdr-login" data-account-link>Se connecter<span class="hdr-login-chip" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="M13 6l6 6-6 6" /></svg></span></a>
       </div>
     </div>
   </header>
@@ -214,6 +214,8 @@
       el.textContent = new Date().getFullYear();
     });
   </script>
+  <script src="assets/common/supabase-config.js"></script>
+  <script src="assets/common/account.js?v=2"></script>
   <script src="assets/common/nav.js?v=2"></script>
 </body>
 </html>

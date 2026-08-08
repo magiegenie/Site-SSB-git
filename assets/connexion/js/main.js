@@ -119,7 +119,9 @@
     setSession(name);
     showAuthError(form, "");
     showFeedback(form, message);
-    setTimeout(function () { window.location.href = "index.html"; }, 900);
+    // On atterrit dans l'espace membre, pas sur l'accueil : c'est la page
+    // qui justifie qu'on vienne de se connecter.
+    setTimeout(function () { window.location.href = "espace-membre.html"; }, 900);
   }
 
   /* -------------------------------- Sign in --------------------------------- */
