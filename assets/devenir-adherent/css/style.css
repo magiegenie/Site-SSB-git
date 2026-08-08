@@ -161,7 +161,7 @@ body[data-theme="navy"] .hdr { background: rgba(4, 26, 53, 0.4); -webkit-backdro
 .hero-title { font-family: var(--font-serif); font-weight: 600; font-size: clamp(2.4rem, 5.4vw, 4.6rem); letter-spacing: -0.01em; line-height: 1.05; }
 .price-inline { color: var(--gold); font-weight: 600; }
 .price-per { font-size: 0.4em; color: var(--on-navy-mute); font-weight: 500; }
-.hero-sub { color: var(--on-navy-soft); font-size: clamp(1.02rem, 1.4vw, 1.25rem); margin-top: var(--space-md); max-width: 46ch; }
+.hero-sub { color: var(--on-navy-soft); font-size: clamp(1.02rem, 1.4vw, 1.25rem); margin-top: var(--space-md); max-width: 46ch; line-height: 1.55; letter-spacing: 0.01em; }
 .trust-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: var(--space-lg); }
 .trust-chip {
   display: inline-flex; align-items: center; gap: 0.45rem;
@@ -184,7 +184,7 @@ body[data-theme="navy"] .hdr { background: rgba(4, 26, 53, 0.4); -webkit-backdro
 }
 .plan-name { font-size: 0.95rem; font-weight: 700; color: var(--on-navy-soft); text-transform: uppercase; letter-spacing: 0.04em; }
 .plan-price { display: flex; align-items: baseline; gap: 0.4rem; }
-.plan-price .amount { font-size: clamp(2rem, 3.2vw, 2.6rem); font-weight: 600; color: #fff; letter-spacing: -0.03em; }
+.plan-price .amount { font-size: clamp(2rem, 3.2vw, 2.6rem); font-weight: 600; color: #fff; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
 .plan-price .per { font-size: 0.9rem; color: var(--on-navy-mute); }
 .plan-tagline { font-size: 0.94rem; color: var(--on-navy-mute); min-height: 2.6em; }
 .plan-features { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; margin: 0.4rem 0 0.6rem; }
@@ -293,7 +293,7 @@ body[data-theme="navy"] .hdr { background: rgba(4, 26, 53, 0.4); -webkit-backdro
   gap: var(--space-md); border-top: 1px solid var(--line-ink); padding-top: var(--space-md);
   padding-bottom: clamp(4.5rem, 9vw, 5.5rem);
 }
-.ft-big { font-size: clamp(3rem, 9vw, 7rem); line-height: 0.8; font-weight: 700; letter-spacing: -0.05em; color: var(--paper-3); }
+.ft-big { font-size: clamp(3rem, 9vw, 7rem); line-height: 0.8; font-weight: 700; letter-spacing: -0.03em; color: var(--paper-3); }
 .ft-legal { display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-end; color: var(--ink-muted); font-size: 0.88rem; text-align: right; }
 .ft-links { display: flex; gap: 1.1rem; }
 
@@ -378,3 +378,7 @@ html.motion-ready .reveal.in {
   .hdr-nav.is-open { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
   .hdr-nav .nav-link { border-radius: 10px; min-height: 46px; }
 }
+
+/* Typographie : selection aux couleurs de la charte, titres equilibres. */
+::selection { background: var(--gold); color: var(--navy-900); }
+h1, h2, h3 { text-wrap: balance; }

@@ -189,7 +189,7 @@ body[data-theme="light"] .hdr .pill.ghost { box-shadow: inset 0 0 0 1.5px var(--
   font-family: var(--font-serif); font-weight: 600;
   font-size: clamp(2.8rem, 6.8vw, 6rem); letter-spacing: -0.01em; line-height: 1.0; max-width: 16ch;
 }
-.phero-sub { color: var(--on-navy-soft); font-size: clamp(1rem, 1.4vw, 1.2rem); max-width: 42ch; }
+.phero-sub { color: var(--on-navy-soft); font-size: clamp(1rem, 1.4vw, 1.2rem); max-width: 42ch; line-height: 1.55; letter-spacing: 0.01em; }
 .phero-strip {
   position: relative; z-index: var(--z-content); width: var(--shell); margin: 0 auto;
   display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -199,7 +199,7 @@ body[data-theme="light"] .hdr .pill.ghost { box-shadow: inset 0 0 0 1.5px var(--
 .phero-strip .stat { display: flex; flex-direction: column; gap: 0.35rem; }
 .phero-strip .stat strong {
   font-size: clamp(1.9rem, 3vw, 2.6rem); font-weight: 600; letter-spacing: -0.03em;
-  color: var(--gold); line-height: 1;
+  color: var(--gold); line-height: 1; font-variant-numeric: tabular-nums;
 }
 .phero-strip .stat > span { color: var(--on-navy-mute); font-size: 0.92rem; }
 
@@ -452,3 +452,7 @@ html.motion-ready .reveal.in {
   .hdr-nav.is-open { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
   .hdr-nav .nav-link { border-radius: 10px; min-height: 46px; }
 }
+
+/* Typographie : selection aux couleurs de la charte, titres equilibres. */
+::selection { background: var(--gold); color: var(--navy-900); }
+h1, h2, h3 { text-wrap: balance; }

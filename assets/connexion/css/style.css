@@ -155,3 +155,7 @@ h1 { font-family: var(--font-serif); font-weight: 600; line-height: 1.05; letter
     transition-duration: 0.01ms !important; scroll-behavior: auto !important;
   }
 }
+
+/* Typographie : selection aux couleurs de la charte, titres equilibres. */
+::selection { background: var(--gold); color: var(--navy-900); }
+h1, h2, h3 { text-wrap: balance; }
