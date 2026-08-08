@@ -692,3 +692,17 @@ body[data-theme="light"] .nav-drop-link.is-active { background: var(--paper-2); 
   .pill.ghost:hover::after { opacity: 0; transform: translateY(38%); }
   .pill.ghost:hover { color: inherit; }
 }
+
+/* ===================== TYPOGRAPHIE UNIFIÉE (la home fait foi) =============
+   Les autres pages composaient leurs grands titres en Fraunces (serif) alors
+   que la home est en General Sans. On neutralise le token serif : tout ce qui
+   l'utilisait bascule sur la grotesque, avec la graisse et l'interlettrage
+   des titres de la home (500 / -0.035em). Fraunces n'est plus chargé. */
+:root { --font-serif: var(--font); }
+h1, h2, h3, h4 { font-weight: 500; line-height: 1.02; letter-spacing: -0.035em; }
+.hero-title, .shero-title, .phero-title, .bc-title, .don-title, .pricing-title,
+.statement-title, .focus-title, .collage-title, .prose-title, .gallery-title,
+.join-title, .social-title, .netw-title, .formats-title, .inst-title,
+.reasons-title, .faq-title, .final-title, .legal-title, .auth-head h1 {
+  font-family: var(--font); font-weight: 500; letter-spacing: -0.03em;
+}

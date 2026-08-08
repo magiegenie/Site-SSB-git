@@ -838,3 +838,120 @@ body[data-theme="light"] .nav-drop-link.is-active { background: var(--paper-2); 
   .pill.ghost:hover::after { opacity: 0; transform: translateY(38%); }
   .pill.ghost:hover { color: inherit; }
 }
+
+/* ===================== TYPOGRAPHIE UNIFIÉE (la home fait foi) =============
+   Les autres pages composaient leurs grands titres en Fraunces (serif) alors
+   que la home est en General Sans. On neutralise le token serif : tout ce qui
+   l'utilisait bascule sur la grotesque, avec la graisse et l'interlettrage
+   des titres de la home (500 / -0.035em). Fraunces n'est plus chargé. */
+:root { --font-serif: var(--font); }
+h1, h2, h3, h4 { font-weight: 500; line-height: 1.02; letter-spacing: -0.035em; }
+.hero-title, .shero-title, .phero-title, .bc-title, .don-title, .pricing-title,
+.statement-title, .focus-title, .collage-title, .prose-title, .gallery-title,
+.join-title, .social-title, .netw-title, .formats-title, .inst-title,
+.reasons-title, .faq-title, .final-title, .legal-title, .auth-head h1 {
+  font-family: var(--font); font-weight: 500; letter-spacing: -0.03em;
+}
+
+/* ============================== PALIERS ==================================
+   Adaptation de la référence "pricing" (React/Tailwind) au CSS du site :
+   bascule mensuel/annuel avec pastille glissante, prix animé au changement,
+   carte mise en avant par un liseré, listes "Tout X, plus :" à coches. */
+.pricing {
+  padding: clamp(3.5rem, 7vw, 6rem) 0 var(--space-2xl);
+  background:
+    radial-gradient(70% 55% at 78% 0%, rgba(122, 177, 232, 0.12), transparent 62%),
+    var(--navy-900);
+}
+/* display:block obligatoire : la règle historique .pricing-in est une grille
+   à 3 colonnes, qui transformait l'en-tête et la liste en colonnes. */
+.pricing-in { width: var(--shell); margin: 0 auto; display: block; }
+.pricing-head { max-width: 40ch; margin-bottom: clamp(2rem, 4vw, 3rem); }
+.pricing-title {
+  font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: -0.03em; line-height: 1.05;
+  color: #fff; /* la section est sur navy : ne pas hériter de la couleur d'encre */
+}
+.pricing-lead { margin-top: var(--space-sm); color: var(--on-navy-soft); font-size: 1.05rem; line-height: 1.55; }
+
+/* Bascule mensuel / annuel : la pastille glisse d'une option à l'autre. */
+.billing-switch {
+  position: relative; display: inline-flex; align-items: stretch; gap: 0;
+  margin-top: var(--space-lg); padding: 5px; border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 0 0 1px var(--line-navy);
+}
+.billing-pin {
+  position: absolute; top: 5px; left: 5px; height: calc(100% - 10px);
+  border-radius: 10px; background: var(--grad-accent); background-size: 160% 100%;
+  transition: transform 420ms var(--ease-out-quart), width 420ms var(--ease-out-quart);
+  pointer-events: none;
+}
+.billing-opt {
+  position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 0.5rem;
+  min-height: 44px; padding: 0 1.1rem; border-radius: 10px;
+  font-family: var(--font-mono); font-size: 0.75rem; font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--on-navy-soft); background: none; cursor: pointer;
+  transition: color 300ms var(--ease-out-quart);
+}
+.billing-opt.is-active { color: var(--gold-ink); }
+.billing-save {
+  font-size: 0.66rem; letter-spacing: 0.04em; text-transform: none;
+  padding: 0.15rem 0.45rem; border-radius: 999px;
+  background: rgba(255, 255, 255, 0.22); color: inherit;
+}
+
+.plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-md); align-items: start; }
+.plan {
+  position: relative; display: flex; flex-direction: column;
+  padding: 1.9rem 1.7rem; border-radius: var(--r-card);
+  background: rgba(255, 255, 255, 0.045);
+  box-shadow: inset 0 0 0 1px var(--line-navy);
+}
+.plan--gold {
+  background: linear-gradient(168deg, rgba(122, 177, 232, 0.16) 0%, rgba(4, 26, 53, 0.2) 100%);
+  box-shadow: inset 0 0 0 1.5px rgba(122, 177, 232, 0.55), 0 30px 60px -40px rgba(122, 177, 232, 0.5);
+}
+.plan-badge {
+  position: absolute; top: -0.85rem; left: 1.7rem;
+  padding: 0.35rem 0.8rem; border-radius: 999px;
+  font-family: var(--font-mono); font-size: 0.66rem; font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold-ink);
+}
+.plan-name { font-size: 1.35rem; font-weight: 600; letter-spacing: -0.01em; color: #fff; }
+.plan-tagline { margin-top: 0.45rem; font-size: 0.94rem; color: var(--on-navy-mute); line-height: 1.5; min-height: 3em; }
+.plan-price { display: flex; align-items: baseline; margin-top: var(--space-md); }
+.plan-price .amount {
+  font-size: clamp(2.2rem, 3.4vw, 2.9rem); font-weight: 600; color: #fff;
+  letter-spacing: -0.03em; font-variant-numeric: tabular-nums;
+  transition: opacity 220ms var(--ease-out-quart), transform 220ms var(--ease-out-quart);
+}
+.plan-price .cur { font-size: clamp(1.4rem, 2vw, 1.8rem); font-weight: 600; color: #fff; }
+.plan-price.is-swapping .amount { opacity: 0; transform: translateY(-8px); }
+.plan-price .per { margin-left: 0.4rem; font-size: 0.9rem; color: var(--on-navy-mute); }
+.plan-promo { margin-top: 0.4rem; font-size: 0.86rem; font-weight: 600; color: var(--gold-soft); }
+.plan-cta { margin-top: var(--space-lg); width: 100%; justify-content: center; }
+.plan-list { margin-top: var(--space-lg); padding-top: var(--space-md); border-top: 1px solid var(--line-navy); }
+.plan-list-head { font-size: 0.9rem; font-weight: 600; color: #fff; margin-bottom: 0.8rem; }
+.plan-list ul { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
+.plan-list li { position: relative; padding-left: 1.9rem; font-size: 0.92rem; color: var(--on-navy-soft); line-height: 1.45; }
+.plan-list li::before {
+  content: ""; position: absolute; left: 0; top: 0.05rem;
+  width: 1.35rem; height: 1.35rem; border-radius: 999px;
+  background: rgba(122, 177, 232, 0.14);
+  box-shadow: inset 0 0 0 1px rgba(122, 177, 232, 0.5);
+}
+.plan-list li::after {
+  content: ""; position: absolute; left: 0.42rem; top: 0.42rem;
+  width: 0.5rem; height: 0.28rem;
+  border-left: 1.6px solid var(--gold-soft); border-bottom: 1.6px solid var(--gold-soft);
+  transform: rotate(-45deg);
+}
+
+@media (max-width: 900px) {
+  .plans { grid-template-columns: 1fr; }
+  /* Le palier complet reste en tête sur mobile : c'est celui que l'on
+     recommande, il ne doit pas être relégué après un scroll. */
+  .plan--gold { order: -1; }
+  .plan-tagline { min-height: 0; }
+}

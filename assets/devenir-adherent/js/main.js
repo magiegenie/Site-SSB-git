@@ -123,3 +123,56 @@
 
 /* Signale au watchdog inline que le script s est execute sans planter. */
 document.documentElement.classList.add("js-ok");
+
+/* =========================================================================
+   PALIERS — bascule mensuel / annuel (référence "pricing" fournie par Tom).
+   Le prix se remplace derrière un court fondu, la pastille de la bascule
+   glisse sur l'option choisie. Les tarifs annuels sont portés par les
+   attributs data-mois / data-an du HTML, aucun calcul ici.
+   ========================================================================= */
+(function () {
+  "use strict";
+
+  var sw = document.querySelector(".billing-switch");
+  if (!sw) return;
+  var pin = sw.querySelector(".billing-pin");
+  var opts = Array.prototype.slice.call(sw.querySelectorAll(".billing-opt"));
+
+  function movePin(btn) {
+    pin.style.width = btn.offsetWidth + "px";
+    pin.style.transform = "translateX(" + (btn.offsetLeft - 5) + "px)";
+  }
+
+  function select(btn) {
+    opts.forEach(function (o) {
+      var on = o === btn;
+      o.classList.toggle("is-active", on);
+      o.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+    movePin(btn);
+
+    var unite = btn.dataset.billing; // "mois" ou "an"
+    document.querySelectorAll(".plan-price").forEach(function (price) {
+      var amount = price.querySelector("[data-price]");
+      var per = price.querySelector("[data-per]");
+      if (!amount) return;
+      price.classList.add("is-swapping");
+      setTimeout(function () {
+        amount.textContent = amount.dataset[unite];
+        if (per) per.textContent = unite === "an" ? "/ an" : "/ mois";
+        price.classList.remove("is-swapping");
+      }, 200);
+    });
+  }
+
+  opts.forEach(function (o) {
+    o.addEventListener("click", function () { select(o); });
+  });
+
+  /* Position initiale de la pastille (après le rendu des polices). */
+  function init() { movePin(sw.querySelector(".billing-opt.is-active")); }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(init);
+  else window.addEventListener("load", init);
+  window.addEventListener("resize", init);
+  init();
+})();

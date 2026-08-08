@@ -35,17 +35,11 @@
     entry.target.classList.add("in");
   }, { margin: "0px 0px -14% 0px" });
 
-  /* Halo hero : suit le curseur sur toute la section. */
+  /* Inclinaison des cartes speakers au survol (le halo du hero, qui
+     suivait le curseur, a été retiré : il balayait une lueur blanche
+     derrière le titre). */
   function initSpotlight() {
     if (!hasPointer) return;
-    var hero = document.querySelector("[data-spotlight]");
-    if (hero) {
-      hero.addEventListener("pointermove", function (e) {
-        var r = hero.getBoundingClientRect();
-        hero.style.setProperty("--sx", ((e.clientX - r.left) / r.width * 100).toFixed(1) + "%");
-        hero.style.setProperty("--sy", ((e.clientY - r.top) / r.height * 100).toFixed(1) + "%");
-      });
-    }
     var MAX_TILT = 9;
     document.querySelectorAll("[data-spotlight-card]").forEach(function (card) {
       var visual = card.querySelector(".speaker-visual");

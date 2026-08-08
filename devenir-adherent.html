@@ -11,14 +11,13 @@
   <meta property="og:description" content="Rejoins la communauté : conférences, afterworks, carré VIP et networking avec les décideurs du sport." />
   <meta property="og:locale" content="fr_FR" />
   <meta name="theme-color" content="#062750" />
-  <link rel="icon" type="image/png" href="assets/img/logo-ssb-emblem.png" />
+  <link rel="icon" type="image/png" href="assets/img/logo-ssb-emblem.png?v=2" />
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@500&display=swap" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/devenir-adherent/css/style.css?v=26" />
+  <link rel="stylesheet" href="assets/devenir-adherent/css/style.css?v=31" />
 
   <!-- Motion est servi en local (pas de CDN) et chargé avant le premier rendu :
        l'état de départ des animations n'est posé que s'il a réellement chargé. -->
@@ -44,7 +43,7 @@
     <div class="hdr-in">
       <div class="hdr-left">
         <button type="button" class="nav-burger" data-nav-toggle aria-expanded="false" aria-controls="nav-menu" aria-label="Ouvrir le menu"><svg viewBox="0 0 24 24" width="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path class="nb-l1" d="M4 6h16" /><path class="nb-l2" d="M4 12h16" /><path class="nb-l3" d="M4 18h16" /></svg></button>
-        <a class="logo" href="index.html" aria-label="Sorbonne Sport Business, accueil"><img src="assets/img/logo-ssb-emblem.png" alt="" width="200" height="150" /><span class="logo-abbr">SSB</span><span class="logo-full">Sorbonne Sport Business</span></a>
+        <a class="logo" href="index.html" aria-label="Sorbonne Sport Business, accueil"><img src="assets/img/logo-ssb-emblem.png?v=2" alt="" width="256" height="235" /><span class="logo-abbr">SSB</span><span class="logo-full">Sorbonne Sport Business</span></a>
         <nav class="hdr-nav" id="nav-menu" aria-label="Navigation principale">
           <a href="index.html" class="nav-link">Accueil</a>
           <div class="nav-grp">
@@ -76,69 +75,83 @@
 
   <main id="main">
 
-    <!-- ============================ HERO ============================ -->
-    <!-- Signature : le prix d'appel est integre en grand dans le titre
-         lui-meme, pas relegue a une carte plus bas. -->
-    <section class="hero" data-bg="navy">
-      <div class="hero-in">
-        <p class="hero-kicker reveal">Adhésion</p>
-        <h1 class="hero-title reveal" style="--i:1">Rejoins la communauté,<br />dès <span class="price-inline">2,99&nbsp;€</span><span class="price-per">/mois</span>.</h1>
-        <p class="hero-sub reveal" style="--i:2">Trois paliers, sans engagement. Offres de stages chaque semaine, side events, contenu exclusif et networking direct avec les décideurs du sport.</p>
-        <a href="#paliers" class="pill solid lg reveal" style="--i:3">Devenir adhérent</a>
-        <div class="trust-row reveal" style="--i:4">
-          <span class="trust-chip"><svg viewBox="0 0 24 24" width="15" aria-hidden="true"><path d="M20 6 9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Sans engagement</span>
-          <span class="trust-chip"><svg viewBox="0 0 24 24" width="15" aria-hidden="true"><path d="M22 2 11 13M22 2 15 22l-4-9-9-4Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Résiliable à tout moment</span>
-          <span class="trust-chip"><svg viewBox="0 0 24 24" width="15" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4" fill="none" stroke="currentColor" stroke-width="2"/></svg>Paiement sécurisé</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================ PALIERS ============================ -->
-    <!-- TODO Stripe : remplacer les trois href par les Payment Links dès qu'ils sont créés. -->
+    <!-- ============================ PALIERS ============================
+         Repris de la référence "pricing" fournie par Tom : bascule
+         mensuel/annuel, prix qui s'anime au changement, carte mise en avant
+         avec liseré et badge, listes "Tout X, plus :" à coches.
+         TODO Stripe : remplacer les href par les Payment Links. -->
     <section class="pricing" id="paliers" data-bg="navy">
       <div class="pricing-in">
-        <div class="plan reveal" style="--i:1">
-          <p class="plan-name">Bronze</p>
-          <p class="plan-price"><span class="amount">2,99&nbsp;€</span><span class="per">/ mois</span></p>
-          <p class="plan-tagline">L'essentiel pour suivre la communauté et ses conférences.</p>
-          <ul class="plan-features">
-            <li class="on">Accès à toutes les conférences</li>
-            <li class="on">Newsletter vidéo de 60 secondes, chaque semaine</li>
-            <li class="on">Accès au groupe WhatsApp</li>
-            <li class="off">Offres de stages, alternances et CDI</li>
-            <li class="off">Afterworks, visios et giveaways</li>
-          </ul>
-          <a href="book-a-call.html#adherent" class="pill ghost lg">Choisir Bronze</a>
+        <div class="pricing-head">
+          <h2 class="pricing-title reveal">Une formule pour chaque ambition.</h2>
+          <p class="pricing-lead reveal" style="--i:1">Sans engagement, résiliable en un clic depuis votre espace membre.</p>
+          <div class="billing-switch reveal" style="--i:2" role="group" aria-label="Période de facturation">
+            <span class="billing-pin" aria-hidden="true"></span>
+            <button type="button" class="billing-opt is-active" data-billing="mois" aria-pressed="true">Mensuel</button>
+            <button type="button" class="billing-opt" data-billing="an" aria-pressed="false">Annuel<span class="billing-save">2 mois offerts</span></button>
+          </div>
         </div>
 
-        <div class="plan reveal" style="--i:2">
-          <p class="plan-name">Silver</p>
-          <p class="plan-price"><span class="amount">4,99&nbsp;€</span><span class="per">/ mois</span></p>
-          <p class="plan-tagline">Pour celles et ceux qui préparent leur carrière.</p>
-          <ul class="plan-features">
-            <li class="on">Tout Bronze</li>
-            <li class="on">Offres de stages, alternances et CDI, chaque semaine</li>
-            <li class="on">Contenu exclusif, 1 à 2 fois par semaine</li>
-            <li class="on">Vidéos récap du mois</li>
-            <li class="off">Afterworks, visios et giveaways</li>
-          </ul>
-          <a href="book-a-call.html#adherent" class="pill ghost lg">Choisir Silver</a>
-        </div>
+        <div class="plans">
+          <article class="plan reveal" style="--i:1">
+            <header class="plan-head">
+              <h3 class="plan-name">Bronze</h3>
+              <p class="plan-tagline">L'essentiel pour suivre la communauté et ses conférences.</p>
+              <p class="plan-price">
+                <span class="amount" data-price data-mois="2,99" data-an="29,90">2,99</span><span class="cur">&nbsp;€</span><span class="per" data-per>/ mois</span>
+              </p>
+            </header>
+            <a href="book-a-call.html#adherent" class="pill ghost lg plan-cta">Choisir Bronze</a>
+            <div class="plan-list">
+              <p class="plan-list-head">Inclus :</p>
+              <ul>
+                <li>Accès à toutes les conférences</li>
+                <li>Newsletter vidéo de 60 secondes, chaque semaine</li>
+                <li>Accès au groupe WhatsApp</li>
+              </ul>
+            </div>
+          </article>
 
-        <div class="plan plan--gold reveal" style="--i:3">
-          <span class="plan-badge">Le plus complet</span>
-          <p class="plan-name">Gold</p>
-          <p class="plan-price"><span class="amount">7,99&nbsp;€</span><span class="per">/ mois</span></p>
-          <p class="plan-promo">4,99&nbsp;€ / mois pendant les 6 premiers mois</p>
-          <p class="plan-tagline">L'expérience complète, side events et priorité en conférence.</p>
-          <ul class="plan-features">
-            <li class="on">Tout Silver</li>
-            <li class="on">Afterworks membres, une fois par mois</li>
-            <li class="on">Visios avec des pros, une fois par mois</li>
-            <li class="on">Questions prioritaires en conférence</li>
-            <li class="on">Giveaways réservés aux membres Gold</li>
-          </ul>
-          <a href="book-a-call.html#adherent" class="pill solid lg">Choisir Gold</a>
+          <article class="plan reveal" style="--i:2">
+            <header class="plan-head">
+              <h3 class="plan-name">Silver</h3>
+              <p class="plan-tagline">Pour celles et ceux qui préparent déjà leur carrière.</p>
+              <p class="plan-price">
+                <span class="amount" data-price data-mois="4,99" data-an="49,90">4,99</span><span class="cur">&nbsp;€</span><span class="per" data-per>/ mois</span>
+              </p>
+            </header>
+            <a href="book-a-call.html#adherent" class="pill ghost lg plan-cta">Choisir Silver</a>
+            <div class="plan-list">
+              <p class="plan-list-head">Tout Bronze, plus :</p>
+              <ul>
+                <li>Offres de stages, alternances et CDI, chaque semaine</li>
+                <li>Contenu exclusif, 1 à 2 fois par semaine</li>
+                <li>Vidéos récap du mois</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="plan plan--gold reveal" style="--i:3">
+            <span class="plan-badge">Le plus complet</span>
+            <header class="plan-head">
+              <h3 class="plan-name">Gold</h3>
+              <p class="plan-tagline">L'expérience complète, side events et priorité en conférence.</p>
+              <p class="plan-price">
+                <span class="amount" data-price data-mois="7,99" data-an="79,90">7,99</span><span class="cur">&nbsp;€</span><span class="per" data-per>/ mois</span>
+              </p>
+              <p class="plan-promo">4,99&nbsp;€ / mois pendant les 6 premiers mois</p>
+            </header>
+            <a href="book-a-call.html#adherent" class="pill solid lg plan-cta">Choisir Gold</a>
+            <div class="plan-list">
+              <p class="plan-list-head">Tout Silver, plus :</p>
+              <ul>
+                <li>Afterworks membres, une fois par mois</li>
+                <li>Visios avec des pros, une fois par mois</li>
+                <li>Questions prioritaires en conférence</li>
+                <li>Giveaways réservés aux membres Gold</li>
+              </ul>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -249,7 +262,7 @@
   </footer>
 
   <script src="assets/vendor/lenis.min.js"></script>
-  <script src="assets/devenir-adherent/js/main.js?v=2"></script>
+  <script src="assets/devenir-adherent/js/main.js?v=3"></script>
   <script>
     document.querySelectorAll("[data-year]").forEach(function (el) {
       el.textContent = new Date().getFullYear();

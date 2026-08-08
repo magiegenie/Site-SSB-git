@@ -153,7 +153,6 @@ body[data-theme="light"] .hdr .pill.ghost { box-shadow: inset 0 0 0 1.5px var(--
   position: relative; background: var(--navy-900); color: #fff; overflow: hidden;
   min-height: 100svh; display: flex; align-items: flex-end;
   padding: calc(var(--hdr-h) + 3rem) 0 clamp(3.5rem, 7vw, 6rem);
-  --sx: 62%; --sy: 38%;
 }
 .shero-media { position: absolute; inset: 0; z-index: var(--z-media); }
 .shero-media img { width: 100%; height: 100%; object-fit: cover; opacity: 0.4; }
@@ -161,10 +160,11 @@ body[data-theme="light"] .hdr .pill.ghost { box-shadow: inset 0 0 0 1.5px var(--
   content: ""; position: absolute; inset: 0;
   background: linear-gradient(195deg, rgba(2, 16, 31, 0.55) 0%, rgba(4, 26, 53, 0.82) 55%, var(--navy-900) 98%);
 }
+/* Lueur fixe : le halo suivait le curseur, ce qui faisait passer une tache
+   blanche derrière le titre à chaque mouvement de souris. */
 .shero::before {
   content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
-  background: radial-gradient(620px circle at var(--sx) var(--sy), rgba(122, 177, 232, 0.22), transparent 68%),
-              radial-gradient(980px circle at var(--sx) var(--sy), rgba(90, 147, 212, 0.16), transparent 72%);
+  background: radial-gradient(900px circle at 72% 28%, rgba(122, 177, 232, 0.14), transparent 70%);
 }
 .shero-in { position: relative; z-index: var(--z-content); width: var(--shell); margin: 0 auto; max-width: 50ch; }
 .shero-kicker {
@@ -690,4 +690,18 @@ body[data-theme="light"] .nav-drop-link.is-active { background: var(--paper-2); 
   .pill.solid:hover::after { transform: translateX(-130%); }
   .pill.ghost:hover::after { opacity: 0; transform: translateY(38%); }
   .pill.ghost:hover { color: inherit; }
+}
+
+/* ===================== TYPOGRAPHIE UNIFIÉE (la home fait foi) =============
+   Les autres pages composaient leurs grands titres en Fraunces (serif) alors
+   que la home est en General Sans. On neutralise le token serif : tout ce qui
+   l'utilisait bascule sur la grotesque, avec la graisse et l'interlettrage
+   des titres de la home (500 / -0.035em). Fraunces n'est plus chargé. */
+:root { --font-serif: var(--font); }
+h1, h2, h3, h4 { font-weight: 500; line-height: 1.02; letter-spacing: -0.035em; }
+.hero-title, .shero-title, .phero-title, .bc-title, .don-title, .pricing-title,
+.statement-title, .focus-title, .collage-title, .prose-title, .gallery-title,
+.join-title, .social-title, .netw-title, .formats-title, .inst-title,
+.reasons-title, .faq-title, .final-title, .legal-title, .auth-head h1 {
+  font-family: var(--font); font-weight: 500; letter-spacing: -0.03em;
 }
