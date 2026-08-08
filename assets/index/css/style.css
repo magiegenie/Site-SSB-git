@@ -387,16 +387,6 @@ body[data-theme="light"] .hdr .pill.ghost { box-shadow: inset 0 0 0 1.5px var(--
 .final-reassure { font-size: 0.92rem; color: var(--on-navy-mute); margin-top: var(--space-sm); }
 .final-reassure strong { color: #fff; font-weight: 600; }
 
-/* ============================ BARRE MOBILE STICKY ========================= */
-.mobilebar {
-  position: fixed; left: 0; right: 0; bottom: 0; z-index: 90;
-  display: none; gap: 0.6rem; padding: 0.7rem var(--gutter, 1rem);
-  background: rgba(4, 26, 53, 0.94); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
-  padding-bottom: max(0.7rem, env(safe-area-inset-bottom));
-  color: #fff;
-}
-.mobilebar .pill { flex: 1; justify-content: center; }
-
 /* ================================= FOOTER ================================ */
 .ft { background: var(--paper); color: var(--ink); padding: var(--space-2xl) 0 2rem; }
 .ft-in { width: var(--shell); margin: 0 auto; display: grid; grid-template-columns: 1.15fr 2fr; gap: clamp(2rem, 5vw, 4rem); }
@@ -442,7 +432,6 @@ html.motion-ready .reveal.in {
 @media (max-width: 720px) {
   :root { --hdr-h: 64px; }
   .hdr .pill.ghost { display: none; }
-  .mobilebar { display: flex; }
   .hero-foot { flex-direction: column; align-items: flex-start; gap: var(--space-sm); }
   .hero-scroll, .hero-tag { display: none; }
   .hero-in { padding-bottom: clamp(5.5rem, 16vw, 7rem); }
