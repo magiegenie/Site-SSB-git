@@ -857,20 +857,23 @@ h1, h2, h3, h4 { font-weight: 500; line-height: 1.02; letter-spacing: -0.035em; 
 }
 .plans-note strong { color: #fff; font-weight: 600; }
 
-/* Plein tarif barré : uniquement en facturation annuelle, en miroir de la
-   promo mensuelle qui, elle, ne s'affiche qu'en mensuel. */
-.plan-ref {
-  margin-top: 0.4rem; font-size: 0.86rem; color: var(--on-navy-mute);
+/* Plein tarif barré, dans la ligne de prix et à droite de celui-ci :
+   uniquement en facturation annuelle, en miroir de la promo mensuelle qui,
+   elle, ne s'affiche qu'en mensuel. */
+.plan-was {
+  display: none; margin-left: 0.7rem;
+  font-size: clamp(1.35rem, 2.1vw, 1.8rem); font-weight: 600;
+  letter-spacing: -0.02em; font-variant-numeric: tabular-nums;
+  color: var(--on-navy-mute);
+  text-decoration: line-through; text-decoration-thickness: 2px;
 }
-.plan-ref s { color: var(--on-navy-mute); text-decoration-thickness: 1px; }
-.plan-ref { display: none; }
-.pricing.is-annual .plan-ref { display: block; }
+.pricing.is-annual .plan-was { display: inline; }
 
 /* Une fois l'échéance passée (data-promo-until sur la section), le JS pose
    .promo-finie : plus de -50 %, plus de barré, plein tarif annuel. */
 .pricing.promo-finie .billing-save,
-.pricing.promo-finie .billing-note,
-.pricing.promo-finie .plan-ref { display: none; }
+.pricing.promo-finie .billing-note { display: none; }
+.pricing.promo-finie .plan-was { display: none !important; }
 
 /* Écrans peu hauts (portables 900 px et moins) : on resserre l'en-tête et
    les cartes pour que les trois billets restent visibles de haut en bas
