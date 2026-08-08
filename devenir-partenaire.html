@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600&display=swap" rel="stylesheet" />
   <link rel="preload" as="image" href="assets/img/audience.jpg" fetchpriority="high" />
-  <link rel="stylesheet" href="assets/devenir-partenaire/css/style.css?v=19" />
+  <link rel="stylesheet" href="assets/devenir-partenaire/css/style.css?v=20" />
 
   <!-- Motion est servi en local (pas de CDN) et chargé avant le premier rendu :
        l'état de départ des animations n'est posé que s'il a réellement chargé. -->
@@ -71,7 +71,6 @@
       </div>
       <div class="hdr-right">
         <a href="connexion.html" class="hdr-login">Se connecter<span class="hdr-login-chip" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="M13 6l6 6-6 6" /></svg></span></a>
-        <a href="book-a-call.html#partenaire" class="hdr-call">Parlons-en<span class="hdr-call-chip" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="M13 6l6 6-6 6" /></svg></span></a>
       </div>
     </div>
   </header>
@@ -92,7 +91,7 @@
         <p class="phero-sub reveal" style="--i:1">Touchez une audience étudiante qualifiée, engagée et future décideuse du sport business.</p>
         <div class="phero-actions reveal" style="--i:2">
           <a href="assets/docs/plaquette-ssb.pdf" class="pill solid lg" download>Télécharger la plaquette</a>
-          <a href="book-a-call.html#partenaire" class="pill ghost lg">Parlons-en</a>
+          <a href="#reserver" class="pill ghost lg" data-profile="partenaire">Parlons-en</a>
         </div>
       </div>
       <div class="phero-strip">
@@ -223,6 +222,93 @@
       </div>
     </section>
 
+    <!-- ===================== PARLONS-EN (formulaire) ===================== -->
+    <!-- Le formulaire de réservation d'appel vit ici (déplacé de book-a-call). -->
+    <section class="pcontact" id="parlons-en" data-bg="light">
+      <div class="pcontact-in">
+        <div class="pcontact-form-col" id="reserver">
+          <p class="bc-kicker reveal">Parlons-en</p>
+          <h2 class="bc-title reveal" style="--i:1">15 minutes pour construire un partenariat concret.</h2>
+          <p class="bc-sub reveal" style="--i:2">Avec le bureau, sans détour.</p>
+
+          <form class="bc-form reveal" style="--i:3" data-form data-bookcall novalidate aria-label="Formulaire de réservation d'appel">
+            <div class="field">
+              <label class="field-label" for="f-type">Vous êtes <span class="req" aria-hidden="true">*</span></label>
+              <select class="field-input" id="f-type" name="type" required>
+                <option value="partenaire">Partenaire / sponsor</option>
+                <option value="speaker">Speaker / intervenant</option>
+                <option value="adherent">Adhérent / futur adhérent</option>
+              </select>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label class="field-label" for="f-prenom">Prénom <span class="req" aria-hidden="true">*</span></label>
+                <input class="field-input" id="f-prenom" name="prenom" type="text" placeholder="Prénom" required autocomplete="given-name" />
+                <span class="field-error">Indiquez votre prénom.</span>
+              </div>
+              <div class="field">
+                <label class="field-label" for="f-nom">Nom <span class="req" aria-hidden="true">*</span></label>
+                <input class="field-input" id="f-nom" name="nom" type="text" placeholder="Nom" required autocomplete="family-name" />
+                <span class="field-error">Indiquez votre nom.</span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="field-label" for="f-email">Email <span class="req" aria-hidden="true">*</span></label>
+              <input class="field-input" id="f-email" name="email" type="email" data-field="email" required autocomplete="email" placeholder="vous@entreprise.com" />
+              <span class="field-error">Entrez une adresse email valide.</span>
+            </div>
+
+            <div class="field">
+              <label class="field-label" for="f-tel">Téléphone <span class="field-opt">(facultatif)</span></label>
+              <input class="field-input" id="f-tel" name="telephone" type="tel" autocomplete="tel" placeholder="06 00 00 00 00" />
+            </div>
+
+            <!-- Branche PARTENAIRE -->
+            <div class="form-branch is-active" data-branch="partenaire">
+              <div class="field">
+                <label class="field-label" for="f-entreprise">Entreprise / organisation <span class="req" aria-hidden="true">*</span></label>
+                <input class="field-input" id="f-entreprise" name="entreprise" type="text" required autocomplete="organization" placeholder="Nom de votre structure" />
+                <span class="field-error">Indiquez votre organisation.</span>
+              </div>
+            </div>
+
+            <!-- Branche SPEAKER -->
+            <div class="form-branch" data-branch="speaker">
+              <div class="field">
+                <label class="field-label" for="f-structure">Structure / club actuel <span class="field-opt">(facultatif)</span></label>
+                <input class="field-input" id="f-structure" name="structure" type="text" autocomplete="organization" placeholder="Votre structure actuelle" disabled />
+              </div>
+            </div>
+
+            <!-- Branche COMMUNAUTÉ (adhérent) : pas de champ dédié -->
+            <div class="form-branch" data-branch="adherent"></div>
+
+            <div class="field">
+              <label class="field-label" for="f-message">Message <span class="req" aria-hidden="true">*</span></label>
+              <textarea class="field-textarea" id="f-message" name="message" data-msg required placeholder="Dites-nous en quelques mots ce que vous avez en tête."></textarea>
+              <span class="field-error">Ajoutez un message.</span>
+            </div>
+
+            <label class="bc-consent">
+              <input type="checkbox" required />
+              <span>J'accepte que mes informations soient utilisées pour me recontacter. <a href="confidentialite.html">Politique de confidentialité.</a></span>
+            </label>
+
+            <button type="submit" class="pill solid lg bc-submit" data-form-cta>Envoyer ma demande</button>
+            <p class="bc-micro" data-form-micro>Réponse sous 48 h ouvrées. Aucune donnée partagée.</p>
+
+            <div class="form-feedback" aria-live="polite"></div>
+          </form>
+        </div>
+
+        <div class="pcontact-photo-col reveal" style="--i:1">
+          <img width="1200" height="802" src="assets/img/panel.jpg" alt="Table ronde d'intervenants lors d'une conférence Sorbonne Sport Business" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
     <!-- ========================== CTA FINAL ======================== -->
     <section class="final" data-bg="navy">
       <div class="final-media" aria-hidden="true">
@@ -232,8 +318,8 @@
         <h2 class="final-title reveal">Le sport business commence avec vous.</h2>
         <p class="final-sub reveal" style="--i:1">15 minutes avec le bureau pour voir si ça matche. On vous envoie le dossier partenaires ensuite.</p>
         <div class="final-actions reveal" style="--i:2">
-          <a href="book-a-call.html#partenaire" class="pill solid lg">Parlons-en</a>
-          <a href="book-a-call.html#partenaire" class="final-link">Ou recevoir le dossier par email →</a>
+          <a href="#reserver" class="pill solid lg" data-profile="partenaire">Parlons-en</a>
+          <a href="#reserver" class="final-link" data-profile="partenaire">Ou recevoir le dossier par email →</a>
         </div>
       </div>
     </section>
@@ -267,7 +353,7 @@
   </footer>
 
   <script src="assets/vendor/lenis.min.js"></script>
-  <script src="assets/devenir-partenaire/js/main.js?v=3"></script>
+  <script src="assets/devenir-partenaire/js/main.js?v=5"></script>
   <script>
     document.querySelectorAll("[data-year]").forEach(function (el) {
       el.textContent = new Date().getFullYear();

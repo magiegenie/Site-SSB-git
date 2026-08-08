@@ -29,6 +29,9 @@
   if (window.Lenis && !reduced) {
     lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
     requestAnimationFrame(function raf(t) { lenis.raf(t); requestAnimationFrame(raf); });
+    /* Partagé avec le bloc formulaire plus bas : Lenis écrase les
+       scrollIntoView natifs, il faut passer par son scrollTo. */
+    window.__ssbLenis = lenis;
   }
 
   initTheme();
@@ -171,3 +174,153 @@
 
 /* Signale au watchdog inline que le script s est execute sans planter. */
 document.documentElement.classList.add("js-ok");
+
+/* =========================================================================
+   FORMULAIRE PARLONS-EN — déplacé de book-a-call, comportement identique :
+   branches par profil (partenaire/speaker/adherent), validation au blur et
+   à la soumission (dont la checkbox RGPD, le form est en novalidate),
+   présélection par hash (#partenaire/#adherent/#speaker) et par les CTA
+   [data-profile] de la page. Pas de backend branché (démo).
+   ========================================================================= */
+(function () {
+  "use strict";
+
+  initForm();
+  initBookCall();
+
+  function initForm() {
+    var form = document.querySelector("[data-form]");
+    if (!form) return;
+    var feedback = form.querySelector(".form-feedback");
+
+    function setInvalid(field, invalid) { if (field) field.classList.toggle("is-invalid", invalid); }
+    function emailOk(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+    form.querySelectorAll(".field-input, .field-textarea").forEach(function (input) {
+      input.addEventListener("blur", function () {
+        var field = input.closest(".field");
+        if (input.required && !input.value.trim()) { setInvalid(field, true); return; }
+        if (input.type === "email" && input.value && !emailOk(input.value)) { setInvalid(field, true); return; }
+        setInvalid(field, false);
+      });
+      input.addEventListener("input", function () {
+        var f = input.closest(".field");
+        if (f && f.classList.contains("is-invalid")) setInvalid(f, false);
+      });
+    });
+
+    form.querySelectorAll('input[type="checkbox"][required]').forEach(function (cb) {
+      cb.addEventListener("change", function () {
+        var f = cb.closest(".bc-consent") || cb.closest(".field");
+        if (cb.checked) setInvalid(f, false);
+      });
+    });
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var firstInvalid = null;
+      form.querySelectorAll(".field-input, .field-textarea").forEach(function (input) {
+        if (input.disabled) return;
+        var field = input.closest(".field");
+        var bad = false;
+        if (input.required && !input.value.trim()) bad = true;
+        if (input.type === "email" && input.value && !emailOk(input.value)) bad = true;
+        setInvalid(field, bad);
+        if (bad && !firstInvalid) firstInvalid = input;
+      });
+      form.querySelectorAll('input[type="checkbox"][required]').forEach(function (cb) {
+        if (cb.disabled) return;
+        var field = cb.closest(".bc-consent") || cb.closest(".field");
+        setInvalid(field, !cb.checked);
+        if (!cb.checked && !firstInvalid) firstInvalid = cb;
+      });
+      if (firstInvalid) { firstInvalid.focus(); return; }
+      if (feedback) {
+        feedback.classList.add("is-shown");
+        feedback.textContent = "Merci, votre demande est bien notée. L'équipe SSB vous recontacte sous 48 h.";
+        feedback.setAttribute("role", "status");
+      }
+      form.reset();
+    });
+  }
+
+  function initBookCall() {
+    var form = document.querySelector("[data-bookcall]");
+    if (!form) return;
+    var typeSelect = form.querySelector('[name="type"]');
+    if (!typeSelect) return;
+
+    var COPY = {
+      partenaire: {
+        cta: "Envoyer ma demande",
+        micro: "Réponse sous 48 h ouvrées. Aucune donnée partagée.",
+        msg: "Dites-nous en quelques mots ce que vous avez en tête.",
+        feedback: "Merci ! Le bureau vous recontacte sous 48 h ouvrées pour caler votre partenariat."
+      },
+      adherent: {
+        cta: "Envoyer ma demande",
+        micro: "Réponse sous 48 h ouvrées. Aucune donnée partagée.",
+        msg: "Dis-nous en quelques mots ce qui t'amène.",
+        feedback: "Merci ! On te recontacte sous 48 h ouvrées pour répondre à toutes tes questions."
+      },
+      speaker: {
+        cta: "Envoyer ma demande",
+        micro: "Réponse sous 48 h ouvrées. Aucune donnée partagée.",
+        msg: "Décrivez le sujet que vous aimeriez aborder.",
+        feedback: "Merci ! Le bureau revient vers vous sous 48 h ouvrées pour construire votre intervention."
+      }
+    };
+
+    var branches = Array.prototype.slice.call(form.querySelectorAll("[data-branch]"));
+    var ctaEl = form.querySelector("[data-form-cta]");
+    var microEl = form.querySelector("[data-form-micro]");
+    var msgEl = form.querySelector("[data-msg]");
+
+    function activate(profile) {
+      var c = COPY[profile] || COPY.partenaire;
+      branches.forEach(function (b) {
+        var on = b.dataset.branch === profile;
+        b.classList.toggle("is-active", on);
+        b.querySelectorAll("input, textarea, select").forEach(function (el) { el.disabled = !on; });
+      });
+      if (ctaEl) ctaEl.textContent = c.cta;
+      if (microEl) microEl.textContent = c.micro;
+      if (msgEl) msgEl.setAttribute("placeholder", c.msg);
+    }
+
+    typeSelect.addEventListener("change", function () { activate(typeSelect.value); });
+
+    document.querySelectorAll("[data-profile]").forEach(function (el) {
+      el.addEventListener("click", function () {
+        var p = el.getAttribute("data-profile");
+        typeSelect.value = p;
+        activate(p);
+      });
+    });
+
+    form.addEventListener("submit", function () {
+      var c = COPY[typeSelect.value] || COPY.partenaire;
+      queueMicrotask(function () {
+        var fb = form.querySelector(".form-feedback");
+        if (fb && fb.classList.contains("is-shown")) {
+          fb.textContent = c.feedback;
+          activate(typeSelect.value || "partenaire");
+        }
+      });
+    }, true);
+
+    var hash = (window.location.hash || "").replace("#", "");
+    var start = typeSelect.value || "partenaire";
+    if (["partenaire", "adherent", "speaker"].indexOf(hash) !== -1) {
+      typeSelect.value = hash;
+      start = hash;
+      var target = document.getElementById("reserver");
+      if (target) setTimeout(function () {
+        var top = target.getBoundingClientRect().top + window.pageYOffset - 70;
+        if (window.__ssbLenis) window.__ssbLenis.scrollTo(top, { duration: 1.1 });
+        else target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 120);
+    }
+    activate(start);
+  }
+})();

@@ -605,3 +605,66 @@ body[data-theme="light"] .nav-drop-link.is-active { background: var(--paper-2); 
 
 /* Hero partenaires : double CTA (plaquette + appel). */
 .phero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.9rem; }
+
+/* Le CTA "Parlons-en" du header a été retiré : "Se connecter" reste
+   visible sur mobile (la place est libre à droite du logo). */
+@media (max-width: 720px) { .hdr-login { display: inline-flex; } }
+
+/* ===================== PARLONS-EN (formulaire déplacé de book-a-call) =====================
+   Mêmes classes de champs que la page book-a-call pour garder le comportement
+   JS (branches par profil, validation, RGPD). Le conteneur .pcontact remplace
+   le hero de la page d'origine. */
+:root { --danger: #c0392b; }
+.pcontact { background: var(--paper); color: var(--ink); padding: var(--space-2xl) 0; }
+.pcontact-in {
+  width: var(--shell); margin: 0 auto;
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr); gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
+}
+#parlons-en, #reserver { scroll-margin-top: calc(var(--hdr-h, 80px) + 12px); }
+.bc-kicker { font-size: 0.86rem; font-weight: 600; letter-spacing: 0.04em; color: var(--gold-deep); text-transform: uppercase; margin-bottom: var(--space-sm); }
+.bc-title { font-family: var(--font-serif); font-weight: 600; letter-spacing: -0.01em; font-size: clamp(2.2rem, 4.4vw, 3.4rem); color: var(--ink); max-width: 16ch; }
+.bc-sub { color: var(--ink-muted); font-size: 1.1rem; margin-top: var(--space-sm); margin-bottom: var(--space-lg); }
+.pcontact-photo-col { border-radius: var(--r-media); overflow: hidden; position: sticky; top: calc(var(--hdr-h, 80px) + 2.5rem); }
+.pcontact-photo-col img { width: 100%; height: clamp(360px, 46vw, 620px); object-fit: cover; }
+
+.bc-form { display: flex; flex-direction: column; gap: 1.1rem; max-width: 46rem; }
+.field { display: flex; flex-direction: column; gap: 0.4rem; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+.field-label { font-size: 0.9rem; font-weight: 600; color: var(--ink); }
+.req { color: var(--gold-deep); }
+.field-opt { font-weight: 400; color: var(--ink-muted); font-size: 0.85rem; }
+.field-input, .field-textarea {
+  width: 100%; padding: 0.85rem 1rem; border-radius: 12px; font-size: 1rem; font-family: inherit;
+  background: var(--paper); color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--line-ink);
+  transition: box-shadow var(--dur-fast) var(--ease-out-quart);
+  scroll-margin-bottom: 100px;
+}
+.field-input:focus, .field-textarea:focus { box-shadow: inset 0 0 0 1.5px var(--navy-700); outline: none; }
+.field-textarea { min-height: 110px; resize: vertical; }
+.field-input::placeholder, .field-textarea::placeholder { color: rgba(91, 100, 114, 0.9); }
+.field-error { display: none; font-size: 0.82rem; color: var(--danger); }
+.field.is-invalid .field-input, .field.is-invalid .field-textarea { box-shadow: inset 0 0 0 1.5px var(--danger); }
+.field.is-invalid .field-error { display: block; }
+.form-branch { display: none; }
+.form-branch.is-active { display: block; }
+.bc-consent { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.86rem; color: var(--ink-muted); cursor: pointer; border-radius: 8px; }
+.bc-consent.is-invalid { box-shadow: inset 0 0 0 1.5px var(--danger); padding: 0.5rem; margin: -0.5rem; color: var(--danger); }
+.bc-consent input { margin-top: 0.2rem; flex: none; width: 16px; height: 16px; accent-color: var(--navy-800); }
+.bc-consent a { color: var(--ink); text-decoration: underline; }
+.bc-submit { align-self: flex-start; scroll-margin-bottom: 100px; }
+.bc-micro { font-size: 0.82rem; color: var(--ink-muted); margin-top: -0.5rem; }
+.form-feedback {
+  display: none; padding: 0.9rem 1.1rem; border-radius: 12px; background: rgba(37, 130, 90, 0.1);
+  color: #1c6b4c; font-size: 0.92rem; font-weight: 500;
+}
+.form-feedback.is-shown { display: block; }
+
+@media (max-width: 1024px) {
+  .pcontact-in { grid-template-columns: 1fr; }
+  .pcontact-photo-col { position: static; order: -1; }
+  .pcontact-photo-col img { height: 280px; }
+}
+@media (max-width: 720px) {
+  .field-row { grid-template-columns: 1fr; }
+}

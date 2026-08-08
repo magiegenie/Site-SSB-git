@@ -544,3 +544,7 @@ body[data-theme="light"] .nav-drop-link.is-active { background: var(--paper-2); 
 .don-p { margin-top: var(--space-md); font-size: clamp(1rem, 1.4vw, 1.15rem); line-height: 1.6; color: var(--ink-muted); }
 .don-in .pill { margin-top: var(--space-lg); }
 .don-note { margin-top: 0.9rem; font-size: 0.88rem; color: var(--ink-muted); }
+
+/* Le CTA "Parlons-en" du header a été retiré : "Se connecter" reste
+   visible sur mobile (la place est libre à droite du logo). */
+@media (max-width: 720px) { .hdr-login { display: inline-flex; } }

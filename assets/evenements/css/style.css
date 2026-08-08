@@ -544,3 +544,7 @@ body[data-theme="light"] .nav-drop-link.is-active { background: var(--paper-2); 
 @media (min-width: 1280px) and (max-width: 1439px) {
   .hdr-nav { position: static; transform: none; }
 }
+
+/* Le CTA "Parlons-en" du header a été retiré : "Se connecter" reste
+   visible sur mobile (la place est libre à droite du logo). */
+@media (max-width: 720px) { .hdr-login { display: inline-flex; } }
