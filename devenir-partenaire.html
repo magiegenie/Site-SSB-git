@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700&display=swap" rel="stylesheet" />
   <link rel="preload" as="image" href="assets/img/audience.jpg" fetchpriority="high" />
-  <link rel="stylesheet" href="assets/devenir-partenaire/css/style.css?v=4" />
+  <link rel="stylesheet" href="assets/devenir-partenaire/css/style.css?v=5" />
 
   <!-- Motion est servi en local (pas de CDN) et chargé avant le premier rendu :
        l'état de départ des animations n'est posé que s'il a réellement chargé. -->
@@ -145,7 +145,16 @@
           <a href="nos-intervenants.html" class="pill solid lg">Voir nos speakers</a>
         </div>
       </div>
-      <!-- Défilement continu : qui vient parler chez SSB, en un coup d'œil. -->
+      <!-- Défilement continu : qui vient parler chez SSB, en un coup d'œil.
+           L'animation est aria-hidden ; la liste sr-only porte le contenu
+           pour les lecteurs d'écran. -->
+      <ul class="sr-only">
+        <li>Directeurs marketing de clubs de Ligue 1</li>
+        <li>Responsables de fédérations</li>
+        <li>Agents de joueurs</li>
+        <li>Dirigeants de la SportTech</li>
+        <li>Sportifs de haut niveau</li>
+      </ul>
       <div class="marquee" aria-hidden="true">
         <div class="marquee-track">
           <span>Directeurs marketing de clubs de Ligue 1</span>
@@ -169,6 +178,14 @@
         <h2 class="inst-title">Institutions &amp; partenaires.</h2>
         <p class="inst-p">Clubs, fédérations, médias et institutions qui ont collaboré avec l'association.</p>
       </div>
+      <ul class="sr-only">
+        <li>Paris 1 Panthéon-Sorbonne</li>
+        <li>Stade de France</li>
+        <li>Fédération Française de Tennis</li>
+        <li>Clubs de Ligue 1</li>
+        <li>Startups SportTech</li>
+        <li>Médias sport business</li>
+      </ul>
       <div class="marquee marquee--light" aria-hidden="true">
         <div class="marquee-track">
           <span>Paris 1 Panthéon-Sorbonne</span>

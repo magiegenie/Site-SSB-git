@@ -163,11 +163,11 @@ body[data-navtheme="light"] .floatnav {
   box-shadow: 0 16px 34px -18px rgba(6, 39, 80, 0.75);
 }
 .fn-home {
-  width: 40px; height: 40px; flex: none; display: grid; place-items: center;
+  width: 44px; height: 44px; flex: none; display: grid; place-items: center;
   border-radius: 100px; transition: background var(--dur-fast) var(--ease-out-quart);
 }
 .fn-item {
-  display: inline-flex; align-items: center; height: 40px; padding: 0 15px;
+  display: inline-flex; align-items: center; height: 44px; padding: 0 15px;
   border-radius: 100px; font-weight: 600; font-size: 0.92rem; white-space: nowrap;
   opacity: 0.82; transition: opacity var(--dur-fast) var(--ease-out-quart), background var(--dur-fast) var(--ease-out-quart);
 }
@@ -313,7 +313,7 @@ body[data-navtheme="light"] .fn-item.is-active { background: rgba(255, 255, 255,
 .ft-socials a:hover { background: var(--navy-800); color: #fff; }
 .ft-cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-md); }
 .ft-h { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 0.9rem; font-weight: 600; }
-.ft-col a { display: block; padding: 0.35rem 0; color: var(--ink); opacity: 0.82; transition: opacity var(--dur-fast) var(--ease-out-quart); }
+.ft-col a { display: block; padding: 0.6rem 0; color: var(--ink); opacity: 0.82; transition: opacity var(--dur-fast) var(--ease-out-quart); }
 .ft-col a:hover { opacity: 1; }
 .ft-base {
   width: var(--shell); margin: clamp(2.5rem, 5vw, 4rem) auto 0;

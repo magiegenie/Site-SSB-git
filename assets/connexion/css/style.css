@@ -99,7 +99,7 @@ h1 { font-family: var(--font-serif); font-weight: 600; line-height: 1.05; letter
 .field-password-wrap .field-input { padding-right: 2.8rem; }
 .field-toggle {
   position: absolute; right: 0.7rem; top: 50%; transform: translateY(-50%);
-  width: 32px; height: 32px; display: grid; place-items: center; border-radius: 8px; color: var(--ink-muted);
+  width: 44px; height: 44px; display: grid; place-items: center; border-radius: 8px; color: var(--ink-muted);
 }
 .field-toggle:hover { background: var(--paper-2); color: var(--ink); }
 .auth-error {
