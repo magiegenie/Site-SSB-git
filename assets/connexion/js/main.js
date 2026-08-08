@@ -13,11 +13,7 @@
 
   var SESSION_KEY = "ssb_account";
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  var client =
-    window.supabase && window.SSB_SUPABASE_URL && window.SSB_SUPABASE_ANON_KEY
-      ? window.supabase.createClient(window.SSB_SUPABASE_URL, window.SSB_SUPABASE_ANON_KEY)
-      : null;
+  var auth = window.SSBAuth;
 
   var CONTENT = {
     signin: {
@@ -66,17 +62,6 @@
   function setBusy(form, busy) {
     var btn = form.querySelector('button[type="submit"]');
     if (btn) btn.disabled = !!busy;
-  }
-
-  /* Traduction des messages d'erreur Supabase les plus courants. */
-  function translateAuthError(message) {
-    var m = (message || "").toLowerCase();
-    if (m.indexOf("invalid login credentials") !== -1) return "Email ou mot de passe incorrect, ou compte inexistant.";
-    if (m.indexOf("already registered") !== -1 || m.indexOf("already exists") !== -1) return "Un compte existe déjà avec cet email.";
-    if (m.indexOf("password") !== -1 && m.indexOf("least") !== -1) return "Le mot de passe doit faire au moins 6 caractères.";
-    if (m.indexOf("email not confirmed") !== -1) return "Confirme ton email avant de te connecter (vérifie ta boîte de réception).";
-    if (m.indexOf("rate limit") !== -1) return "Trop de tentatives, réessaie dans quelques minutes.";
-    return message || "Une erreur est survenue, réessaie.";
   }
 
   /* --------------------------- Machine a ecrire --------------------------- */
@@ -149,7 +134,7 @@
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      if (!client) {
+      if (!auth) {
         showAuthError(form, "Connexion indisponible pour le moment, réessaie plus tard.");
         return;
       }
@@ -166,13 +151,13 @@
       var password = form.querySelector('[name="password"]').value;
 
       setBusy(form, true);
-      client.auth.signInWithPassword({ email: email, password: password }).then(function (res) {
+      auth.signIn(email, password).then(function (result) {
         setBusy(form, false);
-        if (res.error) {
-          showAuthError(form, translateAuthError(res.error.message));
+        if (!result.success) {
+          showAuthError(form, result.message);
           return;
         }
-        var user = res.data.user;
+        var user = result.data.user;
         var name = (user && user.user_metadata && user.user_metadata.name) || email;
         succeed(form, name, "Connexion réussie. Redirection…");
       });
@@ -191,7 +176,7 @@
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      if (!client) {
+      if (!auth) {
         showAuthError(form, "Création de compte indisponible pour le moment, réessaie plus tard.");
         return;
       }
@@ -209,16 +194,16 @@
       var password = form.querySelector('[name="password"]').value;
 
       setBusy(form, true);
-      client.auth.signUp({ email: email, password: password, options: { data: { name: name } } }).then(function (res) {
+      auth.signUp(email, password, name).then(function (result) {
         setBusy(form, false);
-        if (res.error) {
-          showAuthError(form, translateAuthError(res.error.message));
+        if (!result.success) {
+          showAuthError(form, result.message);
           return;
         }
         // Si la confirmation email est activee cote Supabase, il n'y a pas
         // encore de session a ce stade : on previent au lieu de rediriger
         // comme si le compte etait deja actif.
-        if (!res.data.session) {
+        if (result.needsEmailConfirmation) {
           showFeedback(form, "Compte créé ! Vérifie tes emails pour confirmer ton adresse avant de te connecter.");
           return;
         }
@@ -263,13 +248,13 @@
     document.querySelectorAll("[data-google]").forEach(function (btn) {
       btn.addEventListener("click", function () {
         var form = document.querySelector('[data-auth-form]:not([hidden])');
-        if (!client) {
+        if (!auth || !auth.client) {
           if (form) showFeedback(form, "Connexion Google indisponible pour le moment.");
           return;
         }
         // Necessite d'activer le provider Google dans Supabase
         // (Authentication > Providers) avant de fonctionner reellement.
-        client.auth.signInWithOAuth({
+        auth.client.auth.signInWithOAuth({
           provider: "google",
           options: { redirectTo: window.location.origin + window.location.pathname.replace(/connexion\.html$/, "index.html") }
         }).then(function (res) {
