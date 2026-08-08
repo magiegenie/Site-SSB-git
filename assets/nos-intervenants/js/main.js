@@ -118,3 +118,29 @@
 
 /* Signale au watchdog inline que le script s est execute sans planter. */
 document.documentElement.classList.add("js-ok");
+
+/* ===================== FILTRES DES INTERVENANTS ==========================
+   Filtrage par famille (dirigeant, légende, média...). Purement visuel : les
+   cartes restent dans le DOM, on masque celles qui ne correspondent pas.
+   Sans JS, tous les intervenants restent visibles. */
+(function () {
+  "use strict";
+  var barre = document.querySelector(".sp-filters");
+  if (!barre) return;
+  var boutons = Array.prototype.slice.call(barre.querySelectorAll(".sp-filter"));
+  var cartes = Array.prototype.slice.call(document.querySelectorAll(".sp-card"));
+
+  boutons.forEach(function (b) {
+    b.addEventListener("click", function () {
+      var cible = b.dataset.filter;
+      boutons.forEach(function (o) {
+        var on = o === b;
+        o.classList.toggle("is-active", on);
+        o.setAttribute("aria-pressed", on ? "true" : "false");
+      });
+      cartes.forEach(function (c) {
+        c.classList.toggle("is-hidden", cible !== "tous" && c.dataset.tag !== cible);
+      });
+    });
+  });
+})();

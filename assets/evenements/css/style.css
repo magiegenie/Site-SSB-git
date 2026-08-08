@@ -761,3 +761,17 @@ h1, h2, h3, h4 { font-weight: 500; line-height: 1.02; letter-spacing: -0.035em; 
 
 /* Le CTA "Parlons-en" a été retiré du menu mobile. */
 .nav-cta { display: none !important; }
+
+/* ===================== ÉVÉNEMENTS PASSÉS : DATE AU MOIS ==================
+   Les conférences déjà tenues sont datées au mois : LinkedIn, d'où viennent
+   ces archives, n'expose pas le jour exact. On affiche donc ce que l'on sait
+   plutôt qu'une date précise mais fausse. */
+.ev-date--mois { display: grid; place-items: center; text-align: center; }
+.ev-date--mois .m { font-size: 0.82rem; line-height: 1.25; text-transform: none; letter-spacing: 0; }
+.ev-resume { margin-top: 0.5rem; font-size: 0.92rem; line-height: 1.5; color: var(--ink-muted); max-width: 62ch; }
+.ev-link {
+  display: inline-flex; align-items: center; min-height: 44px;
+  font-size: 0.88rem; font-weight: 600; color: var(--gold-deep); white-space: nowrap;
+}
+.ev-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+.ev-row:target { box-shadow: inset 0 0 0 2px var(--gold-deep); border-radius: 12px; }

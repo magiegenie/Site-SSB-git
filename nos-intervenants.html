@@ -26,7 +26,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" as="image" href="assets/img/hero-intervenants.jpg" fetchpriority="high" />
-  <link rel="stylesheet" href="assets/nos-intervenants/css/style.css?v=34" />
+  <link rel="stylesheet" href="assets/nos-intervenants/css/style.css?v=35" />
 
   <!-- Motion est servi en local (pas de CDN) et chargé avant le premier rendu :
        l'état de départ des animations n'est posé que s'il a réellement chargé. -->
@@ -99,78 +99,211 @@
       </div>
     </section>
 
-    <!-- ========================= SPEAKERS (spotlight roll) ==================== -->
-    <!-- Trois intervenants mis en avant, traités en grand ; la galerie complète
-         suit. Source des données : assets/data/speakers.json. -->
-    <section class="speakers-head">
-      <p class="speakers-kicker reveal">Sur scène à Sorbonne Sport Business</p>
-      <h2 class="speakers-intro reveal" style="--i:1">Quelques-uns des intervenants qui sont venus échanger avec nos étudiants.</h2>
-    </section>
-
-    <section class="speakers" data-bg="light">
-      <article class="speaker reveal" data-spotlight-card style="--card-a:#1d508f; --card-b:#02101f;">
-        <div class="speaker-visual">
-          <img class="speaker-photo" width="900" height="720" src="assets/img/speaker-kahn.jpg" alt="" />
-          <span class="speaker-quote" aria-hidden="true">“</span>
-        </div>
-        <div class="speaker-body">
-          <p class="speaker-org">Paris Basketball</p>
-          <div class="speaker-namerow">
-            <h3 class="speaker-name">David Kahn</h3>
-            <img width="138" height="120" class="speaker-logo" src="assets/img/logos/paris-basketball.png" alt="Logo Paris Basketball" loading="lazy" />
+    <!-- ====================== VIDÉO DE PRÉSENTATION ======================= -->
+    <section class="sp-video" id="video-sarah" data-bg="navy">
+      <div class="sp-video-in">
+        <div class="sp-video-text">
+          <p class="sp-video-kicker reveal">En vidéo</p>
+          <h2 class="sp-video-title reveal" style="--i:1">Sarah Solémalé présente sa venue.</h2>
+          <p class="sp-video-p reveal" style="--i:2">Alumni de La Sorbonne, plus de dix ans à la FIFA et à la Confédération Africaine de Football, aujourd&rsquo;hui juriste et arbitre dans le sport international. Elle est venue partager son parcours lors de la table ronde <em>Women In Sports</em>, à La Sorbonne.</p>
+          <div class="sp-video-actions reveal" style="--i:3">
+            <a href="evenements.html#ev-women-in-sports" class="pill ghost">Voir l&rsquo;événement</a>
+            <a href="https://www.linkedin.com/in/sarah-sol%C3%A9mal%C3%A9-949a45178/" target="_blank" rel="noopener" class="pill ghost">Son profil LinkedIn</a>
           </div>
-          <p class="speaker-role">Président</p>
         </div>
-      </article>
-
-      <article class="speaker speaker--flip reveal" data-spotlight-card style="--i:1; --card-a:#0d3868; --card-b:#041a35;">
-        <div class="speaker-visual">
-          <img class="speaker-photo" width="900" height="720" src="assets/img/speaker-letang.jpg" alt="" loading="lazy" />
-          <span class="speaker-quote" aria-hidden="true">“</span>
-        </div>
-        <div class="speaker-body">
-          <p class="speaker-org">LOSC Lille</p>
-          <div class="speaker-namerow">
-            <h3 class="speaker-name">Olivier Létang</h3>
-            <img width="126" height="120" class="speaker-logo" src="assets/img/logos/losc.png" alt="Logo LOSC Lille" loading="lazy" />
-          </div>
-          <p class="speaker-role">Président &amp; Directeur Général</p>
-        </div>
-      </article>
-
-      <article class="speaker reveal" data-spotlight-card style="--i:2; --card-a:#2660a5; --card-b:#041a35;">
-        <div class="speaker-visual">
-          <img class="speaker-photo" width="900" height="720" src="assets/img/speaker-gomis.jpg" alt="" loading="lazy" />
-          <span class="speaker-quote" aria-hidden="true">“</span>
-        </div>
-        <div class="speaker-body">
-          <p class="speaker-org">Équipe de France</p>
-          <h3 class="speaker-name">Bafétimbi Gomis</h3>
-          <p class="speaker-role">Ex-footballeur, international français</p>
-        </div>
-      </article>
-    </section>
-
-    <!-- ============================ GALERIE COMPLÈTE ========================== -->
-    <section class="roster" data-bg="light">
-      <div class="roster-head reveal">
-        <h2 class="roster-title">Et bien d'autres.</h2>
-        <p class="roster-sub">Dirigeants, légendes du jeu, médias et créateurs : celles et ceux qui sont déjà passés par nos amphis.</p>
+        <figure class="sp-video-frame reveal" style="--i:1">
+          <video controls playsinline preload="metadata" poster="assets/img/poster-sarah-solemale.jpg" width="608" height="1080">
+            <source src="assets/video/sarah-solemale.mp4" type="video/mp4" />
+            Votre navigateur ne peut pas lire cette vidéo. <a href="assets/video/sarah-solemale.mp4">La télécharger</a>.
+          </video>
+          <figcaption>Sarah Solémalé, invitée de la table ronde Women In Sports, à La Sorbonne.</figcaption>
+        </figure>
       </div>
-      <div class="roster-grid">
-        <article class="rc reveal"><div class="rc-media"><img width="900" height="720" src="assets/img/speaker-trezeguet.jpg" alt="" loading="lazy" /></div><h3>David Trezeguet</h3><p>Champion du Monde 1998 · Équipe de France</p></article>
-        <article class="rc reveal" style="--i:1"><div class="rc-media"><img width="900" height="720" src="assets/img/speaker-daumin.jpg" alt="" loading="lazy" /></div><h3>Brice Daumin</h3><p>CEO · DAZN France</p></article>
-        <article class="rc reveal" style="--i:2"><div class="rc-media"><img width="900" height="720" src="assets/img/speaker-eyraud-v2.jpg" alt="" loading="lazy" /></div><h3>Jacques-Henri Eyraud</h3><p>Ex-CEO · Olympique de Marseille</p></article>
-        <article class="rc reveal" style="--i:3"><div class="rc-media"><img width="900" height="720" src="assets/img/speaker-patanian.jpg" alt="" loading="lazy" /></div><h3>Matias Patanian</h3><p>Ex-Vice-Président · River Plate</p></article>
-        <article class="rc reveal"><div class="rc-media"><img width="900" height="720" src="assets/img/speaker-pierrel.jpg" alt="" loading="lazy" /></div><h3>Christophe Pierrel</h3><p>Directeur Général · Fédération Française de Rugby</p></article>
-        <article class="rc reveal" style="--i:1"><div class="rc-media"><img width="900" height="720" src="assets/img/speaker-maurer.jpg" alt="" loading="lazy" /></div><h3>Nicolas Maurer</h3><p>CEO · Team Vitality</p></article>
-        <article class="rc reveal" style="--i:2"><div class="rc-media"><img width="900" height="720" src="assets/img/speaker-koenig.jpg" alt="" loading="lazy" /></div><h3>Andreea Koenig</h3><p>Vice-Présidente · Ligue Féminine de Football Professionnel</p></article>
-        <article class="rc reveal" style="--i:3"><div class="rc-media"><img width="900" height="720" src="assets/img/speaker-solemale.jpg" alt="" loading="lazy" /></div><h3>Sarah Solémalé</h3><p>Ex-FIFA, CAF &amp; ECA</p></article>
-        <article class="rc reveal"><div class="rc-media"><img width="900" height="720" src="assets/img/speaker-lemoigne.jpg" alt="" loading="lazy" /></div><h3>Vanessa Le Moigne</h3><p>Journaliste · beIN Sports</p></article>
-        <article class="rc reveal" style="--i:1"><div class="rc-media"><img width="900" height="720" src="assets/img/speaker-darmon.jpg" alt="" loading="lazy" /></div><h3>Jean-Claude Darmon</h3><p>Entrepreneur emblématique du sport business</p></article>
-        <article class="rc reveal" style="--i:2"><div class="rc-media"><img width="900" height="720" src="assets/img/speaker-saad.jpg" alt="" loading="lazy" /></div><h3>Felipe Saad</h3><p>Ex-footballeur, Journaliste · Ligue 1+</p></article>
-        <article class="rc reveal" style="--i:3"><div class="rc-media"><img width="900" height="720" src="assets/img/speaker-hoarau.jpg" alt="" loading="lazy" /></div><h3>Guillaume Hoarau</h3><p>Ex-footballeur, Journaliste · Ligue 1+</p></article>
-        <article class="rc reveal"><div class="rc-media"><img width="900" height="720" src="assets/img/speaker-wiloo.jpg" alt="" loading="lazy" /></div><h3>Wiloo</h3><p>Influenceur football · Créateur de contenu</p></article>
+    </section>
+
+    <!-- =========================== TOUS LES INTERVENANTS ====================
+         Cartes générées depuis assets/data/speakers.json (source unique :
+         nom, rôle, photo, lien externe vérifié, événement associé). -->
+    <section class="sp" id="intervenants" data-bg="light">
+      <div class="sp-in">
+        <div class="sp-head">
+          <p class="sp-kicker reveal">Sur scène à La Sorbonne</p>
+          <h2 class="sp-title reveal" style="--i:1">Seize voix du sport business.</h2>
+          <p class="sp-lead reveal" style="--i:2">Présidents de clubs, dirigeants de fédérations, anciens internationaux, journalistes et créateurs. Cliquez sur un visage pour en savoir plus, et sur son passage pour retrouver la conférence.</p>
+          <div class="sp-filters reveal" style="--i:3" role="group" aria-label="Filtrer les intervenants">
+            <button type="button" class="sp-filter is-active" data-filter="tous" aria-pressed="true">Tous <span>16</span></button>
+            <button type="button" class="sp-filter" data-filter="dirigeant" aria-pressed="false">Dirigeant <span>4</span></button>
+            <button type="button" class="sp-filter" data-filter="légende" aria-pressed="false">Légende <span>2</span></button>
+            <button type="button" class="sp-filter" data-filter="média" aria-pressed="false">Média <span>4</span></button>
+            <button type="button" class="sp-filter" data-filter="fédération" aria-pressed="false">Fédération <span>3</span></button>
+            <button type="button" class="sp-filter" data-filter="esport" aria-pressed="false">Esport <span>1</span></button>
+            <button type="button" class="sp-filter" data-filter="business" aria-pressed="false">Business <span>1</span></button>
+            <button type="button" class="sp-filter" data-filter="créateur" aria-pressed="false">Créateur <span>1</span></button>
+          </div>
+        </div>
+        <div class="sp-grid">
+          <article class="sp-card reveal" style="--i:0" data-tag="dirigeant">
+            <a class="sp-visual sp-visual--lien" href="https://fr.wikipedia.org/wiki/Olivier_L%C3%A9tang" target="_blank" rel="noopener" aria-label="Olivier Létang sur Wikipédia, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-letang.jpg" alt="Olivier Létang, président &amp; directeur général, LOSC Lille" loading="lazy" /><span class="sp-source"><svg viewBox="0 0 24 24" width="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h4l4 12 4-12h4"/><path d="M10 5l4 12"/></svg><span>Wikipédia</span></span></a>
+            <div class="sp-body">
+              <p class="sp-tag">Dirigeant</p>
+              <div class="sp-namerow"><h3 class="sp-name">Olivier Létang</h3><img class="sp-logo" width="120" height="120" src="assets/img/logos/losc.png" alt="" loading="lazy" /></div>
+              <p class="sp-role">Président &amp; Directeur Général</p>
+              <p class="sp-org">LOSC Lille</p>
+              <a class="sp-event" href="evenements.html#ev-letang"><span class="sp-event-lab">Son passage</span><span class="sp-event-tit">Olivier Létang, président du LOSC</span><span class="sp-event-date">Mai 2026</span></a>
+            </div>
+          </article>
+          <article class="sp-card reveal" style="--i:1" data-tag="légende">
+            <a class="sp-visual sp-visual--lien" href="https://fr.wikipedia.org/wiki/David_Trezeguet" target="_blank" rel="noopener" aria-label="David Trezeguet sur Wikipédia, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-trezeguet.jpg" alt="David Trezeguet, ex-footballeur, champion du monde 1998, Équipe de France" loading="lazy" /><span class="sp-source"><svg viewBox="0 0 24 24" width="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h4l4 12 4-12h4"/><path d="M10 5l4 12"/></svg><span>Wikipédia</span></span></a>
+            <div class="sp-body">
+              <p class="sp-tag">Légende</p>
+              <div class="sp-namerow"><h3 class="sp-name">David Trezeguet</h3></div>
+              <p class="sp-role">Ex-footballeur, Champion du Monde 1998</p>
+              <p class="sp-org">Équipe de France</p>
+              <a class="sp-event" href="evenements.html#ev-river-plate"><span class="sp-event-lab">Son passage</span><span class="sp-event-tit">From River to the World</span><span class="sp-event-date">Juin 2026</span></a>
+            </div>
+          </article>
+          <article class="sp-card reveal" style="--i:2" data-tag="dirigeant">
+            <a class="sp-visual sp-visual--lien" href="https://fr.wikipedia.org/wiki/David_Kahn_(homme_d%27affaires)" target="_blank" rel="noopener" aria-label="David Kahn sur Wikipédia, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-kahn.jpg" alt="David Kahn, président, Paris Basketball" loading="lazy" /><span class="sp-source"><svg viewBox="0 0 24 24" width="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h4l4 12 4-12h4"/><path d="M10 5l4 12"/></svg><span>Wikipédia</span></span></a>
+            <div class="sp-body">
+              <p class="sp-tag">Dirigeant</p>
+              <div class="sp-namerow"><h3 class="sp-name">David Kahn</h3><img class="sp-logo" width="120" height="120" src="assets/img/logos/paris-basketball.png" alt="" loading="lazy" /></div>
+              <p class="sp-role">Président</p>
+              <p class="sp-org">Paris Basketball</p>
+              <span class="sp-event sp-event--vide">Conférence à ajouter à l'agenda</span>
+            </div>
+          </article>
+          <article class="sp-card reveal" style="--i:3" data-tag="média">
+            <a class="sp-visual sp-visual--lien" href="https://www.linkedin.com/in/bricedaumin/" target="_blank" rel="noopener" aria-label="Brice Daumin sur LinkedIn, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-daumin.jpg" alt="Brice Daumin, ceo, DAZN France" loading="lazy" /><span class="sp-source"><svg viewBox="0 0 24 24" width="15" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="3"/><line x1="7.3" y1="10" x2="7.3" y2="17"/><circle cx="7.3" cy="6.8" r="0.15" fill="currentColor" stroke="currentColor" stroke-width="2"/><path d="M11.3 17v-4.2c0-1.6 1-2.8 2.6-2.8 1.5 0 2.3 1 2.3 2.8V17"/><line x1="11.3" y1="10" x2="11.3" y2="17"/></svg><span>LinkedIn</span></span></a>
+            <div class="sp-body">
+              <p class="sp-tag">Média</p>
+              <div class="sp-namerow"><h3 class="sp-name">Brice Daumin</h3><img class="sp-logo" width="120" height="120" src="assets/img/logos/dazn.png" alt="" loading="lazy" /></div>
+              <p class="sp-role">CEO</p>
+              <p class="sp-org">DAZN France</p>
+              <a class="sp-event" href="evenements.html#ev-dazn"><span class="sp-event-lab">Son passage</span><span class="sp-event-tit">Au cœur des droits TV, avec DAZN France</span><span class="sp-event-date">Mai 2026</span></a>
+            </div>
+          </article>
+          <article class="sp-card reveal" style="--i:0" data-tag="dirigeant">
+            <a class="sp-visual sp-visual--lien" href="https://fr.wikipedia.org/wiki/Jacques-Henri_Eyraud" target="_blank" rel="noopener" aria-label="Jacques-Henri Eyraud sur Wikipédia, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-eyraud-v2.jpg" alt="Jacques-Henri Eyraud, ex-ceo, Olympique de Marseille" loading="lazy" /><span class="sp-source"><svg viewBox="0 0 24 24" width="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h4l4 12 4-12h4"/><path d="M10 5l4 12"/></svg><span>Wikipédia</span></span></a>
+            <div class="sp-body">
+              <p class="sp-tag">Dirigeant</p>
+              <div class="sp-namerow"><h3 class="sp-name">Jacques-Henri Eyraud</h3><img class="sp-logo" width="120" height="120" src="assets/img/logos/marseille.png" alt="" loading="lazy" /></div>
+              <p class="sp-role">Ex-CEO</p>
+              <p class="sp-org">Olympique de Marseille</p>
+              <span class="sp-event sp-event--vide">Conférence à ajouter à l'agenda</span>
+            </div>
+          </article>
+          <article class="sp-card reveal" style="--i:1" data-tag="dirigeant">
+            <div class="sp-visual"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-patanian.jpg" alt="Matias Patanian, ex-vice-président, River Plate" loading="lazy" /></div>
+            <div class="sp-body">
+              <p class="sp-tag">Dirigeant</p>
+              <div class="sp-namerow"><h3 class="sp-name">Matias Patanian</h3><img class="sp-logo" width="120" height="120" src="assets/img/logos/river-plate.png" alt="" loading="lazy" /></div>
+              <p class="sp-role">Ex-Vice-Président</p>
+              <p class="sp-org">River Plate</p>
+              <a class="sp-event" href="evenements.html#ev-river-plate"><span class="sp-event-lab">Son passage</span><span class="sp-event-tit">From River to the World</span><span class="sp-event-date">Juin 2026</span></a>
+            </div>
+          </article>
+          <article class="sp-card reveal" style="--i:2" data-tag="fédération">
+            <a class="sp-visual sp-visual--lien" href="https://www.linkedin.com/in/christophepierrel/" target="_blank" rel="noopener" aria-label="Christophe Pierrel sur LinkedIn, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-pierrel.jpg" alt="Christophe Pierrel, directeur général, Fédération Française de Rugby" loading="lazy" /><span class="sp-source"><svg viewBox="0 0 24 24" width="15" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="3"/><line x1="7.3" y1="10" x2="7.3" y2="17"/><circle cx="7.3" cy="6.8" r="0.15" fill="currentColor" stroke="currentColor" stroke-width="2"/><path d="M11.3 17v-4.2c0-1.6 1-2.8 2.6-2.8 1.5 0 2.3 1 2.3 2.8V17"/><line x1="11.3" y1="10" x2="11.3" y2="17"/></svg><span>LinkedIn</span></span></a>
+            <div class="sp-body">
+              <p class="sp-tag">Fédération</p>
+              <div class="sp-namerow"><h3 class="sp-name">Christophe Pierrel</h3><img class="sp-logo" width="120" height="120" src="assets/img/logos/france-rugby.png" alt="" loading="lazy" /></div>
+              <p class="sp-role">Directeur Général</p>
+              <p class="sp-org">Fédération Française de Rugby</p>
+              <span class="sp-event sp-event--vide">Conférence à ajouter à l'agenda</span>
+            </div>
+          </article>
+          <article class="sp-card reveal" style="--i:3" data-tag="légende">
+            <a class="sp-visual sp-visual--lien" href="https://fr.wikipedia.org/wiki/Baf%C3%A9timbi_Gomis" target="_blank" rel="noopener" aria-label="Bafétimbi Gomis sur Wikipédia, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-gomis.jpg" alt="Bafétimbi Gomis, ex-footballeur, international français, Équipe de France" loading="lazy" /><span class="sp-source"><svg viewBox="0 0 24 24" width="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h4l4 12 4-12h4"/><path d="M10 5l4 12"/></svg><span>Wikipédia</span></span></a>
+            <div class="sp-body">
+              <p class="sp-tag">Légende</p>
+              <div class="sp-namerow"><h3 class="sp-name">Bafétimbi Gomis</h3></div>
+              <p class="sp-role">Ex-footballeur, international français</p>
+              <p class="sp-org">Équipe de France</p>
+              <a class="sp-event" href="evenements.html#ev-gomis"><span class="sp-event-lab">Son passage</span><span class="sp-event-tit">Bafétimbi Gomis : de l&#x27;athlète au dirigeant</span><span class="sp-event-date">Mai 2026</span></a>
+            </div>
+          </article>
+          <article class="sp-card reveal" style="--i:0" data-tag="esport">
+            <a class="sp-visual sp-visual--lien" href="https://www.linkedin.com/in/nicolas-maurer/" target="_blank" rel="noopener" aria-label="Nicolas Maurer sur LinkedIn, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-maurer.jpg" alt="Nicolas Maurer, ceo, Team Vitality" loading="lazy" /><span class="sp-source"><svg viewBox="0 0 24 24" width="15" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="3"/><line x1="7.3" y1="10" x2="7.3" y2="17"/><circle cx="7.3" cy="6.8" r="0.15" fill="currentColor" stroke="currentColor" stroke-width="2"/><path d="M11.3 17v-4.2c0-1.6 1-2.8 2.6-2.8 1.5 0 2.3 1 2.3 2.8V17"/><line x1="11.3" y1="10" x2="11.3" y2="17"/></svg><span>LinkedIn</span></span></a>
+            <div class="sp-body">
+              <p class="sp-tag">Esport</p>
+              <div class="sp-namerow"><h3 class="sp-name">Nicolas Maurer</h3><img class="sp-logo" width="120" height="120" src="assets/img/logos/vitality.png" alt="" loading="lazy" /></div>
+              <p class="sp-role">CEO</p>
+              <p class="sp-org">Team Vitality</p>
+              <a class="sp-event" href="evenements.html#ev-vitality"><span class="sp-event-lab">Son passage</span><span class="sp-event-tit">Team Vitality : l&#x27;esport, un marché global</span><span class="sp-event-date">Mai 2026</span></a>
+            </div>
+          </article>
+          <article class="sp-card reveal" style="--i:1" data-tag="fédération">
+            <a class="sp-visual sp-visual--lien" href="https://www.linkedin.com/in/andreea-koenig-05a4838/" target="_blank" rel="noopener" aria-label="Andreea Koenig sur LinkedIn, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-koenig.jpg" alt="Andreea Koenig, vice-présidente, Ligue Féminine de Football Professionnel" loading="lazy" /><span class="sp-source"><svg viewBox="0 0 24 24" width="15" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="3"/><line x1="7.3" y1="10" x2="7.3" y2="17"/><circle cx="7.3" cy="6.8" r="0.15" fill="currentColor" stroke="currentColor" stroke-width="2"/><path d="M11.3 17v-4.2c0-1.6 1-2.8 2.6-2.8 1.5 0 2.3 1 2.3 2.8V17"/><line x1="11.3" y1="10" x2="11.3" y2="17"/></svg><span>LinkedIn</span></span></a>
+            <div class="sp-body">
+              <p class="sp-tag">Fédération</p>
+              <div class="sp-namerow"><h3 class="sp-name">Andreea Koenig</h3><img class="sp-logo" width="120" height="120" src="assets/img/logos/lffp.png" alt="" loading="lazy" /></div>
+              <p class="sp-role">Vice-Présidente</p>
+              <p class="sp-org">Ligue Féminine de Football Professionnel</p>
+              <a class="sp-event" href="evenements.html#ev-women-in-sports"><span class="sp-event-lab">Son passage</span><span class="sp-event-tit">Women In Sports : elles dirigent le Jeu</span><span class="sp-event-date">Avril 2026</span></a>
+            </div>
+          </article>
+          <article class="sp-card reveal" style="--i:2" data-tag="fédération">
+            <a class="sp-visual sp-visual--lien" href="https://www.linkedin.com/in/sarah-sol%C3%A9mal%C3%A9-949a45178/" target="_blank" rel="noopener" aria-label="Sarah Solémalé sur LinkedIn, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-solemale.jpg" alt="Sarah Solémalé, ex-fifa, caf &amp; eca, FIFA · CAF · ECA" loading="lazy" /><span class="sp-source"><svg viewBox="0 0 24 24" width="15" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="3"/><line x1="7.3" y1="10" x2="7.3" y2="17"/><circle cx="7.3" cy="6.8" r="0.15" fill="currentColor" stroke="currentColor" stroke-width="2"/><path d="M11.3 17v-4.2c0-1.6 1-2.8 2.6-2.8 1.5 0 2.3 1 2.3 2.8V17"/><line x1="11.3" y1="10" x2="11.3" y2="17"/></svg><span>LinkedIn</span></span></a>
+            <div class="sp-body">
+              <p class="sp-tag">Fédération</p>
+              <div class="sp-namerow"><h3 class="sp-name">Sarah Solémalé</h3><img class="sp-logo" width="120" height="120" src="assets/img/logos/fifa.png" alt="" loading="lazy" /></div>
+              <p class="sp-role">Ex-FIFA, CAF &amp; ECA</p>
+              <p class="sp-org">FIFA · CAF · ECA</p>
+              <a class="sp-event" href="evenements.html#ev-women-in-sports"><span class="sp-event-lab">Son passage</span><span class="sp-event-tit">Women In Sports : elles dirigent le Jeu</span><span class="sp-event-date">Avril 2026</span></a>
+            </div>
+          </article>
+          <article class="sp-card reveal" style="--i:3" data-tag="média">
+            <a class="sp-visual sp-visual--lien" href="https://fr.wikipedia.org/wiki/Vanessa_Le_Moigne" target="_blank" rel="noopener" aria-label="Vanessa Le Moigne sur Wikipédia, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-lemoigne.jpg" alt="Vanessa Le Moigne, journaliste, beIN Sports" loading="lazy" /><span class="sp-source"><svg viewBox="0 0 24 24" width="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h4l4 12 4-12h4"/><path d="M10 5l4 12"/></svg><span>Wikipédia</span></span></a>
+            <div class="sp-body">
+              <p class="sp-tag">Média</p>
+              <div class="sp-namerow"><h3 class="sp-name">Vanessa Le Moigne</h3><img class="sp-logo" width="120" height="120" src="assets/img/logos/bein-sports.png" alt="" loading="lazy" /></div>
+              <p class="sp-role">Journaliste</p>
+              <p class="sp-org">beIN Sports</p>
+              <a class="sp-event" href="evenements.html#ev-women-in-sports"><span class="sp-event-lab">Son passage</span><span class="sp-event-tit">Women In Sports : elles dirigent le Jeu</span><span class="sp-event-date">Avril 2026</span></a>
+            </div>
+          </article>
+          <article class="sp-card reveal" style="--i:0" data-tag="business">
+            <div class="sp-visual"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-darmon.jpg" alt="Jean-Claude Darmon, entrepreneur emblématique du sport business, Sport Business" loading="lazy" /></div>
+            <div class="sp-body">
+              <p class="sp-tag">Business</p>
+              <div class="sp-namerow"><h3 class="sp-name">Jean-Claude Darmon</h3></div>
+              <p class="sp-role">Entrepreneur emblématique du sport business</p>
+              <p class="sp-org">Sport Business</p>
+              <span class="sp-event sp-event--vide">Conférence à ajouter à l'agenda</span>
+            </div>
+          </article>
+          <article class="sp-card reveal" style="--i:1" data-tag="média">
+            <a class="sp-visual sp-visual--lien" href="https://fr.wikipedia.org/wiki/Felipe_Saad" target="_blank" rel="noopener" aria-label="Felipe Saad sur Wikipédia, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-saad.jpg" alt="Felipe Saad, ex-footballeur, journaliste, Ligue 1+" loading="lazy" /><span class="sp-source"><svg viewBox="0 0 24 24" width="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h4l4 12 4-12h4"/><path d="M10 5l4 12"/></svg><span>Wikipédia</span></span></a>
+            <div class="sp-body">
+              <p class="sp-tag">Média</p>
+              <div class="sp-namerow"><h3 class="sp-name">Felipe Saad</h3><img class="sp-logo" width="120" height="120" src="assets/img/logos/ligue1.png" alt="" loading="lazy" /></div>
+              <p class="sp-role">Ex-footballeur, Journaliste</p>
+              <p class="sp-org">Ligue 1+</p>
+              <span class="sp-event sp-event--vide">Conférence à ajouter à l'agenda</span>
+            </div>
+          </article>
+          <article class="sp-card reveal" style="--i:2" data-tag="média">
+            <a class="sp-visual sp-visual--lien" href="https://fr.wikipedia.org/wiki/Guillaume_Hoarau" target="_blank" rel="noopener" aria-label="Guillaume Hoarau sur Wikipédia, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-hoarau.jpg" alt="Guillaume Hoarau, ex-footballeur, journaliste, Ligue 1+" loading="lazy" /><span class="sp-source"><svg viewBox="0 0 24 24" width="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h4l4 12 4-12h4"/><path d="M10 5l4 12"/></svg><span>Wikipédia</span></span></a>
+            <div class="sp-body">
+              <p class="sp-tag">Média</p>
+              <div class="sp-namerow"><h3 class="sp-name">Guillaume Hoarau</h3><img class="sp-logo" width="120" height="120" src="assets/img/logos/ligue1.png" alt="" loading="lazy" /></div>
+              <p class="sp-role">Ex-footballeur, Journaliste</p>
+              <p class="sp-org">Ligue 1+</p>
+              <span class="sp-event sp-event--vide">Conférence à ajouter à l'agenda</span>
+            </div>
+          </article>
+          <article class="sp-card reveal" style="--i:3" data-tag="créateur">
+            <a class="sp-visual sp-visual--lien" href="https://fr.wikipedia.org/wiki/Wiloo" target="_blank" rel="noopener" aria-label="Wiloo sur Wikipédia, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-wiloo.jpg" alt="Wiloo, influenceur football, Créateur de contenu" loading="lazy" /><span class="sp-source"><svg viewBox="0 0 24 24" width="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h4l4 12 4-12h4"/><path d="M10 5l4 12"/></svg><span>Wikipédia</span></span></a>
+            <div class="sp-body">
+              <p class="sp-tag">Créateur</p>
+              <div class="sp-namerow"><h3 class="sp-name">Wiloo</h3></div>
+              <p class="sp-role">Influenceur football</p>
+              <p class="sp-org">Créateur de contenu</p>
+              <a class="sp-event" href="evenements.html#ev-wiloo"><span class="sp-event-lab">Son passage</span><span class="sp-event-tit">Wiloo : parler de football, inutile ou vital ?</span><span class="sp-event-date">Avril 2026</span></a>
+            </div>
+          </article>
+        </div>
+        <p class="sp-note reveal">Tous nos rendez-vous passés et à venir sont dans <a href="evenements.html">l&rsquo;agenda</a>.</p>
       </div>
     </section>
 
@@ -215,7 +348,7 @@
   </footer>
 
   <script src="assets/vendor/lenis.min.js"></script>
-  <script src="assets/nos-intervenants/js/main.js?v=3"></script>
+  <script src="assets/nos-intervenants/js/main.js?v=4"></script>
   <script>
     document.querySelectorAll("[data-year]").forEach(function (el) {
       el.textContent = new Date().getFullYear();

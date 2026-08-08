@@ -26,7 +26,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" as="image" href="assets/img/hero-amphi.jpg" fetchpriority="high" />
-  <link rel="stylesheet" href="assets/evenements/css/style.css?v=30" />
+  <link rel="stylesheet" href="assets/evenements/css/style.css?v=31" />
 
   <!-- Motion est servi en local (pas de CDN) et chargé avant le premier rendu :
        l'état de départ des animations n'est posé que s'il a réellement chargé. -->
@@ -43,9 +43,10 @@
       }, 2500);
   </script>
 
-  <!-- Donnees structurees : agenda (schema.org/Event). Genere depuis les
-       lignes .ev-row de la page — si vous ajoutez un evenement dans le
-       HTML, pensez a ajouter son bloc ici. Verifier ensuite sur
+
+  <!-- Donnees structurees : agenda (schema.org/Event). Regenere depuis les
+       lignes .ev-row de la page. Les conferences passees portent le nom
+       de leurs intervenants (performer). Verifier sur
        https://search.google.com/test/rich-results -->
   <script type="application/ld+json">
   {
@@ -54,9 +55,10 @@
     "name": "Business des grands événements sportifs",
     "startDate": "2026-09-17",
     "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
     "description": "Conférence organisée par Sorbonne Sport Business.",
     "image": [
-      "https://www.sorbonnesportbusiness.fr/assets/img/og-ssb.jpg"
+      "https://www.sorbonnesportbusiness.fr/assets/img/conf-public.jpg"
     ],
     "url": "https://www.sorbonnesportbusiness.fr/evenements.html#agenda",
     "organizer": {
@@ -65,21 +67,18 @@
       "url": "https://www.sorbonnesportbusiness.fr/",
       "@id": "https://www.sorbonnesportbusiness.fr/#organisation"
     },
-    "performer": {
-      "@type": "Organization",
-      "name": "Sorbonne Sport Business"
-    },
-    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
     "location": {
       "@type": "Place",
       "name": "Centre Panthéon, Université Paris 1 Panthéon-Sorbonne",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "12 place du Panthéon",
-        "postalCode": "75005",
         "addressLocality": "Paris",
         "addressCountry": "FR"
       }
+    },
+    "performer": {
+      "@type": "Organization",
+      "name": "Sorbonne Sport Business"
     }
   }
   </script>
@@ -90,9 +89,10 @@
     "name": "Salon décanal : Rencontre des associations",
     "startDate": "2026-10-08",
     "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
     "description": "Salon organisée par Sorbonne Sport Business.",
     "image": [
-      "https://www.sorbonnesportbusiness.fr/assets/img/og-ssb.jpg"
+      "https://www.sorbonnesportbusiness.fr/assets/img/conf-public.jpg"
     ],
     "url": "https://www.sorbonnesportbusiness.fr/evenements.html#agenda",
     "organizer": {
@@ -101,21 +101,18 @@
       "url": "https://www.sorbonnesportbusiness.fr/",
       "@id": "https://www.sorbonnesportbusiness.fr/#organisation"
     },
-    "performer": {
-      "@type": "Organization",
-      "name": "Sorbonne Sport Business"
-    },
-    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
     "location": {
       "@type": "Place",
       "name": "Galerie Soufflot, Université Paris 1 Panthéon-Sorbonne",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "12 place du Panthéon",
-        "postalCode": "75005",
         "addressLocality": "Paris",
         "addressCountry": "FR"
       }
+    },
+    "performer": {
+      "@type": "Organization",
+      "name": "Sorbonne Sport Business"
     }
   }
   </script>
@@ -123,201 +120,264 @@
   {
     "@context": "https://schema.org",
     "@type": "Event",
-    "name": "Décrocher son alternance dans le sport",
-    "startDate": "2026-07-09",
+    "name": "From River to the World",
+    "startDate": "2026-06-01",
     "eventStatus": "https://schema.org/EventScheduled",
-    "description": "Visio organisée par Sorbonne Sport Business.",
-    "image": [
-      "https://www.sorbonnesportbusiness.fr/assets/img/og-ssb.jpg"
-    ],
-    "url": "https://www.sorbonnesportbusiness.fr/evenements.html#agenda",
-    "organizer": {
-      "@type": "Organization",
-      "name": "Sorbonne Sport Business",
-      "url": "https://www.sorbonnesportbusiness.fr/",
-      "@id": "https://www.sorbonnesportbusiness.fr/#organisation"
-    },
-    "performer": {
-      "@type": "Organization",
-      "name": "Sorbonne Sport Business"
-    },
-    "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
-    "location": {
-      "@type": "VirtualLocation",
-      "url": "https://www.sorbonnesportbusiness.fr/evenements.html"
-    }
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Event",
-    "name": "Afterwork networking : Sport &amp; carrières",
-    "startDate": "2026-07-02",
-    "eventStatus": "https://schema.org/EventScheduled",
-    "description": "Afterwork organisée par Sorbonne Sport Business.",
-    "image": [
-      "https://www.sorbonnesportbusiness.fr/assets/img/og-ssb.jpg"
-    ],
-    "url": "https://www.sorbonnesportbusiness.fr/evenements.html#agenda",
-    "organizer": {
-      "@type": "Organization",
-      "name": "Sorbonne Sport Business",
-      "url": "https://www.sorbonnesportbusiness.fr/",
-      "@id": "https://www.sorbonnesportbusiness.fr/#organisation"
-    },
-    "performer": {
-      "@type": "Organization",
-      "name": "Sorbonne Sport Business"
-    },
     "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "description": "La stratégie de développement de River Plate : optimisation du stade, membership et formation des talents.",
+    "image": [
+      "https://www.sorbonnesportbusiness.fr/assets/img/conf-public.jpg"
+    ],
+    "url": "https://www.sorbonnesportbusiness.fr/evenements.html#ev-river-plate",
+    "organizer": {
+      "@type": "Organization",
+      "name": "Sorbonne Sport Business",
+      "url": "https://www.sorbonnesportbusiness.fr/",
+      "@id": "https://www.sorbonnesportbusiness.fr/#organisation"
+    },
     "location": {
       "@type": "Place",
-      "name": "Rooftop partenaire, Paris 5e",
+      "name": "Amphithéâtre Richelieu, Université Paris 1 Panthéon-Sorbonne",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Paris",
         "addressCountry": "FR"
       }
-    }
+    },
+    "performer": [
+      {
+        "@type": "Person",
+        "name": "David Trezeguet"
+      },
+      {
+        "@type": "Person",
+        "name": "Matias Patanian"
+      }
+    ]
   }
   </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Event",
-    "name": "Le marketing des clubs de football",
-    "startDate": "2026-06-25",
+    "name": "Bafétimbi Gomis : de l'athlète au dirigeant",
+    "startDate": "2026-05-20",
     "eventStatus": "https://schema.org/EventScheduled",
-    "description": "Conférence organisée par Sorbonne Sport Business.",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "description": "Plus de 350 buts en carrière, puis la reconversion vers un rôle de dirigeant, diplômes FIFA et UEFA en poche.",
     "image": [
-      "https://www.sorbonnesportbusiness.fr/assets/img/og-ssb.jpg"
+      "https://www.sorbonnesportbusiness.fr/assets/img/conf-public.jpg"
     ],
-    "url": "https://www.sorbonnesportbusiness.fr/evenements.html#agenda",
+    "url": "https://www.sorbonnesportbusiness.fr/evenements.html#ev-gomis",
     "organizer": {
       "@type": "Organization",
       "name": "Sorbonne Sport Business",
       "url": "https://www.sorbonnesportbusiness.fr/",
       "@id": "https://www.sorbonnesportbusiness.fr/#organisation"
     },
-    "performer": {
-      "@type": "Organization",
-      "name": "Sorbonne Sport Business"
-    },
-    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
     "location": {
       "@type": "Place",
-      "name": "Amphithéâtre Richelieu, Sorbonne",
+      "name": "Amphithéâtre Richelieu, Université Paris 1 Panthéon-Sorbonne",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Paris",
         "addressCountry": "FR"
       }
-    }
+    },
+    "performer": [
+      {
+        "@type": "Person",
+        "name": "Bafétimbi Gomis"
+      }
+    ]
   }
   </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Event",
-    "name": "Les agents de joueurs",
-    "startDate": "2026-04-15",
+    "name": "Olivier Létang, président du LOSC",
+    "startDate": "2026-05-15",
     "eventStatus": "https://schema.org/EventScheduled",
-    "description": "Conférence · complet organisée par Sorbonne Sport Business.",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "description": "Culture de la gagne, cadre budgétaire et modèle de trading, par l'un des dirigeants les plus respectés du football européen.",
     "image": [
-      "https://www.sorbonnesportbusiness.fr/assets/img/og-ssb.jpg"
+      "https://www.sorbonnesportbusiness.fr/assets/img/conf-public.jpg"
     ],
-    "url": "https://www.sorbonnesportbusiness.fr/evenements.html#agenda",
+    "url": "https://www.sorbonnesportbusiness.fr/evenements.html#ev-letang",
     "organizer": {
       "@type": "Organization",
       "name": "Sorbonne Sport Business",
       "url": "https://www.sorbonnesportbusiness.fr/",
       "@id": "https://www.sorbonnesportbusiness.fr/#organisation"
     },
-    "performer": {
-      "@type": "Organization",
-      "name": "Sorbonne Sport Business"
-    },
-    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
     "location": {
       "@type": "Place",
-      "name": "Amphithéâtre Richelieu, Sorbonne",
+      "name": "Amphithéâtre Richelieu, Université Paris 1 Panthéon-Sorbonne",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Paris",
         "addressCountry": "FR"
       }
-    }
+    },
+    "performer": [
+      {
+        "@type": "Person",
+        "name": "Olivier Létang"
+      }
+    ]
   }
   </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Event",
-    "name": "Sponsoring et naming dans le sport",
-    "startDate": "2026-03-12",
+    "name": "Au cœur des droits TV, avec DAZN France",
+    "startDate": "2026-05-10",
     "eventStatus": "https://schema.org/EventScheduled",
-    "description": "Conférence organisée par Sorbonne Sport Business.",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "description": "La transformation du modèle des diffuseurs, la plateforme OTT et l'avenir économique de la Ligue 1.",
     "image": [
-      "https://www.sorbonnesportbusiness.fr/assets/img/og-ssb.jpg"
+      "https://www.sorbonnesportbusiness.fr/assets/img/conf-public.jpg"
     ],
-    "url": "https://www.sorbonnesportbusiness.fr/evenements.html#agenda",
+    "url": "https://www.sorbonnesportbusiness.fr/evenements.html#ev-dazn",
     "organizer": {
       "@type": "Organization",
       "name": "Sorbonne Sport Business",
       "url": "https://www.sorbonnesportbusiness.fr/",
       "@id": "https://www.sorbonnesportbusiness.fr/#organisation"
     },
-    "performer": {
-      "@type": "Organization",
-      "name": "Sorbonne Sport Business"
-    },
-    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
     "location": {
       "@type": "Place",
-      "name": "Centre Panthéon, Université Paris 1 Panthéon-Sorbonne",
+      "name": "Amphithéâtre Richelieu, Université Paris 1 Panthéon-Sorbonne",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "12 place du Panthéon",
-        "postalCode": "75005",
         "addressLocality": "Paris",
         "addressCountry": "FR"
       }
-    }
+    },
+    "performer": [
+      {
+        "@type": "Person",
+        "name": "Brice Daumin"
+      }
+    ]
   }
   </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Event",
-    "name": "Afterwork de rentrée",
-    "startDate": "2026-02-05",
+    "name": "Team Vitality : l'esport, un marché global",
+    "startDate": "2026-05-05",
     "eventStatus": "https://schema.org/EventScheduled",
-    "description": "Afterwork · complet organisée par Sorbonne Sport Business.",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "description": "3,7 milliards de joueurs dans le monde : professionnalisation, partenariats et guerre des talents dans l'esport.",
     "image": [
-      "https://www.sorbonnesportbusiness.fr/assets/img/og-ssb.jpg"
+      "https://www.sorbonnesportbusiness.fr/assets/img/conf-public.jpg"
     ],
-    "url": "https://www.sorbonnesportbusiness.fr/evenements.html#agenda",
+    "url": "https://www.sorbonnesportbusiness.fr/evenements.html#ev-vitality",
     "organizer": {
       "@type": "Organization",
       "name": "Sorbonne Sport Business",
       "url": "https://www.sorbonnesportbusiness.fr/",
       "@id": "https://www.sorbonnesportbusiness.fr/#organisation"
     },
-    "performer": {
-      "@type": "Organization",
-      "name": "Sorbonne Sport Business"
-    },
-    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
     "location": {
       "@type": "Place",
-      "name": "Bar partenaire, Quartier Latin",
+      "name": "Amphithéâtre Richelieu, Université Paris 1 Panthéon-Sorbonne",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Paris",
         "addressCountry": "FR"
       }
-    }
+    },
+    "performer": [
+      {
+        "@type": "Person",
+        "name": "Nicolas Maurer"
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Women In Sports : elles dirigent le Jeu",
+    "startDate": "2026-04-20",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "description": "Plus de deux heures d'échanges sur le football féminin et l'intérieur des institutions les plus prestigieuses du sport.",
+    "image": [
+      "https://www.sorbonnesportbusiness.fr/assets/img/conf-public.jpg"
+    ],
+    "url": "https://www.sorbonnesportbusiness.fr/evenements.html#ev-women-in-sports",
+    "organizer": {
+      "@type": "Organization",
+      "name": "Sorbonne Sport Business",
+      "url": "https://www.sorbonnesportbusiness.fr/",
+      "@id": "https://www.sorbonnesportbusiness.fr/#organisation"
+    },
+    "location": {
+      "@type": "Place",
+      "name": "Amphithéâtre Richelieu, Université Paris 1 Panthéon-Sorbonne",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Paris",
+        "addressCountry": "FR"
+      }
+    },
+    "performer": [
+      {
+        "@type": "Person",
+        "name": "Vanessa Le Moigne"
+      },
+      {
+        "@type": "Person",
+        "name": "Sarah Solémalé"
+      },
+      {
+        "@type": "Person",
+        "name": "Andreea Koenig"
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Wiloo : parler de football, inutile ou vital ?",
+    "startDate": "2026-04-10",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "description": "Du jeu FIFA aux interviews de Pep Guardiola : le parcours d'un passionné devenu expert autodidacte.",
+    "image": [
+      "https://www.sorbonnesportbusiness.fr/assets/img/conf-public.jpg"
+    ],
+    "url": "https://www.sorbonnesportbusiness.fr/evenements.html#ev-wiloo",
+    "organizer": {
+      "@type": "Organization",
+      "name": "Sorbonne Sport Business",
+      "url": "https://www.sorbonnesportbusiness.fr/",
+      "@id": "https://www.sorbonnesportbusiness.fr/#organisation"
+    },
+    "location": {
+      "@type": "Place",
+      "name": "Amphithéâtre Richelieu, Université Paris 1 Panthéon-Sorbonne",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Paris",
+        "addressCountry": "FR"
+      }
+    },
+    "performer": [
+      {
+        "@type": "Person",
+        "name": "Wiloo"
+      }
+    ]
   }
   </script>
 </head>
@@ -431,75 +491,88 @@
 
           <h3 class="ev-month">Passés</h3>
 
-          <div class="ev-row ev-row--past" data-date="2026-07-09" data-filter="past visio">
-            <span class="ev-date"><span class="d">09</span><span class="m">Juil.</span></span>
+          <div class="ev-row ev-row--past" id="ev-river-plate" data-date="2026-06-01" data-filter="past conference">
+            <span class="ev-date ev-date--mois"><span class="m">Juin 2026</span></span>
             <div class="ev-body">
-              <span class="ev-tag">Visio</span>
-              <h4>Décrocher son alternance dans le sport</h4>
-              <span class="ev-meta"><span>En ligne (Zoom)</span></span>
+              <span class="ev-tag">Masterclass</span>
+              <h4>From River to the World</h4>
+              <span class="ev-meta"><span>Amphithéâtre Richelieu, Sorbonne</span><span>David Trezeguet · Matias Patanian</span></span>
+              <p class="ev-resume">La stratégie de développement de River Plate : optimisation du stade, membership et formation des talents.</p>
             </div>
             <div class="ev-aside">
-              <span class="gauge" data-fill="63"><span class="gauge-bar"><span class="gauge-fill"></span></span><span class="gauge-cap">63 / 100 participants</span></span>
+              <a class="ev-link" href="nos-intervenants.html#intervenants">Voir les intervenants</a>
             </div>
           </div>
-
-          <div class="ev-row ev-row--past" data-date="2026-07-02" data-filter="past afterwork">
-            <span class="ev-date"><span class="d">02</span><span class="m">Juil.</span></span>
-            <div class="ev-body">
-              <span class="ev-tag">Afterwork</span>
-              <h4>Afterwork networking : Sport &amp; carrières</h4>
-              <span class="ev-meta"><span>Rooftop partenaire, Paris 5e</span><span>Réservé aux membres Gold</span></span>
-            </div>
-            <div class="ev-aside">
-              <span class="gauge" data-fill="68"><span class="gauge-bar"><span class="gauge-fill"></span></span><span class="gauge-cap">41 / 60 participants</span></span>
-            </div>
-          </div>
-
-          <div class="ev-row ev-row--past" data-date="2026-06-25" data-filter="past conference">
-            <span class="ev-date"><span class="d">25</span><span class="m">Juin</span></span>
+          <div class="ev-row ev-row--past" id="ev-gomis" data-date="2026-05-20" data-filter="past conference">
+            <span class="ev-date ev-date--mois"><span class="m">Mai 2026</span></span>
             <div class="ev-body">
               <span class="ev-tag">Conférence</span>
-              <h4>Le marketing des clubs de football</h4>
-              <span class="ev-meta"><span>Amphithéâtre Richelieu, Sorbonne</span></span>
+              <h4>Bafétimbi Gomis : de l&#x27;athlète au dirigeant</h4>
+              <span class="ev-meta"><span>Amphithéâtre Richelieu, Sorbonne</span><span>Bafétimbi Gomis</span></span>
+              <p class="ev-resume">Plus de 350 buts en carrière, puis la reconversion vers un rôle de dirigeant, diplômes FIFA et UEFA en poche.</p>
             </div>
             <div class="ev-aside">
-              <span class="gauge" data-fill="75"><span class="gauge-bar"><span class="gauge-fill"></span></span><span class="gauge-cap">187 / 250 participants</span></span>
+              <a class="ev-link" href="nos-intervenants.html#intervenants">Voir les intervenants</a>
             </div>
           </div>
-
-          <div class="ev-row ev-row--past ev-row--full" data-date="2026-04-15" data-filter="past conference">
-            <span class="ev-date"><span class="d">15</span><span class="m">Avr.</span></span>
+          <div class="ev-row ev-row--past" id="ev-letang" data-date="2026-05-15" data-filter="past conference">
+            <span class="ev-date ev-date--mois"><span class="m">Mai 2026</span></span>
             <div class="ev-body">
-              <span class="ev-tag">Conférence · complet</span>
-              <h4>Les agents de joueurs</h4>
-              <span class="ev-meta"><span>Amphithéâtre Richelieu, Sorbonne</span></span>
+              <span class="ev-tag">Masterclass</span>
+              <h4>Olivier Létang, président du LOSC</h4>
+              <span class="ev-meta"><span>Amphithéâtre Richelieu, Sorbonne</span><span>Olivier Létang</span></span>
+              <p class="ev-resume">Culture de la gagne, cadre budgétaire et modèle de trading, par l&#x27;un des dirigeants les plus respectés du football européen.</p>
             </div>
             <div class="ev-aside">
-              <span class="gauge" data-fill="100"><span class="gauge-bar"><span class="gauge-fill"></span></span><span class="gauge-cap">Salle comble · 250 / 250</span></span>
+              <a class="ev-link" href="nos-intervenants.html#intervenants">Voir les intervenants</a>
             </div>
           </div>
-
-          <div class="ev-row ev-row--past" data-date="2026-03-12" data-filter="past conference">
-            <span class="ev-date"><span class="d">12</span><span class="m">Mars</span></span>
+          <div class="ev-row ev-row--past" id="ev-dazn" data-date="2026-05-10" data-filter="past conference">
+            <span class="ev-date ev-date--mois"><span class="m">Mai 2026</span></span>
             <div class="ev-body">
               <span class="ev-tag">Conférence</span>
-              <h4>Sponsoring et naming dans le sport</h4>
-              <span class="ev-meta"><span>Centre Panthéon, Sorbonne</span></span>
+              <h4>Au cœur des droits TV, avec DAZN France</h4>
+              <span class="ev-meta"><span>Amphithéâtre Richelieu, Sorbonne</span><span>Brice Daumin</span></span>
+              <p class="ev-resume">La transformation du modèle des diffuseurs, la plateforme OTT et l&#x27;avenir économique de la Ligue 1.</p>
             </div>
             <div class="ev-aside">
-              <span class="gauge" data-fill="89"><span class="gauge-bar"><span class="gauge-fill"></span></span><span class="gauge-cap">178 / 200 participants</span></span>
+              <a class="ev-link" href="nos-intervenants.html#intervenants">Voir les intervenants</a>
             </div>
           </div>
-
-          <div class="ev-row ev-row--past ev-row--full" data-date="2026-02-05" data-filter="past afterwork">
-            <span class="ev-date"><span class="d">05</span><span class="m">Févr.</span></span>
+          <div class="ev-row ev-row--past" id="ev-vitality" data-date="2026-05-05" data-filter="past conference">
+            <span class="ev-date ev-date--mois"><span class="m">Mai 2026</span></span>
             <div class="ev-body">
-              <span class="ev-tag">Afterwork · complet</span>
-              <h4>Afterwork de rentrée</h4>
-              <span class="ev-meta"><span>Bar partenaire, Quartier Latin</span></span>
+              <span class="ev-tag">Conférence</span>
+              <h4>Team Vitality : l&#x27;esport, un marché global</h4>
+              <span class="ev-meta"><span>Amphithéâtre Richelieu, Sorbonne</span><span>Nicolas Maurer</span></span>
+              <p class="ev-resume">3,7 milliards de joueurs dans le monde : professionnalisation, partenariats et guerre des talents dans l&#x27;esport.</p>
             </div>
             <div class="ev-aside">
-              <span class="gauge" data-fill="100"><span class="gauge-bar"><span class="gauge-fill"></span></span><span class="gauge-cap">Complet · 50 / 50</span></span>
+              <a class="ev-link" href="nos-intervenants.html#intervenants">Voir les intervenants</a>
+            </div>
+          </div>
+          <div class="ev-row ev-row--past" id="ev-women-in-sports" data-date="2026-04-20" data-filter="past conference">
+            <span class="ev-date ev-date--mois"><span class="m">Avril 2026</span></span>
+            <div class="ev-body">
+              <span class="ev-tag">Table ronde</span>
+              <h4>Women In Sports : elles dirigent le Jeu</h4>
+              <span class="ev-meta"><span>Amphithéâtre Richelieu, Sorbonne</span><span>Vanessa Le Moigne · Sarah Solémalé · Andreea Koenig</span></span>
+              <p class="ev-resume">Plus de deux heures d&#x27;échanges sur le football féminin et l&#x27;intérieur des institutions les plus prestigieuses du sport.</p>
+            </div>
+            <div class="ev-aside">
+              <a class="ev-link" href="nos-intervenants.html#intervenants">Voir les intervenants</a>
+            </div>
+          </div>
+          <div class="ev-row ev-row--past" id="ev-wiloo" data-date="2026-04-10" data-filter="past conference">
+            <span class="ev-date ev-date--mois"><span class="m">Avril 2026</span></span>
+            <div class="ev-body">
+              <span class="ev-tag">Masterclass</span>
+              <h4>Wiloo : parler de football, inutile ou vital ?</h4>
+              <span class="ev-meta"><span>Amphithéâtre Richelieu, Sorbonne</span><span>Wiloo</span></span>
+              <p class="ev-resume">Du jeu FIFA aux interviews de Pep Guardiola : le parcours d&#x27;un passionné devenu expert autodidacte.</p>
+            </div>
+            <div class="ev-aside">
+              <a class="ev-link" href="nos-intervenants.html#intervenants">Voir les intervenants</a>
             </div>
           </div>
         </div>

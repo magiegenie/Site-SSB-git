@@ -6,7 +6,14 @@
       "org": "LOSC Lille",
       "tag": "Dirigeant",
       "photo": "assets/img/speaker-letang.jpg",
-      "logo": "assets/img/logos/losc.png"
+      "logo": "assets/img/logos/losc.png",
+      "lien": "https://fr.wikipedia.org/wiki/Olivier_L%C3%A9tang",
+      "lienType": "wikipedia",
+      "evenement": {
+        "slug": "letang",
+        "titre": "Olivier Létang, président du LOSC",
+        "date": "Mai 2026"
+      }
     },
     {
       "name": "David Trezeguet",
@@ -14,7 +21,14 @@
       "org": "Équipe de France",
       "tag": "Légende",
       "photo": "assets/img/speaker-trezeguet.jpg",
-      "logo": null
+      "logo": null,
+      "lien": "https://fr.wikipedia.org/wiki/David_Trezeguet",
+      "lienType": "wikipedia",
+      "evenement": {
+        "slug": "river-plate",
+        "titre": "From River to the World",
+        "date": "Juin 2026"
+      }
     },
     {
       "name": "David Kahn",
@@ -22,7 +36,10 @@
       "org": "Paris Basketball",
       "tag": "Dirigeant",
       "photo": "assets/img/speaker-kahn.jpg",
-      "logo": "assets/img/logos/paris-basketball.png"
+      "logo": "assets/img/logos/paris-basketball.png",
+      "lien": "https://fr.wikipedia.org/wiki/David_Kahn_(homme_d%27affaires)",
+      "lienType": "wikipedia",
+      "evenement": null
     },
     {
       "name": "Brice Daumin",
@@ -30,7 +47,14 @@
       "org": "DAZN France",
       "tag": "Média",
       "photo": "assets/img/speaker-daumin.jpg",
-      "logo": "assets/img/logos/dazn.png"
+      "logo": "assets/img/logos/dazn.png",
+      "lien": "https://www.linkedin.com/in/bricedaumin/",
+      "lienType": "linkedin",
+      "evenement": {
+        "slug": "dazn",
+        "titre": "Au cœur des droits TV, avec DAZN France",
+        "date": "Mai 2026"
+      }
     },
     {
       "name": "Jacques-Henri Eyraud",
@@ -38,7 +62,10 @@
       "org": "Olympique de Marseille",
       "tag": "Dirigeant",
       "photo": "assets/img/speaker-eyraud-v2.jpg",
-      "logo": "assets/img/logos/marseille.png"
+      "logo": "assets/img/logos/marseille.png",
+      "lien": "https://fr.wikipedia.org/wiki/Jacques-Henri_Eyraud",
+      "lienType": "wikipedia",
+      "evenement": null
     },
     {
       "name": "Matias Patanian",
@@ -46,7 +73,14 @@
       "org": "River Plate",
       "tag": "Dirigeant",
       "photo": "assets/img/speaker-patanian.jpg",
-      "logo": "assets/img/logos/river-plate.png"
+      "logo": "assets/img/logos/river-plate.png",
+      "lien": null,
+      "lienType": null,
+      "evenement": {
+        "slug": "river-plate",
+        "titre": "From River to the World",
+        "date": "Juin 2026"
+      }
     },
     {
       "name": "Christophe Pierrel",
@@ -54,7 +88,10 @@
       "org": "Fédération Française de Rugby",
       "tag": "Fédération",
       "photo": "assets/img/speaker-pierrel.jpg",
-      "logo": "assets/img/logos/france-rugby.png"
+      "logo": "assets/img/logos/france-rugby.png",
+      "lien": "https://www.linkedin.com/in/christophepierrel/",
+      "lienType": "linkedin",
+      "evenement": null
     },
     {
       "name": "Bafétimbi Gomis",
@@ -62,7 +99,14 @@
       "org": "Équipe de France",
       "tag": "Légende",
       "photo": "assets/img/speaker-gomis.jpg",
-      "logo": null
+      "logo": null,
+      "lien": "https://fr.wikipedia.org/wiki/Baf%C3%A9timbi_Gomis",
+      "lienType": "wikipedia",
+      "evenement": {
+        "slug": "gomis",
+        "titre": "Bafétimbi Gomis : de l'athlète au dirigeant",
+        "date": "Mai 2026"
+      }
     },
     {
       "name": "Nicolas Maurer",
@@ -70,7 +114,14 @@
       "org": "Team Vitality",
       "tag": "Esport",
       "photo": "assets/img/speaker-maurer.jpg",
-      "logo": "assets/img/logos/vitality.png"
+      "logo": "assets/img/logos/vitality.png",
+      "lien": "https://www.linkedin.com/in/nicolas-maurer/",
+      "lienType": "linkedin",
+      "evenement": {
+        "slug": "vitality",
+        "titre": "Team Vitality : l'esport, un marché global",
+        "date": "Mai 2026"
+      }
     },
     {
       "name": "Andreea Koenig",
@@ -78,7 +129,14 @@
       "org": "Ligue Féminine de Football Professionnel",
       "tag": "Fédération",
       "photo": "assets/img/speaker-koenig.jpg",
-      "logo": "assets/img/logos/lffp.png"
+      "logo": "assets/img/logos/lffp.png",
+      "lien": "https://www.linkedin.com/in/andreea-koenig-05a4838/",
+      "lienType": "linkedin",
+      "evenement": {
+        "slug": "women-in-sports",
+        "titre": "Women In Sports : elles dirigent le Jeu",
+        "date": "Avril 2026"
+      }
     },
     {
       "name": "Sarah Solémalé",
@@ -86,7 +144,14 @@
       "org": "FIFA · CAF · ECA",
       "tag": "Fédération",
       "photo": "assets/img/speaker-solemale.jpg",
-      "logo": "assets/img/logos/fifa.png"
+      "logo": "assets/img/logos/fifa.png",
+      "lien": "https://www.linkedin.com/in/sarah-sol%C3%A9mal%C3%A9-949a45178/",
+      "lienType": "linkedin",
+      "evenement": {
+        "slug": "women-in-sports",
+        "titre": "Women In Sports : elles dirigent le Jeu",
+        "date": "Avril 2026"
+      }
     },
     {
       "name": "Vanessa Le Moigne",
@@ -94,7 +159,14 @@
       "org": "beIN Sports",
       "tag": "Média",
       "photo": "assets/img/speaker-lemoigne.jpg",
-      "logo": "assets/img/logos/bein-sports.png"
+      "logo": "assets/img/logos/bein-sports.png",
+      "lien": "https://fr.wikipedia.org/wiki/Vanessa_Le_Moigne",
+      "lienType": "wikipedia",
+      "evenement": {
+        "slug": "women-in-sports",
+        "titre": "Women In Sports : elles dirigent le Jeu",
+        "date": "Avril 2026"
+      }
     },
     {
       "name": "Jean-Claude Darmon",
@@ -102,7 +174,10 @@
       "org": "Sport Business",
       "tag": "Business",
       "photo": "assets/img/speaker-darmon.jpg",
-      "logo": null
+      "logo": null,
+      "lien": null,
+      "lienType": null,
+      "evenement": null
     },
     {
       "name": "Felipe Saad",
@@ -110,7 +185,10 @@
       "org": "Ligue 1+",
       "tag": "Média",
       "photo": "assets/img/speaker-saad.jpg",
-      "logo": "assets/img/logos/ligue1.png"
+      "logo": "assets/img/logos/ligue1.png",
+      "lien": "https://fr.wikipedia.org/wiki/Felipe_Saad",
+      "lienType": "wikipedia",
+      "evenement": null
     },
     {
       "name": "Guillaume Hoarau",
@@ -118,7 +196,10 @@
       "org": "Ligue 1+",
       "tag": "Média",
       "photo": "assets/img/speaker-hoarau.jpg",
-      "logo": "assets/img/logos/ligue1.png"
+      "logo": "assets/img/logos/ligue1.png",
+      "lien": "https://fr.wikipedia.org/wiki/Guillaume_Hoarau",
+      "lienType": "wikipedia",
+      "evenement": null
     },
     {
       "name": "Wiloo",
@@ -126,7 +207,14 @@
       "org": "Créateur de contenu",
       "tag": "Créateur",
       "photo": "assets/img/speaker-wiloo.jpg",
-      "logo": null
+      "logo": null,
+      "lien": "https://fr.wikipedia.org/wiki/Wiloo",
+      "lienType": "wikipedia",
+      "evenement": {
+        "slug": "wiloo",
+        "titre": "Wiloo : parler de football, inutile ou vital ?",
+        "date": "Avril 2026"
+      }
     }
   ],
   "logos": [
@@ -197,5 +285,101 @@
   "brand": [
     "assets/img/logo-ssb.jpg",
     "assets/img/logo-ssb-emblem.png"
+  ],
+  "evenements": [
+    {
+      "slug": "river-plate",
+      "titre": "From River to the World",
+      "date": "2026-06-01",
+      "affiche": "Juin 2026",
+      "lieu": "Amphithéâtre Richelieu, Sorbonne",
+      "format": "Masterclass",
+      "filtre": "conference",
+      "resume": "La stratégie de développement de River Plate : optimisation du stade, membership et formation des talents.",
+      "intervenants": [
+        "David Trezeguet",
+        "Matias Patanian"
+      ]
+    },
+    {
+      "slug": "gomis",
+      "titre": "Bafétimbi Gomis : de l'athlète au dirigeant",
+      "date": "2026-05-20",
+      "affiche": "Mai 2026",
+      "lieu": "Amphithéâtre Richelieu, Sorbonne",
+      "format": "Conférence",
+      "filtre": "conference",
+      "resume": "Plus de 350 buts en carrière, puis la reconversion vers un rôle de dirigeant, diplômes FIFA et UEFA en poche.",
+      "intervenants": [
+        "Bafétimbi Gomis"
+      ]
+    },
+    {
+      "slug": "letang",
+      "titre": "Olivier Létang, président du LOSC",
+      "date": "2026-05-15",
+      "affiche": "Mai 2026",
+      "lieu": "Amphithéâtre Richelieu, Sorbonne",
+      "format": "Masterclass",
+      "filtre": "conference",
+      "resume": "Culture de la gagne, cadre budgétaire et modèle de trading, par l'un des dirigeants les plus respectés du football européen.",
+      "intervenants": [
+        "Olivier Létang"
+      ]
+    },
+    {
+      "slug": "dazn",
+      "titre": "Au cœur des droits TV, avec DAZN France",
+      "date": "2026-05-10",
+      "affiche": "Mai 2026",
+      "lieu": "Amphithéâtre Richelieu, Sorbonne",
+      "format": "Conférence",
+      "filtre": "conference",
+      "resume": "La transformation du modèle des diffuseurs, la plateforme OTT et l'avenir économique de la Ligue 1.",
+      "intervenants": [
+        "Brice Daumin"
+      ]
+    },
+    {
+      "slug": "vitality",
+      "titre": "Team Vitality : l'esport, un marché global",
+      "date": "2026-05-05",
+      "affiche": "Mai 2026",
+      "lieu": "Amphithéâtre Richelieu, Sorbonne",
+      "format": "Conférence",
+      "filtre": "conference",
+      "resume": "3,7 milliards de joueurs dans le monde : professionnalisation, partenariats et guerre des talents dans l'esport.",
+      "intervenants": [
+        "Nicolas Maurer"
+      ]
+    },
+    {
+      "slug": "women-in-sports",
+      "titre": "Women In Sports : elles dirigent le Jeu",
+      "date": "2026-04-20",
+      "affiche": "Avril 2026",
+      "lieu": "Amphithéâtre Richelieu, Sorbonne",
+      "format": "Table ronde",
+      "filtre": "conference",
+      "resume": "Plus de deux heures d'échanges sur le football féminin et l'intérieur des institutions les plus prestigieuses du sport.",
+      "intervenants": [
+        "Vanessa Le Moigne",
+        "Sarah Solémalé",
+        "Andreea Koenig"
+      ]
+    },
+    {
+      "slug": "wiloo",
+      "titre": "Wiloo : parler de football, inutile ou vital ?",
+      "date": "2026-04-10",
+      "affiche": "Avril 2026",
+      "lieu": "Amphithéâtre Richelieu, Sorbonne",
+      "format": "Masterclass",
+      "filtre": "conference",
+      "resume": "Du jeu FIFA aux interviews de Pep Guardiola : le parcours d'un passionné devenu expert autodidacte.",
+      "intervenants": [
+        "Wiloo"
+      ]
+    }
   ]
 }
