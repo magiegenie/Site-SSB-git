@@ -152,6 +152,10 @@ document.documentElement.classList.add("js-ok");
     movePin(btn);
 
     var unite = btn.dataset.billing; // "mois" ou "an"
+    /* La promo des 6 premiers mois est un tarif mensuel : on la masque
+       lorsque l'on bascule en annuel. */
+    var section = sw.closest(".pricing");
+    if (section) section.classList.toggle("is-annual", unite === "an");
     document.querySelectorAll(".plan-price").forEach(function (price) {
       var amount = price.querySelector("[data-price]");
       var per = price.querySelector("[data-per]");

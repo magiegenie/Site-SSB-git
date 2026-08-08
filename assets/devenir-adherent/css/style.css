@@ -813,3 +813,20 @@ h1, h2, h3, h4 { font-weight: 500; line-height: 1.02; letter-spacing: -0.035em; 
 .reasons-title, .faq-title, .final-title, .legal-title, .auth-head h1 {
   font-family: var(--font); font-weight: 500; letter-spacing: -0.03em;
 }
+
+/* En-tête des paliers : centré et compact, pour que les trois cartes tiennent
+   entièrement dans un écran d'ordinateur (le titre débordait sur 3 lignes). */
+.pricing-head { max-width: 64ch; margin: 0 auto clamp(1.5rem, 2.8vw, 2.2rem); text-align: center; }
+.pricing-title { font-size: clamp(1.9rem, 3.2vw, 2.8rem); max-width: none; }
+.pricing-lead { max-width: 58ch; margin-left: auto; margin-right: auto; }
+.billing-switch { margin-top: var(--space-md); }
+.pricing { padding-bottom: clamp(3rem, 6vw, 4.5rem); }
+/* Cartes légèrement resserrées, même objectif. */
+.plan { padding: 1.6rem 1.5rem; }
+.plan-tagline { min-height: 2.9em; }
+.plan-cta { margin-top: var(--space-md); }
+.plan-list { margin-top: var(--space-md); padding-top: 1rem; }
+.plan-list ul { gap: 0.55rem; }
+/* La promo des 6 premiers mois est un tarif mensuel. */
+.pricing.is-annual .plan-promo { display: none; }
+.pricing { padding-top: calc(var(--hdr-h) + clamp(1.4rem, 3vw, 2.6rem)); }
