@@ -13,7 +13,8 @@
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   initTheme();
-  initCarouselDrag();
+  initCarouselDrag("[data-sp-track]", "[data-sp-prev]", "[data-sp-next]", ".sp-card");
+  initCarouselDrag("[data-ev-track]", "[data-ev-prev]", "[data-ev-next]", ".of-card");
 
   if (!M || typeof M.animate !== "function") {
     root.classList.remove("motion-ready");
@@ -131,13 +132,13 @@
   }
 
   /* Carrousel intervenants : glisser a la souris/au doigt + boutons prev/next. */
-  function initCarouselDrag() {
-    var track = document.querySelector("[data-sp-track]");
+  function initCarouselDrag(trackSel, prevSel, nextSel, cardSel) {
+    var track = document.querySelector(trackSel || "[data-sp-track]");
     if (!track) return;
-    var prevBtn = document.querySelector("[data-sp-prev]");
-    var nextBtn = document.querySelector("[data-sp-next]");
+    var prevBtn = document.querySelector(prevSel || "[data-sp-prev]");
+    var nextBtn = document.querySelector(nextSel || "[data-sp-next]");
     var step = function () {
-      var card = track.querySelector(".sp-card");
+      var card = track.querySelector(cardSel || ".sp-card");
       return card ? card.offsetWidth + 24 : 280;
     };
     if (nextBtn) nextBtn.addEventListener("click", function () { track.scrollBy({ left: step(), behavior: "smooth" }); });

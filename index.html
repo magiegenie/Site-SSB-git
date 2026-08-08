@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700&display=swap" rel="stylesheet" />
   <link rel="preload" as="image" href="assets/img/hero-amphi.jpg" fetchpriority="high" />
-  <link rel="stylesheet" href="assets/index/css/style.css?v=7" />
+  <link rel="stylesheet" href="assets/index/css/style.css?v=8" />
 
   <!-- Motion est servi en local (pas de CDN) et chargé avant le premier rendu :
        l'état de départ des animations n'est posé que s'il a réellement chargé. -->
@@ -121,6 +121,77 @@
       </div>
     </section>
 
+    <!-- ========================== ÉVÉNEMENTS (carrousel d'offres) ========================== -->
+    <!-- Cartes des formats d'événements : image en haut, contenu en bas,
+         flèche qui pivote au survol. Même mécanique de drag que le carrousel
+         speakers (data-ev-*). -->
+    <section class="offers" data-bg="navy">
+      <div class="offers-head">
+        <h2 class="offers-title reveal">Ce qu'on organise toute l'année.</h2>
+        <div class="offers-nav reveal" style="--i:1">
+          <button data-ev-prev aria-label="Événements précédents"><svg viewBox="0 0 24 24" width="16"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button data-ev-next aria-label="Événements suivants"><svg viewBox="0 0 24 24" width="16"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div>
+      </div>
+      <div class="offers-track" data-ev-track tabindex="0" role="region" aria-label="Les formats d'événements Sorbonne Sport Business">
+        <a class="of-card" href="evenements.html#agenda">
+          <div class="of-media"><img width="1600" height="1068" src="assets/img/audience.jpg" alt="" loading="lazy" /></div>
+          <div class="of-body">
+            <span class="of-tag"><svg viewBox="0 0 24 24" width="14" aria-hidden="true"><path d="M12 2H2v10l9.3 9.3a1.7 1.7 0 0 0 2.4 0l7.6-7.6a1.7 1.7 0 0 0 0-2.4L12 2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="7.5" cy="7.5" r="0.5" fill="currentColor" stroke="currentColor"/></svg>Conférence</span>
+            <h3>Les décideurs du sport, en amphi</h3>
+            <p>Jusqu'à 250 étudiants face aux dirigeants de clubs, fédérations et médias, à la Sorbonne.</p>
+            <div class="of-foot">
+              <img class="of-brand" width="200" height="150" src="assets/img/logo-ssb-emblem.png" alt="" loading="lazy" />
+              <span class="of-brand-txt"><strong>SSB</strong><span>Membres : inscription en avance</span></span>
+              <span class="of-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="15"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </div>
+        </a>
+        <a class="of-card" href="evenements.html#agenda">
+          <div class="of-media"><img width="1280" height="720" src="assets/img/groupe-kahn.jpg" alt="" loading="lazy" /></div>
+          <div class="of-body">
+            <span class="of-tag"><svg viewBox="0 0 24 24" width="14" aria-hidden="true"><path d="M12 2H2v10l9.3 9.3a1.7 1.7 0 0 0 2.4 0l7.6-7.6a1.7 1.7 0 0 0 0-2.4L12 2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="7.5" cy="7.5" r="0.5" fill="currentColor" stroke="currentColor"/></svg>Afterwork</span>
+            <h3>Networking sport &amp; carrières</h3>
+            <p>Des soirées en comité restreint pour échanger directement avec les pros du secteur.</p>
+            <div class="of-foot">
+              <img class="of-brand" width="200" height="150" src="assets/img/logo-ssb-emblem.png" alt="" loading="lazy" />
+              <span class="of-brand-txt"><strong>SSB</strong><span>Réservé aux membres</span></span>
+              <span class="of-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="15"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </div>
+        </a>
+        <a class="of-card" href="evenements.html#agenda">
+          <div class="of-media"><img width="1000" height="1500" src="assets/img/ambiance-tel.jpg" alt="" loading="lazy" /></div>
+          <div class="of-body">
+            <span class="of-tag"><svg viewBox="0 0 24 24" width="14" aria-hidden="true"><path d="M12 2H2v10l9.3 9.3a1.7 1.7 0 0 0 2.4 0l7.6-7.6a1.7 1.7 0 0 0 0-2.4L12 2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="7.5" cy="7.5" r="0.5" fill="currentColor" stroke="currentColor"/></svg>Visio</span>
+            <h3>Visios et masterclass en ligne</h3>
+            <p>Alternance, métiers du sport business : des sessions concrètes, où que vous soyez.</p>
+            <div class="of-foot">
+              <img class="of-brand" width="200" height="150" src="assets/img/logo-ssb-emblem.png" alt="" loading="lazy" />
+              <span class="of-brand-txt"><strong>SSB</strong><span>Ouvert à tous</span></span>
+              <span class="of-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="15"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </div>
+        </a>
+        <a class="of-card" href="evenements.html#agenda">
+          <div class="of-media"><img width="1200" height="802" src="assets/img/panel.jpg" alt="" loading="lazy" /></div>
+          <div class="of-body">
+            <span class="of-tag"><svg viewBox="0 0 24 24" width="14" aria-hidden="true"><path d="M12 2H2v10l9.3 9.3a1.7 1.7 0 0 0 2.4 0l7.6-7.6a1.7 1.7 0 0 0 0-2.4L12 2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="7.5" cy="7.5" r="0.5" fill="currentColor" stroke="currentColor"/></svg>Salon</span>
+            <h3>Salon décanal des associations</h3>
+            <p>SSB à la rencontre des étudiants de la Sorbonne, Galerie Soufflot, à chaque rentrée.</p>
+            <div class="of-foot">
+              <img class="of-brand" width="200" height="150" src="assets/img/logo-ssb-emblem.png" alt="" loading="lazy" />
+              <span class="of-brand-txt"><strong>SSB</strong><span>Entrée libre</span></span>
+              <span class="of-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="15"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="offers-cta reveal" style="--i:2">
+        <a href="evenements.html" class="pill solid lg">Voir tout l'agenda</a>
+      </div>
+    </section>
+
     <!-- ========================== COMMUNAUTÉ (galaxie) ========================== -->
     <!-- Signature de la home : les photos de la communaute derivent en
          parallaxe individuel autour du message central, comme une galaxie
@@ -217,7 +288,7 @@
   </footer>
 
   <script src="assets/vendor/lenis.min.js"></script>
-  <script src="assets/index/js/main.js?v=2"></script>
+  <script src="assets/index/js/main.js?v=3"></script>
   <script>
     document.querySelectorAll("[data-year]").forEach(function (el) {
       el.textContent = new Date().getFullYear();
