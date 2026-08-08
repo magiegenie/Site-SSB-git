@@ -950,9 +950,8 @@ h1, h2, h3, h4 { font-weight: 500; line-height: 1.02; letter-spacing: -0.035em; 
 
 @media (max-width: 900px) {
   .plans { grid-template-columns: 1fr; }
-  /* Le palier complet reste en tête sur mobile : c'est celui que l'on
-     recommande, il ne doit pas être relégué après un scroll. */
-  .plan--gold { order: -1; }
+  /* En pile, les paliers gardent l'ordre croissant Bronze, Silver, Gold :
+     remonter Gold en tête cassait la lecture des tarifs. */
   .plan-tagline { min-height: 0; }
 }
 

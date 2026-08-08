@@ -308,9 +308,8 @@ html.motion-ready .reveal.in {
 /* =============================== RESPONSIVE ============================== */
 @media (max-width: 1024px) {
   .pricing-in { grid-template-columns: 1fr; max-width: 460px; margin: 0 auto; }
-  /* Intentionnel : en pile mobile, le palier vedette (Gold) passe en tête
-     pour rester visible sans scroller, avant Bronze et Silver. */
-  .plan--gold { transform: none; order: -1; }
+  /* En pile, les paliers gardent l'ordre croissant Bronze, Silver, Gold. */
+  .plan--gold { transform: none; }
   .reasons-grid { grid-template-columns: 1fr; max-width: 460px; margin: 0 auto; }
   .ft-in { grid-template-columns: 1fr; gap: var(--space-lg); }
 }
@@ -790,9 +789,8 @@ body[data-theme="light"] .nav-drop-link.is-active { background: var(--paper-2); 
 
 @media (max-width: 900px) {
   .plans { grid-template-columns: 1fr; }
-  /* Le palier complet reste en tête sur mobile : c'est celui que l'on
-     recommande, il ne doit pas être relégué après un scroll. */
-  .plan--gold { order: -1; }
+  /* En pile, les paliers gardent l'ordre croissant Bronze, Silver, Gold :
+     remonter Gold en tête cassait la lecture des tarifs. */
   .plan-tagline { min-height: 0; }
 }
 
