@@ -13,7 +13,7 @@
   function translateAuthError(message) {
     var m = (message || "").toLowerCase();
     if (m.indexOf("invalid login credentials") !== -1) return "Email ou mot de passe incorrect.";
-    if (m.indexOf("already registered") !== -1 || m.indexOf("already exists") !== -1) return "Un compte existe déjà avec cet email.";
+    if (m.indexOf("already") !== -1 && (m.indexOf("registered") !== -1 || m.indexOf("exists") !== -1)) return "Un compte existe déjà avec cet email.";
     if (m.indexOf("password") !== -1 && m.indexOf("least") !== -1) return "Le mot de passe doit faire au moins 6 caractères.";
     if (m.indexOf("email not confirmed") !== -1) return "Confirme ton email avant de te connecter (vérifie ta boîte de réception).";
     if (m.indexOf("rate limit") !== -1) return "Trop de tentatives, réessaie dans quelques minutes.";

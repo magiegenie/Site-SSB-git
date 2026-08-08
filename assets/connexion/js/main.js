@@ -270,13 +270,23 @@
     var cameFromEmailLink = /[?&](code|access_token|token_hash)=/.test(window.location.href);
     if (!cameFromEmailLink) return;
     var handled = false;
+    var visibleForm = function () { return signinForm.hidden ? signupForm : signinForm; };
+
     auth.client.auth.onAuthStateChange(function (event, session) {
       if (handled || event !== "SIGNED_IN" || !session) return;
       handled = true;
-      var visibleForm = signinForm.hidden ? signupForm : signinForm;
       var name = (session.user.user_metadata && session.user.user_metadata.name) || session.user.email;
-      succeed(visibleForm, name, "Email confirmé, tu es connecté(e) ! Redirection…");
+      succeed(visibleForm(), name, "Email confirmé, tu es connecté(e) ! Redirection…");
     });
+
+    // Filet : si l'echange du code de confirmation echoue silencieusement
+    // (lien expire, deja utilise, ou ouvert dans un contexte navigateur
+    // different de celui qui a fait l'inscription), on previent au lieu de
+    // laisser un formulaire vide sans explication.
+    setTimeout(function () {
+      if (handled) return;
+      showAuthError(visibleForm(), "Ce lien de confirmation est invalide, a expiré ou a déjà été utilisé. Connecte-toi directement avec ton email et ton mot de passe, ou recrée un compte si besoin.");
+    }, 4000);
   }
 
   document.addEventListener("DOMContentLoaded", function () {
