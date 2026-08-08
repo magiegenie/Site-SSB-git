@@ -139,7 +139,7 @@ body[data-theme="navy"] .hdr .logo img { filter: brightness(0) invert(1); }
 .hdr .pill.ghost { box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.55); }
 
 /* ============================ HERO ================================ */
-.hero { position: relative; overflow: hidden; min-height: 86svh; display: flex; align-items: flex-end; }
+.hero { position: relative; overflow: hidden; min-height: 100svh; display: flex; align-items: flex-end; }
 .hero-media { position: absolute; inset: 0; z-index: var(--z-media); }
 .hero-media img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.08); will-change: transform; }
 .hero-media::after {
@@ -328,7 +328,7 @@ html.motion-ready .reveal.in {
 @media (max-width: 720px) {
   :root { --hdr-h: 64px; }
   .hdr .pill.ghost { display: none; }
-  .hero { min-height: 92svh; }
+  .hero { min-height: 100svh; }
   .hero-in { padding-top: calc(var(--hdr-h) + 2.5rem); }
   .filters { gap: 0.4rem; }
   .filters button { padding: 0.45rem 0.85rem; font-size: 0.84rem; }  /* min-height 44px herite */
