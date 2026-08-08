@@ -281,13 +281,6 @@ body[data-navtheme="light"] .fn-item.is-active { background: rgba(255, 255, 255,
   transition: transform var(--dur-slow) var(--ease-out-quart);
 }
 .rc:hover .rc-media img { transform: scale(1.04); }
-.rc-tag {
-  position: absolute; top: 10px; left: 10px;
-  background: rgba(4, 26, 53, 0.72); color: var(--gold-soft);
-  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
-  padding: 0.28rem 0.65rem; border-radius: 100px;
-  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
-}
 .rc h3 { font-size: 1.12rem; color: var(--ink); margin-bottom: 0.15rem; }
 .rc p { font-size: 0.88rem; color: var(--ink-muted); }
 
