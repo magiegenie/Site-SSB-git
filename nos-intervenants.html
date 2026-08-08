@@ -11,14 +11,14 @@
   <meta property="og:description" content="Les décideurs du sport business qui interviennent devant nos étudiants." />
   <meta property="og:locale" content="fr_FR" />
   <meta name="theme-color" content="#062750" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230c0c0c'/%3E%3Ctext x='50' y='71' font-family='Arial,sans-serif' font-size='52' font-weight='800' fill='white' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" type="image/png" href="assets/img/logo-ssb-emblem.png" />
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700&display=swap" rel="stylesheet" />
-  <link rel="preload" as="image" href="assets/img/panel.jpg" fetchpriority="high" />
-  <link rel="stylesheet" href="assets/nos-intervenants/css/style.css?v=4" />
+  <link rel="preload" as="image" href="assets/img/hero-intervenants.jpg" fetchpriority="high" />
+  <link rel="stylesheet" href="assets/nos-intervenants/css/style.css?v=6" />
 
   <!-- Motion est servi en local (pas de CDN) et chargé avant le premier rendu :
        l'état de départ des animations n'est posé que s'il a réellement chargé. -->
@@ -42,7 +42,7 @@
   <!-- ============================ HEADER ============================ -->
   <header class="hdr" id="hdr">
     <div class="hdr-in">
-      <a class="logo" href="index.html" aria-label="Sorbonne Sport Business, accueil">SSB</a>
+      <a class="logo" href="index.html" aria-label="Sorbonne Sport Business, accueil"><img src="assets/img/logo-ssb-emblem.png" alt="" width="200" height="150" /><span>SSB</span></a>
       <div class="hdr-right">
         <a href="connexion.html" class="pill ghost">Se connecter</a>
         <a href="book-a-call.html" class="pill solid">Book a call</a>
@@ -68,7 +68,7 @@
          ce sont des gens qui prennent la lumière sur scène. -->
     <section class="shero" data-bg="navy" data-spotlight>
       <div class="shero-media" aria-hidden="true">
-        <img width="1200" height="802" src="assets/img/panel.jpg" alt="" loading="eager" fetchpriority="high" />
+        <img width="1600" height="900" src="assets/img/hero-intervenants.jpg" alt="" loading="eager" fetchpriority="high" />
       </div>
       <div class="shero-in">
         <p class="shero-kicker reveal">Intervenants</p>
@@ -78,10 +78,8 @@
     </section>
 
     <!-- ========================= SPEAKERS (spotlight roll) ==================== -->
-    <!-- Trois intervenants réels : traités en grand plutôt qu'en grille dense,
-         pour leur donner du poids plutôt que les diluer dans des cases identiques.
-         Photos officielles à intégrer : remplacer .speaker-mono par
-         <img src="assets/img/intervenants/nom.jpg" alt="Prénom Nom" />. -->
+    <!-- Trois intervenants mis en avant, traités en grand ; la galerie complète
+         suit. Source des données : assets/data/speakers.json. -->
     <section class="speakers-head">
       <p class="speakers-kicker reveal">Sur scène chez SSB</p>
       <h2 class="speakers-intro reveal" style="--i:1">Quelques-uns des intervenants qui sont venus échanger avec nos étudiants.</h2>
@@ -90,40 +88,64 @@
     <section class="speakers" data-bg="light">
       <article class="speaker reveal" data-spotlight-card style="--card-a:#1d508f; --card-b:#02101f;">
         <div class="speaker-visual">
+          <img class="speaker-photo" width="900" height="720" src="assets/img/speaker-kahn.jpg" alt="" />
           <span class="speaker-quote" aria-hidden="true">“</span>
-          <span class="speaker-mono">DK</span>
+          <img width="138" height="120" class="speaker-logo" src="assets/img/logos/paris-basketball.png" alt="" loading="lazy" />
         </div>
         <div class="speaker-body">
           <p class="speaker-org">Paris Basketball</p>
           <h3 class="speaker-name">David Kahn</h3>
-          <p class="speaker-role">Président &amp; Co-Owner</p>
+          <p class="speaker-role">Président</p>
         </div>
       </article>
 
       <article class="speaker speaker--flip reveal" data-spotlight-card style="--i:1; --card-a:#0d3868; --card-b:#041a35;">
         <div class="speaker-visual">
+          <img class="speaker-photo" width="900" height="720" src="assets/img/speaker-letang.jpg" alt="" loading="lazy" />
           <span class="speaker-quote" aria-hidden="true">“</span>
-          <span class="speaker-mono">OL</span>
           <img width="126" height="120" class="speaker-logo" src="assets/img/logos/losc.png" alt="" loading="lazy" />
         </div>
         <div class="speaker-body">
-          <p class="speaker-org">LOSC</p>
+          <p class="speaker-org">LOSC Lille</p>
           <h3 class="speaker-name">Olivier Létang</h3>
-          <p class="speaker-role">Président</p>
+          <p class="speaker-role">Président &amp; Directeur Général</p>
         </div>
       </article>
 
       <article class="speaker reveal" data-spotlight-card style="--i:2; --card-a:#2660a5; --card-b:#041a35;">
         <div class="speaker-visual">
+          <img class="speaker-photo" width="900" height="720" src="assets/img/speaker-gomis.jpg" alt="" loading="lazy" />
           <span class="speaker-quote" aria-hidden="true">“</span>
-          <span class="speaker-mono">BG</span>
         </div>
         <div class="speaker-body">
-          <p class="speaker-org">Entrepreneur</p>
-          <h3 class="speaker-name">Bafé Gomis</h3>
+          <p class="speaker-org">Équipe de France</p>
+          <h3 class="speaker-name">Bafétimbi Gomis</h3>
           <p class="speaker-role">Ex-footballeur, international français</p>
         </div>
       </article>
+    </section>
+
+    <!-- ============================ GALERIE COMPLÈTE ========================== -->
+    <section class="roster" data-bg="light">
+      <div class="roster-head reveal">
+        <h2 class="roster-title">Et bien d'autres.</h2>
+        <p class="roster-sub">Dirigeants, légendes du jeu, médias et créateurs : celles et ceux qui sont déjà passés par nos amphis.</p>
+      </div>
+      <div class="roster-grid">
+        <article class="rc reveal"><div class="rc-media"><img width="900" height="720" src="assets/img/speaker-trezeguet.jpg" alt="" loading="lazy" /></div><span class="rc-tag">Légende</span><h3>David Trezeguet</h3><p>Champion du Monde 1998 · Équipe de France</p></article>
+        <article class="rc reveal" style="--i:1"><div class="rc-media"><img width="900" height="720" src="assets/img/speaker-daumin.jpg" alt="" loading="lazy" /></div><span class="rc-tag">Média</span><h3>Brice Daumin</h3><p>CEO · DAZN France</p></article>
+        <article class="rc reveal" style="--i:2"><div class="rc-media"><img width="900" height="720" src="assets/img/speaker-eyraud-v2.jpg" alt="" loading="lazy" /></div><span class="rc-tag">Dirigeant</span><h3>Jacques-Henri Eyraud</h3><p>Ex-CEO · Olympique de Marseille</p></article>
+        <article class="rc reveal" style="--i:3"><div class="rc-media"><img width="900" height="720" src="assets/img/speaker-patanian.jpg" alt="" loading="lazy" /></div><span class="rc-tag">Dirigeant</span><h3>Matias Patanian</h3><p>Ex-Vice-Président · River Plate</p></article>
+        <article class="rc reveal"><div class="rc-media"><img width="900" height="720" src="assets/img/speaker-pierrel.jpg" alt="" loading="lazy" /></div><span class="rc-tag">Fédération</span><h3>Christophe Pierrel</h3><p>Directeur Général · Fédération Française de Rugby</p></article>
+        <article class="rc reveal" style="--i:1"><div class="rc-media"><img width="900" height="720" src="assets/img/speaker-maurer.jpg" alt="" loading="lazy" /></div><span class="rc-tag">Esport</span><h3>Nicolas Maurer</h3><p>CEO · Team Vitality</p></article>
+        <article class="rc reveal" style="--i:2"><div class="rc-media"><img width="900" height="720" src="assets/img/speaker-koenig.jpg" alt="" loading="lazy" /></div><span class="rc-tag">Fédération</span><h3>Andreea Koenig</h3><p>Vice-Présidente · Ligue Féminine de Football Professionnel</p></article>
+        <article class="rc reveal" style="--i:3"><div class="rc-media"><img width="900" height="720" src="assets/img/speaker-solemale.jpg" alt="" loading="lazy" /></div><span class="rc-tag">Fédération</span><h3>Sarah Solémalé</h3><p>Ex-FIFA, CAF &amp; ECA</p></article>
+        <article class="rc reveal"><div class="rc-media"><img width="900" height="720" src="assets/img/speaker-lemoigne.jpg" alt="" loading="lazy" /></div><span class="rc-tag">Média</span><h3>Vanessa Le Moigne</h3><p>Journaliste · beIN Sports</p></article>
+        <article class="rc reveal" style="--i:1"><div class="rc-media"><img width="900" height="720" src="assets/img/speaker-darmon.jpg" alt="" loading="lazy" /></div><span class="rc-tag">Business</span><h3>Jean-Claude Darmon</h3><p>Entrepreneur emblématique du sport business</p></article>
+        <article class="rc reveal" style="--i:2"><div class="rc-media"><img width="900" height="720" src="assets/img/speaker-saad.jpg" alt="" loading="lazy" /></div><span class="rc-tag">Média</span><h3>Felipe Saad</h3><p>Ex-footballeur, Journaliste · Ligue 1+</p></article>
+        <article class="rc reveal" style="--i:3"><div class="rc-media"><img width="900" height="720" src="assets/img/speaker-hoarau.jpg" alt="" loading="lazy" /></div><span class="rc-tag">Média</span><h3>Guillaume Hoarau</h3><p>Ex-footballeur, Journaliste · Ligue 1+</p></article>
+        <article class="rc reveal"><div class="rc-media"><img width="900" height="720" src="assets/img/speaker-wiloo.jpg" alt="" loading="lazy" /></div><span class="rc-tag">Créateur</span><h3>Wiloo</h3><p>Influenceur football · Créateur de contenu</p></article>
+      </div>
     </section>
 
     <!-- ========================== CTA ======================== -->

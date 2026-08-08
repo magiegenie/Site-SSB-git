@@ -88,6 +88,10 @@ h1, h2, h3, h4 {
 p { text-wrap: pretty; }
 
 .logo { font-weight: 700; font-size: 1.35rem; letter-spacing: -0.035em; }
+/* Embleme officiel dans le header : blanc sur theme navy, couleurs sur clair. */
+.hdr .logo { display: inline-flex; align-items: center; gap: 0.55rem; }
+.hdr .logo img { width: 42px; height: auto; }
+body[data-theme="navy"] .hdr .logo img { filter: brightness(0) invert(1); }
 
 :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
 .hero :focus-visible, .hdr :focus-visible, .floatnav :focus-visible, .final :focus-visible { outline-color: var(--gold-soft); }

@@ -1,0 +1,201 @@
+{
+  "speakers": [
+    {
+      "name": "Olivier Létang",
+      "role": "Président & Directeur Général",
+      "org": "LOSC Lille",
+      "tag": "Dirigeant",
+      "photo": "assets/img/speaker-letang.jpg",
+      "logo": "assets/img/logos/losc.png"
+    },
+    {
+      "name": "David Trezeguet",
+      "role": "Ex-footballeur, Champion du Monde 1998",
+      "org": "Équipe de France",
+      "tag": "Légende",
+      "photo": "assets/img/speaker-trezeguet.jpg",
+      "logo": null
+    },
+    {
+      "name": "David Kahn",
+      "role": "Président",
+      "org": "Paris Basketball",
+      "tag": "Dirigeant",
+      "photo": "assets/img/speaker-kahn.jpg",
+      "logo": "assets/img/logos/paris-basketball.png"
+    },
+    {
+      "name": "Brice Daumin",
+      "role": "CEO",
+      "org": "DAZN France",
+      "tag": "Média",
+      "photo": "assets/img/speaker-daumin.jpg",
+      "logo": "assets/img/logos/dazn.png"
+    },
+    {
+      "name": "Jacques-Henri Eyraud",
+      "role": "Ex-CEO",
+      "org": "Olympique de Marseille",
+      "tag": "Dirigeant",
+      "photo": "assets/img/speaker-eyraud-v2.jpg",
+      "logo": "assets/img/logos/marseille.png"
+    },
+    {
+      "name": "Matias Patanian",
+      "role": "Ex-Vice-Président",
+      "org": "River Plate",
+      "tag": "Dirigeant",
+      "photo": "assets/img/speaker-patanian.jpg",
+      "logo": "assets/img/logos/river-plate.png"
+    },
+    {
+      "name": "Christophe Pierrel",
+      "role": "Directeur Général",
+      "org": "Fédération Française de Rugby",
+      "tag": "Fédération",
+      "photo": "assets/img/speaker-pierrel.jpg",
+      "logo": "assets/img/logos/france-rugby.png"
+    },
+    {
+      "name": "Bafétimbi Gomis",
+      "role": "Ex-footballeur, international français",
+      "org": "Équipe de France",
+      "tag": "Légende",
+      "photo": "assets/img/speaker-gomis.jpg",
+      "logo": null
+    },
+    {
+      "name": "Nicolas Maurer",
+      "role": "CEO",
+      "org": "Team Vitality",
+      "tag": "Esport",
+      "photo": "assets/img/speaker-maurer.jpg",
+      "logo": "assets/img/logos/vitality.png"
+    },
+    {
+      "name": "Andreea Koenig",
+      "role": "Vice-Présidente",
+      "org": "Ligue Féminine de Football Professionnel",
+      "tag": "Fédération",
+      "photo": "assets/img/speaker-koenig.jpg",
+      "logo": "assets/img/logos/lffp.png"
+    },
+    {
+      "name": "Sarah Solémalé",
+      "role": "Ex-FIFA, CAF & ECA",
+      "org": "FIFA · CAF · ECA",
+      "tag": "Fédération",
+      "photo": "assets/img/speaker-solemale.jpg",
+      "logo": "assets/img/logos/fifa.png"
+    },
+    {
+      "name": "Vanessa Le Moigne",
+      "role": "Journaliste",
+      "org": "beIN Sports",
+      "tag": "Média",
+      "photo": "assets/img/speaker-lemoigne.jpg",
+      "logo": "assets/img/logos/bein-sports.png"
+    },
+    {
+      "name": "Jean-Claude Darmon",
+      "role": "Entrepreneur emblématique du sport business",
+      "org": "Sport Business",
+      "tag": "Business",
+      "photo": "assets/img/speaker-darmon.jpg",
+      "logo": null
+    },
+    {
+      "name": "Felipe Saad",
+      "role": "Ex-footballeur, Journaliste",
+      "org": "Ligue 1+",
+      "tag": "Média",
+      "photo": "assets/img/speaker-saad.jpg",
+      "logo": "assets/img/logos/ligue1.png"
+    },
+    {
+      "name": "Guillaume Hoarau",
+      "role": "Ex-footballeur, Journaliste",
+      "org": "Ligue 1+",
+      "tag": "Média",
+      "photo": "assets/img/speaker-hoarau.jpg",
+      "logo": "assets/img/logos/ligue1.png"
+    },
+    {
+      "name": "Wiloo",
+      "role": "Influenceur football",
+      "org": "Créateur de contenu",
+      "tag": "Créateur",
+      "photo": "assets/img/speaker-wiloo.jpg",
+      "logo": null
+    }
+  ],
+  "logos": [
+    {
+      "file": "assets/img/logos/losc.png",
+      "name": "LOSC Lille"
+    },
+    {
+      "file": "assets/img/logos/marseille.png",
+      "name": "Olympique de Marseille"
+    },
+    {
+      "file": "assets/img/logos/psg.png",
+      "name": "Paris Saint-Germain"
+    },
+    {
+      "file": "assets/img/logos/le-havre.png",
+      "name": "Le Havre AC"
+    },
+    {
+      "file": "assets/img/logos/ligue1.png",
+      "name": "Ligue 1+"
+    },
+    {
+      "file": "assets/img/logos/france-rugby.png",
+      "name": "Fédération Française de Rugby"
+    },
+    {
+      "file": "assets/img/logos/fifa.png",
+      "name": "FIFA"
+    },
+    {
+      "file": "assets/img/logos/lffp.png",
+      "name": "Ligue Féminine de Football Pro"
+    },
+    {
+      "file": "assets/img/logos/vitality.png",
+      "name": "Team Vitality"
+    },
+    {
+      "file": "assets/img/logos/dazn.png",
+      "name": "DAZN"
+    },
+    {
+      "file": "assets/img/logos/bein-sports.png",
+      "name": "beIN Sports"
+    },
+    {
+      "file": "assets/img/logos/paris-basketball.png",
+      "name": "Paris Basketball"
+    },
+    {
+      "file": "assets/img/logos/river-plate.png",
+      "name": "River Plate"
+    }
+  ],
+  "editorial": [
+    "assets/img/hero-amphi.jpg",
+    "assets/img/hero-intervenants.jpg",
+    "assets/img/audience.jpg",
+    "assets/img/panel.jpg",
+    "assets/img/ambiance-tel.jpg",
+    "assets/img/equipe-maillot.jpg",
+    "assets/img/statement-mains.jpg",
+    "assets/img/groupe-kahn.jpg",
+    "assets/img/speaker-1.jpg"
+  ],
+  "brand": [
+    "assets/img/logo-ssb.jpg",
+    "assets/img/logo-ssb-emblem.png"
+  ]
+}

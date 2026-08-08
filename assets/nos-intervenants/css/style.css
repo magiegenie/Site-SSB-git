@@ -89,6 +89,10 @@ h1, h2, h3 {
 p { text-wrap: pretty; }
 
 .logo { font-weight: 700; font-size: 1.35rem; letter-spacing: -0.035em; }
+/* Embleme officiel dans le header : blanc sur theme navy, couleurs sur clair. */
+.hdr .logo { display: inline-flex; align-items: center; gap: 0.55rem; }
+.hdr .logo img { width: 42px; height: auto; }
+body[data-theme="navy"] .hdr .logo img { filter: brightness(0) invert(1); }
 
 :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
 .shero :focus-visible, .hdr :focus-visible, .floatnav :focus-visible, .final :focus-visible { outline-color: var(--gold-soft); }
@@ -241,14 +245,13 @@ body[data-navtheme="light"] .fn-item.is-active { background: rgba(255, 255, 255,
   font-size: 4.5rem; font-weight: 700; line-height: 1;
   font-family: Georgia, "Times New Roman", serif; color: rgba(255, 255, 255, 0.16);
 }
-.speaker-mono {
-  position: relative; z-index: 1;
-  font-size: clamp(3rem, 6vw, 4.5rem); font-weight: 600; letter-spacing: -0.04em;
-  color: rgba(255, 255, 255, 0.92);
-}
+/* Photo réelle de l'intervenant : couvre la carte, le dégradé sert de fond
+   de chargement. Le guillemet et le logo restent posés dessus. */
+.speaker-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.speaker-quote { z-index: 2; }
 .speaker-logo {
-  position: absolute; z-index: 1; right: 16px; bottom: 16px; width: 38px; height: auto;
-  filter: brightness(0) invert(1); opacity: 0.85;
+  position: absolute; z-index: 2; right: 16px; bottom: 16px; width: 44px; height: auto;
+  filter: brightness(0) invert(1) drop-shadow(0 2px 6px rgba(2, 16, 31, 0.5)); opacity: 0.95;
 }
 
 .speaker-body { display: flex; flex-direction: column; gap: 0.3rem; }
@@ -258,6 +261,42 @@ body[data-navtheme="light"] .fn-item.is-active { background: rgba(255, 255, 255,
 }
 .speaker-name { font-size: clamp(1.8rem, 3.6vw, 2.8rem); color: var(--ink); }
 .speaker-role { font-size: clamp(1rem, 1.4vw, 1.15rem); color: var(--ink-muted); }
+
+/* ============================ GALERIE COMPLÈTE =========================== */
+.roster { background: var(--paper); padding: 0 0 var(--space-2xl); width: var(--shell); margin: 0 auto; }
+.roster-head { max-width: 62ch; margin-bottom: var(--space-lg); }
+.roster-title { font-size: clamp(1.9rem, 3.6vw, 3rem); color: var(--ink); margin-bottom: 0.6rem; }
+.roster-sub { color: var(--ink-muted); font-size: clamp(0.98rem, 1.3vw, 1.1rem); max-width: 52ch; }
+.roster-grid {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1.2rem, 2.6vw, 2rem) clamp(1rem, 2vw, 1.5rem);
+}
+.rc { position: relative; }
+.rc-media {
+  aspect-ratio: 5 / 4; border-radius: var(--r-media); overflow: hidden;
+  background: var(--navy-800); margin-bottom: 0.8rem;
+}
+.rc-media img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform var(--dur-slow) var(--ease-out-quart);
+}
+.rc:hover .rc-media img { transform: scale(1.04); }
+.rc-tag {
+  position: absolute; top: 10px; left: 10px;
+  background: rgba(4, 26, 53, 0.72); color: var(--gold-soft);
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
+  padding: 0.28rem 0.65rem; border-radius: 100px;
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+}
+.rc h3 { font-size: 1.12rem; color: var(--ink); margin-bottom: 0.15rem; }
+.rc p { font-size: 0.88rem; color: var(--ink-muted); }
+
+@media (max-width: 1024px) {
+  .roster-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .roster-grid { grid-template-columns: 1fr; }
+}
 
 /* =============================== CTA FINAL =============================== */
 .final { background: var(--navy-800); color: #fff; }
