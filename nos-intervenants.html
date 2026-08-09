@@ -26,7 +26,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" as="image" href="assets/img/hero-intervenants.jpg" fetchpriority="high" />
-  <link rel="stylesheet" href="assets/nos-intervenants/css/style.css?v=37" />
+  <link rel="stylesheet" href="assets/nos-intervenants/css/style.css?v=38" />
 
   <!-- Motion est servi en local (pas de CDN) et chargé avant le premier rendu :
        l'état de départ des animations n'est posé que s'il a réellement chargé. -->
@@ -124,6 +124,14 @@
     <!-- =========================== TOUS LES INTERVENANTS ====================
          Cartes générées depuis assets/data/speakers.json (source unique :
          nom, rôle, photo, lien externe vérifié, événement associé). -->
+    <!-- Les deux icônes de provenance sont définies une seule fois ici et
+         réutilisées par <use> dans chaque carte : quatorze copies du même
+         SVG alourdissaient la page pour rien. -->
+    <svg class="sp-sprite" width="0" height="0" aria-hidden="true" focusable="false">
+      <symbol id="ico-wikipedia" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h4l4 12 4-12h4"/><path d="M10 5l4 12"/></symbol>
+      <symbol id="ico-linkedin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="2.5" width="19" height="19" rx="3"/><line x1="7.3" y1="10" x2="7.3" y2="17"/><circle cx="7.3" cy="6.8" r="0.15" fill="currentColor" stroke="currentColor" stroke-width="2"/><path d="M11.3 17v-4.2c0-1.6 1-2.8 2.6-2.8 1.5 0 2.3 1 2.3 2.8V17"/><line x1="11.3" y1="10" x2="11.3" y2="17"/></symbol>
+    </svg>
+
     <section class="sp" id="intervenants" data-bg="light">
       <div class="sp-in">
         <div class="sp-head">
@@ -143,7 +151,7 @@
         </div>
         <div class="sp-grid">
           <article class="sp-card reveal" style="--i:0" data-tag="dirigeant">
-            <a class="sp-visual sp-visual--lien" href="https://fr.wikipedia.org/wiki/Olivier_L%C3%A9tang" target="_blank" rel="noopener" aria-label="Olivier Létang sur Wikipédia, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-letang.jpg" alt="Olivier Létang, président &amp; directeur général, LOSC Lille" loading="lazy" /><span class="sp-source"><svg viewBox="0 0 24 24" width="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h4l4 12 4-12h4"/><path d="M10 5l4 12"/></svg><span>Wikipédia</span></span></a>
+            <a class="sp-visual sp-visual--lien" href="https://fr.wikipedia.org/wiki/Olivier_L%C3%A9tang" target="_blank" rel="noopener" aria-label="Olivier Létang sur Wikipédia, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-letang.jpg" alt="Olivier Létang, président &amp; directeur général, LOSC Lille" loading="lazy" /><span class="sp-source"><svg class="sp-ico" viewBox="0 0 24 24" width="15" aria-hidden="true"><use href="#ico-wikipedia" /></svg><span>Wikipédia</span></span></a>
             <div class="sp-body">
               <p class="sp-tag">Dirigeant</p>
               <div class="sp-namerow"><h3 class="sp-name">Olivier Létang</h3><img class="sp-logo" width="120" height="120" src="assets/img/logos/losc.png" alt="" loading="lazy" /></div>
@@ -153,7 +161,7 @@
             </div>
           </article>
           <article class="sp-card reveal" style="--i:1" data-tag="légende">
-            <a class="sp-visual sp-visual--lien" href="https://fr.wikipedia.org/wiki/David_Trezeguet" target="_blank" rel="noopener" aria-label="David Trezeguet sur Wikipédia, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-trezeguet.jpg" alt="David Trezeguet, ex-footballeur, champion du monde 1998, Équipe de France" loading="lazy" /><span class="sp-source"><svg viewBox="0 0 24 24" width="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h4l4 12 4-12h4"/><path d="M10 5l4 12"/></svg><span>Wikipédia</span></span></a>
+            <a class="sp-visual sp-visual--lien" href="https://fr.wikipedia.org/wiki/David_Trezeguet" target="_blank" rel="noopener" aria-label="David Trezeguet sur Wikipédia, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-trezeguet.jpg" alt="David Trezeguet, ex-footballeur, champion du monde 1998, Équipe de France" loading="lazy" /><span class="sp-source"><svg class="sp-ico" viewBox="0 0 24 24" width="15" aria-hidden="true"><use href="#ico-wikipedia" /></svg><span>Wikipédia</span></span></a>
             <div class="sp-body">
               <p class="sp-tag">Légende</p>
               <div class="sp-namerow"><h3 class="sp-name">David Trezeguet</h3></div>
@@ -163,7 +171,7 @@
             </div>
           </article>
           <article class="sp-card reveal" style="--i:2" data-tag="dirigeant">
-            <a class="sp-visual sp-visual--lien" href="https://fr.wikipedia.org/wiki/David_Kahn_(homme_d%27affaires)" target="_blank" rel="noopener" aria-label="David Kahn sur Wikipédia, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-kahn.jpg" alt="David Kahn, président, Paris Basketball" loading="lazy" /><span class="sp-source"><svg viewBox="0 0 24 24" width="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h4l4 12 4-12h4"/><path d="M10 5l4 12"/></svg><span>Wikipédia</span></span></a>
+            <a class="sp-visual sp-visual--lien" href="https://fr.wikipedia.org/wiki/David_Kahn_(homme_d%27affaires)" target="_blank" rel="noopener" aria-label="David Kahn sur Wikipédia, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-kahn.jpg" alt="David Kahn, président, Paris Basketball" loading="lazy" /><span class="sp-source"><svg class="sp-ico" viewBox="0 0 24 24" width="15" aria-hidden="true"><use href="#ico-wikipedia" /></svg><span>Wikipédia</span></span></a>
             <div class="sp-body">
               <p class="sp-tag">Dirigeant</p>
               <div class="sp-namerow"><h3 class="sp-name">David Kahn</h3><img class="sp-logo" width="120" height="120" src="assets/img/logos/paris-basketball.png" alt="" loading="lazy" /></div>
@@ -173,7 +181,7 @@
             </div>
           </article>
           <article class="sp-card reveal" style="--i:3" data-tag="média">
-            <a class="sp-visual sp-visual--lien" href="https://www.linkedin.com/in/bricedaumin/" target="_blank" rel="noopener" aria-label="Brice Daumin sur LinkedIn, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-daumin.jpg" alt="Brice Daumin, ceo, DAZN France" loading="lazy" /><span class="sp-source"><svg viewBox="0 0 24 24" width="15" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="3"/><line x1="7.3" y1="10" x2="7.3" y2="17"/><circle cx="7.3" cy="6.8" r="0.15" fill="currentColor" stroke="currentColor" stroke-width="2"/><path d="M11.3 17v-4.2c0-1.6 1-2.8 2.6-2.8 1.5 0 2.3 1 2.3 2.8V17"/><line x1="11.3" y1="10" x2="11.3" y2="17"/></svg><span>LinkedIn</span></span></a>
+            <a class="sp-visual sp-visual--lien" href="https://www.linkedin.com/in/bricedaumin/" target="_blank" rel="noopener" aria-label="Brice Daumin sur LinkedIn, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-daumin.jpg" alt="Brice Daumin, ceo, DAZN France" loading="lazy" /><span class="sp-source"><svg class="sp-ico" viewBox="0 0 24 24" width="15" aria-hidden="true"><use href="#ico-linkedin" /></svg><span>LinkedIn</span></span></a>
             <div class="sp-body">
               <p class="sp-tag">Média</p>
               <div class="sp-namerow"><h3 class="sp-name">Brice Daumin</h3><img class="sp-logo" width="120" height="120" src="assets/img/logos/dazn.png" alt="" loading="lazy" /></div>
@@ -183,7 +191,7 @@
             </div>
           </article>
           <article class="sp-card reveal" style="--i:0" data-tag="dirigeant">
-            <a class="sp-visual sp-visual--lien" href="https://fr.wikipedia.org/wiki/Jacques-Henri_Eyraud" target="_blank" rel="noopener" aria-label="Jacques-Henri Eyraud sur Wikipédia, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-eyraud-v2.jpg" alt="Jacques-Henri Eyraud, ex-ceo, Olympique de Marseille" loading="lazy" /><span class="sp-source"><svg viewBox="0 0 24 24" width="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h4l4 12 4-12h4"/><path d="M10 5l4 12"/></svg><span>Wikipédia</span></span></a>
+            <a class="sp-visual sp-visual--lien" href="https://fr.wikipedia.org/wiki/Jacques-Henri_Eyraud" target="_blank" rel="noopener" aria-label="Jacques-Henri Eyraud sur Wikipédia, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-eyraud-v2.jpg" alt="Jacques-Henri Eyraud, ex-ceo, Olympique de Marseille" loading="lazy" /><span class="sp-source"><svg class="sp-ico" viewBox="0 0 24 24" width="15" aria-hidden="true"><use href="#ico-wikipedia" /></svg><span>Wikipédia</span></span></a>
             <div class="sp-body">
               <p class="sp-tag">Dirigeant</p>
               <div class="sp-namerow"><h3 class="sp-name">Jacques-Henri Eyraud</h3><img class="sp-logo" width="120" height="120" src="assets/img/logos/marseille.png" alt="" loading="lazy" /></div>
@@ -203,7 +211,7 @@
             </div>
           </article>
           <article class="sp-card reveal" style="--i:2" data-tag="fédération">
-            <a class="sp-visual sp-visual--lien" href="https://www.linkedin.com/in/christophepierrel/" target="_blank" rel="noopener" aria-label="Christophe Pierrel sur LinkedIn, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-pierrel.jpg" alt="Christophe Pierrel, directeur général, Fédération Française de Rugby" loading="lazy" /><span class="sp-source"><svg viewBox="0 0 24 24" width="15" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="3"/><line x1="7.3" y1="10" x2="7.3" y2="17"/><circle cx="7.3" cy="6.8" r="0.15" fill="currentColor" stroke="currentColor" stroke-width="2"/><path d="M11.3 17v-4.2c0-1.6 1-2.8 2.6-2.8 1.5 0 2.3 1 2.3 2.8V17"/><line x1="11.3" y1="10" x2="11.3" y2="17"/></svg><span>LinkedIn</span></span></a>
+            <a class="sp-visual sp-visual--lien" href="https://www.linkedin.com/in/christophepierrel/" target="_blank" rel="noopener" aria-label="Christophe Pierrel sur LinkedIn, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-pierrel.jpg" alt="Christophe Pierrel, directeur général, Fédération Française de Rugby" loading="lazy" /><span class="sp-source"><svg class="sp-ico" viewBox="0 0 24 24" width="15" aria-hidden="true"><use href="#ico-linkedin" /></svg><span>LinkedIn</span></span></a>
             <div class="sp-body">
               <p class="sp-tag">Fédération</p>
               <div class="sp-namerow"><h3 class="sp-name">Christophe Pierrel</h3><img class="sp-logo" width="120" height="120" src="assets/img/logos/france-rugby.png" alt="" loading="lazy" /></div>
@@ -213,7 +221,7 @@
             </div>
           </article>
           <article class="sp-card reveal" style="--i:3" data-tag="légende">
-            <a class="sp-visual sp-visual--lien" href="https://fr.wikipedia.org/wiki/Baf%C3%A9timbi_Gomis" target="_blank" rel="noopener" aria-label="Bafétimbi Gomis sur Wikipédia, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-gomis.jpg" alt="Bafétimbi Gomis, ex-footballeur, international français, Équipe de France" loading="lazy" /><span class="sp-source"><svg viewBox="0 0 24 24" width="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h4l4 12 4-12h4"/><path d="M10 5l4 12"/></svg><span>Wikipédia</span></span></a>
+            <a class="sp-visual sp-visual--lien" href="https://fr.wikipedia.org/wiki/Baf%C3%A9timbi_Gomis" target="_blank" rel="noopener" aria-label="Bafétimbi Gomis sur Wikipédia, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-gomis.jpg" alt="Bafétimbi Gomis, ex-footballeur, international français, Équipe de France" loading="lazy" /><span class="sp-source"><svg class="sp-ico" viewBox="0 0 24 24" width="15" aria-hidden="true"><use href="#ico-wikipedia" /></svg><span>Wikipédia</span></span></a>
             <div class="sp-body">
               <p class="sp-tag">Légende</p>
               <div class="sp-namerow"><h3 class="sp-name">Bafétimbi Gomis</h3></div>
@@ -223,7 +231,7 @@
             </div>
           </article>
           <article class="sp-card reveal" style="--i:0" data-tag="esport">
-            <a class="sp-visual sp-visual--lien" href="https://www.linkedin.com/in/nicolas-maurer/" target="_blank" rel="noopener" aria-label="Nicolas Maurer sur LinkedIn, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-maurer.jpg" alt="Nicolas Maurer, ceo, Team Vitality" loading="lazy" /><span class="sp-source"><svg viewBox="0 0 24 24" width="15" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="3"/><line x1="7.3" y1="10" x2="7.3" y2="17"/><circle cx="7.3" cy="6.8" r="0.15" fill="currentColor" stroke="currentColor" stroke-width="2"/><path d="M11.3 17v-4.2c0-1.6 1-2.8 2.6-2.8 1.5 0 2.3 1 2.3 2.8V17"/><line x1="11.3" y1="10" x2="11.3" y2="17"/></svg><span>LinkedIn</span></span></a>
+            <a class="sp-visual sp-visual--lien" href="https://www.linkedin.com/in/nicolas-maurer/" target="_blank" rel="noopener" aria-label="Nicolas Maurer sur LinkedIn, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-maurer.jpg" alt="Nicolas Maurer, ceo, Team Vitality" loading="lazy" /><span class="sp-source"><svg class="sp-ico" viewBox="0 0 24 24" width="15" aria-hidden="true"><use href="#ico-linkedin" /></svg><span>LinkedIn</span></span></a>
             <div class="sp-body">
               <p class="sp-tag">Esport</p>
               <div class="sp-namerow"><h3 class="sp-name">Nicolas Maurer</h3><img class="sp-logo" width="120" height="120" src="assets/img/logos/vitality.png" alt="" loading="lazy" /></div>
@@ -233,7 +241,7 @@
             </div>
           </article>
           <article class="sp-card reveal" style="--i:1" data-tag="fédération">
-            <a class="sp-visual sp-visual--lien" href="https://www.linkedin.com/in/andreea-koenig-05a4838/" target="_blank" rel="noopener" aria-label="Andreea Koenig sur LinkedIn, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-koenig.jpg" alt="Andreea Koenig, vice-présidente, Ligue Féminine de Football Professionnel" loading="lazy" /><span class="sp-source"><svg viewBox="0 0 24 24" width="15" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="3"/><line x1="7.3" y1="10" x2="7.3" y2="17"/><circle cx="7.3" cy="6.8" r="0.15" fill="currentColor" stroke="currentColor" stroke-width="2"/><path d="M11.3 17v-4.2c0-1.6 1-2.8 2.6-2.8 1.5 0 2.3 1 2.3 2.8V17"/><line x1="11.3" y1="10" x2="11.3" y2="17"/></svg><span>LinkedIn</span></span></a>
+            <a class="sp-visual sp-visual--lien" href="https://www.linkedin.com/in/andreea-koenig-05a4838/" target="_blank" rel="noopener" aria-label="Andreea Koenig sur LinkedIn, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-koenig.jpg" alt="Andreea Koenig, vice-présidente, Ligue Féminine de Football Professionnel" loading="lazy" /><span class="sp-source"><svg class="sp-ico" viewBox="0 0 24 24" width="15" aria-hidden="true"><use href="#ico-linkedin" /></svg><span>LinkedIn</span></span></a>
             <div class="sp-body">
               <p class="sp-tag">Fédération</p>
               <div class="sp-namerow"><h3 class="sp-name">Andreea Koenig</h3><img class="sp-logo" width="120" height="120" src="assets/img/logos/lffp.png" alt="" loading="lazy" /></div>
@@ -243,7 +251,7 @@
             </div>
           </article>
           <article class="sp-card reveal" style="--i:2" data-tag="fédération">
-            <a class="sp-visual sp-visual--lien" href="https://www.linkedin.com/in/sarah-sol%C3%A9mal%C3%A9-949a45178/" target="_blank" rel="noopener" aria-label="Sarah Solémalé sur LinkedIn, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-solemale.jpg" alt="Sarah Solémalé, ex-fifa, caf &amp; eca, FIFA · CAF · ECA" loading="lazy" /><span class="sp-source"><svg viewBox="0 0 24 24" width="15" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="3"/><line x1="7.3" y1="10" x2="7.3" y2="17"/><circle cx="7.3" cy="6.8" r="0.15" fill="currentColor" stroke="currentColor" stroke-width="2"/><path d="M11.3 17v-4.2c0-1.6 1-2.8 2.6-2.8 1.5 0 2.3 1 2.3 2.8V17"/><line x1="11.3" y1="10" x2="11.3" y2="17"/></svg><span>LinkedIn</span></span></a>
+            <a class="sp-visual sp-visual--lien" href="https://www.linkedin.com/in/sarah-sol%C3%A9mal%C3%A9-949a45178/" target="_blank" rel="noopener" aria-label="Sarah Solémalé sur LinkedIn, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-solemale.jpg" alt="Sarah Solémalé, ex-fifa, caf &amp; eca, FIFA · CAF · ECA" loading="lazy" /><span class="sp-source"><svg class="sp-ico" viewBox="0 0 24 24" width="15" aria-hidden="true"><use href="#ico-linkedin" /></svg><span>LinkedIn</span></span></a>
             <div class="sp-body">
               <p class="sp-tag">Fédération</p>
               <div class="sp-namerow"><h3 class="sp-name">Sarah Solémalé</h3><img class="sp-logo" width="120" height="120" src="assets/img/logos/fifa.png" alt="" loading="lazy" /></div>
@@ -253,7 +261,7 @@
             </div>
           </article>
           <article class="sp-card reveal" style="--i:3" data-tag="média">
-            <a class="sp-visual sp-visual--lien" href="https://fr.wikipedia.org/wiki/Vanessa_Le_Moigne" target="_blank" rel="noopener" aria-label="Vanessa Le Moigne sur Wikipédia, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-lemoigne.jpg" alt="Vanessa Le Moigne, journaliste, beIN Sports" loading="lazy" /><span class="sp-source"><svg viewBox="0 0 24 24" width="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h4l4 12 4-12h4"/><path d="M10 5l4 12"/></svg><span>Wikipédia</span></span></a>
+            <a class="sp-visual sp-visual--lien" href="https://fr.wikipedia.org/wiki/Vanessa_Le_Moigne" target="_blank" rel="noopener" aria-label="Vanessa Le Moigne sur Wikipédia, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-lemoigne.jpg" alt="Vanessa Le Moigne, journaliste, beIN Sports" loading="lazy" /><span class="sp-source"><svg class="sp-ico" viewBox="0 0 24 24" width="15" aria-hidden="true"><use href="#ico-wikipedia" /></svg><span>Wikipédia</span></span></a>
             <div class="sp-body">
               <p class="sp-tag">Média</p>
               <div class="sp-namerow"><h3 class="sp-name">Vanessa Le Moigne</h3><img class="sp-logo" width="120" height="120" src="assets/img/logos/bein-sports.png" alt="" loading="lazy" /></div>
@@ -273,7 +281,7 @@
             </div>
           </article>
           <article class="sp-card reveal" style="--i:1" data-tag="média">
-            <a class="sp-visual sp-visual--lien" href="https://fr.wikipedia.org/wiki/Felipe_Saad" target="_blank" rel="noopener" aria-label="Felipe Saad sur Wikipédia, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-saad.jpg" alt="Felipe Saad, ex-footballeur, journaliste, Ligue 1+" loading="lazy" /><span class="sp-source"><svg viewBox="0 0 24 24" width="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h4l4 12 4-12h4"/><path d="M10 5l4 12"/></svg><span>Wikipédia</span></span></a>
+            <a class="sp-visual sp-visual--lien" href="https://fr.wikipedia.org/wiki/Felipe_Saad" target="_blank" rel="noopener" aria-label="Felipe Saad sur Wikipédia, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-saad.jpg" alt="Felipe Saad, ex-footballeur, journaliste, Ligue 1+" loading="lazy" /><span class="sp-source"><svg class="sp-ico" viewBox="0 0 24 24" width="15" aria-hidden="true"><use href="#ico-wikipedia" /></svg><span>Wikipédia</span></span></a>
             <div class="sp-body">
               <p class="sp-tag">Média</p>
               <div class="sp-namerow"><h3 class="sp-name">Felipe Saad</h3><img class="sp-logo" width="120" height="120" src="assets/img/logos/ligue1.png" alt="" loading="lazy" /></div>
@@ -283,7 +291,7 @@
             </div>
           </article>
           <article class="sp-card reveal" style="--i:2" data-tag="média">
-            <a class="sp-visual sp-visual--lien" href="https://fr.wikipedia.org/wiki/Guillaume_Hoarau" target="_blank" rel="noopener" aria-label="Guillaume Hoarau sur Wikipédia, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-hoarau.jpg" alt="Guillaume Hoarau, ex-footballeur, journaliste, Ligue 1+" loading="lazy" /><span class="sp-source"><svg viewBox="0 0 24 24" width="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h4l4 12 4-12h4"/><path d="M10 5l4 12"/></svg><span>Wikipédia</span></span></a>
+            <a class="sp-visual sp-visual--lien" href="https://fr.wikipedia.org/wiki/Guillaume_Hoarau" target="_blank" rel="noopener" aria-label="Guillaume Hoarau sur Wikipédia, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-hoarau.jpg" alt="Guillaume Hoarau, ex-footballeur, journaliste, Ligue 1+" loading="lazy" /><span class="sp-source"><svg class="sp-ico" viewBox="0 0 24 24" width="15" aria-hidden="true"><use href="#ico-wikipedia" /></svg><span>Wikipédia</span></span></a>
             <div class="sp-body">
               <p class="sp-tag">Média</p>
               <div class="sp-namerow"><h3 class="sp-name">Guillaume Hoarau</h3><img class="sp-logo" width="120" height="120" src="assets/img/logos/ligue1.png" alt="" loading="lazy" /></div>
@@ -293,7 +301,7 @@
             </div>
           </article>
           <article class="sp-card reveal" style="--i:3" data-tag="créateur">
-            <a class="sp-visual sp-visual--lien" href="https://fr.wikipedia.org/wiki/Wiloo" target="_blank" rel="noopener" aria-label="Wiloo sur Wikipédia, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-wiloo.jpg" alt="Wiloo, influenceur football, Créateur de contenu" loading="lazy" /><span class="sp-source"><svg viewBox="0 0 24 24" width="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h4l4 12 4-12h4"/><path d="M10 5l4 12"/></svg><span>Wikipédia</span></span></a>
+            <a class="sp-visual sp-visual--lien" href="https://fr.wikipedia.org/wiki/Wiloo" target="_blank" rel="noopener" aria-label="Wiloo sur Wikipédia, nouvelle fenêtre"><img class="sp-photo" width="900" height="720" src="assets/img/speaker-wiloo.jpg" alt="Wiloo, influenceur football, Créateur de contenu" loading="lazy" /><span class="sp-source"><svg class="sp-ico" viewBox="0 0 24 24" width="15" aria-hidden="true"><use href="#ico-wikipedia" /></svg><span>Wikipédia</span></span></a>
             <div class="sp-body">
               <p class="sp-tag">Créateur</p>
               <div class="sp-namerow"><h3 class="sp-name">Wiloo</h3></div>

@@ -885,3 +885,7 @@ h1, h2, h3, h4 { font-weight: 500; line-height: 1.02; letter-spacing: -0.035em; 
   .sp-body { padding: 0.9rem; }
   .sp-name { font-size: 0.98rem; }
 }
+
+/* Sprite d'icônes : le conteneur ne doit pas occuper de place dans le flux. */
+.sp-sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+.sp-ico { display: block; }
