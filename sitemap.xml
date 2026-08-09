@@ -28,7 +28,7 @@
   <url>
     <loc>https://www.sorbonnesportbusiness.fr/nos-intervenants.html</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.sorbonnesportbusiness.fr/qui-sommes-nous.html</loc>
@@ -44,6 +44,76 @@
     <loc>https://www.sorbonnesportbusiness.fr/travailler-dans-le-sport-business.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.sorbonnesportbusiness.fr/evenement-darmon.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.sorbonnesportbusiness.fr/evenement-dazn.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.sorbonnesportbusiness.fr/evenement-entrepreneuriat.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.sorbonnesportbusiness.fr/evenement-eyraud.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.sorbonnesportbusiness.fr/evenement-gomis.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.sorbonnesportbusiness.fr/evenement-hoarau-saad.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.sorbonnesportbusiness.fr/evenement-kahn.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.sorbonnesportbusiness.fr/evenement-letang.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.sorbonnesportbusiness.fr/evenement-mulliez.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.sorbonnesportbusiness.fr/evenement-riolo.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.sorbonnesportbusiness.fr/evenement-river-plate.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.sorbonnesportbusiness.fr/evenement-vitality.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.sorbonnesportbusiness.fr/evenement-wiloo.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.sorbonnesportbusiness.fr/evenement-women-in-sports.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.sorbonnesportbusiness.fr/faire-un-don.html</loc>

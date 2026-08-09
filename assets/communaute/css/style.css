@@ -1153,3 +1153,51 @@ h1, h2, h3, h4 { font-weight: 500; line-height: 1.02; letter-spacing: -0.035em; 
     background: linear-gradient(to top, rgba(4, 26, 53, 0.97) 10%, rgba(4, 26, 53, 0.86) 55%, rgba(4, 26, 53, 0.72) 100%);
   }
 }
+
+/* ===================== PAGE D'UN ÉVÉNEMENT ==============================
+   Récit à gauche, faits vérifiables à droite (date, heure, amphithéâtre),
+   et les intervenants en bas, cliquables vers leur profil. */
+.evp { padding: var(--space-2xl) 0; background: var(--paper); }
+.evp-in {
+  width: var(--shell); margin: 0 auto;
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(230px, 300px);
+  gap: clamp(2rem, 5vw, 4rem); align-items: start;
+}
+.evp-main > p { color: var(--ink-muted); font-size: 1.06rem; line-height: 1.7; }
+.evp-main > p + p { margin-top: 1.1rem; }
+.evp-h2 { font-size: clamp(1.3rem, 2.2vw, 1.6rem); color: var(--ink); margin-bottom: var(--space-md); }
+.evp-guests { margin-top: var(--space-2xl); }
+.evp-guest {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 0.9rem; border-radius: var(--r-card);
+  background: var(--paper-2); box-shadow: inset 0 0 0 1px var(--line-ink);
+}
+.evp-guest + .evp-guest { margin-top: 0.8rem; }
+.evp-guest-media { flex: none; width: 84px; height: 84px; border-radius: 12px; overflow: hidden; display: block; background: var(--navy-800); }
+.evp-guest-media img { width: 100%; height: 100%; object-fit: cover; object-position: center 22%; transition: transform 600ms var(--ease-out-quart); }
+a.evp-guest-media:hover img { transform: scale(1.06); }
+.evp-guest-name { font-size: 1.05rem; font-weight: 600; color: var(--ink); }
+.evp-guest-role { font-size: 0.92rem; color: var(--ink); }
+.evp-guest-org { font-size: 0.9rem; color: var(--ink-muted); }
+.evp-guest--txt { display: block; }
+
+.evp-side { position: sticky; top: calc(var(--hdr-h) + 1.5rem); }
+.evp-facts {
+  padding: 1.4rem; border-radius: var(--r-card);
+  background: var(--navy-900); color: #fff;
+}
+.evp-facts > div + div { margin-top: 1.1rem; padding-top: 1.1rem; border-top: 1px solid rgba(255, 255, 255, 0.14); }
+.evp-facts dt {
+  font-family: var(--font-mono); font-size: 0.66rem; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-soft);
+  margin-bottom: 0.3rem;
+}
+.evp-facts dd { font-size: 1rem; line-height: 1.45; }
+.evp-facts dd span { color: var(--on-navy-mute); font-size: 0.9rem; }
+.evp-back { margin-top: var(--space-md); width: 100%; justify-content: center; }
+.evp-title { max-width: 24ch; }
+
+@media (max-width: 900px) {
+  .evp-in { grid-template-columns: 1fr; }
+  .evp-side { position: static; }
+}

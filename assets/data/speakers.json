@@ -12,7 +12,8 @@
       "evenement": {
         "slug": "letang",
         "titre": "Olivier Létang, président du LOSC",
-        "date": "Mai 2026"
+        "date": "2026-04-22",
+        "heure": "19h30"
       }
     },
     {
@@ -26,8 +27,9 @@
       "lienType": "wikipedia",
       "evenement": {
         "slug": "river-plate",
-        "titre": "From River to the World",
-        "date": "Juin 2026"
+        "titre": "From River to the World, avec David Trezeguet et Matías Patanian",
+        "date": "2026-05-29",
+        "heure": "18h30"
       }
     },
     {
@@ -39,7 +41,12 @@
       "logo": "assets/img/logos/paris-basketball.png",
       "lien": "https://fr.wikipedia.org/wiki/David_Kahn_(homme_d%27affaires)",
       "lienType": "wikipedia",
-      "evenement": null
+      "evenement": {
+        "slug": "kahn",
+        "titre": "David Kahn, président du Paris Basketball",
+        "date": "2026-03-16",
+        "heure": "18h30"
+      }
     },
     {
       "name": "Brice Daumin",
@@ -52,8 +59,9 @@
       "lienType": "linkedin",
       "evenement": {
         "slug": "dazn",
-        "titre": "Au cœur des droits TV, avec DAZN France",
-        "date": "Mai 2026"
+        "titre": "Brice Daumin, CEO de DAZN France : découvre le Netflix du sport",
+        "date": "2026-04-13",
+        "heure": "20h00"
       }
     },
     {
@@ -65,7 +73,12 @@
       "logo": "assets/img/logos/marseille.png",
       "lien": "https://fr.wikipedia.org/wiki/Jacques-Henri_Eyraud",
       "lienType": "wikipedia",
-      "evenement": null
+      "evenement": {
+        "slug": "eyraud",
+        "titre": "Jacques-Henri Eyraud, ex-président de l'Olympique de Marseille",
+        "date": "2026-02-11",
+        "heure": "20h30"
+      }
     },
     {
       "name": "Matias Patanian",
@@ -78,8 +91,9 @@
       "lienType": null,
       "evenement": {
         "slug": "river-plate",
-        "titre": "From River to the World",
-        "date": "Juin 2026"
+        "titre": "From River to the World, avec David Trezeguet et Matías Patanian",
+        "date": "2026-05-29",
+        "heure": "18h30"
       }
     },
     {
@@ -105,7 +119,8 @@
       "evenement": {
         "slug": "gomis",
         "titre": "Bafétimbi Gomis : de l'athlète au dirigeant",
-        "date": "Mai 2026"
+        "date": "2026-04-03",
+        "heure": "20h00"
       }
     },
     {
@@ -119,8 +134,9 @@
       "lienType": "linkedin",
       "evenement": {
         "slug": "vitality",
-        "titre": "Team Vitality : l'esport, un marché global",
-        "date": "Mai 2026"
+        "titre": "Nicolas Maurer, co-fondateur de Team Vitality : l'esport, un marché global",
+        "date": "2026-04-16",
+        "heure": "20h00"
       }
     },
     {
@@ -135,7 +151,8 @@
       "evenement": {
         "slug": "women-in-sports",
         "titre": "Women In Sports : elles dirigent le Jeu",
-        "date": "Avril 2026"
+        "date": "2026-04-10",
+        "heure": "19h00"
       }
     },
     {
@@ -150,7 +167,8 @@
       "evenement": {
         "slug": "women-in-sports",
         "titre": "Women In Sports : elles dirigent le Jeu",
-        "date": "Avril 2026"
+        "date": "2026-04-10",
+        "heure": "19h00"
       }
     },
     {
@@ -165,7 +183,8 @@
       "evenement": {
         "slug": "women-in-sports",
         "titre": "Women In Sports : elles dirigent le Jeu",
-        "date": "Avril 2026"
+        "date": "2026-04-10",
+        "heure": "19h00"
       }
     },
     {
@@ -177,7 +196,12 @@
       "logo": null,
       "lien": null,
       "lienType": null,
-      "evenement": null
+      "evenement": {
+        "slug": "darmon",
+        "titre": "Jean-Claude Darmon : l'homme qui a révolutionné le sport français",
+        "date": "2026-02-27",
+        "heure": "19h00"
+      }
     },
     {
       "name": "Felipe Saad",
@@ -188,7 +212,12 @@
       "logo": "assets/img/logos/ligue1.png",
       "lien": "https://fr.wikipedia.org/wiki/Felipe_Saad",
       "lienType": "wikipedia",
-      "evenement": null
+      "evenement": {
+        "slug": "hoarau-saad",
+        "titre": "Guillaume Hoarau et Felipe Saad : les coulisses d'une carrière en Ligue 1",
+        "date": "2026-02-19",
+        "heure": "18h00"
+      }
     },
     {
       "name": "Guillaume Hoarau",
@@ -199,7 +228,12 @@
       "logo": "assets/img/logos/ligue1.png",
       "lien": "https://fr.wikipedia.org/wiki/Guillaume_Hoarau",
       "lienType": "wikipedia",
-      "evenement": null
+      "evenement": {
+        "slug": "hoarau-saad",
+        "titre": "Guillaume Hoarau et Felipe Saad : les coulisses d'une carrière en Ligue 1",
+        "date": "2026-02-19",
+        "heure": "18h00"
+      }
     },
     {
       "name": "Wiloo",
@@ -213,7 +247,8 @@
       "evenement": {
         "slug": "wiloo",
         "titre": "Wiloo : parler de football, inutile ou vital ?",
-        "date": "Avril 2026"
+        "date": "2026-03-20",
+        "heure": "19h00"
       }
     }
   ],
@@ -288,97 +323,259 @@
   ],
   "evenements": [
     {
-      "slug": "river-plate",
-      "titre": "From River to the World",
-      "date": "2026-06-01",
-      "affiche": "Juin 2026",
-      "lieu": "Amphithéâtre Richelieu, Sorbonne",
-      "format": "Masterclass",
-      "filtre": "conference",
-      "resume": "La stratégie de développement de River Plate : optimisation du stade, membership et formation des talents.",
-      "intervenants": [
-        "David Trezeguet",
-        "Matias Patanian"
-      ]
-    },
-    {
-      "slug": "gomis",
-      "titre": "Bafétimbi Gomis : de l'athlète au dirigeant",
-      "date": "2026-05-20",
-      "affiche": "Mai 2026",
-      "lieu": "Amphithéâtre Richelieu, Sorbonne",
+      "slug": "riolo",
+      "titre": "Daniel Riolo : son football, entre analyses, coups de cœur et critiques",
+      "date": "2025-12-03",
+      "heure": "19h45",
       "format": "Conférence",
       "filtre": "conference",
-      "resume": "Plus de 350 buts en carrière, puis la reconversion vers un rôle de dirigeant, diplômes FIFA et UEFA en poche.",
+      "lieu": "Amphithéâtre III, Centre Panthéon",
+      "adresse": "12 place du Panthéon, 75005 Paris",
       "intervenants": [
-        "Bafétimbi Gomis"
+        "Daniel Riolo"
+      ],
+      "accroche": "La toute première conférence de Sorbonne Sport Business, dans un amphithéâtre comble.",
+      "paras": [
+        "600 000 abonnés sur X, voix iconique de l'After sur RMC, écrivain : Daniel Riolo a ouvert le cycle de conférences de l'association.",
+        "Un échange sans filtre sur son rapport au football, ses analyses, ses coups de cœur et ses critiques, devant un amphithéâtre III du Centre Panthéon entièrement rempli."
       ]
     },
     {
-      "slug": "letang",
-      "titre": "Olivier Létang, président du LOSC",
-      "date": "2026-05-15",
-      "affiche": "Mai 2026",
-      "lieu": "Amphithéâtre Richelieu, Sorbonne",
-      "format": "Masterclass",
-      "filtre": "conference",
-      "resume": "Culture de la gagne, cadre budgétaire et modèle de trading, par l'un des dirigeants les plus respectés du football européen.",
-      "intervenants": [
-        "Olivier Létang"
-      ]
-    },
-    {
-      "slug": "dazn",
-      "titre": "Au cœur des droits TV, avec DAZN France",
-      "date": "2026-05-10",
-      "affiche": "Mai 2026",
-      "lieu": "Amphithéâtre Richelieu, Sorbonne",
+      "slug": "mulliez",
+      "titre": "Alexandre Mulliez : de l'école de commerce à la présidence du FC Versailles",
+      "date": "2026-02-04",
+      "heure": "18h00",
       "format": "Conférence",
       "filtre": "conference",
-      "resume": "La transformation du modèle des diffuseurs, la plateforme OTT et l'avenir économique de la Ligue 1.",
+      "lieu": "Amphithéâtre Richelieu, Centre Sorbonne",
+      "adresse": "17 rue de la Sorbonne, 75005 Paris",
       "intervenants": [
-        "Brice Daumin"
+        "Alexandre Mulliez"
+      ],
+      "accroche": "À 39 ans, un nouveau visage du football français raconte son arrivée à la tête d'un club.",
+      "paras": [
+        "Diplômé d'une école de commerce, Alexandre Mulliez s'impose comme l'un des nouveaux visages du football français à la tête du FC Versailles.",
+        "Comment on prend la présidence d'un club, ce que l'on découvre une fois en poste, et ce qui sépare la théorie du terrain."
       ]
     },
     {
-      "slug": "vitality",
-      "titre": "Team Vitality : l'esport, un marché global",
-      "date": "2026-05-05",
-      "affiche": "Mai 2026",
-      "lieu": "Amphithéâtre Richelieu, Sorbonne",
+      "slug": "eyraud",
+      "titre": "Jacques-Henri Eyraud, ex-président de l'Olympique de Marseille",
+      "date": "2026-02-11",
+      "heure": "20h30",
       "format": "Conférence",
       "filtre": "conference",
-      "resume": "3,7 milliards de joueurs dans le monde : professionnalisation, partenariats et guerre des talents dans l'esport.",
+      "lieu": "Amphithéâtre Lefebvre, Université Paris 1 Panthéon-Sorbonne",
+      "adresse": "14 rue Cujas, 75005 Paris",
       "intervenants": [
-        "Nicolas Maurer"
+        "Jacques-Henri Eyraud"
+      ],
+      "accroche": "Six ans à la tête de l'un des clubs les plus mythiques de France.",
+      "paras": [
+        "Président de l'Olympique de Marseille pendant plus de six ans, Jacques-Henri Eyraud ne se résume pas au seul monde du sport : il est entré dans le football après avoir co-fondé le groupe de médias digitaux Sporever.",
+        "Diriger un club à forte pression populaire, arbitrer entre ambition sportive et équilibre économique, et ce que l'on apprend d'un mandat exposé."
       ]
     },
     {
-      "slug": "women-in-sports",
-      "titre": "Women In Sports : elles dirigent le Jeu",
-      "date": "2026-04-20",
-      "affiche": "Avril 2026",
-      "lieu": "Amphithéâtre Richelieu, Sorbonne",
-      "format": "Table ronde",
+      "slug": "hoarau-saad",
+      "titre": "Guillaume Hoarau et Felipe Saad : les coulisses d'une carrière en Ligue 1",
+      "date": "2026-02-19",
+      "heure": "18h00",
+      "format": "Conférence",
       "filtre": "conference",
-      "resume": "Plus de deux heures d'échanges sur le football féminin et l'intérieur des institutions les plus prestigieuses du sport.",
+      "lieu": "Amphithéâtre Turgot, Centre Sorbonne",
+      "adresse": "17 rue de la Sorbonne, 75005 Paris",
       "intervenants": [
-        "Vanessa Le Moigne",
-        "Sarah Solémalé",
-        "Andreea Koenig"
+        "Guillaume Hoarau",
+        "Felipe Saad"
+      ],
+      "accroche": "Deux anciens joueurs, aujourd'hui à l'antenne, racontent l'envers du décor.",
+      "paras": [
+        "Guillaume Hoarau (ex-PSG) et Felipe Saad (ex-Paris FC) sont revenus sur ce que l'on ne voit pas d'une carrière professionnelle : la préparation, les vestiaires, les transferts, la fin de carrière.",
+        "Deux parcours différents, une même reconversion vers les médias, et un regard direct sur le métier de joueur."
+      ]
+    },
+    {
+      "slug": "darmon",
+      "titre": "Jean-Claude Darmon : l'homme qui a révolutionné le sport français",
+      "date": "2026-02-27",
+      "heure": "19h00",
+      "format": "Conférence",
+      "filtre": "conference",
+      "lieu": "Amphithéâtre I, Centre Panthéon",
+      "adresse": "12 place du Panthéon, 75005 Paris",
+      "intervenants": [
+        "Jean-Claude Darmon"
+      ],
+      "accroche": "Surnommé « l'Argentier du sport », il a inventé le marché des droits en France.",
+      "paras": [
+        "Jean-Claude Darmon a structuré l'économie du football français : publicité dans les stades, droits de diffusion, marketing des clubs et des fédérations.",
+        "Une leçon d'histoire par celui qui l'a écrite, et un regard sur ce que le secteur est devenu depuis."
+      ]
+    },
+    {
+      "slug": "kahn",
+      "titre": "David Kahn, président du Paris Basketball",
+      "date": "2026-03-16",
+      "heure": "18h30",
+      "format": "Conférence",
+      "filtre": "conference",
+      "lieu": "Amphithéâtre Turgot, Centre Sorbonne",
+      "adresse": "17 rue de la Sorbonne, 75005 Paris",
+      "intervenants": [
+        "David Kahn"
+      ],
+      "accroche": "Vingt ans de NBA, puis la construction d'un club parisien devenu référence européenne.",
+      "paras": [
+        "General Manager des Indiana Pacers, président des Minnesota Timberwolves, professeur à la New York University : David Kahn a passé vingt ans dans l'écosystème NBA avant de co-fonder le Paris Basketball.",
+        "Ce que le modèle américain apporte au sport européen, et comment on installe une franchise dans une ville qui n'attendait personne."
       ]
     },
     {
       "slug": "wiloo",
       "titre": "Wiloo : parler de football, inutile ou vital ?",
-      "date": "2026-04-10",
-      "affiche": "Avril 2026",
-      "lieu": "Amphithéâtre Richelieu, Sorbonne",
+      "date": "2026-03-20",
+      "heure": "19h00",
       "format": "Masterclass",
       "filtre": "conference",
-      "resume": "Du jeu FIFA aux interviews de Pep Guardiola : le parcours d'un passionné devenu expert autodidacte.",
+      "lieu": "Amphithéâtre III, Centre Panthéon",
+      "adresse": "12 place du Panthéon, 75005 Paris",
       "intervenants": [
         "Wiloo"
+      ],
+      "accroche": "Des vidéos sur FIFA aux interviews de Pep Guardiola : le parcours d'un autodidacte.",
+      "paras": [
+        "1,1 million d'abonnés sur YouTube. Wiloo est l'histoire d'un passionné de football devenu expert autodidacte de son sport, suivi quotidiennement par plusieurs centaines de milliers de personnes.",
+        "Peu de gens ont eu la chance de poser une question à Pep Guardiola. Lui l'a interviewé. Une masterclass sur ce que vaut la parole autour du jeu."
+      ]
+    },
+    {
+      "slug": "entrepreneuriat",
+      "titre": "Entrepreneuriat & sport : comment construire le sport de demain ?",
+      "date": "2026-03-26",
+      "heure": "20h00",
+      "format": "Table ronde",
+      "filtre": "conference",
+      "lieu": "Amphithéâtre Turgot, Centre Sorbonne",
+      "adresse": "17 rue de la Sorbonne, 75005 Paris",
+      "intervenants": [
+        "Samuel Westberg"
+      ],
+      "accroche": "Une rencontre avec les acteurs de la sport-tech française, en partenariat avec HEC Sports Insight.",
+      "paras": [
+        "Pas une conférence de plus : une rencontre entre ceux qui ont créé, levé, échoué, recommencé, et construit des entreprises qui comptent aujourd'hui à l'échelle mondiale.",
+        "Avec Samuel Westberg, CEO et co-fondateur de LaSource, cabinet de conseil digital de référence dans l'écosystème sportif européen, et d'autres fondateurs de la sport-tech."
+      ]
+    },
+    {
+      "slug": "gomis",
+      "titre": "Bafétimbi Gomis : de l'athlète au dirigeant",
+      "date": "2026-04-03",
+      "heure": "20h00",
+      "format": "Conférence",
+      "filtre": "conference",
+      "lieu": "Amphithéâtre Richelieu, Centre Sorbonne",
+      "adresse": "17 rue de la Sorbonne, 75005 Paris",
+      "intervenants": [
+        "Bafétimbi Gomis"
+      ],
+      "accroche": "Vingt ans de carrière, plus de 350 buts, et une reconversion vers les instances dirigeantes.",
+      "paras": [
+        "De l'AS Saint-Étienne à l'Olympique Lyonnais, en passant par l'Olympique de Marseille, Galatasaray et Al-Hilal, Bafétimbi Gomis a réussi l'exploit de faire l'unanimité au cœur des plus grandes rivalités.",
+        "Diplômé de la FIFA et de l'UEFA, il prépare aujourd'hui un rôle de dirigeant : être aimé et respecté au-delà des rivalités, bâtir une mentalité de gagnant, et porter l'expertise du terrain jusqu'aux boards de clubs."
+      ]
+    },
+    {
+      "slug": "women-in-sports",
+      "titre": "Women In Sports : elles dirigent le Jeu",
+      "date": "2026-04-10",
+      "heure": "19h00",
+      "format": "Table ronde",
+      "filtre": "conference",
+      "lieu": "Centre Sorbonne",
+      "adresse": "17 rue de la Sorbonne, 75005 Paris",
+      "intervenants": [
+        "Vanessa Le Moigne",
+        "Sarah Solémalé",
+        "Andreea Koenig"
+      ],
+      "accroche": "Trois femmes qui ont construit des carrières d'exception dans une industrie qui ne leur avait pas réservé de place.",
+      "paras": [
+        "Vanessa Le Moigne, journaliste et présentatrice chez beIN Sports depuis la création de la chaîne en 2012. Sarah Solémalé, diplômée de La Sorbonne, plus de dix ans à la FIFA et à la Confédération Africaine de Football. Andreea Koenig, ex-Director chez J.P. Morgan et Goldman Sachs, aujourd'hui présidente du RC Lens Féminin et vice-présidente de la LFFP.",
+        "Plus de deux heures d'échanges sur le football féminin, l'intérieur des institutions les plus prestigieuses du sport, et surtout : comment construire une carrière qui compte. Aucune d'entre elles n'a attendu qu'on lui fasse de la place."
+      ]
+    },
+    {
+      "slug": "dazn",
+      "titre": "Brice Daumin, CEO de DAZN France : découvre le Netflix du sport",
+      "date": "2026-04-13",
+      "heure": "20h00",
+      "format": "Conférence",
+      "filtre": "conference",
+      "lieu": "Amphithéâtre Turgot, Centre Sorbonne",
+      "adresse": "17 rue de la Sorbonne, 75005 Paris",
+      "intervenants": [
+        "Brice Daumin"
+      ],
+      "accroche": "Une immersion au cœur des droits TV, avec l'un des plus grands diffuseurs de sport au monde.",
+      "paras": [
+        "DAZN n'est pas un diffuseur classique : c'est une plateforme OTT, à l'image de Netflix, entièrement digitale, globalisée et vendue en direct au consommateur, avec plusieurs leviers de monétisation.",
+        "Au programme : la négociation des droits (Ligue 1, LNB, Serie A), la structuration de l'offre, et l'équation économique fragile d'un marché pris entre piratage massif et difficulté à convertir les fans en abonnés."
+      ]
+    },
+    {
+      "slug": "vitality",
+      "titre": "Nicolas Maurer, co-fondateur de Team Vitality : l'esport, un marché global",
+      "date": "2026-04-16",
+      "heure": "20h00",
+      "format": "Conférence",
+      "filtre": "conference",
+      "lieu": "Amphithéâtre Turgot, Centre Sorbonne",
+      "adresse": "17 rue de la Sorbonne, 75005 Paris",
+      "intervenants": [
+        "Nicolas Maurer"
+      ],
+      "accroche": "3,7 milliards de joueurs dans le monde : l'esport n'est plus une niche.",
+      "paras": [
+        "Créée en 2013, Team Vitality s'est imposée comme l'une des structures d'esport les plus importantes au monde. Surnommée les Abeilles, elle est présente sur plus de 22 jeux et championne du monde sur des titres majeurs comme Counter-Strike et Rocket League.",
+        "Professionnalisation accélérée, partenariats avec E.Leclerc, le Paris Saint-Germain ou le Crédit Agricole, et l'humain comme avantage compétitif face aux investissements massifs de nouveaux entrants."
+      ]
+    },
+    {
+      "slug": "letang",
+      "titre": "Olivier Létang, président du LOSC",
+      "date": "2026-04-22",
+      "heure": "19h30",
+      "format": "Conférence",
+      "filtre": "conference",
+      "lieu": "Amphithéâtre Oury, Université Paris 1 Panthéon-Sorbonne",
+      "adresse": "14 rue Cujas, 75005 Paris",
+      "intervenants": [
+        "Olivier Létang"
+      ],
+      "accroche": "Élu meilleur président d'Europe en 2021, du PSG au Stade Rennais jusqu'au LOSC.",
+      "paras": [
+        "Directeur sportif du Paris Saint-Germain au cœur de la montée en puissance du projet QSI, puis président du Stade Rennais où il met fin à près de cinquante ans sans titre, Olivier Létang s'est imposé comme l'un des dirigeants les plus influents du football français.",
+        "Ce qui frappe d'abord, c'est son attachement à l'institution : un club ne fonctionne durablement que si les joueurs comprennent ce qu'ils représentent. Une culture de la gagne construite dans le temps, adossée à un cadre budgétaire clair et à un modèle de trading performant."
+      ]
+    },
+    {
+      "slug": "river-plate",
+      "titre": "From River to the World, avec David Trezeguet et Matías Patanian",
+      "date": "2026-05-29",
+      "heure": "18h30",
+      "format": "Masterclass",
+      "filtre": "conference",
+      "lieu": "Amphi H, Centre Sorbonne",
+      "adresse": "17 rue de la Sorbonne, 75005 Paris",
+      "intervenants": [
+        "David Trezeguet",
+        "Matias Patanian"
+      ],
+      "accroche": "Un Champion du Monde 1998 et l'ancien vice-président de River Plate, à vingt jours de la Coupe du Monde.",
+      "paras": [
+        "7e meilleur buteur de l'histoire de l'Équipe de France, auteur de plus de 300 buts avec l'AS Monaco, la Juventus, River Plate et les Bleus, David Trezeguet est aujourd'hui ambassadeur international de River Plate. Matías Patanian a été vice-président du club.",
+        "La stratégie de développement de River Plate : un stade de plus de 80 000 places, des événements diversifiés, un travail approfondi sur le CRM et le membership, et une formation qui produit Enzo Fernández, Julián Álvarez ou Franco Mastantuono. 19 trophées en 10 ans, dont 2 Copa Libertadores."
       ]
     }
   ]
