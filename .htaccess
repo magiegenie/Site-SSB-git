@@ -1,0 +1,12 @@
+# Sorbonne Sport Business
+#
+# Le serveur renvoie un flux zstd tronque pour certaines pages : la reponse
+# ne contient que les derniers octets du fichier, et le navigateur affiche une
+# page blanche avec un fragment de code. En gzip et sans compression, la meme
+# page est servie correctement.
+#
+# On retire donc zstd de la negociation : le navigateur retombe sur brotli ou
+# gzip, qui fonctionnent. A supprimer si l'hebergeur corrige son encodage.
+<IfModule mod_headers.c>
+  RequestHeader edit Accept-Encoding "zstd,?\s*" "" early
+</IfModule>
