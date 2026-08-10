@@ -705,6 +705,12 @@ body[data-theme="light"] .nav-drop-link.is-active { background: var(--paper-2); 
 :root {
   --grad-accent: linear-gradient(115deg, #6aa8e4 0%, #8fc0ee 42%, #b7d7f5 72%, #7ab1e8 100%);
   --grad-accent-text: linear-gradient(105deg, #7ab1e8 0%, #a9cdf2 45%, #d6e9fb 100%);
+  /* Reflet qui traverse les boutons pleins au survol. Partage par .pill.solid
+     et .hero-cta : une seule definition, donc les deux ne peuvent plus
+     diverger l'un de l'autre. */
+  --sheen: linear-gradient(105deg, transparent 32%, rgba(255, 255, 255, 0.4) 50%, transparent 68%);
+  --sheen-dur: 900ms;
+  --grad-travel-dur: 750ms;
 }
 
 .pill.solid {
@@ -713,7 +719,7 @@ body[data-theme="light"] .nav-drop-link.is-active { background: var(--paper-2); 
   background-image: var(--grad-accent);
   background-size: 220% 100%;
   background-position: 0% 50%;
-  transition: background-position 750ms var(--ease-out-quart),
+  transition: background-position var(--grad-travel-dur) var(--ease-out-quart),
               box-shadow var(--dur-mid) var(--ease-out-quart),
               transform var(--dur-mid) var(--ease-out-quart);
 }
@@ -728,9 +734,9 @@ body[data-theme="light"] .nav-drop-link.is-active { background: var(--paper-2); 
 /* Reflet : passe au-dessus du fond, sous le texte (z-index négatif). */
 .pill.solid::after {
   content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-  background: linear-gradient(105deg, transparent 32%, rgba(255, 255, 255, 0.4) 50%, transparent 68%);
+  background: var(--sheen);
   transform: translateX(-130%);
-  transition: transform 900ms var(--ease-out-quart);
+  transition: transform var(--sheen-dur) var(--ease-out-quart);
 }
 .pill.solid:hover::after { transform: translateX(130%); }
 
@@ -1028,14 +1034,19 @@ h1, h2, h3, h4 { font-weight: 500; line-height: 1.02; letter-spacing: -0.035em; 
    on rend au bouton du hero un fond plein, sans flou de fond. */
 .hdr-login-chip, .nav-cta-chip, .hero-cta-chip, .of-arrow { display: none; }
 .hdr-login { gap: 0; }
+/* Le bouton du hero n'est pas une .pill : il ne recevait donc ni le reflet
+   specculaire ni les memes durees que les autres boutons pleins. Il est aligne
+   ici a l'identique sur .pill.solid (dégradé qui voyage + reflet + memes
+   durees, ombre et soulevement), y compris pour reduced-motion et le tactile. */
 .hero-cta {
+  position: relative; overflow: hidden; isolation: isolate;
   gap: 0; padding: 0.9rem 1.6rem; border-radius: 12px;
   background-color: transparent; background-image: var(--grad-accent);
   background-size: 220% 100%; background-position: 0% 50%;
   color: var(--gold-ink); box-shadow: none;
   -webkit-backdrop-filter: none; backdrop-filter: none;
-  transition: background-position 700ms var(--ease-out-quart),
-              transform var(--dur-fast) var(--ease-out-quart),
+  transition: background-position var(--grad-travel-dur) var(--ease-out-quart),
+              transform var(--dur-mid) var(--ease-out-quart),
               box-shadow var(--dur-mid) var(--ease-out-quart);
 }
 .hero-cta:hover {
@@ -1044,13 +1055,29 @@ h1, h2, h3, h4 { font-weight: 500; line-height: 1.02; letter-spacing: -0.035em; 
      disparaissait au survol et le bouton s'effacait. */
   background-color: transparent; background-image: var(--grad-accent);
   background-size: 220% 100%; background-position: 100% 50%;
-  transform: translateY(-2px); box-shadow: 0 14px 30px -16px rgba(122, 177, 232, 0.8);
+  transform: translateY(-2px); box-shadow: 0 14px 30px -14px rgba(122, 177, 232, 0.75);
 }
+.hero-cta:active { transform: translateY(0); }
+/* Reflet : au-dessus du fond, sous le texte (z-index negatif + isolation). */
+.hero-cta::after {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: var(--sheen);
+  transform: translateX(-130%);
+  transition: transform var(--sheen-dur) var(--ease-out-quart);
+}
+.hero-cta:hover::after { transform: translateX(130%); }
 @media (max-width: 1080px) {
   .nav-cta { gap: 0; padding: 0.7rem 1.25rem; }
 }
+/* Ces deux blocs doivent rester APRES les regles ci-dessus : a specificite
+   egale, c'est l'ordre qui tranche, et une media query n'y change rien. */
+@media (prefers-reduced-motion: reduce) {
+  .hero-cta, .hero-cta::after { transition: none; }
+  .hero-cta::after { display: none; }
+}
 @media (hover: none) {
   .hero-cta:hover { background-position: 0% 50%; transform: none; }
+  .hero-cta:hover::after { transform: translateX(-130%); }
 }
 
 /* ============ CHIFFRE SUR LA PHOTO : BUÉE PLUTÔT QUE CARTE ==============

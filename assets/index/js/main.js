@@ -42,6 +42,22 @@
     entry.target.classList.add("in");
   }, { margin: "0px 0px -14% 0px" });
 
+  /* Une fois la revelation jouee, on retire ses deux classes. Sans cela la
+     regle `html.motion-ready .reveal.in` garde la main sur `transition`
+     (opacity + transform uniquement) et, plus specifique que `.hero-cta` ou
+     `.pill`, elle supprime definitivement les transitions de survol des
+     elements interactifs reveles : le bouton du hero basculait son degrade
+     d'un coup au lieu de le faire voyager comme les autres boutons pleins.
+     Retirer les classes est sans effet visuel : l'element est deja a son etat
+     final (opacite 1, aucune translation). */
+  document.addEventListener("transitionend", function (e) {
+    var el = e.target;
+    if (e.propertyName !== "opacity" || !el.classList) return;
+    if (!el.classList.contains("reveal") || !el.classList.contains("in")) return;
+    el.classList.remove("in");
+    el.classList.remove("reveal");
+  });
+
   /* Derive continue des photos de la galaxie (vitesse propre a --depth),
      plus un supplement d'elan au scroll. Tourne en permanence, meme sans
      scroller, pour ne jamais donner une impression d'image figee. */
