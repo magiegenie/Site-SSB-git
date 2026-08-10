@@ -25,7 +25,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@500&display=swap" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="assets/communaute/css/style.css?v=4" />
+  <link rel="stylesheet" href="assets/communaute/css/style.css?v=6" />
 
   <!-- Motion est servi en local (pas de CDN) et chargé avant le premier rendu :
        l'état de départ des animations n'est posé que s'il a réellement chargé. -->
@@ -179,6 +179,20 @@
           </dl>
           <a href="evenements.html" class="pill ghost evp-back">Tous nos événements</a>
         </aside>
+      </div>
+    </section>
+
+    <!-- Photographies de cet evenement. Cadres en 3/4, recadrage par
+         object-fit : aucune image n'est deformee. -->
+    <section class="gallery" data-bg="light">
+      <div class="gallery-in">
+        <h2 class="gallery-title reveal">La conf&eacute;rence <span>en images</span></h2>
+        <div class="gallery-grid">
+          <figure class="gphoto reveal"><img width="2048" height="1367" src="assets/img/conf-wiloo-amphi.jpg" alt="L&rsquo;amphith&eacute;&acirc;tre comble pendant la conf&eacute;rence, l&rsquo;&eacute;cran affichant le titre de la rencontre" loading="lazy" /></figure>
+          <figure class="gphoto gphoto--mid reveal" style="--i:1"><img width="2048" height="1367" src="assets/img/conf-wiloo-questions.jpg" alt="De nombreuses mains lev&eacute;es dans le public pour poser une question" loading="lazy" /></figure>
+          <figure class="gphoto reveal" style="--i:2"><img width="2048" height="1367" src="assets/img/conf-wiloo-public.jpg" alt="Le public attentif, install&eacute; dans les rang&eacute;es de l&rsquo;amphith&eacute;&acirc;tre" loading="lazy" /></figure>
+          <figure class="gphoto gphoto--mid reveal" style="--i:3"><img width="1023" height="1536" src="assets/img/conf-wiloo-tournage.jpg" alt="L&rsquo;&eacute;cran de contr&ocirc;le d&rsquo;une cam&eacute;ra qui filme la conf&eacute;rence" loading="lazy" /></figure>
+        </div>
       </div>
     </section>
 

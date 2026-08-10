@@ -25,7 +25,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@500&display=swap" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="assets/communaute/css/style.css?v=4" />
+  <link rel="stylesheet" href="assets/communaute/css/style.css?v=6" />
 
   <!-- Motion est servi en local (pas de CDN) et chargé avant le premier rendu :
        l'état de départ des animations n'est posé que s'il a réellement chargé. -->
@@ -184,6 +184,21 @@
           </dl>
           <a href="evenements.html" class="pill ghost evp-back">Tous nos événements</a>
         </aside>
+      </div>
+    </section>
+
+    <!-- Photographies de cet evenement. Cadres en 3/4, recadrage par
+         object-fit : aucune image n'est deformee. -->
+    <section class="gallery" data-bg="light">
+      <div class="gallery-in">
+        <h2 class="gallery-title reveal">La conf&eacute;rence <span>en images</span></h2>
+        <div class="gallery-grid">
+          <figure class="gphoto reveal"><img width="2048" height="1367" src="assets/img/conf-river-plate-presentation.jpg" alt="Matias Patanian pr&eacute;sente le championnat argentin devant l&rsquo;amphith&eacute;&acirc;tre" loading="lazy" /></figure>
+          <figure class="gphoto gphoto--mid reveal" style="--i:1"><img width="800" height="1198" src="assets/img/conf-river-plate-vestes.jpg" alt="David Trezeguet et Matias Patanian re&ccedil;oivent la veste de l&rsquo;association" loading="lazy" /></figure>
+          <figure class="gphoto reveal" style="--i:2"><img width="800" height="1198" src="assets/img/conf-river-plate-public.jpg" alt="Le public appla&#x75;dit debout &agrave; la fin de la conf&eacute;rence" loading="lazy" /></figure>
+          <figure class="gphoto gphoto--mid reveal" style="--i:3"><img width="2048" height="1366" src="assets/img/conf-river-plate-groupe.jpg" alt="Photo de groupe avec les &eacute;tudiants derri&egrave;re une banni&egrave;re de River Plate" loading="lazy" /></figure>
+          <figure class="gphoto reveal" style="--i:4"><img width="2048" height="1366" src="assets/img/conf-river-plate-coulisses.jpg" alt="Les intervenants et les membres du bureau en coulisses apr&egrave;s la conf&eacute;rence" loading="lazy" /></figure>
+        </div>
       </div>
     </section>
 

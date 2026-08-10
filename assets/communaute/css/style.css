@@ -1201,3 +1201,18 @@ a.evp-guest-media:hover img { transform: scale(1.06); }
   .evp-in { grid-template-columns: 1fr; }
   .evp-side { position: static; }
 }
+
+/* ==================== GALERIES : DERNIERE LIGNE CENTREE =================
+   Avec une grille a trois colonnes, une galerie de quatre ou cinq
+   photographies laisse la derniere ligne collee a gauche, ce qui se lit
+   comme un trou. On passe en flex : c'est le seul moyen simple de centrer
+   une ligne partielle. Les galeries deja en lignes pleines (trois ou six
+   photos) sont rendues a l'identique.
+   Le `gap` vient de la regle d'origine et reste valable en flex. */
+.gallery-grid { display: flex; flex-wrap: wrap; justify-content: center; }
+.gallery-grid > .gphoto { flex: 0 1 calc((100% - 2 * var(--space-sm)) / 3); }
+@media (max-width: 720px) {
+  /* La regle historique passait la grille a une colonne ; en flex, on rend
+     chaque vignette pleine largeur. */
+  .gallery-grid > .gphoto { flex-basis: 100%; }
+}
