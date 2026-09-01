@@ -1,0 +1,37 @@
+name: Récolte des offres (stage / alternance / CDI)
+
+on:
+  schedule:
+    - cron: "0 6 * * *" # tous les jours à 6h UTC
+  workflow_dispatch: {} # bouton "Run workflow" pour lancer à la main
+
+permissions:
+  contents: write
+
+jobs:
+  recolte:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Récolter les offres
+        env:
+          FRANCE_TRAVAIL_CLIENT_ID: ${{ secrets.FRANCE_TRAVAIL_CLIENT_ID }}
+          FRANCE_TRAVAIL_CLIENT_SECRET: ${{ secrets.FRANCE_TRAVAIL_CLIENT_SECRET }}
+        run: node outils/recolter-offres.mjs
+
+      - name: Publier si les offres ont changé
+        run: |
+          if git diff --quiet -- assets/data/offres.json; then
+            echo "Aucun changement."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets/data/offres.json
+          git commit -m "Mise à jour automatique des offres"
+          git push

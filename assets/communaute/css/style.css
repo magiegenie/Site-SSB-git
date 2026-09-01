@@ -1216,3 +1216,49 @@ a.evp-guest-media:hover img { transform: scale(1.06); }
      chaque vignette pleine largeur. */
   .gallery-grid > .gphoto { flex-basis: 100%; }
 }
+
+/* ============================ OFFRES.HTML ================================
+   Cartes generees cote client depuis assets/data/offres.json (recolte
+   automatique quotidienne, voir outils/recolter-offres.mjs). */
+.offres-filters {
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
+  margin-top: var(--space-md);
+}
+.offres-filter {
+  font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500;
+  letter-spacing: 0.04em; text-transform: uppercase;
+  padding: 0.55rem 1rem; border-radius: 999px;
+  background: var(--paper-2); box-shadow: inset 0 0 0 1px var(--line-ink);
+  color: var(--ink-muted); cursor: pointer; border: none;
+  transition: background 200ms var(--ease-out-quart), color 200ms var(--ease-out-quart);
+}
+.offres-filter.is-active, .offres-filter:hover { background: var(--navy-900); color: #fff; }
+
+.offres-grid {
+  margin-top: var(--space-xl);
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-md);
+}
+.offre-card {
+  display: flex; flex-direction: column; gap: 0.55rem;
+  padding: 1.3rem; border-radius: var(--r-card);
+  background: var(--paper-2); box-shadow: inset 0 0 0 1px var(--line-ink);
+  text-decoration: none; color: inherit;
+  transition: transform 220ms var(--ease-out-quart), box-shadow 220ms var(--ease-out-quart);
+}
+a.offre-card:hover { transform: translateY(-3px); box-shadow: inset 0 0 0 1px var(--line-ink), 0 12px 24px rgba(4, 26, 53, 0.1); }
+.offre-badge {
+  align-self: flex-start; font-family: var(--font-mono); font-size: 0.65rem;
+  font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 0.28rem 0.6rem; border-radius: 999px;
+  background: var(--gold-deep); color: var(--navy-900);
+}
+.offre-titre { font-size: 1.06rem; font-weight: 600; color: var(--ink); line-height: 1.35; }
+.offre-meta { font-size: 0.88rem; color: var(--ink-muted); }
+.offre-desc { font-size: 0.9rem; color: var(--ink-muted); line-height: 1.5; }
+.offre-date { font-family: var(--font-mono); font-size: 0.68rem; color: var(--ink-muted); margin-top: auto; }
+.offres-empty, .offres-loading {
+  padding: var(--space-xl); text-align: center; color: var(--ink-muted);
+  border-radius: var(--r-card); background: var(--paper-2);
+  box-shadow: inset 0 0 0 1px var(--line-ink); margin-top: var(--space-xl);
+}
