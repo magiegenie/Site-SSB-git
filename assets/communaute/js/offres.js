@@ -31,15 +31,30 @@
 
   function carte(offre) {
     var meta = [offre.entreprise, offre.lieu].filter(Boolean).join(" — ");
+    var pied = [formatDate(offre.dateCreation), offre.source].filter(Boolean).join(" · ");
     return (
       '<a class="offre-card" href="' + echapper(offre.url) + '" target="_blank" rel="noopener">' +
       '<span class="offre-badge">' + echapper(offre.famille) + "</span>" +
       '<span class="offre-titre">' + echapper(offre.intitule) + "</span>" +
       (meta ? '<span class="offre-meta">' + echapper(meta) + "</span>" : "") +
       (offre.description ? '<span class="offre-desc">' + echapper(offre.description) + "…</span>" : "") +
-      '<span class="offre-date">' + echapper(formatDate(offre.dateCreation)) + "</span>" +
+      '<span class="offre-date">' + echapper(pied) + "</span>" +
       "</a>"
     );
+  }
+
+  /* Le compteur de chaque filtre est calculé sur les offres réellement
+     présentes, pas écrit en dur : il reste juste quoi qu'il arrive. */
+  function majCompteurs() {
+    if (!filtersEl) return;
+    filtersEl.querySelectorAll("[data-filtre]").forEach(function (bouton) {
+      var filtre = bouton.dataset.filtre;
+      var n = filtre === "tous"
+        ? toutesLesOffres.length
+        : toutesLesOffres.filter(function (o) { return o.famille === filtre; }).length;
+      var compteur = bouton.querySelector("span");
+      if (compteur) compteur.textContent = n;
+    });
   }
 
   function rendre() {
@@ -81,6 +96,7 @@
     })
     .then(function (data) {
       toutesLesOffres = (data && data.offres) || [];
+      majCompteurs();
       rendre();
     })
     .catch(function () {

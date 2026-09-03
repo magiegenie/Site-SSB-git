@@ -1,0 +1,31 @@
+{
+  "_lisezmoi": [
+    "Employeurs du sport business dont on interroge le site carrière directement.",
+    "Chaque entrée : nom affiché, ats (greenhouse | lever | smartrecruiters | workable | recruitee | ashby), token.",
+    "Le token est l'identifiant de l'employeur dans l'URL de son site carrière. Exemples :",
+    "  boards.greenhouse.io/AAA        -> ats: greenhouse,      token: AAA",
+    "  jobs.lever.co/AAA               -> ats: lever,           token: AAA",
+    "  jobs.smartrecruiters.com/AAA    -> ats: smartrecruiters, token: AAA",
+    "  apply.workable.com/AAA          -> ats: workable,        token: AAA",
+    "  AAA.recruitee.com               -> ats: recruitee,       token: AAA",
+    "  jobs.ashbyhq.com/AAA            -> ats: ashby,           token: AAA",
+    "Pour ajouter un employeur : ouvrir sa page 'Carrières', regarder l'URL de la",
+    "liste d'offres, et reporter les deux valeurs ici.",
+    "ATTENTION : les tokens ci-dessous sont des hypothèses de départ, non vérifiées.",
+    "Le journal de la GitHub Action indique, employeur par employeur, combien",
+    "d'offres ont été récupérées : ceux qui affichent 0 en permanence ont un",
+    "mauvais token ou un ATS différent, à corriger ou à supprimer."
+  ],
+  "employeurs": [
+    { "nom": "DAZN", "ats": "greenhouse", "token": "dazn" },
+    { "nom": "OneFootball", "ats": "greenhouse", "token": "onefootball" },
+    { "nom": "Sportradar", "ats": "greenhouse", "token": "sportradar" },
+    { "nom": "Strava", "ats": "greenhouse", "token": "strava" },
+    { "nom": "Decathlon", "ats": "smartrecruiters", "token": "Decathlon" },
+    { "nom": "Betclic", "ats": "smartrecruiters", "token": "Betclic" },
+    { "nom": "Team Vitality", "ats": "recruitee", "token": "vitality" },
+    { "nom": "Sportfive", "ats": "smartrecruiters", "token": "SPORTFIVE" },
+    { "nom": "Infront", "ats": "smartrecruiters", "token": "InfrontSports" },
+    { "nom": "Footballogue", "ats": "recruitee", "token": "footballogue" }
+  ]
+}

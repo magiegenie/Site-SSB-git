@@ -1,113 +1,79 @@
 #!/usr/bin/env node
 /* =========================================================================
    RECOLTE DES OFFRES — stage / alternance / CDI, sport business.
-   Source : API France Travail (gratuite, officielle — pas de scraping de
-   jobboards, qui violerait leurs CGU). Écrit assets/data/offres.json,
-   lu ensuite par offres.html côté navigateur.
 
+   Trois couches, toutes légales (API officielles ou publiques ; aucun
+   scraping de jobboard, ce que leurs CGU interdisent) :
+
+     1. API publiques françaises  — France Travail, La Bonne Alternance
+     2. Agrégateurs sous licence  — Adzuna, Jooble
+     3. Sites carrière employeurs — ATS (Greenhouse, Lever, SmartRecruiters,
+                                   Workable, Recruitee, Ashby)
+
+   Une source sans identifiants est simplement ignorée : le script tourne
+   avec ce qu'il a, et la couche 3 fonctionne sans aucune clé.
+
+   Écrit assets/data/offres.json, lu par offres.html.
    Lancé chaque jour par .github/workflows/recolte-offres.yml.
-   Credentials à créer sur https://francetravail.io (application avec les
-   scopes "api_offresdemploiv2 o2dsoffre"), puis à mettre dans les secrets
-   GitHub du repo :
-     FRANCE_TRAVAIL_CLIENT_ID
-     FRANCE_TRAVAIL_CLIENT_SECRET
+   Documentation des clés : OFFRES-SOURCES.md
    ========================================================================= */
 
 import { writeFile } from "node:fs/promises";
 
-const CLIENT_ID = process.env.FRANCE_TRAVAIL_CLIENT_ID;
-const CLIENT_SECRET = process.env.FRANCE_TRAVAIL_CLIENT_SECRET;
+import * as franceTravail from "./sources/france-travail.mjs";
+import * as laBonneAlternance from "./sources/la-bonne-alternance.mjs";
+import * as adzuna from "./sources/adzuna.mjs";
+import * as jooble from "./sources/jooble.mjs";
+import * as ats from "./sources/ats.mjs";
 
-if (!CLIENT_ID || !CLIENT_SECRET) {
-  console.error("Il manque FRANCE_TRAVAIL_CLIENT_ID / FRANCE_TRAVAIL_CLIENT_SECRET dans l'environnement.");
-  process.exit(1);
-}
-
-const TOKEN_URL = "https://entreprise.francetravail.fr/connexion/oauth2/access_token?realm=%2Fpartenaire";
-const SEARCH_URL = "https://api.francetravail.io/partenaire/offresdemploi/v2/offres/search";
-const MAX_PAR_RECHERCHE = 50;
-const MAX_TOTAL = 60;
+const SOURCES = [franceTravail, laBonneAlternance, adzuna, jooble, ats];
+const MAX_TOTAL = 150;
 const SORTIE = new URL("../assets/data/offres.json", import.meta.url);
 
-// Une recherche par famille de contrat : les stages n'ont pas de code
-// "typeContrat" dédié dans l'API, on les cible donc par mots-clés.
-const RECHERCHES = [
-  { label: "CDI", params: { typeContrat: "CDI", motsCles: "sport business,marketing sportif,sponsoring sportif,événementiel sportif,droits médias sport" } },
-  { label: "Alternance", params: { alternance: "true", motsCles: "sport business,marketing sportif,communication sport,événementiel sportif" } },
-  { label: "Stage", params: { motsCles: "stage marketing sportif,stage sport business,stage événementiel sportif,stage communication sport,stage sponsoring" } },
-];
-
-async function getToken() {
-  const body = new URLSearchParams({
-    grant_type: "client_credentials",
-    client_id: CLIENT_ID,
-    client_secret: CLIENT_SECRET,
-    scope: "api_offresdemploiv2 o2dsoffre",
-  });
-  const res = await fetch(TOKEN_URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body,
-  });
-  if (!res.ok) {
-    throw new Error(`Authentification France Travail échouée : ${res.status} ${await res.text()}`);
-  }
-  const json = await res.json();
-  return json.access_token;
-}
-
-async function chercher(token, params) {
-  const url = new URL(SEARCH_URL);
-  url.searchParams.set("range", `0-${MAX_PAR_RECHERCHE - 1}`);
-  url.searchParams.set("sort", "1"); // tri par date de création décroissante
-  for (const [k, v] of Object.entries(params)) url.searchParams.set(k, v);
-
-  const res = await fetch(url, { headers: { Authorization: `Bearer ${token}` } });
-  // 204 = aucune offre trouvée pour cette recherche, ce n'est pas une erreur.
-  if (res.status === 204) return [];
-  if (!res.ok) {
-    console.error(`Recherche échouée (${res.status}) pour ${url}`);
-    return [];
-  }
-  const json = await res.json();
-  return json.resultats || [];
-}
-
-function normaliser(offre, familleLabel) {
-  const lieu = offre.lieuTravail && offre.lieuTravail.libelle ? offre.lieuTravail.libelle : "";
-  const description = (offre.description || "").replace(/\s+/g, " ").trim().slice(0, 220);
-  return {
-    id: offre.id,
-    intitule: offre.intitule || "",
-    entreprise: (offre.entreprise && offre.entreprise.nom) || "",
-    lieu,
-    famille: familleLabel,
-    typeContrat: offre.typeContratLibelle || offre.typeContrat || "",
-    dateCreation: offre.dateCreation || "",
-    description,
-    url: (offre.origineOffre && offre.origineOffre.urlOrigine) || `https://candidat.francetravail.fr/offres/recherche/detail/${offre.id}`,
-  };
+/* Deux sources peuvent republier la même annonce : on déduplique sur
+   l'intitulé + l'employeur, en gardant la première rencontrée. */
+function clef(o) {
+  return `${o.intitule} ${o.entreprise}`.toLowerCase().replace(/[^a-z0-9]+/g, "");
 }
 
 async function main() {
-  const token = await getToken();
-  const parId = new Map();
+  const toutes = [];
+  const parSource = {};
 
-  for (const recherche of RECHERCHES) {
-    const resultats = await chercher(token, recherche.params);
-    for (const offre of resultats) {
-      if (!offre.id || parId.has(offre.id)) continue;
-      parId.set(offre.id, normaliser(offre, recherche.label));
+  for (const source of SOURCES) {
+    console.log(`\n▸ ${source.nom}`);
+    let offres = [];
+    try {
+      offres = await source.collecter();
+    } catch (err) {
+      console.warn(`  ! source en échec, ignorée — ${err.message}`);
     }
+    console.log(`  = ${offres.length} offre(s)`);
+    parSource[source.nom] = offres.length;
+    toutes.push(...offres);
   }
 
-  const offres = Array.from(parId.values())
+  const vues = new Set();
+  const offres = toutes
+    .filter((o) => {
+      if (!o.url || !o.intitule || !o.famille) return false;
+      const k = clef(o);
+      if (vues.has(k)) return false;
+      vues.add(k);
+      return true;
+    })
     .sort((a, b) => (a.dateCreation < b.dateCreation ? 1 : -1))
     .slice(0, MAX_TOTAL);
 
-  const sortie = { genereLe: new Date().toISOString(), offres };
-  await writeFile(SORTIE, JSON.stringify(sortie, null, 2) + "\n", "utf8");
-  console.log(`${offres.length} offres écrites dans ${SORTIE.pathname}`);
+  const compte = { Stage: 0, Alternance: 0, CDI: 0 };
+  for (const o of offres) if (compte[o.famille] !== undefined) compte[o.famille]++;
+
+  await writeFile(SORTIE, JSON.stringify({ genereLe: new Date().toISOString(), compte, offres }, null, 2) + "\n", "utf8");
+
+  console.log(`\n${offres.length} offres retenues — ${compte.Stage} stage(s), ${compte.Alternance} alternance(s), ${compte.CDI} CDI.`);
+  if (!offres.length) {
+    console.warn("Aucune offre : vérifier les clés d'API et les tokens employeurs.");
+  }
 }
 
 main().catch((err) => {

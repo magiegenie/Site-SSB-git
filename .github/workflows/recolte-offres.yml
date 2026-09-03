@@ -18,10 +18,16 @@ jobs:
         with:
           node-version: "22"
 
+      # Toutes ces clés sont facultatives : une source sans clé est ignorée,
+      # et la couche "sites carrière" fonctionne sans aucune clé.
       - name: Récolter les offres
         env:
           FRANCE_TRAVAIL_CLIENT_ID: ${{ secrets.FRANCE_TRAVAIL_CLIENT_ID }}
           FRANCE_TRAVAIL_CLIENT_SECRET: ${{ secrets.FRANCE_TRAVAIL_CLIENT_SECRET }}
+          LA_BONNE_ALTERNANCE_API_KEY: ${{ secrets.LA_BONNE_ALTERNANCE_API_KEY }}
+          ADZUNA_APP_ID: ${{ secrets.ADZUNA_APP_ID }}
+          ADZUNA_APP_KEY: ${{ secrets.ADZUNA_APP_KEY }}
+          JOOBLE_API_KEY: ${{ secrets.JOOBLE_API_KEY }}
         run: node outils/recolter-offres.mjs
 
       - name: Publier si les offres ont changé
