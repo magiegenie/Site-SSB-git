@@ -7,9 +7,13 @@
    Recherche géographique obligatoire : on interroge autour de Paris, Lyon et
    Marseille avec un large rayon, sur les codes ROME du marketing, de la
    communication et du commercial — les portes d'entrée du sport business.
+
+   Ces codes ROME couvrent TOUS les secteurs (luxe, banque, agroalimentaire...),
+   pas seulement le sport : on filtre donc après coup sur le titre, la
+   description et le nom de l'employeur, comme pour Adzuna et Jooble.
    ========================================================================= */
 
-import { offre, deviner, jsonOuNull } from "./commun.mjs";
+import { offre, deviner, jsonOuNull, estPertinente } from "./commun.mjs";
 
 const BASE = "https://api.apprentissage.beta.gouv.fr/api/job/v1/search";
 
@@ -44,17 +48,20 @@ export async function collecter() {
       const lieu = (j.workplace && (j.workplace.location && j.workplace.location.address)) || j.place?.city || "";
       const entreprise = (j.workplace && j.workplace.name) || j.company?.name || "";
       const url_offre = (j.apply && (j.apply.url || j.apply.phone)) || j.url || j.jobUrl;
+      const intitule = j.offer?.title || j.title || "";
+      const description = j.offer?.description || j.description || "";
       if (!url_offre) continue;
+      if (!estPertinente(`${intitule} ${description} ${entreprise}`)) continue;
       offres.push(offre({
         id: j.identifier?.id || j.id || url_offre,
         source: "La Bonne Alternance",
-        intitule: j.offer?.title || j.title || "",
+        intitule,
         entreprise,
         lieu,
-        famille: deviner(null, j.offer?.title || j.title, "alternance"),
+        famille: deviner(null, intitule, "alternance"),
         typeContrat: "Alternance",
         dateCreation: j.offer?.publication?.creation || j.createdAt || "",
-        description: j.offer?.description || j.description || "",
+        description,
         url: url_offre,
       }));
     }
