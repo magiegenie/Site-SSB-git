@@ -27,7 +27,7 @@ import * as jooble from "./sources/jooble.mjs";
 import * as ats from "./sources/ats.mjs";
 
 const SOURCES = [franceTravail, laBonneAlternance, adzuna, jooble, ats];
-const MAX_TOTAL = 150;
+const MAX_TOTAL = 250;
 const SORTIE = new URL("../assets/data/offres.json", import.meta.url);
 
 /* Deux sources peuvent republier la même annonce : on déduplique sur

@@ -9,8 +9,13 @@ import { offre, deviner, jsonOuNull, estPertinente } from "./commun.mjs";
 const RECHERCHES = [
   { famille: null, keywords: "sport business" },
   { famille: null, keywords: "marketing sportif" },
+  { famille: null, keywords: "club sportif" },
+  { famille: null, keywords: "fédération sportive" },
+  { famille: null, keywords: "esport" },
   { famille: "Stage", keywords: "stage sport marketing" },
+  { famille: "Stage", keywords: "stage club sportif" },
   { famille: "Alternance", keywords: "alternance sport" },
+  { famille: "Alternance", keywords: "alternance club sportif" },
 ];
 
 export const nom = "Jooble";

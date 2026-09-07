@@ -12,8 +12,14 @@ const RECHERCHES = [
   { famille: null, what: "sport business" },
   { famille: null, what: "marketing sportif" },
   { famille: null, what: "sponsoring sportif" },
+  { famille: null, what: "club sportif" },
+  { famille: null, what: "fédération sportive" },
+  { famille: null, what: "esport" },
+  { famille: null, what: "billetterie sport" },
   { famille: "Stage", what: "stage sport" },
+  { famille: "Stage", what: "stage club sportif" },
   { famille: "Alternance", what: "alternance sport" },
+  { famille: "Alternance", what: "alternance club sportif" },
 ];
 
 export const nom = "Adzuna";

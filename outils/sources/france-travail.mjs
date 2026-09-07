@@ -12,8 +12,11 @@ const SEARCH_URL = "https://api.francetravail.io/partenaire/offresdemploi/v2/off
 
 const RECHERCHES = [
   { famille: "CDI", params: { typeContrat: "CDI", motsCles: "sport business,marketing sportif,sponsoring sportif,événementiel sportif,droits médias sport" } },
+  { famille: "CDI", params: { typeContrat: "CDI", motsCles: "club sportif,fédération sportive,billetterie sport,paris sportifs,esport" } },
   { famille: "Alternance", params: { alternance: "true", motsCles: "sport business,marketing sportif,communication sport,événementiel sportif" } },
+  { famille: "Alternance", params: { alternance: "true", motsCles: "club sportif,fédération sportive,billetterie sport,esport" } },
   { famille: "Stage", params: { motsCles: "stage marketing sportif,stage sport business,stage événementiel sportif,stage communication sport,stage sponsoring" } },
+  { famille: "Stage", params: { motsCles: "stage club sportif,stage fédération,stage billetterie,stage esport" } },
 ];
 
 export const nom = "France Travail";

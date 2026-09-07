@@ -8,9 +8,14 @@
    Utilise uniquement pour les sources generalistes (agregateurs) : les
    offres venant d'un employeur du secteur sont pertinentes par nature. */
 export const MOTS_CLES_SPORT = [
-  "sport", "sportif", "sportive", "football", "rugby", "basket", "tennis",
-  "esport", "olympique", "club", "fédération", "federation", "stade",
-  "sponsoring", "sponsorship", "billetterie", "ticketing", "athlète", "athlete",
+  "sport", "sportif", "sportive", "football", "rugby", "basket", "handball",
+  "volley", "tennis", "cyclisme", "natation", "athlétisme", "athletisme",
+  "esport", "e-sport", "olympique", "olympiques", "paralympique",
+  "club sportif", "club de foot", "club de rugby", "club de basket",
+  "fédération", "federation", "ligue sportive", "stade", "compétition",
+  "competition", "sponsoring", "sponsorship", "naming", "billetterie",
+  "ticketing", "droits tv", "droits médias", "athlète", "athlete",
+  "équipementier", "equipementier", "paris sportifs", "supporters",
 ];
 
 const RE_STAGE = /\b(stage|stagiaire|internship|intern)\b/i;

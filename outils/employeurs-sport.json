@@ -26,6 +26,17 @@
     { "nom": "Team Vitality", "ats": "recruitee", "token": "vitality" },
     { "nom": "Sportfive", "ats": "smartrecruiters", "token": "SPORTFIVE" },
     { "nom": "Infront", "ats": "smartrecruiters", "token": "InfrontSports" },
-    { "nom": "Footballogue", "ats": "recruitee", "token": "footballogue" }
+    { "nom": "Footballogue", "ats": "recruitee", "token": "footballogue" },
+
+    { "nom": "Sorare", "ats": "greenhouse", "token": "sorare" },
+    { "nom": "Winamax", "ats": "lever", "token": "winamax" },
+    { "nom": "Karmine Corp", "ats": "recruitee", "token": "karminecorp" },
+    { "nom": "Gentle Mates", "ats": "recruitee", "token": "gentlemates" },
+    { "nom": "Genius Sports", "ats": "greenhouse", "token": "geniussports" },
+    { "nom": "Stats Perform", "ats": "smartrecruiters", "token": "StatsPerform" },
+    { "nom": "Weezevent", "ats": "lever", "token": "weezevent" },
+    { "nom": "Hudl", "ats": "greenhouse", "token": "hudl" },
+    { "nom": "Kinexon", "ats": "greenhouse", "token": "kinexon" },
+    { "nom": "Sportnitiative", "ats": "recruitee", "token": "sportnitiative" }
   ]
 }
