@@ -29,10 +29,17 @@ ici, par la voie légale : via les agrégateurs qui ont, eux, une licence.
 |---|---|---|
 | **Adzuna** | `ADZUNA_APP_ID` + `ADZUNA_APP_KEY` | [developer.adzuna.com](https://developer.adzuna.com/) |
 | **Jooble** | `JOOBLE_API_KEY` | [fr.jooble.org/api/about](https://fr.jooble.org/api/about) |
+| **Careerjet** | `CAREERJET_AFFID` | [careerjet.com/partners/api](https://www.careerjet.com/partners/api) |
 
-Ces deux-là sont des méta-moteurs : ils indexent déjà une bonne partie des
+Ces trois-là sont des méta-moteurs : ils indexent déjà une bonne partie des
 offres visibles sur Indeed, HelloWork ou Cadremploi. C'est le moyen légal de
 récupérer ce contenu.
+
+> ⚠️ **Talent.com a été volontairement écarté.** Contrairement aux trois
+> ci-dessus, son programme "publisher" n'est pas une clé API gratuite en
+> self-service : c'est un partenariat facturé au clic (CPC). L'ajouter
+> engagerait l'association financièrement — à évaluer séparément si le besoin
+> se fait sentir, pas à activer en silence dans un script automatique.
 
 ### 3. Sites carrière des employeurs — **aucune clé**
 

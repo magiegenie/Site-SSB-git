@@ -6,7 +6,7 @@
    scraping de jobboard, ce que leurs CGU interdisent) :
 
      1. API publiques françaises  — France Travail, La Bonne Alternance
-     2. Agrégateurs sous licence  — Adzuna, Jooble
+     2. Agrégateurs sous licence  — Adzuna, Jooble, Careerjet
      3. Sites carrière employeurs — ATS (Greenhouse, Lever, SmartRecruiters,
                                    Workable, Recruitee, Ashby)
 
@@ -24,9 +24,10 @@ import * as franceTravail from "./sources/france-travail.mjs";
 import * as laBonneAlternance from "./sources/la-bonne-alternance.mjs";
 import * as adzuna from "./sources/adzuna.mjs";
 import * as jooble from "./sources/jooble.mjs";
+import * as careerjet from "./sources/careerjet.mjs";
 import * as ats from "./sources/ats.mjs";
 
-const SOURCES = [franceTravail, laBonneAlternance, adzuna, jooble, ats];
+const SOURCES = [franceTravail, laBonneAlternance, adzuna, jooble, careerjet, ats];
 const MAX_TOTAL = 250;
 const SORTIE = new URL("../assets/data/offres.json", import.meta.url);
 
